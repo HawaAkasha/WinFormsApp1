@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class users
+Partial Class user_form
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -22,41 +22,19 @@ Partial Class users
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Label1 = New Label()
-        Label2 = New Label()
         SuspendLayout()
         ' 
-        ' Label1
-        ' 
-        Label1.AutoSize = True
-        Label1.Location = New Point(340, 116)
-        Label1.Name = "Label1"
-        Label1.Size = New Size(279, 20)
-        Label1.TabIndex = 0
-        Label1.Text = "هذي مفروض نظيف فيها مستخدمين النظام"
-        ' 
-        ' Label2
-        ' 
-        Label2.AutoSize = True
-        Label2.Location = New Point(523, 158)
-        Label2.Name = "Label2"
-        Label2.Size = New Size(96, 20)
-        Label2.TabIndex = 1
-        Label2.Text = "نتاكد منها قبل"
-        ' 
-        ' users
+        ' user_form
         ' 
         AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(800, 450)
-        Controls.Add(Label2)
-        Controls.Add(Label1)
-        Name = "users"
-        Text = "users"
+        MaximizeBox = False
+        MinimizeBox = False
+        Name = "user_form"
+        RightToLeft = RightToLeft.Yes
+        RightToLeftLayout = True
+        Text = "المستخدمين"
         ResumeLayout(False)
-        PerformLayout()
     End Sub
-
-    Friend WithEvents Label1 As Label
-    Friend WithEvents Label2 As Label
 End Class

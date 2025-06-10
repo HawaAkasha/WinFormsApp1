@@ -121,10 +121,37 @@
   <data name="photo_2025-05-21_14-40-41" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\photo_2025-05-21_14-40-41.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="photo_2025-05-21_15-42-10" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\photo_2025-05-21_15-42-10.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="photo_2025-06-10_18-07-44" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\photo_2025-06-10_18-07-44.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="photo_2025-06-10_18-07-35" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\photo_2025-06-10_18-07-35.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="photo_2025-05-21_14-40-52" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\photo_2025-05-21_14-40-52.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="photo_2025-06-10_18-07-38" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\photo_2025-06-10_18-07-38.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="photo_2025-06-10_19-18-18" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\photo_2025-06-10_19-18-18.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="photo_2025-06-10_19-18-16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\photo_2025-06-10_19-18-16.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="photo_2025-06-10_19-18-26" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\photo_2025-06-10_19-18-26.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="photo_2025-06-10_18-07-41" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\photo_2025-06-10_18-07-41.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="photo_2025-05-21_15-42-10" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\photo_2025-05-21_15-42-10.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="photo_2025-06-10_19-19-19" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\photo_2025-06-10_19-19-19.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="photo_2025-06-10_19-31-24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\photo_2025-06-10_19-31-24.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
