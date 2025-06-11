@@ -4,7 +4,7 @@ Imports Windows.Win32.System
 Public Class user_form
     ' الاتصال بقاعدة البيانات
 
-    Dim con As New SqlConnection("Data Source=DESKTOP-OA3F4SP\SQLEXPRESS;Initial Catalog=Project_DB;Integrated Security=True", con)
+    ' Dim con As New SqlConnection("Data Source=DESKTOP-OA3F4SP\SQLEXPRESS;Initial Catalog=Project_DB;Integrated Security=True", con)
 
     Sub clear()
         TextBox_id.Clear()
