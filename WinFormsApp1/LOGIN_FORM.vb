@@ -123,7 +123,7 @@ Class LOGIN_FORM
 
 
     Private Sub Button_users_Click(sender As Object, e As EventArgs) Handles Button_users.Click
-        users.Show()
+        user_form.Show()
     End Sub
     Private Sub Button_logout_Click(sender As Object, e As EventArgs) Handles Button_logout.Click
         ResetUI()
