@@ -208,6 +208,7 @@ Partial Class user_form
         Name = "user_form"
         RightToLeft = RightToLeft.Yes
         RightToLeftLayout = True
+        StartPosition = FormStartPosition.CenterScreen
         Text = "المستخدمين"
         GroupBox1.ResumeLayout(False)
         GroupBox1.PerformLayout()

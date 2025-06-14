@@ -252,6 +252,7 @@ Partial Class donor
         Name = "donor"
         RightToLeft = RightToLeft.Yes
         RightToLeftLayout = True
+        StartPosition = FormStartPosition.CenterScreen
         Text = "شاشة تسجيل متبرع"
         ResumeLayout(False)
         PerformLayout()

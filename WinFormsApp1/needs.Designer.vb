@@ -221,6 +221,7 @@ Partial Class needs
         Name = "needs"
         RightToLeft = RightToLeft.Yes
         RightToLeftLayout = True
+        StartPosition = FormStartPosition.CenterScreen
         Text = "شاشة تسجيل احتياج"
         GroupBox_priority.ResumeLayout(False)
         GroupBox_priority.PerformLayout()

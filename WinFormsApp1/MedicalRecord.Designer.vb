@@ -313,6 +313,7 @@ Partial Class MedicalRecord
         Name = "MedicalRecord"
         RightToLeft = RightToLeft.Yes
         RightToLeftLayout = True
+        StartPosition = FormStartPosition.CenterScreen
         Text = "شاشة السجل الطبي"
         CType(DataGridView_patient, ComponentModel.ISupportInitialize).EndInit()
         GroupBox_update_patiant_case.ResumeLayout(False)

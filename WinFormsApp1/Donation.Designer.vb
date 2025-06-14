@@ -198,6 +198,7 @@ Partial Class Donation
         Name = "Donation"
         RightToLeft = RightToLeft.Yes
         RightToLeftLayout = True
+        StartPosition = FormStartPosition.CenterScreen
         Text = "شاشة تسجيل التبرع"
         CType(DataGridView_donation, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)

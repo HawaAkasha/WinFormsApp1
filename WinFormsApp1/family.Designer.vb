@@ -372,6 +372,7 @@ Partial Class family
         Name = "family"
         RightToLeft = RightToLeft.Yes
         RightToLeftLayout = True
+        StartPosition = FormStartPosition.CenterScreen
         Text = "شاشة تسجيل عائلة"
         GroupBox_work.ResumeLayout(False)
         GroupBox_work.PerformLayout()

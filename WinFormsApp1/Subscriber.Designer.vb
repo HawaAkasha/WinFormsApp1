@@ -44,7 +44,7 @@ Partial Class Subscriber
         CheckBox_sikePressure = New CheckBox()
         CheckBox_sikeSuger = New CheckBox()
         CheckBox_sikeSly = New CheckBox()
-        CheckBox_sikeHindring = New CheckBox()
+        CheckBox_sikeHind = New CheckBox()
         CheckBox_sikeBenignant = New CheckBox()
         RadioButton_fatherfamily_no = New RadioButton()
         RadioButton_fatherfamily_yes = New RadioButton()
@@ -57,13 +57,12 @@ Partial Class Subscriber
         Label7 = New Label()
         Label8 = New Label()
         Label9 = New Label()
-        Label_siketype = New Label()
         Label_typeneeds = New Label()
         Label12 = New Label()
         GroupBox_suptype = New GroupBox()
         GroupBox_stability_living = New GroupBox()
         GroupBox_work = New GroupBox()
-        GroupBox4 = New GroupBox()
+        GroupBox_j = New GroupBox()
         GroupBox_fatherfamily = New GroupBox()
         GroupBox_helpfamilly = New GroupBox()
         RadioButton_helpfamilly_yes = New RadioButton()
@@ -74,7 +73,7 @@ Partial Class Subscriber
         medical_insurance = New GroupBox()
         medical_insurance_yes = New RadioButton()
         medical_insurance_no = New RadioButton()
-        TextBox10 = New TextBox()
+        TextBox_istability = New TextBox()
         Button_yeshave = New Button()
         Button_nohavnot = New Button()
         Button_register_save = New Button()
@@ -83,14 +82,16 @@ Partial Class Subscriber
         CheckBox_clothes = New CheckBox()
         CheckBox_money = New CheckBox()
         Button_register_delete = New Button()
+        GroupBox_sik = New GroupBox()
         GroupBox_suptype.SuspendLayout()
         GroupBox_stability_living.SuspendLayout()
         GroupBox_work.SuspendLayout()
-        GroupBox4.SuspendLayout()
+        GroupBox_j.SuspendLayout()
         GroupBox_fatherfamily.SuspendLayout()
         GroupBox_helpfamilly.SuspendLayout()
         GroupBoxsike.SuspendLayout()
         medical_insurance.SuspendLayout()
+        GroupBox_sik.SuspendLayout()
         SuspendLayout()
         ' 
         ' sup_id
@@ -269,7 +270,7 @@ Partial Class Subscriber
         ' CheckBox_sikePressure
         ' 
         CheckBox_sikePressure.AutoSize = True
-        CheckBox_sikePressure.Location = New Point(391, 479)
+        CheckBox_sikePressure.Location = New Point(173, 41)
         CheckBox_sikePressure.Name = "CheckBox_sikePressure"
         CheckBox_sikePressure.Size = New Size(68, 24)
         CheckBox_sikePressure.TabIndex = 22
@@ -279,7 +280,7 @@ Partial Class Subscriber
         ' CheckBox_sikeSuger
         ' 
         CheckBox_sikeSuger.AutoSize = True
-        CheckBox_sikeSuger.Location = New Point(391, 509)
+        CheckBox_sikeSuger.Location = New Point(183, 68)
         CheckBox_sikeSuger.Name = "CheckBox_sikeSuger"
         CheckBox_sikeSuger.Size = New Size(58, 24)
         CheckBox_sikeSuger.TabIndex = 23
@@ -289,27 +290,27 @@ Partial Class Subscriber
         ' CheckBox_sikeSly
         ' 
         CheckBox_sikeSly.AutoSize = True
-        CheckBox_sikeSly.Location = New Point(391, 569)
+        CheckBox_sikeSly.Location = New Point(132, 133)
         CheckBox_sikeSly.Name = "CheckBox_sikeSly"
         CheckBox_sikeSly.Size = New Size(109, 24)
         CheckBox_sikeSly.TabIndex = 24
         CheckBox_sikeSly.Text = "امراض خبيثة"
         CheckBox_sikeSly.UseVisualStyleBackColor = True
         ' 
-        ' CheckBox_sikeHindring
+        ' CheckBox_sikeHind
         ' 
-        CheckBox_sikeHindring.AutoSize = True
-        CheckBox_sikeHindring.Location = New Point(391, 539)
-        CheckBox_sikeHindring.Name = "CheckBox_sikeHindring"
-        CheckBox_sikeHindring.Size = New Size(64, 24)
-        CheckBox_sikeHindring.TabIndex = 25
-        CheckBox_sikeHindring.Text = "اعاقة"
-        CheckBox_sikeHindring.UseVisualStyleBackColor = True
+        CheckBox_sikeHind.AutoSize = True
+        CheckBox_sikeHind.Location = New Point(177, 98)
+        CheckBox_sikeHind.Name = "CheckBox_sikeHind"
+        CheckBox_sikeHind.Size = New Size(64, 24)
+        CheckBox_sikeHind.TabIndex = 25
+        CheckBox_sikeHind.Text = "اعاقة"
+        CheckBox_sikeHind.UseVisualStyleBackColor = True
         ' 
         ' CheckBox_sikeBenignant
         ' 
         CheckBox_sikeBenignant.AutoSize = True
-        CheckBox_sikeBenignant.Location = New Point(391, 599)
+        CheckBox_sikeBenignant.Location = New Point(125, 165)
         CheckBox_sikeBenignant.Name = "CheckBox_sikeBenignant"
         CheckBox_sikeBenignant.Size = New Size(116, 24)
         CheckBox_sikeBenignant.TabIndex = 26
@@ -419,15 +420,6 @@ Partial Class Subscriber
         Label9.TabIndex = 44
         Label9.Text = "مصدر الدخل"
         ' 
-        ' Label_siketype
-        ' 
-        Label_siketype.AutoSize = True
-        Label_siketype.Location = New Point(391, 454)
-        Label_siketype.Name = "Label_siketype"
-        Label_siketype.Size = New Size(78, 20)
-        Label_siketype.TabIndex = 45
-        Label_siketype.Text = "نوع المرض"
-        ' 
         ' Label_typeneeds
         ' 
         Label_typeneeds.AutoSize = True
@@ -440,7 +432,7 @@ Partial Class Subscriber
         ' Label12
         ' 
         Label12.AutoSize = True
-        Label12.Location = New Point(374, 723)
+        Label12.Location = New Point(374, 766)
         Label12.Name = "Label12"
         Label12.Size = New Size(102, 20)
         Label12.TabIndex = 47
@@ -481,16 +473,16 @@ Partial Class Subscriber
         GroupBox_work.TabStop = False
         GroupBox_work.Text = "الحالة الوظيفية"
         ' 
-        ' GroupBox4
+        ' GroupBox_j
         ' 
-        GroupBox4.Controls.Add(RadioButton_libyan)
-        GroupBox4.Controls.Add(RadioButton_nonlibyan)
-        GroupBox4.Location = New Point(56, 90)
-        GroupBox4.Name = "GroupBox4"
-        GroupBox4.Size = New Size(188, 67)
-        GroupBox4.TabIndex = 51
-        GroupBox4.TabStop = False
-        GroupBox4.Text = "الجنسية"
+        GroupBox_j.Controls.Add(RadioButton_libyan)
+        GroupBox_j.Controls.Add(RadioButton_nonlibyan)
+        GroupBox_j.Location = New Point(56, 90)
+        GroupBox_j.Name = "GroupBox_j"
+        GroupBox_j.Size = New Size(188, 67)
+        GroupBox_j.TabIndex = 51
+        GroupBox_j.TabStop = False
+        GroupBox_j.Text = "الجنسية"
         ' 
         ' GroupBox_fatherfamily
         ' 
@@ -540,7 +532,7 @@ Partial Class Subscriber
         ' 
         GroupBoxsike.Controls.Add(RadioButton_sikeyes)
         GroupBoxsike.Controls.Add(RadioButton_sikeno)
-        GroupBoxsike.Location = New Point(374, 389)
+        GroupBoxsike.Location = New Point(378, 486)
         GroupBoxsike.Name = "GroupBoxsike"
         GroupBoxsike.Size = New Size(188, 67)
         GroupBoxsike.TabIndex = 54
@@ -573,7 +565,7 @@ Partial Class Subscriber
         ' 
         medical_insurance.Controls.Add(medical_insurance_yes)
         medical_insurance.Controls.Add(medical_insurance_no)
-        medical_insurance.Location = New Point(374, 641)
+        medical_insurance.Location = New Point(379, 389)
         medical_insurance.Name = "medical_insurance"
         medical_insurance.Size = New Size(188, 67)
         medical_insurance.TabIndex = 55
@@ -602,17 +594,17 @@ Partial Class Subscriber
         medical_insurance_no.Text = "لا"
         medical_insurance_no.UseVisualStyleBackColor = True
         ' 
-        ' TextBox10
+        ' TextBox_istability
         ' 
-        TextBox10.Location = New Point(476, 539)
-        TextBox10.Name = "TextBox10"
-        TextBox10.Size = New Size(119, 27)
-        TextBox10.TabIndex = 56
-        TextBox10.Text = "ادخل نوع الاعاقة"
+        TextBox_istability.Location = New Point(40, 95)
+        TextBox_istability.Name = "TextBox_istability"
+        TextBox_istability.Size = New Size(119, 27)
+        TextBox_istability.TabIndex = 56
+        TextBox_istability.Text = "ادخل نوع الاعاقة"
         ' 
         ' Button_yeshave
         ' 
-        Button_yeshave.Location = New Point(364, 755)
+        Button_yeshave.Location = New Point(364, 798)
         Button_yeshave.Name = "Button_yeshave"
         Button_yeshave.Size = New Size(94, 29)
         Button_yeshave.TabIndex = 57
@@ -621,7 +613,7 @@ Partial Class Subscriber
         ' 
         ' Button_nohavnot
         ' 
-        Button_nohavnot.Location = New Point(476, 755)
+        Button_nohavnot.Location = New Point(476, 798)
         Button_nohavnot.Name = "Button_nohavnot"
         Button_nohavnot.Size = New Size(94, 29)
         Button_nohavnot.TabIndex = 58
@@ -630,7 +622,7 @@ Partial Class Subscriber
         ' 
         ' Button_register_save
         ' 
-        Button_register_save.Location = New Point(521, 803)
+        Button_register_save.Location = New Point(350, 838)
         Button_register_save.Name = "Button_register_save"
         Button_register_save.Size = New Size(152, 29)
         Button_register_save.TabIndex = 59
@@ -686,12 +678,28 @@ Partial Class Subscriber
         Button_register_delete.Text = "حذف البيانات"
         Button_register_delete.UseVisualStyleBackColor = True
         ' 
+        ' GroupBox_sik
+        ' 
+        GroupBox_sik.Controls.Add(CheckBox_sikePressure)
+        GroupBox_sik.Controls.Add(CheckBox_sikeSuger)
+        GroupBox_sik.Controls.Add(CheckBox_sikeHind)
+        GroupBox_sik.Controls.Add(CheckBox_sikeSly)
+        GroupBox_sik.Controls.Add(CheckBox_sikeBenignant)
+        GroupBox_sik.Controls.Add(TextBox_istability)
+        GroupBox_sik.Location = New Point(378, 559)
+        GroupBox_sik.Name = "GroupBox_sik"
+        GroupBox_sik.Size = New Size(256, 204)
+        GroupBox_sik.TabIndex = 73
+        GroupBox_sik.TabStop = False
+        GroupBox_sik.Text = "نوع المرض"
+        ' 
         ' Subscriber
         ' 
         AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = SystemColors.ButtonHighlight
-        ClientSize = New Size(711, 893)
+        ClientSize = New Size(686, 893)
+        Controls.Add(GroupBox_sik)
         Controls.Add(Button_register_delete)
         Controls.Add(CheckBox_medicine)
         Controls.Add(CheckBox_eat)
@@ -700,18 +708,16 @@ Partial Class Subscriber
         Controls.Add(Button_register_save)
         Controls.Add(Button_nohavnot)
         Controls.Add(Button_yeshave)
-        Controls.Add(TextBox10)
         Controls.Add(medical_insurance)
         Controls.Add(GroupBoxsike)
         Controls.Add(GroupBox_helpfamilly)
         Controls.Add(GroupBox_fatherfamily)
-        Controls.Add(GroupBox4)
+        Controls.Add(GroupBox_j)
         Controls.Add(GroupBox_work)
         Controls.Add(GroupBox_stability_living)
         Controls.Add(GroupBox_suptype)
         Controls.Add(Label12)
         Controls.Add(Label_typeneeds)
-        Controls.Add(Label_siketype)
         Controls.Add(Label9)
         Controls.Add(Label8)
         Controls.Add(Label7)
@@ -721,11 +727,6 @@ Partial Class Subscriber
         Controls.Add(Label3)
         Controls.Add(Label2)
         Controls.Add(Label1)
-        Controls.Add(CheckBox_sikeBenignant)
-        Controls.Add(CheckBox_sikeHindring)
-        Controls.Add(CheckBox_sikeSly)
-        Controls.Add(CheckBox_sikeSuger)
-        Controls.Add(CheckBox_sikePressure)
         Controls.Add(sup_pasport)
         Controls.Add(sup_name)
         Controls.Add(sup_age)
@@ -740,6 +741,7 @@ Partial Class Subscriber
         Name = "Subscriber"
         RightToLeft = RightToLeft.Yes
         RightToLeftLayout = True
+        StartPosition = FormStartPosition.CenterScreen
         Text = "شاشة تسجيل مشترك"
         GroupBox_suptype.ResumeLayout(False)
         GroupBox_suptype.PerformLayout()
@@ -747,8 +749,8 @@ Partial Class Subscriber
         GroupBox_stability_living.PerformLayout()
         GroupBox_work.ResumeLayout(False)
         GroupBox_work.PerformLayout()
-        GroupBox4.ResumeLayout(False)
-        GroupBox4.PerformLayout()
+        GroupBox_j.ResumeLayout(False)
+        GroupBox_j.PerformLayout()
         GroupBox_fatherfamily.ResumeLayout(False)
         GroupBox_fatherfamily.PerformLayout()
         GroupBox_helpfamilly.ResumeLayout(False)
@@ -757,6 +759,8 @@ Partial Class Subscriber
         GroupBoxsike.PerformLayout()
         medical_insurance.ResumeLayout(False)
         medical_insurance.PerformLayout()
+        GroupBox_sik.ResumeLayout(False)
+        GroupBox_sik.PerformLayout()
         ResumeLayout(False)
         PerformLayout()
     End Sub
@@ -786,7 +790,7 @@ Partial Class Subscriber
     Friend WithEvents CheckBox_sikePressure As CheckBox
     Friend WithEvents CheckBox_sikeSuger As CheckBox
     Friend WithEvents CheckBox_sikeSly As CheckBox
-    Friend WithEvents CheckBox_sikeHindring As CheckBox
+    Friend WithEvents CheckBox_sikeHind As CheckBox
     Friend WithEvents CheckBox_sikeBenignant As CheckBox
     Friend WithEvents CheckBox9 As CheckBox
     Friend WithEvents RadioButton_fatherfamily_no As RadioButton
@@ -800,13 +804,12 @@ Partial Class Subscriber
     Friend WithEvents Label7 As Label
     Friend WithEvents Label8 As Label
     Friend WithEvents Label9 As Label
-    Friend WithEvents Label_siketype As Label
     Friend WithEvents Label_typeneeds As Label
     Friend WithEvents Label12 As Label
     Friend WithEvents GroupBox_suptype As GroupBox
     Friend WithEvents GroupBox_stability_living As GroupBox
     Friend WithEvents GroupBox_work As GroupBox
-    Friend WithEvents GroupBox4 As GroupBox
+    Friend WithEvents GroupBox_j As GroupBox
     Friend WithEvents GroupBox_fatherfamily As GroupBox
     Friend WithEvents GroupBox_helpfamilly As GroupBox
     Friend WithEvents RadioButton_helpfamilly_yes As RadioButton
@@ -817,7 +820,7 @@ Partial Class Subscriber
     Friend WithEvents medical_insurance As GroupBox
     Friend WithEvents medical_insurance_yes As RadioButton
     Friend WithEvents medical_insurance_no As RadioButton
-    Friend WithEvents TextBox10 As TextBox
+    Friend WithEvents TextBox_istability As TextBox
     Friend WithEvents Button_yeshave As Button
     Friend WithEvents Button_nohavnot As Button
     Friend WithEvents Button_register_save As Button
@@ -826,4 +829,5 @@ Partial Class Subscriber
     Friend WithEvents CheckBox_clothes As CheckBox
     Friend WithEvents CheckBox_money As CheckBox
     Friend WithEvents Button_register_delete As Button
+    Friend WithEvents GroupBox_sik As GroupBox
 End Class

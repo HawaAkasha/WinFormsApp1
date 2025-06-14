@@ -191,6 +191,7 @@ Partial Class Item
         Name = "Item"
         RightToLeft = RightToLeft.Yes
         RightToLeftLayout = True
+        StartPosition = FormStartPosition.CenterScreen
         Text = "شاشة تسجيل مادة"
         CType(DataGridView_item, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
