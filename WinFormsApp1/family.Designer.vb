@@ -25,10 +25,10 @@ Partial Class family
         Label5 = New Label()
         Label4 = New Label()
         Label3 = New Label()
-        family_name = New TextBox()
-        family_age = New TextBox()
-        relation = New TextBox()
-        TextBox10 = New TextBox()
+        txtName = New TextBox()
+        txtAge = New TextBox()
+        txtRelation = New TextBox()
+        txtDisabiltyType = New TextBox()
         Label_siketype = New Label()
         CheckBox_sikeBenignant = New CheckBox()
         CheckBox_sikeHindring = New CheckBox()
@@ -36,22 +36,22 @@ Partial Class family
         CheckBox_sikeSuger = New CheckBox()
         CheckBox_sikePressure = New CheckBox()
         Label1 = New Label()
-        sike_deatils = New TextBox()
+        txtDiseaseDetails = New TextBox()
         GroupBox_work = New GroupBox()
-        RadioButton_working = New RadioButton()
-        RadioButton_nonworking = New RadioButton()
+        rdoWorks = New RadioButton()
+        rdoDoesNotWork = New RadioButton()
         GroupBox_treatment = New GroupBox()
-        RadioButton_treatment_yes = New RadioButton()
-        RadioButton_treatment_no = New RadioButton()
+        rdoTreatmentYes = New RadioButton()
+        rdoTreatmentNo = New RadioButton()
         GroupBox_NeedSupport = New GroupBox()
-        RadioButton_NeedSupport_yes = New RadioButton()
-        RadioButton_NeedSupport_no = New RadioButton()
+        rdoSupportYes = New RadioButton()
+        rdoSupportNo = New RadioButton()
         Label2 = New Label()
         Label6 = New Label()
-        TextBox_typeOFmedical = New TextBox()
-        TextBox_extraNote = New TextBox()
-        Button_register = New Button()
-        Button_delete_donor = New Button()
+        txtTreatmentType = New TextBox()
+        txtNotes = New TextBox()
+        btnRegister = New Button()
+        btnClear = New Button()
         GroupBox_work.SuspendLayout()
         GroupBox_treatment.SuspendLayout()
         GroupBox_NeedSupport.SuspendLayout()
@@ -84,34 +84,34 @@ Partial Class family
         Label3.TabIndex = 45
         Label3.Text = "الاسم"
         ' 
-        ' family_name
+        ' txtName
         ' 
-        family_name.Location = New Point(40, 63)
-        family_name.Name = "family_name"
-        family_name.Size = New Size(184, 27)
-        family_name.TabIndex = 44
+        txtName.Location = New Point(40, 63)
+        txtName.Name = "txtName"
+        txtName.Size = New Size(184, 27)
+        txtName.TabIndex = 44
         ' 
-        ' family_age
+        ' txtAge
         ' 
-        family_age.Location = New Point(40, 124)
-        family_age.Name = "family_age"
-        family_age.Size = New Size(184, 27)
-        family_age.TabIndex = 43
+        txtAge.Location = New Point(40, 124)
+        txtAge.Name = "txtAge"
+        txtAge.Size = New Size(184, 27)
+        txtAge.TabIndex = 43
         ' 
-        ' relation
+        ' txtRelation
         ' 
-        relation.Location = New Point(40, 187)
-        relation.Name = "relation"
-        relation.Size = New Size(184, 27)
-        relation.TabIndex = 42
+        txtRelation.Location = New Point(40, 187)
+        txtRelation.Name = "txtRelation"
+        txtRelation.Size = New Size(184, 27)
+        txtRelation.TabIndex = 42
         ' 
-        ' TextBox10
+        ' txtDisabiltyType
         ' 
-        TextBox10.Location = New Point(125, 331)
-        TextBox10.Name = "TextBox10"
-        TextBox10.Size = New Size(119, 27)
-        TextBox10.TabIndex = 63
-        TextBox10.Text = "ادخل نوع الاعاقة"
+        txtDisabiltyType.Location = New Point(125, 331)
+        txtDisabiltyType.Name = "txtDisabiltyType"
+        txtDisabiltyType.Size = New Size(119, 27)
+        txtDisabiltyType.TabIndex = 63
+        txtDisabiltyType.Text = "ادخل نوع الاعاقة"
         ' 
         ' Label_siketype
         ' 
@@ -181,17 +181,17 @@ Partial Class family
         Label1.TabIndex = 65
         Label1.Text = "تفاصيل المرض"
         ' 
-        ' sike_deatils
+        ' txtDiseaseDetails
         ' 
-        sike_deatils.Location = New Point(45, 456)
-        sike_deatils.Name = "sike_deatils"
-        sike_deatils.Size = New Size(184, 27)
-        sike_deatils.TabIndex = 64
+        txtDiseaseDetails.Location = New Point(45, 456)
+        txtDiseaseDetails.Name = "txtDiseaseDetails"
+        txtDiseaseDetails.Size = New Size(184, 27)
+        txtDiseaseDetails.TabIndex = 64
         ' 
         ' GroupBox_work
         ' 
-        GroupBox_work.Controls.Add(RadioButton_working)
-        GroupBox_work.Controls.Add(RadioButton_nonworking)
+        GroupBox_work.Controls.Add(rdoWorks)
+        GroupBox_work.Controls.Add(rdoDoesNotWork)
         GroupBox_work.Location = New Point(294, 40)
         GroupBox_work.Name = "GroupBox_work"
         GroupBox_work.Size = New Size(188, 67)
@@ -199,32 +199,32 @@ Partial Class family
         GroupBox_work.TabStop = False
         GroupBox_work.Text = "الحالة الوظيفية"
         ' 
-        ' RadioButton_working
+        ' rdoWorks
         ' 
-        RadioButton_working.AutoSize = True
-        RadioButton_working.Location = New Point(119, 26)
-        RadioButton_working.Name = "RadioButton_working"
-        RadioButton_working.Size = New Size(63, 24)
-        RadioButton_working.TabIndex = 17
-        RadioButton_working.TabStop = True
-        RadioButton_working.Text = "يعمل"
-        RadioButton_working.UseVisualStyleBackColor = True
+        rdoWorks.AutoSize = True
+        rdoWorks.Location = New Point(119, 26)
+        rdoWorks.Name = "rdoWorks"
+        rdoWorks.Size = New Size(63, 24)
+        rdoWorks.TabIndex = 17
+        rdoWorks.TabStop = True
+        rdoWorks.Text = "يعمل"
+        rdoWorks.UseVisualStyleBackColor = True
         ' 
-        ' RadioButton_nonworking
+        ' rdoDoesNotWork
         ' 
-        RadioButton_nonworking.AutoSize = True
-        RadioButton_nonworking.Location = New Point(24, 26)
-        RadioButton_nonworking.Name = "RadioButton_nonworking"
-        RadioButton_nonworking.Size = New Size(76, 24)
-        RadioButton_nonworking.TabIndex = 18
-        RadioButton_nonworking.TabStop = True
-        RadioButton_nonworking.Text = "لا يعمل"
-        RadioButton_nonworking.UseVisualStyleBackColor = True
+        rdoDoesNotWork.AutoSize = True
+        rdoDoesNotWork.Location = New Point(24, 26)
+        rdoDoesNotWork.Name = "rdoDoesNotWork"
+        rdoDoesNotWork.Size = New Size(76, 24)
+        rdoDoesNotWork.TabIndex = 18
+        rdoDoesNotWork.TabStop = True
+        rdoDoesNotWork.Text = "لا يعمل"
+        rdoDoesNotWork.UseVisualStyleBackColor = True
         ' 
         ' GroupBox_treatment
         ' 
-        GroupBox_treatment.Controls.Add(RadioButton_treatment_yes)
-        GroupBox_treatment.Controls.Add(RadioButton_treatment_no)
+        GroupBox_treatment.Controls.Add(rdoTreatmentYes)
+        GroupBox_treatment.Controls.Add(rdoTreatmentNo)
         GroupBox_treatment.Location = New Point(294, 133)
         GroupBox_treatment.Name = "GroupBox_treatment"
         GroupBox_treatment.Size = New Size(188, 67)
@@ -232,32 +232,32 @@ Partial Class family
         GroupBox_treatment.TabStop = False
         GroupBox_treatment.Text = "هل يتلقى علاج"
         ' 
-        ' RadioButton_treatment_yes
+        ' rdoTreatmentYes
         ' 
-        RadioButton_treatment_yes.AutoSize = True
-        RadioButton_treatment_yes.Location = New Point(119, 26)
-        RadioButton_treatment_yes.Name = "RadioButton_treatment_yes"
-        RadioButton_treatment_yes.Size = New Size(53, 24)
-        RadioButton_treatment_yes.TabIndex = 17
-        RadioButton_treatment_yes.TabStop = True
-        RadioButton_treatment_yes.Text = "نعم"
-        RadioButton_treatment_yes.UseVisualStyleBackColor = True
+        rdoTreatmentYes.AutoSize = True
+        rdoTreatmentYes.Location = New Point(119, 26)
+        rdoTreatmentYes.Name = "rdoTreatmentYes"
+        rdoTreatmentYes.Size = New Size(53, 24)
+        rdoTreatmentYes.TabIndex = 17
+        rdoTreatmentYes.TabStop = True
+        rdoTreatmentYes.Text = "نعم"
+        rdoTreatmentYes.UseVisualStyleBackColor = True
         ' 
-        ' RadioButton_treatment_no
+        ' rdoTreatmentNo
         ' 
-        RadioButton_treatment_no.AutoSize = True
-        RadioButton_treatment_no.Location = New Point(61, 26)
-        RadioButton_treatment_no.Name = "RadioButton_treatment_no"
-        RadioButton_treatment_no.Size = New Size(39, 24)
-        RadioButton_treatment_no.TabIndex = 18
-        RadioButton_treatment_no.TabStop = True
-        RadioButton_treatment_no.Text = "لا"
-        RadioButton_treatment_no.UseVisualStyleBackColor = True
+        rdoTreatmentNo.AutoSize = True
+        rdoTreatmentNo.Location = New Point(61, 26)
+        rdoTreatmentNo.Name = "rdoTreatmentNo"
+        rdoTreatmentNo.Size = New Size(39, 24)
+        rdoTreatmentNo.TabIndex = 18
+        rdoTreatmentNo.TabStop = True
+        rdoTreatmentNo.Text = "لا"
+        rdoTreatmentNo.UseVisualStyleBackColor = True
         ' 
         ' GroupBox_NeedSupport
         ' 
-        GroupBox_NeedSupport.Controls.Add(RadioButton_NeedSupport_yes)
-        GroupBox_NeedSupport.Controls.Add(RadioButton_NeedSupport_no)
+        GroupBox_NeedSupport.Controls.Add(rdoSupportYes)
+        GroupBox_NeedSupport.Controls.Add(rdoSupportNo)
         GroupBox_NeedSupport.Location = New Point(294, 228)
         GroupBox_NeedSupport.Name = "GroupBox_NeedSupport"
         GroupBox_NeedSupport.Size = New Size(188, 67)
@@ -265,27 +265,27 @@ Partial Class family
         GroupBox_NeedSupport.TabStop = False
         GroupBox_NeedSupport.Text = "هل يحتاج لدعم صحي"
         ' 
-        ' RadioButton_NeedSupport_yes
+        ' rdoSupportYes
         ' 
-        RadioButton_NeedSupport_yes.AutoSize = True
-        RadioButton_NeedSupport_yes.Location = New Point(119, 26)
-        RadioButton_NeedSupport_yes.Name = "RadioButton_NeedSupport_yes"
-        RadioButton_NeedSupport_yes.Size = New Size(53, 24)
-        RadioButton_NeedSupport_yes.TabIndex = 17
-        RadioButton_NeedSupport_yes.TabStop = True
-        RadioButton_NeedSupport_yes.Text = "نعم"
-        RadioButton_NeedSupport_yes.UseVisualStyleBackColor = True
+        rdoSupportYes.AutoSize = True
+        rdoSupportYes.Location = New Point(119, 26)
+        rdoSupportYes.Name = "rdoSupportYes"
+        rdoSupportYes.Size = New Size(53, 24)
+        rdoSupportYes.TabIndex = 17
+        rdoSupportYes.TabStop = True
+        rdoSupportYes.Text = "نعم"
+        rdoSupportYes.UseVisualStyleBackColor = True
         ' 
-        ' RadioButton_NeedSupport_no
+        ' rdoSupportNo
         ' 
-        RadioButton_NeedSupport_no.AutoSize = True
-        RadioButton_NeedSupport_no.Location = New Point(61, 26)
-        RadioButton_NeedSupport_no.Name = "RadioButton_NeedSupport_no"
-        RadioButton_NeedSupport_no.Size = New Size(39, 24)
-        RadioButton_NeedSupport_no.TabIndex = 18
-        RadioButton_NeedSupport_no.TabStop = True
-        RadioButton_NeedSupport_no.Text = "لا"
-        RadioButton_NeedSupport_no.UseVisualStyleBackColor = True
+        rdoSupportNo.AutoSize = True
+        rdoSupportNo.Location = New Point(61, 26)
+        rdoSupportNo.Name = "rdoSupportNo"
+        rdoSupportNo.Size = New Size(39, 24)
+        rdoSupportNo.TabIndex = 18
+        rdoSupportNo.TabStop = True
+        rdoSupportNo.Text = "لا"
+        rdoSupportNo.UseVisualStyleBackColor = True
         ' 
         ' Label2
         ' 
@@ -305,37 +305,37 @@ Partial Class family
         Label6.TabIndex = 71
         Label6.Text = "نوع العلاج "
         ' 
-        ' TextBox_typeOFmedical
+        ' txtTreatmentType
         ' 
-        TextBox_typeOFmedical.Location = New Point(300, 328)
-        TextBox_typeOFmedical.Name = "TextBox_typeOFmedical"
-        TextBox_typeOFmedical.Size = New Size(184, 27)
-        TextBox_typeOFmedical.TabIndex = 70
+        txtTreatmentType.Location = New Point(300, 328)
+        txtTreatmentType.Name = "txtTreatmentType"
+        txtTreatmentType.Size = New Size(184, 27)
+        txtTreatmentType.TabIndex = 70
         ' 
-        ' TextBox_extraNote
+        ' txtNotes
         ' 
-        TextBox_extraNote.Location = New Point(300, 389)
-        TextBox_extraNote.Name = "TextBox_extraNote"
-        TextBox_extraNote.Size = New Size(184, 27)
-        TextBox_extraNote.TabIndex = 69
+        txtNotes.Location = New Point(300, 389)
+        txtNotes.Name = "txtNotes"
+        txtNotes.Size = New Size(184, 27)
+        txtNotes.TabIndex = 69
         ' 
-        ' Button_register
+        ' btnRegister
         ' 
-        Button_register.Location = New Point(357, 456)
-        Button_register.Name = "Button_register"
-        Button_register.Size = New Size(119, 36)
-        Button_register.TabIndex = 73
-        Button_register.Text = "سجل الان"
-        Button_register.UseVisualStyleBackColor = True
+        btnRegister.Location = New Point(357, 456)
+        btnRegister.Name = "btnRegister"
+        btnRegister.Size = New Size(119, 36)
+        btnRegister.TabIndex = 73
+        btnRegister.Text = "سجل الان"
+        btnRegister.UseVisualStyleBackColor = True
         ' 
-        ' Button_delete_donor
+        ' btnClear
         ' 
-        Button_delete_donor.Location = New Point(357, 498)
-        Button_delete_donor.Name = "Button_delete_donor"
-        Button_delete_donor.Size = New Size(119, 36)
-        Button_delete_donor.TabIndex = 74
-        Button_delete_donor.Text = "حذف"
-        Button_delete_donor.UseVisualStyleBackColor = True
+        btnClear.Location = New Point(357, 498)
+        btnClear.Name = "btnClear"
+        btnClear.Size = New Size(119, 36)
+        btnClear.TabIndex = 74
+        btnClear.Text = "حذف"
+        btnClear.UseVisualStyleBackColor = True
         ' 
         ' family
         ' 
@@ -343,18 +343,18 @@ Partial Class family
         AutoScaleMode = AutoScaleMode.Font
         BackColor = SystemColors.ButtonHighlight
         ClientSize = New Size(515, 555)
-        Controls.Add(Button_delete_donor)
-        Controls.Add(Button_register)
+        Controls.Add(btnClear)
+        Controls.Add(btnRegister)
         Controls.Add(Label2)
         Controls.Add(Label6)
-        Controls.Add(TextBox_typeOFmedical)
-        Controls.Add(TextBox_extraNote)
+        Controls.Add(txtTreatmentType)
+        Controls.Add(txtNotes)
         Controls.Add(GroupBox_NeedSupport)
         Controls.Add(GroupBox_treatment)
         Controls.Add(GroupBox_work)
         Controls.Add(Label1)
-        Controls.Add(sike_deatils)
-        Controls.Add(TextBox10)
+        Controls.Add(txtDiseaseDetails)
+        Controls.Add(txtDisabiltyType)
         Controls.Add(Label_siketype)
         Controls.Add(CheckBox_sikeBenignant)
         Controls.Add(CheckBox_sikeHindring)
@@ -364,9 +364,9 @@ Partial Class family
         Controls.Add(Label5)
         Controls.Add(Label4)
         Controls.Add(Label3)
-        Controls.Add(family_name)
-        Controls.Add(family_age)
-        Controls.Add(relation)
+        Controls.Add(txtName)
+        Controls.Add(txtAge)
+        Controls.Add(txtRelation)
         MaximizeBox = False
         MinimizeBox = False
         Name = "family"
@@ -386,10 +386,10 @@ Partial Class family
     Friend WithEvents Label5 As Label
     Friend WithEvents Label4 As Label
     Friend WithEvents Label3 As Label
-    Friend WithEvents family_name As TextBox
-    Friend WithEvents family_age As TextBox
-    Friend WithEvents relation As TextBox
-    Friend WithEvents TextBox10 As TextBox
+    Friend WithEvents txtName As TextBox
+    Friend WithEvents txtAge As TextBox
+    Friend WithEvents txtRelation As TextBox
+    Friend WithEvents txtDisabiltyType As TextBox
     Friend WithEvents Label_siketype As Label
     Friend WithEvents CheckBox_sikeBenignant As CheckBox
     Friend WithEvents CheckBox_sikeHindring As CheckBox
@@ -397,20 +397,20 @@ Partial Class family
     Friend WithEvents CheckBox_sikeSuger As CheckBox
     Friend WithEvents CheckBox_sikePressure As CheckBox
     Friend WithEvents Label1 As Label
-    Friend WithEvents sike_deatils As TextBox
+    Friend WithEvents txtDiseaseDetails As TextBox
     Friend WithEvents GroupBox_work As GroupBox
-    Friend WithEvents RadioButton_working As RadioButton
-    Friend WithEvents RadioButton_nonworking As RadioButton
+    Friend WithEvents rdoWorks As RadioButton
+    Friend WithEvents rdoDoesNotWork As RadioButton
     Friend WithEvents GroupBox_treatment As GroupBox
-    Friend WithEvents RadioButton_treatment_yes As RadioButton
-    Friend WithEvents RadioButton_treatment_no As RadioButton
+    Friend WithEvents rdoTreatmentYes As RadioButton
+    Friend WithEvents rdoTreatmentNo As RadioButton
     Friend WithEvents GroupBox_NeedSupport As GroupBox
-    Friend WithEvents RadioButton_NeedSupport_yes As RadioButton
-    Friend WithEvents RadioButton_NeedSupport_no As RadioButton
+    Friend WithEvents rdoSupportYes As RadioButton
+    Friend WithEvents rdoSupportNo As RadioButton
     Friend WithEvents Label2 As Label
     Friend WithEvents Label6 As Label
-    Friend WithEvents TextBox_typeOFmedical As TextBox
-    Friend WithEvents TextBox_extraNote As TextBox
-    Friend WithEvents Button_register As Button
-    Friend WithEvents Button_delete_donor As Button
+    Friend WithEvents txtTreatmentType As TextBox
+    Friend WithEvents txtNotes As TextBox
+    Friend WithEvents btnRegister As Button
+    Friend WithEvents btnClear As Button
 End Class
