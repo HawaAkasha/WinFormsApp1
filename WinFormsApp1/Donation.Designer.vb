@@ -22,7 +22,6 @@ Partial Class Donation
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        donor_date = New TextBox()
         Label6 = New Label()
         Label5 = New Label()
         Label3 = New Label()
@@ -36,16 +35,11 @@ Partial Class Donation
         Label4 = New Label()
         TextBox_quantity = New TextBox()
         Button_save = New Button()
-        DataGridView_donation = New DataGridView()
-        CType(DataGridView_donation, ComponentModel.ISupportInitialize).BeginInit()
+        DataGridView1 = New DataGridView()
+        DateTimePicker = New DateTimePicker()
+        Button_edit_don = New Button()
+        CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
-        ' 
-        ' donor_date
-        ' 
-        donor_date.Location = New Point(26, 397)
-        donor_date.Name = "donor_date"
-        donor_date.Size = New Size(184, 27)
-        donor_date.TabIndex = 69
         ' 
         ' Label6
         ' 
@@ -162,15 +156,31 @@ Partial Class Donation
         Button_save.Text = "حفظ"
         Button_save.UseVisualStyleBackColor = True
         ' 
-        ' DataGridView_donation
+        ' DataGridView1
         ' 
-        DataGridView_donation.BackgroundColor = SystemColors.ButtonHighlight
-        DataGridView_donation.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridView_donation.Location = New Point(272, 140)
-        DataGridView_donation.Name = "DataGridView_donation"
-        DataGridView_donation.RowHeadersWidth = 51
-        DataGridView_donation.Size = New Size(276, 287)
-        DataGridView_donation.TabIndex = 79
+        DataGridView1.BackgroundColor = SystemColors.ButtonHighlight
+        DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        DataGridView1.Location = New Point(272, 140)
+        DataGridView1.Name = "DataGridView1"
+        DataGridView1.RowHeadersWidth = 51
+        DataGridView1.Size = New Size(276, 287)
+        DataGridView1.TabIndex = 79
+        ' 
+        ' DateTimePicker
+        ' 
+        DateTimePicker.Location = New Point(26, 400)
+        DateTimePicker.Name = "DateTimePicker"
+        DateTimePicker.Size = New Size(184, 27)
+        DateTimePicker.TabIndex = 80
+        ' 
+        ' Button_edit_don
+        ' 
+        Button_edit_don.Location = New Point(341, 446)
+        Button_edit_don.Name = "Button_edit_don"
+        Button_edit_don.Size = New Size(94, 29)
+        Button_edit_don.TabIndex = 81
+        Button_edit_don.Text = "تعديل"
+        Button_edit_don.UseVisualStyleBackColor = True
         ' 
         ' Donation
         ' 
@@ -178,7 +188,9 @@ Partial Class Donation
         AutoScaleMode = AutoScaleMode.Font
         BackColor = SystemColors.ButtonHighlight
         ClientSize = New Size(571, 495)
-        Controls.Add(DataGridView_donation)
+        Controls.Add(Button_edit_don)
+        Controls.Add(DateTimePicker)
+        Controls.Add(DataGridView1)
         Controls.Add(Button_save)
         Controls.Add(Label4)
         Controls.Add(TextBox_quantity)
@@ -187,7 +199,6 @@ Partial Class Donation
         Controls.Add(CheckBox_eat)
         Controls.Add(CheckBox_clothes)
         Controls.Add(CheckBox_money)
-        Controls.Add(donor_date)
         Controls.Add(Label6)
         Controls.Add(Label5)
         Controls.Add(Label3)
@@ -200,7 +211,7 @@ Partial Class Donation
         RightToLeftLayout = True
         StartPosition = FormStartPosition.CenterScreen
         Text = "شاشة تسجيل التبرع"
-        CType(DataGridView_donation, ComponentModel.ISupportInitialize).EndInit()
+        CType(DataGridView1, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
         PerformLayout()
     End Sub
@@ -219,5 +230,7 @@ Partial Class Donation
     Friend WithEvents Label4 As Label
     Friend WithEvents TextBox_quantity As TextBox
     Friend WithEvents Button_save As Button
-    Friend WithEvents DataGridView_donation As DataGridView
+    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents DateTimePicker As DateTimePicker
+    Friend WithEvents Button_edit_don As Button
 End Class

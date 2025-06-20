@@ -1,4 +1,7 @@
-﻿Public Class Subscriber
+﻿Imports System.Data.SqlClient
+Public Class Subscriber
+    Dim con As New SqlConnection("Data Source=DESKTOP-OA3F4SP\SQLEXPRESS;Initial Catalog=Project_DB;Integrated Security=True", con)
+
     Sub clear()
 
     End Sub
@@ -186,6 +189,63 @@
             Exit Sub
         End If
 
+        Dim cmd As New SqlCommand("INSERT INTO Subscribers_table 
+(Subscriber_id, National_id, Nationality, National_number, Passport_number, Full_name, Age, Phone_number, Address, Employment_state, Workplase, Income_source, has_disease) 
+VALUES 
+(@Subscriber_id, @National_id, @Nationality, @National_number, @Passport_number, @Full_name, @Age, @Phone_number, @Address, @Employment_state, @Workplase, @Income_source, @has_disease, @income_source, @has_disease", con)
+
+
+        'يبيلهن تعديللللللللللللللللللللللللللللللللللللل
+        ' cmd.Parameters.AddWithValue("@Subscriber_id", sup_id.Text)
+        'cmd.Parameters.AddWithValue("@National_id", National_id.Text)
+        'cmd.Parameters.AddWithValue("@sup_name", sup_name.Text)
+        'cmd.Parameters.AddWithValue("@sup_age", sup_age.Text)
+        ' cmd.Parameters.AddWithValue("@sup_number", sup_number.Text)
+        ' cmd.Parameters.AddWithValue("@sup_living", sup_living.Text)
+        'cmd.Parameters.AddWithValue("@family_total", family_total.Text)
+        'cmd.Parameters.AddWithValue("@workplace", TextBox_workplace.Text)
+        ' cmd.Parameters.AddWithValue("@nationality", If(RadioButton_libyan.Checked, "ليبي", "غير ليبي"))
+        ' cmd.Parameters.AddWithValue("@living_type", If(RadioButton_living1.Checked, "مالك", If(RadioButtonliving2.Checked, "إيجار", "سكن مشترك")))
+        'cmd.Parameters.AddWithValue("@stability", If(RadioButton_stability1.Checked, "دائم", If(RadioButton_stability2.Checked, "مؤقت", "نازح")))
+        ' cmd.Parameters.AddWithValue("@working_status", If(RadioButton_working.Checked, "يعمل", "لايعمل"))
+        '//////////////////////////////////////////////////////////////////////
+
+        ' تجميع نوع الاحتياج
+        Dim needs As String = ""
+        If CheckBox_money.Checked Then needs &= "مال،"
+        If CheckBox_eat.Checked Then needs &= "مواد غذائية،"
+        If CheckBox_clothes.Checked Then needs &= "ملابس،"
+        If CheckBox_medicine.Checked Then needs &= "مستلزمات صحية،"
+        cmd.Parameters.AddWithValue("@needs", needs.TrimEnd(","))
+
+        cmd.Parameters.AddWithValue("@income_source", source_income.Text)
+        cmd.Parameters.AddWithValue("@has_disease", If(RadioButton_sikeyes.Checked, "نعم", "لا"))
+
+        ' تجميع تفاصيل الأمراض
+        Dim diseases As String = ""
+        If CheckBox_sikePressure.Checked Then diseases &= "ضغط،"
+        If CheckBox_sikeSuger.Checked Then diseases &= "سكر،"
+        If CheckBox_sikeSly.Checked Then diseases &= "خبيثة،"
+        If CheckBox_sikeBenignant.Checked Then diseases &= "حميدة،"
+        If CheckBox_sikeHind.Checked Then diseases &= TextBox_istability.Text & "،"
+        cmd.Parameters.AddWithValue("@disease_details", diseases.TrimEnd(","))
+
+        cmd.Parameters.AddWithValue("@has_family_support", If(RadioButton_fatherfamily_yes.Checked, "نعم", "لا"))
+        cmd.Parameters.AddWithValue("@has_external_support", If(RadioButton_helpfamilly_yes.Checked, "نعم", "لا"))
+        cmd.Parameters.AddWithValue("@has_insurance", If(medical_insurance_yes.Checked, "نعم", "لا"))
+
+        Try
+            con.Open()
+            cmd.ExecuteNonQuery()
+            MsgBox("تم حفظ البيانات في قاعدة البيانات بنجاح", MsgBoxStyle.Information)
+        Catch ex As Exception
+            MsgBox("حدث خطأ أثناء حفظ البيانات: " & ex.Message)
+        Finally
+            con.Close()
+        End Try
+
+
+
         ' إذا كل شيء صحيح
         MsgBox("تم تسجيل البيانات بنجاح", MsgBoxStyle.Information)
 
@@ -272,7 +332,24 @@
         GroupBox_sik.Visible = False
         TextBox_istability.Visible = False
 
+        If MsgBox("هل تريد حذف هذا المشترك؟", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
+            Dim cmd As New SqlCommand("DELETE FROM Subscribers WHERE Subscriber_id = @Subscriber_id", con)
+            cmd.Parameters.AddWithValue("@Subscriber_id", sup_id.Text)
 
+            Try
+                con.Open()
+                Dim rows = cmd.ExecuteNonQuery()
+                If rows > 0 Then
+                    MsgBox("تم حذف المشترك بنجاح", MsgBoxStyle.Information)
+                Else
+                    MsgBox("لم يتم العثور على مشترك بهذا الرقم", MsgBoxStyle.Exclamation)
+                End If
+            Catch ex As Exception
+                MsgBox("حدث خطأ أثناء الحذف: " & ex.Message)
+            Finally
+                con.Close()
+            End Try
+        End If
     End Sub
     ' دالة التحقق من أن النص يحتوي على حروف فقط
     Private Function IsAlpha(input As String) As Boolean

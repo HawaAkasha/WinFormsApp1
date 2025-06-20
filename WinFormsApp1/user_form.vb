@@ -4,7 +4,7 @@ Imports Windows.Win32.System
 Public Class user_form
     ' الاتصال بقاعدة البيانات
 
-    ' Dim con As New SqlConnection("Data Source=DESKTOP-OA3F4SP\SQLEXPRESS;Initial Catalog=Project_DB;Integrated Security=True", con)
+    Dim con As New SqlConnection("Data Source=DESKTOP-OA3F4SP\SQLEXPRESS;Initial Catalog=Project_DB;Integrated Security=True", con)
 
     Sub clear()
         TextBox_id.Clear()
@@ -20,43 +20,43 @@ Public Class user_form
 
     ' تعديل مستخدم
     Sub add_user(ByVal user_name As String, ByVal user_pass As String, ByVal user_validity As Boolean)
-        'Dim cmd As New SqlCommand("INSERT INTO users (user_name, user_password, user_validity) VALUES (@user_name, @user_password, @user_validity)", con)
-        ' cmd.Parameters.AddWithValue("@user_name", user_name)
-        ' cmd.Parameters.AddWithValue("@user_password", user_pass)
-        ' cmd.Parameters.AddWithValue("@user_validity", user_validity)
-        ' con.Open()
-        ' cmd.ExecuteNonQuery()
-        ' con.Close()
+        Dim cmd As New SqlCommand("INSERT INTO users (user_name, user_password, user_validity) VALUES (@user_name, @user_password, @user_validity)", con)
+        cmd.Parameters.AddWithValue("@user_name", user_name)
+        cmd.Parameters.AddWithValue("@user_password", user_pass)
+        cmd.Parameters.AddWithValue("@user_validity", user_validity)
+        con.Open()
+        cmd.ExecuteNonQuery()
+        con.Close()
     End Sub
 
     ' تعديل مستخدم
     Sub edit_user(ByVal user_pass As String, ByVal user_validity As Boolean, ByVal user_id As Integer)
-        ' Dim cmd As New SqlCommand("UPDATE users SET user_password=@user_password, user_validity=@user_validity WHERE user_id=@user_id", con)
-        ' cmd.Parameters.AddWithValue("@user_password", user_pass)
-        ' cmd.Parameters.AddWithValue("@user_validity", user_validity)
-        ' cmd.Parameters.AddWithValue("@user_id", user_id)
-        ' con.Open()
-        ' cmd.ExecuteNonQuery()
-        ' con.Close()
+        Dim cmd As New SqlCommand("UPDATE users SET user_password=@user_password, user_validity=@user_validity WHERE user_id=@user_id", con)
+        cmd.Parameters.AddWithValue("@user_password", user_pass)
+        cmd.Parameters.AddWithValue("@user_validity", user_validity)
+        cmd.Parameters.AddWithValue("@user_id", user_id)
+        con.Open()
+        cmd.ExecuteNonQuery()
+        con.Close()
     End Sub
 
     ' حذف مستخدم
     Sub delete_user(ByVal user_id As Integer)
-        ' Dim cmd As New SqlCommand("DELETE FROM users WHERE user_id=@user_id", con)
-        ' cmd.Parameters.AddWithValue("@user_id", user_id)
-        ' con.Open()
-        ' cmd.ExecuteNonQuery()
-        ' con.Close()
+        Dim cmd As New SqlCommand("DELETE FROM users WHERE user_id=@user_id", con)
+        cmd.Parameters.AddWithValue("@user_id", user_id)
+        con.Open()
+        cmd.ExecuteNonQuery()
+        con.Close()
     End Sub
 
     ' البحث عن مستخدم
     Function search_user(ByVal user_id As Integer) As DataTable
-        ' Dim cmd As New SqlCommand("SELECT * FROM users WHERE user_id=@user_id", con)
-        ' cmd.Parameters.AddWithValue("@user_id", user_id)
-        ' Dim dt As New DataTable
-        ' Dim adp As New SqlDataAdapter(cmd)
-        'adp.Fill(dt)
-        'Return dt
+        Dim cmd As New SqlCommand("SELECT * FROM users WHERE user_id=@user_id", con)
+        cmd.Parameters.AddWithValue("@user_id", user_id)
+        Dim dt As New DataTable
+        Dim adp As New SqlDataAdapter(cmd)
+        adp.Fill(dt)
+        Return dt
     End Function
     ' '//////////////////////////////////////////////////////////////////////////////////////////////////////////
     ' زر الإضافة
@@ -158,7 +158,7 @@ Public Class user_form
         End If
     End Sub
 
-    Private Sub GroupBox1_Enter(sender As Object, e As EventArgs) Handles GroupBox1.Enter
+    Private Sub user_form_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
     End Sub
 End Class

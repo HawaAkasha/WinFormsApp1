@@ -29,25 +29,30 @@ Partial Class donor
         donor_name = New TextBox()
         donor_number = New TextBox()
         donor_id = New TextBox()
-        donor_date = New TextBox()
         Label_type_donation = New Label()
         CheckBox_medicine = New CheckBox()
         CheckBox_eat = New CheckBox()
         CheckBox_clothes = New CheckBox()
         CheckBox_money = New CheckBox()
-        Label_donationmethod = New Label()
         trance = New CheckBox()
         delivery = New CheckBox()
         cash = New CheckBox()
         Label4 = New Label()
         TextBox_quantity = New TextBox()
         Button_donation = New Button()
+        GroupBox_donationtype = New GroupBox()
+        TextBox_eat = New TextBox()
+        TextBox_cloth = New TextBox()
+        TextBox_medi = New TextBox()
+        DateTimePicker = New DateTimePicker()
+        Button_delete = New Button()
+        GroupBox_donationtype.SuspendLayout()
         SuspendLayout()
         ' 
         ' Label6
         ' 
         Label6.AutoSize = True
-        Label6.Location = New Point(40, 277)
+        Label6.Location = New Point(40, 298)
         Label6.Name = "Label6"
         Label6.Size = New Size(77, 20)
         Label6.TabIndex = 62
@@ -101,17 +106,10 @@ Partial Class donor
         donor_id.Size = New Size(184, 27)
         donor_id.TabIndex = 52
         ' 
-        ' donor_date
-        ' 
-        donor_date.Location = New Point(42, 319)
-        donor_date.Name = "donor_date"
-        donor_date.Size = New Size(184, 27)
-        donor_date.TabIndex = 63
-        ' 
         ' Label_type_donation
         ' 
         Label_type_donation.AutoSize = True
-        Label_type_donation.Location = New Point(325, 81)
+        Label_type_donation.Location = New Point(308, 81)
         Label_type_donation.Name = "Label_type_donation"
         Label_type_donation.Size = New Size(69, 20)
         Label_type_donation.TabIndex = 68
@@ -120,7 +118,7 @@ Partial Class donor
         ' CheckBox_medicine
         ' 
         CheckBox_medicine.AutoSize = True
-        CheckBox_medicine.Location = New Point(325, 194)
+        CheckBox_medicine.Location = New Point(315, 236)
         CheckBox_medicine.Name = "CheckBox_medicine"
         CheckBox_medicine.Size = New Size(136, 24)
         CheckBox_medicine.TabIndex = 67
@@ -130,7 +128,7 @@ Partial Class donor
         ' CheckBox_eat
         ' 
         CheckBox_eat.AutoSize = True
-        CheckBox_eat.Location = New Point(325, 134)
+        CheckBox_eat.Location = New Point(315, 146)
         CheckBox_eat.Name = "CheckBox_eat"
         CheckBox_eat.Size = New Size(103, 24)
         CheckBox_eat.TabIndex = 66
@@ -140,7 +138,7 @@ Partial Class donor
         ' CheckBox_clothes
         ' 
         CheckBox_clothes.AutoSize = True
-        CheckBox_clothes.Location = New Point(325, 164)
+        CheckBox_clothes.Location = New Point(315, 187)
         CheckBox_clothes.Name = "CheckBox_clothes"
         CheckBox_clothes.Size = New Size(72, 24)
         CheckBox_clothes.TabIndex = 65
@@ -150,26 +148,17 @@ Partial Class donor
         ' CheckBox_money
         ' 
         CheckBox_money.AutoSize = True
-        CheckBox_money.Location = New Point(325, 104)
+        CheckBox_money.Location = New Point(315, 104)
         CheckBox_money.Name = "CheckBox_money"
         CheckBox_money.Size = New Size(62, 24)
         CheckBox_money.TabIndex = 64
         CheckBox_money.Text = "مالي"
         CheckBox_money.UseVisualStyleBackColor = True
         ' 
-        ' Label_donationmethod
-        ' 
-        Label_donationmethod.AutoSize = True
-        Label_donationmethod.Location = New Point(325, 244)
-        Label_donationmethod.Name = "Label_donationmethod"
-        Label_donationmethod.Size = New Size(88, 20)
-        Label_donationmethod.TabIndex = 73
-        Label_donationmethod.Text = "طريقة التبرع"
-        ' 
         ' trance
         ' 
         trance.AutoSize = True
-        trance.Location = New Point(325, 297)
+        trance.Location = New Point(43, 56)
         trance.Name = "trance"
         trance.Size = New Size(69, 24)
         trance.TabIndex = 71
@@ -179,7 +168,7 @@ Partial Class donor
         ' delivery
         ' 
         delivery.AutoSize = True
-        delivery.Location = New Point(325, 327)
+        delivery.Location = New Point(38, 86)
         delivery.Name = "delivery"
         delivery.Size = New Size(74, 24)
         delivery.TabIndex = 70
@@ -189,7 +178,7 @@ Partial Class donor
         ' cash
         ' 
         cash.AutoSize = True
-        cash.Location = New Point(325, 267)
+        cash.Location = New Point(49, 26)
         cash.Name = "cash"
         cash.Size = New Size(63, 24)
         cash.TabIndex = 69
@@ -199,7 +188,7 @@ Partial Class donor
         ' Label4
         ' 
         Label4.AutoSize = True
-        Label4.Location = New Point(323, 365)
+        Label4.Location = New Point(308, 298)
         Label4.Name = "Label4"
         Label4.Size = New Size(93, 20)
         Label4.TabIndex = 75
@@ -207,39 +196,89 @@ Partial Class donor
         ' 
         ' TextBox_quantity
         ' 
-        TextBox_quantity.Location = New Point(325, 388)
+        TextBox_quantity.Location = New Point(310, 321)
         TextBox_quantity.Name = "TextBox_quantity"
         TextBox_quantity.Size = New Size(184, 27)
         TextBox_quantity.TabIndex = 74
         ' 
         ' Button_donation
         ' 
-        Button_donation.Location = New Point(448, 467)
+        Button_donation.Location = New Point(488, 495)
         Button_donation.Name = "Button_donation"
         Button_donation.Size = New Size(94, 29)
         Button_donation.TabIndex = 76
         Button_donation.Text = "تبرع الان"
         Button_donation.UseVisualStyleBackColor = True
         ' 
+        ' GroupBox_donationtype
+        ' 
+        GroupBox_donationtype.Controls.Add(cash)
+        GroupBox_donationtype.Controls.Add(delivery)
+        GroupBox_donationtype.Controls.Add(trance)
+        GroupBox_donationtype.Location = New Point(308, 367)
+        GroupBox_donationtype.Name = "GroupBox_donationtype"
+        GroupBox_donationtype.Size = New Size(119, 125)
+        GroupBox_donationtype.TabIndex = 77
+        GroupBox_donationtype.TabStop = False
+        GroupBox_donationtype.Text = "طريقة التبرع"
+        ' 
+        ' TextBox_eat
+        ' 
+        TextBox_eat.Location = New Point(424, 143)
+        TextBox_eat.Name = "TextBox_eat"
+        TextBox_eat.Size = New Size(125, 27)
+        TextBox_eat.TabIndex = 78
+        ' 
+        ' TextBox_cloth
+        ' 
+        TextBox_cloth.Location = New Point(424, 187)
+        TextBox_cloth.Name = "TextBox_cloth"
+        TextBox_cloth.Size = New Size(125, 27)
+        TextBox_cloth.TabIndex = 79
+        ' 
+        ' TextBox_medi
+        ' 
+        TextBox_medi.Location = New Point(457, 236)
+        TextBox_medi.Name = "TextBox_medi"
+        TextBox_medi.Size = New Size(125, 27)
+        TextBox_medi.TabIndex = 80
+        ' 
+        ' DateTimePicker
+        ' 
+        DateTimePicker.Location = New Point(40, 324)
+        DateTimePicker.Name = "DateTimePicker"
+        DateTimePicker.Size = New Size(184, 27)
+        DateTimePicker.TabIndex = 81
+        ' 
+        ' Button_delete
+        ' 
+        Button_delete.Location = New Point(476, 531)
+        Button_delete.Name = "Button_delete"
+        Button_delete.Size = New Size(94, 29)
+        Button_delete.TabIndex = 82
+        Button_delete.Text = "حذف"
+        Button_delete.UseVisualStyleBackColor = True
+        ' 
         ' donor
         ' 
         AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = SystemColors.ButtonHighlight
-        ClientSize = New Size(576, 522)
+        ClientSize = New Size(607, 572)
+        Controls.Add(Button_delete)
+        Controls.Add(DateTimePicker)
+        Controls.Add(TextBox_medi)
+        Controls.Add(TextBox_cloth)
+        Controls.Add(TextBox_eat)
+        Controls.Add(GroupBox_donationtype)
         Controls.Add(Button_donation)
         Controls.Add(Label4)
         Controls.Add(TextBox_quantity)
-        Controls.Add(Label_donationmethod)
-        Controls.Add(trance)
-        Controls.Add(delivery)
-        Controls.Add(cash)
         Controls.Add(Label_type_donation)
         Controls.Add(CheckBox_medicine)
         Controls.Add(CheckBox_eat)
         Controls.Add(CheckBox_clothes)
         Controls.Add(CheckBox_money)
-        Controls.Add(donor_date)
         Controls.Add(Label6)
         Controls.Add(Label5)
         Controls.Add(Label3)
@@ -254,6 +293,8 @@ Partial Class donor
         RightToLeftLayout = True
         StartPosition = FormStartPosition.CenterScreen
         Text = "شاشة تسجيل متبرع"
+        GroupBox_donationtype.ResumeLayout(False)
+        GroupBox_donationtype.PerformLayout()
         ResumeLayout(False)
         PerformLayout()
     End Sub
@@ -265,17 +306,21 @@ Partial Class donor
     Friend WithEvents donor_name As TextBox
     Friend WithEvents donor_number As TextBox
     Friend WithEvents donor_id As TextBox
-    Friend WithEvents donor_date As TextBox
     Friend WithEvents Label_type_donation As Label
     Friend WithEvents CheckBox_medicine As CheckBox
     Friend WithEvents CheckBox_eat As CheckBox
     Friend WithEvents CheckBox_clothes As CheckBox
     Friend WithEvents CheckBox_money As CheckBox
-    Friend WithEvents Label_donationmethod As Label
     Friend WithEvents trance As CheckBox
     Friend WithEvents delivery As CheckBox
     Friend WithEvents cash As CheckBox
     Friend WithEvents Label4 As Label
     Friend WithEvents TextBox_quantity As TextBox
     Friend WithEvents Button_donation As Button
+    Friend WithEvents GroupBox_donationtype As GroupBox
+    Friend WithEvents TextBox_eat As TextBox
+    Friend WithEvents TextBox_cloth As TextBox
+    Friend WithEvents TextBox_medi As TextBox
+    Friend WithEvents DateTimePicker As DateTimePicker
+    Friend WithEvents Button_delete As Button
 End Class

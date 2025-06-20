@@ -141,11 +141,12 @@ Partial Class user_form
         ' 
         ' DataGridView1
         ' 
+        DataGridView1.BackgroundColor = SystemColors.ButtonHighlight
         DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridView1.Location = New Point(320, 117)
+        DataGridView1.Location = New Point(315, 112)
         DataGridView1.Name = "DataGridView1"
         DataGridView1.RowHeadersWidth = 51
-        DataGridView1.Size = New Size(362, 321)
+        DataGridView1.Size = New Size(367, 331)
         DataGridView1.TabIndex = 9
         ' 
         ' Label1
@@ -188,7 +189,8 @@ Partial Class user_form
         ' 
         AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(687, 450)
+        BackColor = SystemColors.ButtonHighlight
+        ClientSize = New Size(687, 441)
         Controls.Add(Label4)
         Controls.Add(Label3)
         Controls.Add(Label2)
