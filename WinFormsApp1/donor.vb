@@ -105,16 +105,41 @@ Public Class donor
 
 
         '///////////////////////////////////////////////////////////////
+
         ' فتح شاشة التبرع وتمرير البيانات
+        ' بعد إضافة المتبرع إلى قاعدة البيانات
+        Dim donationForm As New Donation()
+
+        donationForm.Show()
+        donationForm.LoadDonations() ' تحديث القريد فيو مباشرة
+
+
+
         ' Dim donationForm As New Donation()
-        ' donationForm.donorNameFromMain = donor_name.Text
-        ' donationForm.donorPhoneFromMain = donor_number.Text
-        ' donationForm.quantityFromMain = TextBox_quantity.Text
-        ' donationForm.CheckBoxmoney = CheckBox_money.Text
-        ' donationForm.CheckBoxeat = CheckBox_eat.Text
-        ' donationForm.CheckBoxclothes = CheckBox_clothes.Text
-        ' donationForm.CheckBoxmedicine = CheckBox_medicine.Text
-        ' donationForm.ShowDialog()
+
+        ' donationForm.DonorName = donor_name.Text
+        ' donationForm.DonorPhone = donor_number.Text
+        'donationForm.DonationQuantity = TextBox_quantity.Text
+
+        ' توليد نوع التبرع من CheckBox
+        ' Dim donation_type As String = ""
+        ' If CheckBox_money.Checked Then donationType &= "مالي, "
+        ' If CheckBox_eat.Checked Then donationType &= "مواد غذائية, "
+        ' If CheckBox_clothes.Checked Then donationType &= "ملابس, "
+        ' If CheckBox_medicine.Checked Then donationType &= "مستلزمات طبية, "
+        'donationType = donationType.TrimEnd(", ".ToCharArray())
+
+        'donationForm.DonationType = donationType
+        'donationForm.DonationDate = Date.Today
+
+        'donationForm.ShowDialog()
+
+
+
+
+
+
+
         '//////////////////////////////////////////////
     End Sub
 

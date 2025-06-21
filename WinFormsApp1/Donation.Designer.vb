@@ -27,24 +27,33 @@ Partial Class Donation
         Label3 = New Label()
         donor_name = New TextBox()
         donor_number = New TextBox()
-        Label_type_donation = New Label()
-        CheckBox_medicine = New CheckBox()
-        CheckBox_eat = New CheckBox()
-        CheckBox_clothes = New CheckBox()
-        CheckBox_money = New CheckBox()
         Label4 = New Label()
         TextBox_quantity = New TextBox()
         Button_save = New Button()
         DataGridView1 = New DataGridView()
         DateTimePicker = New DateTimePicker()
         Button_edit_don = New Button()
+        donation_type = New GroupBox()
+        CheckBox_money = New CheckBox()
+        CheckBox_eat = New CheckBox()
+        CheckBox_clothes = New CheckBox()
+        TextBox_medi = New TextBox()
+        CheckBox_medicine = New CheckBox()
+        TextBox_cloth = New TextBox()
+        TextBox_eat = New TextBox()
+        GroupBox_donationtype = New GroupBox()
+        cash = New CheckBox()
+        delivery = New CheckBox()
+        trance = New CheckBox()
         CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
+        donation_type.SuspendLayout()
+        GroupBox_donationtype.SuspendLayout()
         SuspendLayout()
         ' 
         ' Label6
         ' 
         Label6.AutoSize = True
-        Label6.Location = New Point(26, 374)
+        Label6.Location = New Point(23, 513)
         Label6.Name = "Label6"
         Label6.Size = New Size(77, 20)
         Label6.TabIndex = 68
@@ -53,7 +62,7 @@ Partial Class Donation
         ' Label5
         ' 
         Label5.AutoSize = True
-        Label5.Location = New Point(26, 140)
+        Label5.Location = New Point(26, 95)
         Label5.Name = "Label5"
         Label5.Size = New Size(76, 20)
         Label5.TabIndex = 67
@@ -62,7 +71,7 @@ Partial Class Donation
         ' Label3
         ' 
         Label3.AutoSize = True
-        Label3.Location = New Point(26, 69)
+        Label3.Location = New Point(26, 24)
         Label3.Name = "Label3"
         Label3.Size = New Size(91, 20)
         Label3.TabIndex = 66
@@ -70,71 +79,22 @@ Partial Class Donation
         ' 
         ' donor_name
         ' 
-        donor_name.Location = New Point(26, 92)
+        donor_name.Location = New Point(26, 47)
         donor_name.Name = "donor_name"
         donor_name.Size = New Size(184, 27)
         donor_name.TabIndex = 65
         ' 
         ' donor_number
         ' 
-        donor_number.Location = New Point(24, 163)
+        donor_number.Location = New Point(24, 118)
         donor_number.Name = "donor_number"
         donor_number.Size = New Size(184, 27)
         donor_number.TabIndex = 64
         ' 
-        ' Label_type_donation
-        ' 
-        Label_type_donation.AutoSize = True
-        Label_type_donation.Location = New Point(33, 219)
-        Label_type_donation.Name = "Label_type_donation"
-        Label_type_donation.Size = New Size(69, 20)
-        Label_type_donation.TabIndex = 74
-        Label_type_donation.Text = "نوع التبرع"
-        ' 
-        ' CheckBox_medicine
-        ' 
-        CheckBox_medicine.AutoSize = True
-        CheckBox_medicine.Location = New Point(33, 332)
-        CheckBox_medicine.Name = "CheckBox_medicine"
-        CheckBox_medicine.Size = New Size(136, 24)
-        CheckBox_medicine.TabIndex = 73
-        CheckBox_medicine.Text = "مستلزمات صحية"
-        CheckBox_medicine.UseVisualStyleBackColor = True
-        ' 
-        ' CheckBox_eat
-        ' 
-        CheckBox_eat.AutoSize = True
-        CheckBox_eat.Location = New Point(33, 272)
-        CheckBox_eat.Name = "CheckBox_eat"
-        CheckBox_eat.Size = New Size(103, 24)
-        CheckBox_eat.TabIndex = 72
-        CheckBox_eat.Text = "مواد غذائية"
-        CheckBox_eat.UseVisualStyleBackColor = True
-        ' 
-        ' CheckBox_clothes
-        ' 
-        CheckBox_clothes.AutoSize = True
-        CheckBox_clothes.Location = New Point(33, 302)
-        CheckBox_clothes.Name = "CheckBox_clothes"
-        CheckBox_clothes.Size = New Size(72, 24)
-        CheckBox_clothes.TabIndex = 71
-        CheckBox_clothes.Text = "ملابس"
-        CheckBox_clothes.UseVisualStyleBackColor = True
-        ' 
-        ' CheckBox_money
-        ' 
-        CheckBox_money.AutoSize = True
-        CheckBox_money.Location = New Point(33, 242)
-        CheckBox_money.Name = "CheckBox_money"
-        CheckBox_money.Size = New Size(62, 24)
-        CheckBox_money.TabIndex = 70
-        CheckBox_money.Text = "مالي"
-        CheckBox_money.UseVisualStyleBackColor = True
-        ' 
         ' Label4
         ' 
         Label4.AutoSize = True
-        Label4.Location = New Point(272, 69)
+        Label4.Location = New Point(339, 24)
         Label4.Name = "Label4"
         Label4.Size = New Size(93, 20)
         Label4.TabIndex = 77
@@ -142,14 +102,14 @@ Partial Class Donation
         ' 
         ' TextBox_quantity
         ' 
-        TextBox_quantity.Location = New Point(274, 92)
+        TextBox_quantity.Location = New Point(341, 47)
         TextBox_quantity.Name = "TextBox_quantity"
         TextBox_quantity.Size = New Size(184, 27)
         TextBox_quantity.TabIndex = 76
         ' 
         ' Button_save
         ' 
-        Button_save.Location = New Point(454, 446)
+        Button_save.Location = New Point(470, 539)
         Button_save.Name = "Button_save"
         Button_save.Size = New Size(94, 29)
         Button_save.TabIndex = 78
@@ -160,45 +120,161 @@ Partial Class Donation
         ' 
         DataGridView1.BackgroundColor = SystemColors.ButtonHighlight
         DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridView1.Location = New Point(272, 140)
+        DataGridView1.Location = New Point(341, 108)
         DataGridView1.Name = "DataGridView1"
         DataGridView1.RowHeadersWidth = 51
-        DataGridView1.Size = New Size(276, 287)
+        DataGridView1.Size = New Size(276, 392)
         DataGridView1.TabIndex = 79
         ' 
         ' DateTimePicker
         ' 
-        DateTimePicker.Location = New Point(26, 400)
+        DateTimePicker.Location = New Point(21, 541)
         DateTimePicker.Name = "DateTimePicker"
         DateTimePicker.Size = New Size(184, 27)
         DateTimePicker.TabIndex = 80
         ' 
         ' Button_edit_don
         ' 
-        Button_edit_don.Location = New Point(341, 446)
+        Button_edit_don.Location = New Point(354, 539)
         Button_edit_don.Name = "Button_edit_don"
         Button_edit_don.Size = New Size(94, 29)
         Button_edit_don.TabIndex = 81
         Button_edit_don.Text = "تعديل"
         Button_edit_don.UseVisualStyleBackColor = True
         ' 
+        ' donation_type
+        ' 
+        donation_type.Controls.Add(CheckBox_money)
+        donation_type.Controls.Add(CheckBox_eat)
+        donation_type.Controls.Add(CheckBox_clothes)
+        donation_type.Controls.Add(TextBox_medi)
+        donation_type.Controls.Add(CheckBox_medicine)
+        donation_type.Controls.Add(TextBox_cloth)
+        donation_type.Controls.Add(TextBox_eat)
+        donation_type.Location = New Point(24, 165)
+        donation_type.Name = "donation_type"
+        donation_type.Size = New Size(280, 191)
+        donation_type.TabIndex = 84
+        donation_type.TabStop = False
+        donation_type.Text = "نوع التبرع"
+        ' 
+        ' CheckBox_money
+        ' 
+        CheckBox_money.AutoSize = True
+        CheckBox_money.Location = New Point(205, 26)
+        CheckBox_money.Name = "CheckBox_money"
+        CheckBox_money.Size = New Size(62, 24)
+        CheckBox_money.TabIndex = 64
+        CheckBox_money.Text = "مالي"
+        CheckBox_money.UseVisualStyleBackColor = True
+        ' 
+        ' CheckBox_eat
+        ' 
+        CheckBox_eat.AutoSize = True
+        CheckBox_eat.Location = New Point(164, 67)
+        CheckBox_eat.Name = "CheckBox_eat"
+        CheckBox_eat.Size = New Size(103, 24)
+        CheckBox_eat.TabIndex = 66
+        CheckBox_eat.Text = "مواد غذائية"
+        CheckBox_eat.UseVisualStyleBackColor = True
+        ' 
+        ' CheckBox_clothes
+        ' 
+        CheckBox_clothes.AutoSize = True
+        CheckBox_clothes.Location = New Point(195, 112)
+        CheckBox_clothes.Name = "CheckBox_clothes"
+        CheckBox_clothes.Size = New Size(72, 24)
+        CheckBox_clothes.TabIndex = 65
+        CheckBox_clothes.Text = "ملابس"
+        CheckBox_clothes.UseVisualStyleBackColor = True
+        ' 
+        ' TextBox_medi
+        ' 
+        TextBox_medi.Location = New Point(6, 158)
+        TextBox_medi.Name = "TextBox_medi"
+        TextBox_medi.Size = New Size(125, 27)
+        TextBox_medi.TabIndex = 80
+        ' 
+        ' CheckBox_medicine
+        ' 
+        CheckBox_medicine.AutoSize = True
+        CheckBox_medicine.Location = New Point(133, 161)
+        CheckBox_medicine.Name = "CheckBox_medicine"
+        CheckBox_medicine.Size = New Size(136, 24)
+        CheckBox_medicine.TabIndex = 67
+        CheckBox_medicine.Text = "مستلزمات صحية"
+        CheckBox_medicine.UseVisualStyleBackColor = True
+        ' 
+        ' TextBox_cloth
+        ' 
+        TextBox_cloth.Location = New Point(6, 109)
+        TextBox_cloth.Name = "TextBox_cloth"
+        TextBox_cloth.Size = New Size(125, 27)
+        TextBox_cloth.TabIndex = 79
+        ' 
+        ' TextBox_eat
+        ' 
+        TextBox_eat.Location = New Point(6, 67)
+        TextBox_eat.Name = "TextBox_eat"
+        TextBox_eat.Size = New Size(125, 27)
+        TextBox_eat.TabIndex = 78
+        ' 
+        ' GroupBox_donationtype
+        ' 
+        GroupBox_donationtype.Controls.Add(cash)
+        GroupBox_donationtype.Controls.Add(delivery)
+        GroupBox_donationtype.Controls.Add(trance)
+        GroupBox_donationtype.Location = New Point(24, 375)
+        GroupBox_donationtype.Name = "GroupBox_donationtype"
+        GroupBox_donationtype.Size = New Size(119, 125)
+        GroupBox_donationtype.TabIndex = 85
+        GroupBox_donationtype.TabStop = False
+        GroupBox_donationtype.Text = "طريقة التبرع"
+        ' 
+        ' cash
+        ' 
+        cash.AutoSize = True
+        cash.Location = New Point(49, 26)
+        cash.Name = "cash"
+        cash.Size = New Size(63, 24)
+        cash.TabIndex = 69
+        cash.Text = "نقدي"
+        cash.UseVisualStyleBackColor = True
+        ' 
+        ' delivery
+        ' 
+        delivery.AutoSize = True
+        delivery.Location = New Point(38, 86)
+        delivery.Name = "delivery"
+        delivery.Size = New Size(74, 24)
+        delivery.TabIndex = 70
+        delivery.Text = "توصيل"
+        delivery.UseVisualStyleBackColor = True
+        ' 
+        ' trance
+        ' 
+        trance.AutoSize = True
+        trance.Location = New Point(43, 56)
+        trance.Name = "trance"
+        trance.Size = New Size(69, 24)
+        trance.TabIndex = 71
+        trance.Text = "تحويل"
+        trance.UseVisualStyleBackColor = True
+        ' 
         ' Donation
         ' 
         AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = SystemColors.ButtonHighlight
-        ClientSize = New Size(571, 495)
+        ClientSize = New Size(630, 605)
+        Controls.Add(GroupBox_donationtype)
+        Controls.Add(donation_type)
         Controls.Add(Button_edit_don)
         Controls.Add(DateTimePicker)
         Controls.Add(DataGridView1)
         Controls.Add(Button_save)
         Controls.Add(Label4)
         Controls.Add(TextBox_quantity)
-        Controls.Add(Label_type_donation)
-        Controls.Add(CheckBox_medicine)
-        Controls.Add(CheckBox_eat)
-        Controls.Add(CheckBox_clothes)
-        Controls.Add(CheckBox_money)
         Controls.Add(Label6)
         Controls.Add(Label5)
         Controls.Add(Label3)
@@ -212,6 +288,10 @@ Partial Class Donation
         StartPosition = FormStartPosition.CenterScreen
         Text = "شاشة تسجيل التبرع"
         CType(DataGridView1, ComponentModel.ISupportInitialize).EndInit()
+        donation_type.ResumeLayout(False)
+        donation_type.PerformLayout()
+        GroupBox_donationtype.ResumeLayout(False)
+        GroupBox_donationtype.PerformLayout()
         ResumeLayout(False)
         PerformLayout()
     End Sub
@@ -222,15 +302,22 @@ Partial Class Donation
     Friend WithEvents Label3 As Label
     Friend WithEvents donor_name As TextBox
     Friend WithEvents donor_number As TextBox
-    Friend WithEvents Label_type_donation As Label
-    Friend WithEvents CheckBox_medicine As CheckBox
-    Friend WithEvents CheckBox_eat As CheckBox
-    Friend WithEvents CheckBox_clothes As CheckBox
-    Friend WithEvents CheckBox_money As CheckBox
     Friend WithEvents Label4 As Label
     Friend WithEvents TextBox_quantity As TextBox
     Friend WithEvents Button_save As Button
     Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents DateTimePicker As DateTimePicker
     Friend WithEvents Button_edit_don As Button
+    Friend WithEvents donation_type As GroupBox
+    Friend WithEvents CheckBox_money As CheckBox
+    Friend WithEvents CheckBox_eat As CheckBox
+    Friend WithEvents CheckBox_clothes As CheckBox
+    Friend WithEvents TextBox_medi As TextBox
+    Friend WithEvents CheckBox_medicine As CheckBox
+    Friend WithEvents TextBox_cloth As TextBox
+    Friend WithEvents TextBox_eat As TextBox
+    Friend WithEvents GroupBox_donationtype As GroupBox
+    Friend WithEvents cash As CheckBox
+    Friend WithEvents delivery As CheckBox
+    Friend WithEvents trance As CheckBox
 End Class

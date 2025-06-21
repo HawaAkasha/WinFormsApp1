@@ -44,9 +44,9 @@ Partial Class donor
         TextBox_cloth = New TextBox()
         TextBox_medi = New TextBox()
         DateTimePicker1 = New DateTimePicker()
-        donationType = New GroupBox()
+        donation_type = New GroupBox()
         GroupBox_donationtype.SuspendLayout()
-        donationType.SuspendLayout()
+        donation_type.SuspendLayout()
         SuspendLayout()
         ' 
         ' Label6
@@ -241,21 +241,21 @@ Partial Class donor
         DateTimePicker1.Size = New Size(184, 27)
         DateTimePicker1.TabIndex = 81
         ' 
-        ' donationType
+        ' donation_type
         ' 
-        donationType.Controls.Add(CheckBox_money)
-        donationType.Controls.Add(CheckBox_eat)
-        donationType.Controls.Add(CheckBox_clothes)
-        donationType.Controls.Add(TextBox_medi)
-        donationType.Controls.Add(CheckBox_medicine)
-        donationType.Controls.Add(TextBox_cloth)
-        donationType.Controls.Add(TextBox_eat)
-        donationType.Location = New Point(258, 35)
-        donationType.Name = "donationType"
-        donationType.Size = New Size(280, 191)
-        donationType.TabIndex = 83
-        donationType.TabStop = False
-        donationType.Text = "نوع التبرع"
+        donation_type.Controls.Add(CheckBox_money)
+        donation_type.Controls.Add(CheckBox_eat)
+        donation_type.Controls.Add(CheckBox_clothes)
+        donation_type.Controls.Add(TextBox_medi)
+        donation_type.Controls.Add(CheckBox_medicine)
+        donation_type.Controls.Add(TextBox_cloth)
+        donation_type.Controls.Add(TextBox_eat)
+        donation_type.Location = New Point(258, 35)
+        donation_type.Name = "donation_type"
+        donation_type.Size = New Size(280, 191)
+        donation_type.TabIndex = 83
+        donation_type.TabStop = False
+        donation_type.Text = "نوع التبرع"
         ' 
         ' donor
         ' 
@@ -263,7 +263,7 @@ Partial Class donor
         AutoScaleMode = AutoScaleMode.Font
         BackColor = SystemColors.ButtonHighlight
         ClientSize = New Size(581, 465)
-        Controls.Add(donationType)
+        Controls.Add(donation_type)
         Controls.Add(DateTimePicker1)
         Controls.Add(GroupBox_donationtype)
         Controls.Add(Button_donation)
@@ -285,8 +285,8 @@ Partial Class donor
         Text = "شاشة تسجيل متبرع"
         GroupBox_donationtype.ResumeLayout(False)
         GroupBox_donationtype.PerformLayout()
-        donationType.ResumeLayout(False)
-        donationType.PerformLayout()
+        donation_type.ResumeLayout(False)
+        donation_type.PerformLayout()
         ResumeLayout(False)
         PerformLayout()
     End Sub
@@ -313,5 +313,5 @@ Partial Class donor
     Friend WithEvents TextBox_cloth As TextBox
     Friend WithEvents TextBox_medi As TextBox
     Friend WithEvents DateTimePicker1 As DateTimePicker
-    Friend WithEvents donationType As GroupBox
+    Friend WithEvents donation_type As GroupBox
 End Class

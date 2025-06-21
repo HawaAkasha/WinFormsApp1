@@ -1,21 +1,27 @@
-﻿Public Class Donation
-    'اخذ البيانات من شاشة التبرع عن طريق متغيرات عامه
-    ' Public donorNameFromMain As String
-    'Public donorPhoneFromMain As String
-    ' Public quantityFromMain As String
-    ' Public CheckBoxmoney As String
-    ' Public CheckBoxeat As String
-    ' Public CheckBoxclothes As String
-    ' Public CheckBoxmedicine As String
+﻿Imports System.Data.SqlClient
+Imports System.Windows.Forms.VisualStyles
+Public Class Donation
+    Private Sub Donation_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-    ' Private Sub donation_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-    ' تعبئة الحقول من المتغيرات القادمة من شاشة donor
-    ' donor_name.Text = donorNameFromMain
-    ' donor_number.Text = donorPhoneFromMain
-    ' TextBox_quantity.Text = quantityFromMain
-    ' CheckBox_money.Checked = CheckBoxmoney
-    ' CheckBox_eat.Checked = CheckBoxeat
-    ' CheckBox_clothes.Checked = CheckBoxclothes
-    ' CheckBox_medicine.Checked = CheckBoxmedicine
-    ' End Sub
+        LoadDonations()
+
+    End Sub
+    Public Sub LoadDonations()
+        Dim conn As New SqlConnection("Data Source=DESKTOP-OA3F4SP\SQLEXPRESS;Initial Catalog=Project_DB;Integrated Security=True")
+        Dim dt As New DataTable()
+
+        Try
+            conn.Open()
+            Dim da As New SqlDataAdapter("SELECT DonorName, PhoneNumber, GETDATE() AS DonationDate FROM Donors_table", conn)
+            da.Fill(dt)
+            conn.Close()
+
+            DataGridView1.DataSource = dt
+
+        Catch ex As Exception
+            MessageBox.Show("خطأ في تحميل التبرعات: " & ex.Message)
+        End Try
+    End Sub
+
+
 End Class

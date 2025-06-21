@@ -49,6 +49,7 @@ Partial Class LOGIN_FORM
         Button_users = New Button()
         PictureBox12 = New PictureBox()
         TextBox1 = New TextBox()
+        Button_ShowPassword = New Button()
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         CType(PictureBox2, ComponentModel.ISupportInitialize).BeginInit()
         CType(PictureBox3, ComponentModel.ISupportInitialize).BeginInit()
@@ -122,6 +123,7 @@ Partial Class LOGIN_FORM
         ' 
         TextBox_password.Location = New Point(111, 300)
         TextBox_password.Name = "TextBox_password"
+        TextBox_password.PlaceholderText = "*"
         TextBox_password.Size = New Size(204, 27)
         TextBox_password.TabIndex = 6
         ' 
@@ -305,12 +307,21 @@ Partial Class LOGIN_FORM
         TextBox1.Size = New Size(10, 412)
         TextBox1.TabIndex = 25
         ' 
+        ' Button_ShowPassword
+        ' 
+        Button_ShowPassword.Location = New Point(321, 300)
+        Button_ShowPassword.Name = "Button_ShowPassword"
+        Button_ShowPassword.Size = New Size(48, 27)
+        Button_ShowPassword.TabIndex = 26
+        Button_ShowPassword.UseVisualStyleBackColor = True
+        ' 
         ' LOGIN_FORM
         ' 
         AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.SeaGreen
         ClientSize = New Size(636, 481)
+        Controls.Add(Button_ShowPassword)
         Controls.Add(TextBox1)
         Controls.Add(PictureBox12)
         Controls.Add(Button_users)
@@ -386,5 +397,6 @@ Partial Class LOGIN_FORM
     Friend WithEvents Button_users As Button
     Friend WithEvents PictureBox12 As PictureBox
     Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents Button_ShowPassword As Button
 
 End Class

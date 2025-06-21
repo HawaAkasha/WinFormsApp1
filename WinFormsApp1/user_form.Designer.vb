@@ -72,7 +72,7 @@ Partial Class user_form
         ' 
         ' Button_edit
         ' 
-        Button_edit.Location = New Point(12, 374)
+        Button_edit.Location = New Point(12, 409)
         Button_edit.Name = "Button_edit"
         Button_edit.Size = New Size(132, 29)
         Button_edit.TabIndex = 4
@@ -81,7 +81,7 @@ Partial Class user_form
         ' 
         ' Button_add
         ' 
-        Button_add.Location = New Point(12, 409)
+        Button_add.Location = New Point(12, 374)
         Button_add.Name = "Button_add"
         Button_add.Size = New Size(132, 29)
         Button_add.TabIndex = 5
@@ -145,6 +145,7 @@ Partial Class user_form
         DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
         DataGridView1.Location = New Point(315, 112)
         DataGridView1.Name = "DataGridView1"
+        DataGridView1.ReadOnly = True
         DataGridView1.RowHeadersWidth = 51
         DataGridView1.Size = New Size(367, 326)
         DataGridView1.TabIndex = 9
