@@ -123,7 +123,7 @@ Partial Class LOGIN_FORM
         ' 
         TextBox_password.Location = New Point(111, 300)
         TextBox_password.Name = "TextBox_password"
-        TextBox_password.PlaceholderText = "*"
+        TextBox_password.PlaceholderText = "."
         TextBox_password.Size = New Size(204, 27)
         TextBox_password.TabIndex = 6
         ' 
@@ -311,7 +311,7 @@ Partial Class LOGIN_FORM
         ' 
         Button_ShowPassword.Location = New Point(321, 300)
         Button_ShowPassword.Name = "Button_ShowPassword"
-        Button_ShowPassword.Size = New Size(48, 27)
+        Button_ShowPassword.Size = New Size(54, 27)
         Button_ShowPassword.TabIndex = 26
         Button_ShowPassword.UseVisualStyleBackColor = True
         ' 

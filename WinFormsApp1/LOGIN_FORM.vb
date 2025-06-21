@@ -162,5 +162,16 @@ Class LOGIN_FORM
         MedicalRecord.Show()
     End Sub
 
+    Private Sub Button_ShowPassword_Click(sender As Object, e As EventArgs) Handles Button_ShowPassword.Click
 
+        If TextBox_password.UseSystemPasswordChar = True Then
+            TextBox_password.UseSystemPasswordChar = False
+            Button_ShowPassword.Text = "إخفاء"
+        Else
+            TextBox_password.UseSystemPasswordChar = True
+            Button_ShowPassword.Text = "إظهار"
+
+        End If
+
+    End Sub
 End Class
