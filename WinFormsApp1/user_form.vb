@@ -1,13 +1,11 @@
 ﻿
 Imports System.Data.SqlClient
-Imports Windows.Win32.System
-Public Class user_form
-    ' الاتصال بقاعدة البيانات
 
-    Dim con As New SqlConnection("Data Source=DESKTOP-OA3F4SP\SQLEXPRESS;Initial Catalog=Project_DB;Integrated Security=True", con)
+
+Public Class user_form
+    Dim conn As New SqlConnection("Data Source=DESKTOP-OA3F4SP\SQLEXPRESS;Initial Catalog=Project_DB;Integrated Security=True")
 
     Sub clear()
-        TextBox_id.Clear()
         TextBox_nameuser.Clear()
         TextBox_passuser1.Clear()
         TextBox_passuser2.Clear()
@@ -17,49 +15,22 @@ Public Class user_form
         Button_edit.Visible = False
         Button_delete.Visible = False
     End Sub
+    ' الاتصال بقاعدة البيانات
 
-    ' تعديل مستخدم
-    Sub add_user(ByVal user_name As String, ByVal user_pass As String, ByVal user_validity As Boolean)
-        Dim cmd As New SqlCommand("INSERT INTO users (user_name, user_password, user_validity) VALUES (@user_name, @user_password, @user_validity)", con)
+    ' '//////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+    'login form1 
+    Function login(ByVal user_name)
+        Dim cmd As New SqlCommand("select*from users where user_name=@user_name", conn)
         cmd.Parameters.AddWithValue("@user_name", user_name)
-        cmd.Parameters.AddWithValue("@user_password", user_pass)
-        cmd.Parameters.AddWithValue("@user_validity", user_validity)
-        con.Open()
-        cmd.ExecuteNonQuery()
-        con.Close()
-    End Sub
-
-    ' تعديل مستخدم
-    Sub edit_user(ByVal user_pass As String, ByVal user_validity As Boolean, ByVal user_id As Integer)
-        Dim cmd As New SqlCommand("UPDATE users SET user_password=@user_password, user_validity=@user_validity WHERE user_id=@user_id", con)
-        cmd.Parameters.AddWithValue("@user_password", user_pass)
-        cmd.Parameters.AddWithValue("@user_validity", user_validity)
-        cmd.Parameters.AddWithValue("@user_id", user_id)
-        con.Open()
-        cmd.ExecuteNonQuery()
-        con.Close()
-    End Sub
-
-    ' حذف مستخدم
-    Sub delete_user(ByVal user_id As Integer)
-        Dim cmd As New SqlCommand("DELETE FROM users WHERE user_id=@user_id", con)
-        cmd.Parameters.AddWithValue("@user_id", user_id)
-        con.Open()
-        cmd.ExecuteNonQuery()
-        con.Close()
-    End Sub
-
-    ' البحث عن مستخدم
-    Function search_user(ByVal user_id As Integer) As DataTable
-        Dim cmd As New SqlCommand("SELECT * FROM users WHERE user_id=@user_id", con)
-        cmd.Parameters.AddWithValue("@user_id", user_id)
         Dim dt As New DataTable
         Dim adp As New SqlDataAdapter(cmd)
         adp.Fill(dt)
         Return dt
     End Function
-    ' '//////////////////////////////////////////////////////////////////////////////////////////////////////////
-    ' زر الإضافة
+
+
     Private Sub Button_add_Click(sender As Object, e As EventArgs) Handles Button_add.Click
         If TextBox_nameuser.Text = "" Then
             MsgBox("يرجى إدخال اسم المستخدم", MsgBoxStyle.Critical)
@@ -81,10 +52,36 @@ Public Class user_form
             Exit Sub
         End If
 
-        Dim validity As Boolean = Radio_admin.Checked
-        add_user(TextBox_nameuser.Text, TextBox_passuser1.Text, validity)
-        MsgBox("تمت الإضافة بنجاح", MsgBoxStyle.Information)
-        clear()
+        Try
+            conn.Open()
+
+            ' تحديد الصلاحية: مدير = True، موظف = False
+            Dim validity As Boolean
+            If Radio_admin.Checked Then
+                validity = True
+            ElseIf Radio_employee.Checked Then
+                validity = False
+            End If
+
+            Dim cmd As New SqlCommand("INSERT INTO users_table (user_password, user_name, user_validity) 
+            VALUES (@user_password, @user_name, @user_validity)", conn)
+
+            cmd.Parameters.AddWithValue("@user_password", TextBox_passuser1.Text)
+            cmd.Parameters.AddWithValue("@user_name", TextBox_nameuser.Text)
+            cmd.Parameters.AddWithValue("@user_validity", validity)
+
+            cmd.ExecuteNonQuery()
+            conn.Close()
+
+            MessageBox.Show("تمت إضافة المستخدم بنجاح", "تم", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            clear()
+
+        Catch ex As Exception
+            MessageBox.Show("خطأ أثناء الإضافة: " & ex.Message)
+            conn.Close()
+        End Try
+        LoadAllUsers() 'الظهور فيgridview
+
     End Sub
 
     ' زر التعديل
@@ -111,27 +108,75 @@ Public Class user_form
         End If
         Dim result As MsgBoxResult = MsgBox("هل أنت متأكد من التعديل؟", MsgBoxStyle.YesNo)
         If result = MsgBoxResult.Yes Then
-            Dim validity As Boolean = Radio_admin.Checked
-            edit_user(TextBox_passuser1.Text, validity, CInt(TextBox_id.Text))
-            MsgBox("تم التعديل بنجاح", MsgBoxStyle.Information)
-            clear()
+
         End If
+
+
+        'التعديل في الداتا بيز
+
+        Try
+            conn.Open()
+            Dim validity As Boolean
+            If Radio_admin.Checked Then
+                validity = True
+            ElseIf Radio_employee.Checked Then
+                validity = False
+            End If
+            Dim cmd As New SqlCommand("UPDATE users_table  SET user_password = @password, user_name = @name, user_validity = @validity 
+        WHERE user_id = @id", conn)
+
+            cmd.Parameters.AddWithValue("@password", TextBox_passuser1.Text)
+            cmd.Parameters.AddWithValue("@name", TextBox_nameuser.Text)
+            cmd.Parameters.AddWithValue("@validity", vality) ' 1 أو 0 مثلاً حسب CheckBox أو اختيار آخر
+            cmd.Parameters.AddWithValue("@id", Convert.ToInt32(TextBox_id.Text))
+            Dim rowsAffected As Integer = cmd.ExecuteNonQuery()
+            conn.Close()
+
+            If rowsAffected > 0 Then
+                MessageBox.Show("تم تعديل المستخدم بنجاح", "تم", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                clear()
+            Else
+                MessageBox.Show("لم يتم العثور على المستخدم لتعديله", "تنبيه", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            End If
+
+        Catch ex As Exception
+            MessageBox.Show("خطأ أثناء التعديل: " & ex.Message)
+            conn.Close()
+        End Try
+        LoadAllUsers() 'الظهور فيgridview
     End Sub
 
     ' زر الحذف
     Private Sub Button_delete_Click(sender As Object, e As EventArgs) Handles Button_delete.Click
-        If TextBox_id.Text = "" Or Not IsNumeric(TextBox_id.Text) Then
-            MsgBox("الرجاء إدخال رقم المعرف بشكل صحيح", MsgBoxStyle.Critical)
+
+        If TextBox_id.Text.Trim() = "" Then
+            MessageBox.Show("يرجى إدخال رقم المستخدم للحذف", "تنبيه", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Exit Sub
         End If
 
-        Dim result As MsgBoxResult = MsgBox("هل أنت متأكد من الحذف؟", MsgBoxStyle.YesNo)
-        If result = MsgBoxResult.Yes Then
-            delete_user(CInt(TextBox_id.Text))
-            MsgBox("تم الحذف بنجاح", MsgBoxStyle.Information)
-            clear()
+        Dim result As DialogResult = MessageBox.Show("هل أنت متأكد من حذف هذا المستخدم؟", "تأكيد الحذف", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+        If result = DialogResult.Yes Then
+            Try
+                conn.Open()
+                Dim cmd As New SqlCommand("DELETE FROM users_table WHERE user_id = @id", conn)
+                cmd.Parameters.AddWithValue("@id", TextBox_id.Text)
+                Dim rowsAffected As Integer = cmd.ExecuteNonQuery()
+                conn.Close()
+
+                If rowsAffected > 0 Then
+                    MessageBox.Show("تم حذف المستخدم بنجاح", "تم", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    LoadAllUsers() ' لتحديث البيانات في DataGridView
+                Else
+                    MessageBox.Show("لم يتم العثور على مستخدم بهذا الرقم", "تنبيه", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                End If
+            Catch ex As Exception
+                MessageBox.Show("حدث خطأ أثناء الحذف: " & ex.Message)
+                conn.Close()
+            End Try
         End If
+        LoadAllUsers() 'الظهور فيgridview
     End Sub
+
 
     ' زر البحث
     Private Sub Button_search_Click(sender As Object, e As EventArgs) Handles Button_search.Click
@@ -140,22 +185,48 @@ Public Class user_form
             Exit Sub
         End If
 
-        Dim dt As DataTable = search_user(CInt(TextBox_id.Text))
-        If dt.Rows.Count > 0 Then
-            TextBox_nameuser.Text = dt.Rows(0)("user_name").ToString()
-            TextBox_passuser1.Text = dt.Rows(0)("user_password").ToString()
-            TextBox_passuser2.Text = dt.Rows(0)("user_password").ToString()
-            If CBool(dt.Rows(0)("user_validity")) Then
-                Radio_admin.Checked = True
-            Else
-                Radio_employee.Checked = True
+
+        SearchUserByID()
+        LoadAllUsers() 'الظهور فيgridview
+    End Sub
+    Private Sub SearchUserByID()
+        Try
+            conn.Open()
+            Dim cmd As New SqlCommand("SELECT user_id, user_password, user_name, user_validity FROM users_table WHERE user_id = @id", conn)
+            cmd.Parameters.AddWithValue("@id", TextBox_id.Text)
+
+            Dim dt As New DataTable()
+            Dim da As New SqlDataAdapter(cmd)
+            da.Fill(dt)
+            DataGridView1.DataSource = dt
+            conn.Close()
+
+            If dt.Rows.Count = 0 Then
+                MessageBox.Show("لم يتم العثور على مستخدم بهذا الرقم.", "تنبيه", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             End If
-            Button_add.Visible = False
-            Button_edit.Visible = True
-            Button_delete.Visible = True
-        Else
-            MsgBox("لا يوجد مستخدم بهذا الرقم", MsgBoxStyle.Information)
-        End If
+
+        Catch ex As Exception
+            MessageBox.Show("خطأ أثناء البحث: " & ex.Message)
+            conn.Close()
+        End Try
+
+    End Sub
+
+    'الظهور في الشاشه عند عمليات عرض حذ اضافه بحث
+
+    Private Sub LoadAllUsers()
+        Try
+            conn.Open()
+            Dim cmd As New SqlCommand("SELECT user_id, user_password, user_name, user_validity FROM users_table", conn)
+            Dim dt As New DataTable()
+            Dim da As New SqlDataAdapter(cmd)
+            da.Fill(dt)
+            DataGridView1.DataSource = dt
+            conn.Close()
+        Catch ex As Exception
+            MessageBox.Show("خطأ أثناء تحميل المستخدمين: " & ex.Message)
+            conn.Close()
+        End Try
     End Sub
 
     Private Sub user_form_Load(sender As Object, e As EventArgs) Handles MyBase.Load

@@ -30,7 +30,7 @@ Partial Class user_form
         Button_add = New Button()
         Button_delete = New Button()
         Button_search = New Button()
-        GroupBox1 = New GroupBox()
+        vality = New GroupBox()
         Radio_employee = New RadioButton()
         Radio_admin = New RadioButton()
         DataGridView1 = New DataGridView()
@@ -38,7 +38,7 @@ Partial Class user_form
         Label2 = New Label()
         Label3 = New Label()
         Label4 = New Label()
-        GroupBox1.SuspendLayout()
+        vality.SuspendLayout()
         CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
@@ -106,16 +106,16 @@ Partial Class user_form
         Button_search.Text = "عرض البيانات"
         Button_search.UseVisualStyleBackColor = True
         ' 
-        ' GroupBox1
+        ' vality
         ' 
-        GroupBox1.Controls.Add(Radio_employee)
-        GroupBox1.Controls.Add(Radio_admin)
-        GroupBox1.Location = New Point(12, 275)
-        GroupBox1.Name = "GroupBox1"
-        GroupBox1.Size = New Size(201, 72)
-        GroupBox1.TabIndex = 8
-        GroupBox1.TabStop = False
-        GroupBox1.Text = "صلاحية المستخدم"
+        vality.Controls.Add(Radio_employee)
+        vality.Controls.Add(Radio_admin)
+        vality.Location = New Point(12, 275)
+        vality.Name = "vality"
+        vality.Size = New Size(201, 72)
+        vality.TabIndex = 8
+        vality.TabStop = False
+        vality.Text = "صلاحية المستخدم"
         ' 
         ' Radio_employee
         ' 
@@ -146,7 +146,7 @@ Partial Class user_form
         DataGridView1.Location = New Point(315, 112)
         DataGridView1.Name = "DataGridView1"
         DataGridView1.RowHeadersWidth = 51
-        DataGridView1.Size = New Size(367, 331)
+        DataGridView1.Size = New Size(367, 326)
         DataGridView1.TabIndex = 9
         ' 
         ' Label1
@@ -196,7 +196,7 @@ Partial Class user_form
         Controls.Add(Label2)
         Controls.Add(Label1)
         Controls.Add(DataGridView1)
-        Controls.Add(GroupBox1)
+        Controls.Add(vality)
         Controls.Add(Button_search)
         Controls.Add(Button_delete)
         Controls.Add(Button_add)
@@ -212,8 +212,8 @@ Partial Class user_form
         RightToLeftLayout = True
         StartPosition = FormStartPosition.CenterScreen
         Text = "المستخدمين"
-        GroupBox1.ResumeLayout(False)
-        GroupBox1.PerformLayout()
+        vality.ResumeLayout(False)
+        vality.PerformLayout()
         CType(DataGridView1, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
         PerformLayout()
@@ -227,7 +227,7 @@ Partial Class user_form
     Friend WithEvents Button_add As Button
     Friend WithEvents Button_delete As Button
     Friend WithEvents Button_search As Button
-    Friend WithEvents GroupBox1 As GroupBox
+    Friend WithEvents vality As GroupBox
     Friend WithEvents Radio_employee As RadioButton
     Friend WithEvents Radio_admin As RadioButton
     Friend WithEvents DataGridView1 As DataGridView

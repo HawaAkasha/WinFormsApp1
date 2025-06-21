@@ -60,98 +60,92 @@ Public Class donor
     End Sub
 
     ' زر تسجيل التبرع
+
     Private Sub Button_donation_Click(sender As Object, e As EventArgs) Handles Button_donation.Click
-        If donor_name.Text = "" OrElse donor_number.Text = "" OrElse donor_id.Text = "" Then
-            MessageBox.Show("يرجى تعبئة جميع الحقول الأساسية.", "تنبيه", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        If donor_name.Text = "" OrElse donor_id.Text = "" OrElse donor_number.Text = "" OrElse TextBox_quantity.Text = "" Then
+            MessageBox.Show("يرجى تعبئة جميع الحقول.", "تنبيه", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Exit Sub
         End If
 
+        ' نوع التبرع
         Dim donationType As String = ""
         If CheckBox_money.Checked Then donationType &= "مالي, "
         If CheckBox_eat.Checked Then donationType &= "مواد غذائية, "
         If CheckBox_clothes.Checked Then donationType &= "ملابس, "
-        If CheckBox_medicine.Checked Then donationType &= "مستلزمات صحية, "
+        If CheckBox_medicine.Checked Then donationType &= "مستلزمات طبية, "
         donationType = donationType.TrimEnd(", ".ToCharArray())
 
-        Dim donationWay As String = ""
-        If cash.Checked Then donationWay = "نقدي"
-        If trance.Checked Then donationWay = "تحويل"
-        If delivery.Checked Then donationWay = "توصيل"
-
-        Dim details As String = ""
-        If TextBox_eat.Visible Then details &= "مواد غذائية: " & TextBox_eat.Text & vbCrLf
-        If TextBox_cloth.Visible Then details &= "ملابس: " & TextBox_cloth.Text & vbCrLf
-        If TextBox_medi.Visible Then details &= "مستلزمات صحية: " & TextBox_medi.Text & vbCrLf
+        ' طرق الدفع
+        Dim paymentMethod As String = ""
+        If cash.Checked Then paymentMethod &= "نقدي, "
+        If delivery.Checked Then paymentMethod &= "توصيل, "
+        If trance.Checked Then paymentMethod &= "تحويل, "
+        paymentMethod = paymentMethod.TrimEnd(", ".ToCharArray())
 
         Try
             conn.Open()
-            Dim cmd As New SqlCommand("INSERT INTO Donors_table (Donor_id, Donor_name, Phone_number)
-VALUES (@Donor_id, @Donor_name, @Phone_number, @DNational_id)", conn)
+            Dim cmd As New SqlCommand("INSERT INTO Donors_table 
+            (DonorName, PhoneNumber, DNational_id) 
+            VALUES (@name, @nid, @phone)", conn)
 
-            cmd.Parameters.AddWithValue("@Donor_id", donor_id.Text)
-            cmd.Parameters.AddWithValue("@Donor_name", donor_name.Text)
-            cmd.Parameters.AddWithValue("@Phone_number", donor_number.Text)
-
-            ' cmd.Parameters.AddWithValue("@type", donationType)
-            ' cmd.Parameters.AddWithValue("@way", donationWay)
-            ' cmd.Parameters.AddWithValue("@qty", Val(TextBox_quantity.Text))
-            ' cmd.Parameters.AddWithValue("@details", details)
+            cmd.Parameters.AddWithValue("@name", donor_name.Text)
+            cmd.Parameters.AddWithValue("@nid", donor_id.Text)
+            cmd.Parameters.AddWithValue("@phone", donor_number.Text)
 
             cmd.ExecuteNonQuery()
             conn.Close()
 
-            MessageBox.Show("تم تسجيل التبرع بنجاح!", "نجاح", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            MessageBox.Show("تمت إضافة التبرع بنجاح", "تم", MessageBoxButtons.OK, MessageBoxIcon.Information)
             ClearFields()
 
         Catch ex As Exception
-            MessageBox.Show("حدث خطأ أثناء الحفظ: " & ex.Message)
+            MessageBox.Show("خطأ أثناء الإضافة: " & ex.Message)
             conn.Close()
         End Try
-        If donor_name.Text = "" OrElse donor_number.Text = "" Then
-            MessageBox.Show("يرجى تعبئة بيانات المتبرع أولاً.", "تنبيه")
-            Exit Sub
-        End If
+
+
         '///////////////////////////////////////////////////////////////
         ' فتح شاشة التبرع وتمرير البيانات
-        Dim donationForm As New Donation()
-        donationForm.donorNameFromMain = donor_name.Text
-        donationForm.donorPhoneFromMain = donor_number.Text
-        donationForm.quantityFromMain = TextBox_quantity.Text
-        donationForm.CheckBoxmoney = CheckBox_money.Text
-        donationForm.CheckBoxeat = CheckBox_eat.Text
-        donationForm.CheckBoxclothes = CheckBox_clothes.Text
-        donationForm.CheckBoxmedicine = CheckBox_medicine.Text
-        donationForm.ShowDialog()
+        ' Dim donationForm As New Donation()
+        ' donationForm.donorNameFromMain = donor_name.Text
+        ' donationForm.donorPhoneFromMain = donor_number.Text
+        ' donationForm.quantityFromMain = TextBox_quantity.Text
+        ' donationForm.CheckBoxmoney = CheckBox_money.Text
+        ' donationForm.CheckBoxeat = CheckBox_eat.Text
+        ' donationForm.CheckBoxclothes = CheckBox_clothes.Text
+        ' donationForm.CheckBoxmedicine = CheckBox_medicine.Text
+        ' donationForm.ShowDialog()
         '//////////////////////////////////////////////
     End Sub
 
     ' زر حذف المتبرع
-    Private Sub Button_delete_Click(sender As Object, e As EventArgs) Handles Button_delete.Click
-        If donor_id.Text = "" Then
-            MessageBox.Show("يرجى إدخال رقم البطاقة لحذف المتبرع.", "تنبيه", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-            Exit Sub
-        End If
+    'مرات نلغيه
+    ' Private Sub Button_delete_Click(sender As Object, e As EventArgs) Handles Button_delete.Click
+    '    If donor_id.Text = "" Then
+    '   MessageBox.Show("يرجى إدخال رقم البطاقة لحذف المتبرع.", "تنبيه", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+    '   Exit Sub
+    '   End If
 
-        Try
-            conn.Open()
-            Dim cmd As New SqlCommand("DELETE FROM Donors_table WHERE Donor_id = @Donor_id", conn)
-            cmd.Parameters.AddWithValue("@Donor_id", donor_id.Text)
+    '  Try
+    '  conn.Open()
+    '  Dim cmd As New SqlCommand("DELETE FROM Donors_table WHERE Donor_id = @Donor_id", conn)
+    '  cmd.Parameters.AddWithValue("@Donor_id", donor_id.Text)
 
-            Dim rows = cmd.ExecuteNonQuery()
-            conn.Close()
+    ' Dim rows = cmd.ExecuteNonQuery()
+    '  conn.Close()
 
-            If rows > 0 Then
-                MessageBox.Show("تم حذف المتبرع بنجاح.", "نجاح")
-                ClearFields()
-            Else
-                MessageBox.Show("لم يتم العثور على متبرع بهذا الرقم.", "معلومة")
-            End If
+    ' If rows > 0 Then
+    ' MessageBox.Show("تم حذف المتبرع بنجاح.", "نجاح")
+    ' ClearFields()
+    ''  Else
+    '  MessageBox.Show("لم يتم العثور على متبرع بهذا الرقم.", "معلومة")
+    '  End If
 
-        Catch ex As Exception
-            MessageBox.Show("خطأ في الحذف: " & ex.Message)
-            conn.Close()
-        End Try
-    End Sub
+    '  Catch ex As Exception
+    '   MessageBox.Show("خطأ في الحذف: " & ex.Message)
+    ' conn.Close()
+    'End Try
+    ' End Sub
 
     ' تصفير الحقول
     Private Sub ClearFields()
@@ -174,4 +168,6 @@ VALUES (@Donor_id, @Donor_name, @Phone_number, @DNational_id)", conn)
         TextBox_eat.Visible = False
         TextBox_medi.Visible = False
     End Sub
+
+
 End Class
