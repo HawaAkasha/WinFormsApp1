@@ -43,12 +43,7 @@ Partial Class MedicalRecord
         Button_patient_save = New Button()
         Button_patient_close = New Button()
         Button_patient_delete = New Button()
-        GroupBox_update_patiant_case = New GroupBox()
-        RadioButton_stability1 = New RadioButton()
-        RadioButton_stability2 = New RadioButton()
-        RadioButton_stability3 = New RadioButton()
         CType(DataGridView_patient, ComponentModel.ISupportInitialize).BeginInit()
-        GroupBox_update_patiant_case.SuspendLayout()
         SuspendLayout()
         ' 
         ' patient_age
@@ -202,10 +197,10 @@ Partial Class MedicalRecord
         ' 
         DataGridView_patient.BackgroundColor = SystemColors.ButtonHighlight
         DataGridView_patient.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridView_patient.Location = New Point(284, 204)
+        DataGridView_patient.Location = New Point(284, 122)
         DataGridView_patient.Name = "DataGridView_patient"
         DataGridView_patient.RowHeadersWidth = 51
-        DataGridView_patient.Size = New Size(242, 293)
+        DataGridView_patient.Size = New Size(242, 340)
         DataGridView_patient.TabIndex = 81
         ' 
         ' Button_patient_save
@@ -219,9 +214,9 @@ Partial Class MedicalRecord
         ' 
         ' Button_patient_close
         ' 
-        Button_patient_close.Location = New Point(432, 537)
+        Button_patient_close.Location = New Point(432, 473)
         Button_patient_close.Name = "Button_patient_close"
-        Button_patient_close.Size = New Size(94, 29)
+        Button_patient_close.Size = New Size(94, 35)
         Button_patient_close.TabIndex = 83
         Button_patient_close.Text = "إلغاء"
         Button_patient_close.UseVisualStyleBackColor = True
@@ -235,58 +230,12 @@ Partial Class MedicalRecord
         Button_patient_delete.Text = "حذف"
         Button_patient_delete.UseVisualStyleBackColor = True
         ' 
-        ' GroupBox_update_patiant_case
-        ' 
-        GroupBox_update_patiant_case.Controls.Add(RadioButton_stability1)
-        GroupBox_update_patiant_case.Controls.Add(RadioButton_stability2)
-        GroupBox_update_patiant_case.Controls.Add(RadioButton_stability3)
-        GroupBox_update_patiant_case.Location = New Point(284, 110)
-        GroupBox_update_patiant_case.Name = "GroupBox_update_patiant_case"
-        GroupBox_update_patiant_case.Size = New Size(254, 77)
-        GroupBox_update_patiant_case.TabIndex = 85
-        GroupBox_update_patiant_case.TabStop = False
-        GroupBox_update_patiant_case.Text = "تحديث حالة المريض"
-        ' 
-        ' RadioButton_stability1
-        ' 
-        RadioButton_stability1.AutoSize = True
-        RadioButton_stability1.Location = New Point(180, 37)
-        RadioButton_stability1.Name = "RadioButton_stability1"
-        RadioButton_stability1.Size = New Size(67, 24)
-        RadioButton_stability1.TabIndex = 12
-        RadioButton_stability1.TabStop = True
-        RadioButton_stability1.Text = "تحسن"
-        RadioButton_stability1.UseVisualStyleBackColor = True
-        ' 
-        ' RadioButton_stability2
-        ' 
-        RadioButton_stability2.AutoSize = True
-        RadioButton_stability2.Location = New Point(107, 37)
-        RadioButton_stability2.Name = "RadioButton_stability2"
-        RadioButton_stability2.Size = New Size(67, 24)
-        RadioButton_stability2.TabIndex = 11
-        RadioButton_stability2.TabStop = True
-        RadioButton_stability2.Text = "تدهور"
-        RadioButton_stability2.UseVisualStyleBackColor = True
-        ' 
-        ' RadioButton_stability3
-        ' 
-        RadioButton_stability3.AutoSize = True
-        RadioButton_stability3.Location = New Point(6, 37)
-        RadioButton_stability3.Name = "RadioButton_stability3"
-        RadioButton_stability3.Size = New Size(100, 24)
-        RadioButton_stability3.TabIndex = 16
-        RadioButton_stability3.TabStop = True
-        RadioButton_stability3.Text = "تغيير العلاج"
-        RadioButton_stability3.UseVisualStyleBackColor = True
-        ' 
         ' MedicalRecord
         ' 
         AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = SystemColors.ButtonHighlight
         ClientSize = New Size(549, 588)
-        Controls.Add(GroupBox_update_patiant_case)
         Controls.Add(Button_patient_delete)
         Controls.Add(Button_patient_close)
         Controls.Add(Button_patient_save)
@@ -316,8 +265,6 @@ Partial Class MedicalRecord
         StartPosition = FormStartPosition.CenterScreen
         Text = "شاشة السجل الطبي"
         CType(DataGridView_patient, ComponentModel.ISupportInitialize).EndInit()
-        GroupBox_update_patiant_case.ResumeLayout(False)
-        GroupBox_update_patiant_case.PerformLayout()
         ResumeLayout(False)
         PerformLayout()
     End Sub
@@ -343,8 +290,4 @@ Partial Class MedicalRecord
     Friend WithEvents Button_patient_save As Button
     Friend WithEvents Button_patient_close As Button
     Friend WithEvents Button_patient_delete As Button
-    Friend WithEvents GroupBox_update_patiant_case As GroupBox
-    Friend WithEvents RadioButton_stability1 As RadioButton
-    Friend WithEvents RadioButton_stability2 As RadioButton
-    Friend WithEvents RadioButton_stability3 As RadioButton
 End Class

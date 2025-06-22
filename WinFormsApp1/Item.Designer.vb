@@ -22,6 +22,7 @@ Partial Class Item
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Button_close = New Button()
         Button_delete = New Button()
         Button_save = New Button()
@@ -71,6 +72,14 @@ Partial Class Item
         ' 
         DataGridView_item.BackgroundColor = SystemColors.ButtonHighlight
         DataGridView_item.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        DataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = SystemColors.Window
+        DataGridViewCellStyle1.Font = New Font("Arial Narrow", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        DataGridViewCellStyle1.ForeColor = SystemColors.ControlText
+        DataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = DataGridViewTriState.False
+        DataGridView_item.DefaultCellStyle = DataGridViewCellStyle1
         DataGridView_item.Location = New Point(265, 28)
         DataGridView_item.Name = "DataGridView_item"
         DataGridView_item.RowHeadersWidth = 51
@@ -160,6 +169,7 @@ Partial Class Item
         ' ComboBox_item_class
         ' 
         ComboBox_item_class.FormattingEnabled = True
+        ComboBox_item_class.Items.AddRange(New Object() {"ملابس", "مواد غذائية", "مستلزمات صحية", "تبرع مالي"})
         ComboBox_item_class.Location = New Point(32, 202)
         ComboBox_item_class.Name = "ComboBox_item_class"
         ComboBox_item_class.Size = New Size(188, 28)
