@@ -5,8 +5,8 @@ Public Class Subscriber
     Sub clear()
 
     End Sub
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button_yeshave.Click
-        family.Show()
+    Private Sub Button1_Click(sender As Object, e As EventArgs)
+        family.Show
     End Sub
 
 
@@ -247,7 +247,13 @@ Public Class Subscriber
             conn.Close()
         End Try
 
+        Dim hasFamily As DialogResult = MessageBox.Show("هل يمتلك هذا المشترك عائلة؟", "تأكيد", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
 
+        If hasFamily = DialogResult.Yes Then
+            ' تمرير رقم المشترك إلى نموذج العائلة
+            family.SubscriberID = sup_id.Text
+            family.ShowDialog() ' إظهار فورم العائلة كنافذة مؤقتة
+        End If
 
 
 

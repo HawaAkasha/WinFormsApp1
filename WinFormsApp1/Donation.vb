@@ -23,5 +23,7 @@ Public Class Donation
         End Try
     End Sub
 
+    Private Sub DateTimePicker_ValueChanged(sender As Object, e As EventArgs) Handles DateTimePicker.ValueChanged
 
+    End Sub
 End Class

@@ -28,16 +28,6 @@ Partial Class family
         txtName = New TextBox()
         txtAge = New TextBox()
         txtRelation = New TextBox()
-        txtDisabiltyType = New TextBox()
-        Label_siketype = New Label()
-        CheckBox_sikeBenignant = New CheckBox()
-        CheckBox_sikeHindring = New CheckBox()
-        CheckBox_sikeSly = New CheckBox()
-        CheckBox_sikeSuger = New CheckBox()
-        CheckBox_sikePressure = New CheckBox()
-        Label1 = New Label()
-        txtDiseaseDetails = New TextBox()
-        GroupBox_work = New GroupBox()
         rdoWorks = New RadioButton()
         rdoDoesNotWork = New RadioButton()
         GroupBox_treatment = New GroupBox()
@@ -52,7 +42,14 @@ Partial Class family
         txtNotes = New TextBox()
         btnRegister = New Button()
         btnClear = New Button()
-        GroupBox_work.SuspendLayout()
+        CheckBox_sikePressure = New CheckBox()
+        CheckBox_sikeSuger = New CheckBox()
+        CheckBox_sikeHindring = New CheckBox()
+        CheckBox_sikeSly = New CheckBox()
+        CheckBox_sikeBenignant = New CheckBox()
+        txtDisabiltyType = New TextBox()
+        Label7 = New Label()
+        Label8 = New Label()
         GroupBox_treatment.SuspendLayout()
         GroupBox_NeedSupport.SuspendLayout()
         SuspendLayout()
@@ -105,104 +102,10 @@ Partial Class family
         txtRelation.Size = New Size(184, 27)
         txtRelation.TabIndex = 42
         ' 
-        ' txtDisabiltyType
-        ' 
-        txtDisabiltyType.Location = New Point(125, 331)
-        txtDisabiltyType.Name = "txtDisabiltyType"
-        txtDisabiltyType.Size = New Size(119, 27)
-        txtDisabiltyType.TabIndex = 63
-        txtDisabiltyType.Text = "ادخل نوع الاعاقة"
-        ' 
-        ' Label_siketype
-        ' 
-        Label_siketype.AutoSize = True
-        Label_siketype.Location = New Point(40, 246)
-        Label_siketype.Name = "Label_siketype"
-        Label_siketype.Size = New Size(78, 20)
-        Label_siketype.TabIndex = 62
-        Label_siketype.Text = "نوع المرض"
-        ' 
-        ' CheckBox_sikeBenignant
-        ' 
-        CheckBox_sikeBenignant.AutoSize = True
-        CheckBox_sikeBenignant.Location = New Point(40, 391)
-        CheckBox_sikeBenignant.Name = "CheckBox_sikeBenignant"
-        CheckBox_sikeBenignant.Size = New Size(116, 24)
-        CheckBox_sikeBenignant.TabIndex = 61
-        CheckBox_sikeBenignant.Text = "امراض حميدة"
-        CheckBox_sikeBenignant.UseVisualStyleBackColor = True
-        ' 
-        ' CheckBox_sikeHindring
-        ' 
-        CheckBox_sikeHindring.AutoSize = True
-        CheckBox_sikeHindring.Location = New Point(40, 331)
-        CheckBox_sikeHindring.Name = "CheckBox_sikeHindring"
-        CheckBox_sikeHindring.Size = New Size(64, 24)
-        CheckBox_sikeHindring.TabIndex = 60
-        CheckBox_sikeHindring.Text = "اعاقة"
-        CheckBox_sikeHindring.UseVisualStyleBackColor = True
-        ' 
-        ' CheckBox_sikeSly
-        ' 
-        CheckBox_sikeSly.AutoSize = True
-        CheckBox_sikeSly.Location = New Point(40, 361)
-        CheckBox_sikeSly.Name = "CheckBox_sikeSly"
-        CheckBox_sikeSly.Size = New Size(109, 24)
-        CheckBox_sikeSly.TabIndex = 59
-        CheckBox_sikeSly.Text = "امراض خبيثة"
-        CheckBox_sikeSly.UseVisualStyleBackColor = True
-        ' 
-        ' CheckBox_sikeSuger
-        ' 
-        CheckBox_sikeSuger.AutoSize = True
-        CheckBox_sikeSuger.Location = New Point(40, 301)
-        CheckBox_sikeSuger.Name = "CheckBox_sikeSuger"
-        CheckBox_sikeSuger.Size = New Size(58, 24)
-        CheckBox_sikeSuger.TabIndex = 58
-        CheckBox_sikeSuger.Text = "سكر"
-        CheckBox_sikeSuger.UseVisualStyleBackColor = True
-        ' 
-        ' CheckBox_sikePressure
-        ' 
-        CheckBox_sikePressure.AutoSize = True
-        CheckBox_sikePressure.Location = New Point(40, 271)
-        CheckBox_sikePressure.Name = "CheckBox_sikePressure"
-        CheckBox_sikePressure.Size = New Size(68, 24)
-        CheckBox_sikePressure.TabIndex = 57
-        CheckBox_sikePressure.Text = "ضغط"
-        CheckBox_sikePressure.UseVisualStyleBackColor = True
-        ' 
-        ' Label1
-        ' 
-        Label1.AutoSize = True
-        Label1.Location = New Point(40, 433)
-        Label1.Name = "Label1"
-        Label1.Size = New Size(103, 20)
-        Label1.TabIndex = 65
-        Label1.Text = "تفاصيل المرض"
-        ' 
-        ' txtDiseaseDetails
-        ' 
-        txtDiseaseDetails.Location = New Point(45, 456)
-        txtDiseaseDetails.Name = "txtDiseaseDetails"
-        txtDiseaseDetails.Size = New Size(184, 27)
-        txtDiseaseDetails.TabIndex = 64
-        ' 
-        ' GroupBox_work
-        ' 
-        GroupBox_work.Controls.Add(rdoWorks)
-        GroupBox_work.Controls.Add(rdoDoesNotWork)
-        GroupBox_work.Location = New Point(294, 40)
-        GroupBox_work.Name = "GroupBox_work"
-        GroupBox_work.Size = New Size(188, 67)
-        GroupBox_work.TabIndex = 66
-        GroupBox_work.TabStop = False
-        GroupBox_work.Text = "الحالة الوظيفية"
-        ' 
         ' rdoWorks
         ' 
         rdoWorks.AutoSize = True
-        rdoWorks.Location = New Point(119, 26)
+        rdoWorks.Location = New Point(41, 461)
         rdoWorks.Name = "rdoWorks"
         rdoWorks.Size = New Size(63, 24)
         rdoWorks.TabIndex = 17
@@ -213,7 +116,7 @@ Partial Class family
         ' rdoDoesNotWork
         ' 
         rdoDoesNotWork.AutoSize = True
-        rdoDoesNotWork.Location = New Point(24, 26)
+        rdoDoesNotWork.Location = New Point(110, 463)
         rdoDoesNotWork.Name = "rdoDoesNotWork"
         rdoDoesNotWork.Size = New Size(76, 24)
         rdoDoesNotWork.TabIndex = 18
@@ -225,7 +128,7 @@ Partial Class family
         ' 
         GroupBox_treatment.Controls.Add(rdoTreatmentYes)
         GroupBox_treatment.Controls.Add(rdoTreatmentNo)
-        GroupBox_treatment.Location = New Point(294, 133)
+        GroupBox_treatment.Location = New Point(280, 40)
         GroupBox_treatment.Name = "GroupBox_treatment"
         GroupBox_treatment.Size = New Size(188, 67)
         GroupBox_treatment.TabIndex = 67
@@ -258,7 +161,7 @@ Partial Class family
         ' 
         GroupBox_NeedSupport.Controls.Add(rdoSupportYes)
         GroupBox_NeedSupport.Controls.Add(rdoSupportNo)
-        GroupBox_NeedSupport.Location = New Point(294, 228)
+        GroupBox_NeedSupport.Location = New Point(280, 135)
         GroupBox_NeedSupport.Name = "GroupBox_NeedSupport"
         GroupBox_NeedSupport.Size = New Size(188, 67)
         GroupBox_NeedSupport.TabIndex = 68
@@ -290,7 +193,7 @@ Partial Class family
         ' Label2
         ' 
         Label2.AutoSize = True
-        Label2.Location = New Point(300, 366)
+        Label2.Location = New Point(284, 306)
         Label2.Name = "Label2"
         Label2.Size = New Size(115, 20)
         Label2.TabIndex = 72
@@ -299,7 +202,7 @@ Partial Class family
         ' Label6
         ' 
         Label6.AutoSize = True
-        Label6.Location = New Point(300, 305)
+        Label6.Location = New Point(284, 222)
         Label6.Name = "Label6"
         Label6.Size = New Size(75, 20)
         Label6.TabIndex = 71
@@ -307,21 +210,21 @@ Partial Class family
         ' 
         ' txtTreatmentType
         ' 
-        txtTreatmentType.Location = New Point(300, 328)
+        txtTreatmentType.Location = New Point(284, 245)
         txtTreatmentType.Name = "txtTreatmentType"
         txtTreatmentType.Size = New Size(184, 27)
         txtTreatmentType.TabIndex = 70
         ' 
         ' txtNotes
         ' 
-        txtNotes.Location = New Point(300, 389)
+        txtNotes.Location = New Point(284, 329)
         txtNotes.Name = "txtNotes"
         txtNotes.Size = New Size(184, 27)
         txtNotes.TabIndex = 69
         ' 
         ' btnRegister
         ' 
-        btnRegister.Location = New Point(357, 456)
+        btnRegister.Location = New Point(240, 482)
         btnRegister.Name = "btnRegister"
         btnRegister.Size = New Size(119, 36)
         btnRegister.TabIndex = 73
@@ -330,19 +233,105 @@ Partial Class family
         ' 
         ' btnClear
         ' 
-        btnClear.Location = New Point(357, 498)
+        btnClear.Location = New Point(365, 482)
         btnClear.Name = "btnClear"
         btnClear.Size = New Size(119, 36)
         btnClear.TabIndex = 74
         btnClear.Text = "حذف"
         btnClear.UseVisualStyleBackColor = True
         ' 
+        ' CheckBox_sikePressure
+        ' 
+        CheckBox_sikePressure.AutoSize = True
+        CheckBox_sikePressure.Location = New Point(42, 268)
+        CheckBox_sikePressure.Name = "CheckBox_sikePressure"
+        CheckBox_sikePressure.Size = New Size(68, 24)
+        CheckBox_sikePressure.TabIndex = 22
+        CheckBox_sikePressure.Text = "ضغط"
+        CheckBox_sikePressure.UseVisualStyleBackColor = True
+        ' 
+        ' CheckBox_sikeSuger
+        ' 
+        CheckBox_sikeSuger.AutoSize = True
+        CheckBox_sikeSuger.Location = New Point(42, 298)
+        CheckBox_sikeSuger.Name = "CheckBox_sikeSuger"
+        CheckBox_sikeSuger.Size = New Size(58, 24)
+        CheckBox_sikeSuger.TabIndex = 23
+        CheckBox_sikeSuger.Text = "سكر"
+        CheckBox_sikeSuger.UseVisualStyleBackColor = True
+        ' 
+        ' CheckBox_sikeHindring
+        ' 
+        CheckBox_sikeHindring.AutoSize = True
+        CheckBox_sikeHindring.Location = New Point(40, 331)
+        CheckBox_sikeHindring.Name = "CheckBox_sikeHindring"
+        CheckBox_sikeHindring.Size = New Size(64, 24)
+        CheckBox_sikeHindring.TabIndex = 25
+        CheckBox_sikeHindring.Text = "اعاقة"
+        CheckBox_sikeHindring.UseVisualStyleBackColor = True
+        ' 
+        ' CheckBox_sikeSly
+        ' 
+        CheckBox_sikeSly.AutoSize = True
+        CheckBox_sikeSly.Location = New Point(40, 361)
+        CheckBox_sikeSly.Name = "CheckBox_sikeSly"
+        CheckBox_sikeSly.Size = New Size(109, 24)
+        CheckBox_sikeSly.TabIndex = 24
+        CheckBox_sikeSly.Text = "امراض خبيثة"
+        CheckBox_sikeSly.UseVisualStyleBackColor = True
+        ' 
+        ' CheckBox_sikeBenignant
+        ' 
+        CheckBox_sikeBenignant.AutoSize = True
+        CheckBox_sikeBenignant.Location = New Point(40, 393)
+        CheckBox_sikeBenignant.Name = "CheckBox_sikeBenignant"
+        CheckBox_sikeBenignant.Size = New Size(116, 24)
+        CheckBox_sikeBenignant.TabIndex = 26
+        CheckBox_sikeBenignant.Text = "امراض حميدة"
+        CheckBox_sikeBenignant.UseVisualStyleBackColor = True
+        ' 
+        ' txtDisabiltyType
+        ' 
+        txtDisabiltyType.Location = New Point(110, 332)
+        txtDisabiltyType.Name = "txtDisabiltyType"
+        txtDisabiltyType.Size = New Size(119, 27)
+        txtDisabiltyType.TabIndex = 56
+        txtDisabiltyType.Text = "ادخل نوع الاعاقة"
+        ' 
+        ' Label7
+        ' 
+        Label7.AutoSize = True
+        Label7.Location = New Point(40, 245)
+        Label7.Name = "Label7"
+        Label7.Size = New Size(78, 20)
+        Label7.TabIndex = 75
+        Label7.Text = "نوع المرض"
+        ' 
+        ' Label8
+        ' 
+        Label8.AutoSize = True
+        Label8.Location = New Point(41, 438)
+        Label8.Name = "Label8"
+        Label8.Size = New Size(104, 20)
+        Label8.TabIndex = 76
+        Label8.Text = "الحالة الوظيفية"
+        ' 
         ' family
         ' 
-        AutoScaleDimensions = New SizeF(8F, 20F)
+        AutoScaleDimensions = New SizeF(8.0F, 20.0F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = SystemColors.ButtonHighlight
         ClientSize = New Size(515, 555)
+        Controls.Add(Label8)
+        Controls.Add(rdoDoesNotWork)
+        Controls.Add(rdoWorks)
+        Controls.Add(Label7)
+        Controls.Add(txtDisabiltyType)
+        Controls.Add(CheckBox_sikeBenignant)
+        Controls.Add(CheckBox_sikeSly)
+        Controls.Add(CheckBox_sikeHindring)
+        Controls.Add(CheckBox_sikeSuger)
+        Controls.Add(CheckBox_sikePressure)
         Controls.Add(btnClear)
         Controls.Add(btnRegister)
         Controls.Add(Label2)
@@ -351,16 +340,6 @@ Partial Class family
         Controls.Add(txtNotes)
         Controls.Add(GroupBox_NeedSupport)
         Controls.Add(GroupBox_treatment)
-        Controls.Add(GroupBox_work)
-        Controls.Add(Label1)
-        Controls.Add(txtDiseaseDetails)
-        Controls.Add(txtDisabiltyType)
-        Controls.Add(Label_siketype)
-        Controls.Add(CheckBox_sikeBenignant)
-        Controls.Add(CheckBox_sikeHindring)
-        Controls.Add(CheckBox_sikeSly)
-        Controls.Add(CheckBox_sikeSuger)
-        Controls.Add(CheckBox_sikePressure)
         Controls.Add(Label5)
         Controls.Add(Label4)
         Controls.Add(Label3)
@@ -374,8 +353,6 @@ Partial Class family
         RightToLeftLayout = True
         StartPosition = FormStartPosition.CenterScreen
         Text = "شاشة تسجيل عائلة"
-        GroupBox_work.ResumeLayout(False)
-        GroupBox_work.PerformLayout()
         GroupBox_treatment.ResumeLayout(False)
         GroupBox_treatment.PerformLayout()
         GroupBox_NeedSupport.ResumeLayout(False)
@@ -389,16 +366,6 @@ Partial Class family
     Friend WithEvents txtName As TextBox
     Friend WithEvents txtAge As TextBox
     Friend WithEvents txtRelation As TextBox
-    Friend WithEvents txtDisabiltyType As TextBox
-    Friend WithEvents Label_siketype As Label
-    Friend WithEvents CheckBox_sikeBenignant As CheckBox
-    Friend WithEvents CheckBox_sikeHindring As CheckBox
-    Friend WithEvents CheckBox_sikeSly As CheckBox
-    Friend WithEvents CheckBox_sikeSuger As CheckBox
-    Friend WithEvents CheckBox_sikePressure As CheckBox
-    Friend WithEvents Label1 As Label
-    Friend WithEvents txtDiseaseDetails As TextBox
-    Friend WithEvents GroupBox_work As GroupBox
     Friend WithEvents rdoWorks As RadioButton
     Friend WithEvents rdoDoesNotWork As RadioButton
     Friend WithEvents GroupBox_treatment As GroupBox
@@ -413,4 +380,12 @@ Partial Class family
     Friend WithEvents txtNotes As TextBox
     Friend WithEvents btnRegister As Button
     Friend WithEvents btnClear As Button
+    Friend WithEvents CheckBox_sikePressure As CheckBox
+    Friend WithEvents CheckBox_sikeSuger As CheckBox
+    Friend WithEvents CheckBox_sikeHindring As CheckBox
+    Friend WithEvents CheckBox_sikeSly As CheckBox
+    Friend WithEvents CheckBox_sikeBenignant As CheckBox
+    Friend WithEvents txtDisabiltyType As TextBox
+    Friend WithEvents Label7 As Label
+    Friend WithEvents Label8 As Label
 End Class

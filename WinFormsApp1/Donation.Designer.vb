@@ -122,6 +122,7 @@ Partial Class Donation
         DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
         DataGridView1.Location = New Point(341, 108)
         DataGridView1.Name = "DataGridView1"
+        DataGridView1.ReadOnly = True
         DataGridView1.RowHeadersWidth = 51
         DataGridView1.Size = New Size(276, 392)
         DataGridView1.TabIndex = 79

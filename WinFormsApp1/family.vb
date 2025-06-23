@@ -1,85 +1,89 @@
-﻿Public Class family
+﻿Imports System.Data.SqlClient
 
+Public Class family
+    Public Property SubscriberID As String
+    Dim conn As New SqlConnection("Data Source=DESKTOP-OA3F4SP\SQLEXPRESS;Initial Catalog=Project_DB;Integrated Security=True")
 
-    ' زر التسجيل
     Private Sub btnRegister_Click(sender As Object, e As EventArgs) Handles btnRegister.Click
+        ' التحقق من البيانات
         If String.IsNullOrWhiteSpace(txtName.Text) OrElse
            String.IsNullOrWhiteSpace(txtAge.Text) OrElse
-           String.IsNullOrWhiteSpace(txtRelation.Text) OrElse
-           Not (rdoWorks.Checked Or rdoDoesNotWork.Checked) OrElse
-           Not (rdoTreatmentYes.Checked Or rdoTreatmentNo.Checked) OrElse
-           Not (rdoSupportYes.Checked Or rdoSupportNo.Checked) OrElse
-           String.IsNullOrWhiteSpace(txtTreatmentType.Text) OrElse
-           String.IsNullOrWhiteSpace(txtDiseaseDetails.Text) Then
+           String.IsNullOrWhiteSpace(txtRelation.Text) Then
 
             MessageBox.Show("يرجى ملء جميع الحقول المطلوبة.", "تنبيه", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Exit Sub
         End If
 
-        ' إذا تم اختيار "إعاقة" يجب إدخال نوع الإعاقة
+        ' التحقق من الإعاقة
         If CheckBox_sikeHindring.Checked AndAlso String.IsNullOrWhiteSpace(txtDisabiltyType.Text) Then
             MessageBox.Show("يرجى إدخال نوع الإعاقة.", "تنبيه", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Exit Sub
         End If
-        Dim name As String = txtName.Text
-        Dim age As String = txtAge.Text
-        Dim relation As String = txtRelation.Text
-        Dim employmentStatus As String = If(rdoWorks.Checked, "يعمل", "لا يعمل")
-        Dim receivesTreatment As String = If(rdoTreatmentYes.Checked, "نعم", "لا")
-        Dim needsSupport As String = If(rdoSupportYes.Checked, "نعم", "لا")
-        Dim treatmentType As String = txtTreatmentType.Text
-        Dim notes As String = txtNotes.Text
-        Dim diseaseDetails As String = txtDiseaseDetails.Text
 
-        ' تجميع الأمراض المحددة
+        ' تجميع نوع المرض
         Dim diseaseTypes As String = ""
         If CheckBox_sikePressure.Checked Then diseaseTypes &= "ضغط، "
         If CheckBox_sikeSuger.Checked Then diseaseTypes &= "سكر، "
-        If CheckBox_sikeHindring.Checked Then diseaseTypes &= "إعاقة، "
+        If CheckBox_sikeHindring.Checked Then diseaseTypes &= "إعاقة: " & txtDisabiltyType.Text & "، "
         If CheckBox_sikeSly.Checked Then diseaseTypes &= "أمراض خبيثة، "
         If CheckBox_sikeBenignant.Checked Then diseaseTypes &= "أمراض حميدة، "
+        If diseaseTypes.EndsWith("، ") Then diseaseTypes = diseaseTypes.Substring(0, diseaseTypes.Length - 2)
 
-        If diseaseTypes.EndsWith("، ") Then
-            diseaseTypes = diseaseTypes.Substring(0, diseaseTypes.Length - 2)
+        ' الحالة الوظيفية
+        Dim employmentStatus As String = ""
+        If rdoWorks.Checked Then
+            employmentStatus = "يعمل"
+        ElseIf rdoDoesNotWork.Checked Then
+            employmentStatus = "لا يعمل"
         End If
 
-        ' مثال: عرض البيانات في MessageBox (يمكن استبدالها بعملية إدخال قاعدة بيانات)
-        MessageBox.Show("تم تسجيل المريض بنجاح:" & vbCrLf &
-                    "الاسم: " & name & vbCrLf &
-                    "العمر: " & age & vbCrLf &
-                    "القرابة: " & relation & vbCrLf &
-                    "الحالة الوظيفية: " & employmentStatus & vbCrLf &
-                    "يتلقى علاج: " & receivesTreatment & vbCrLf &
-                    "يحتاج دعم: " & needsSupport & vbCrLf &
-                    "نوع العلاج: " & treatmentType & vbCrLf &
-                    "نوع المرض: " & diseaseTypes & vbCrLf &
-                    "تفاصيل: " & diseaseDetails & vbCrLf &
-                    "ملاحظات: " & notes)
+        Try
+            Dim cmd As New SqlCommand("INSERT INTO Family_table (Subscriber_id, Name, Age, Relationship, Disease_id, Employmentstatus)
+                                       VALUES (@Subscriber_id, @Name, @Age, @Relationship, @Disease_id, @Employmentstatus)", conn)
+
+            cmd.Parameters.AddWithValue("@Subscriber_id", SubscriberID)
+            cmd.Parameters.AddWithValue("@Name", txtName.Text)
+            cmd.Parameters.AddWithValue("@Age", Convert.ToInt32(txtAge.Text))
+            cmd.Parameters.AddWithValue("@Relationship", txtRelation.Text)
+            cmd.Parameters.AddWithValue("@Disease_id", diseaseTypes)
+            cmd.Parameters.AddWithValue("@Employmentstatus", employmentStatus)
+
+
+            conn.Open()
+            cmd.ExecuteNonQuery()
+            conn.Close()
+
+            MessageBox.Show("✅ تم حفظ أفراد العائلة بنجاح.", "تم", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            clearFields()
+
+        Catch ex As Exception
+            MessageBox.Show("❌ خطأ أثناء حفظ بيانات العائلة: " & ex.Message)
+            conn.Close()
+        End Try
     End Sub
 
-    ' زر الحذف (لتصفير الحقول)
-    Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
+    ' دالة لتصفير الحقول
+    Sub clearFields()
         txtName.Clear()
         txtAge.Clear()
         txtRelation.Clear()
         txtTreatmentType.Clear()
         txtNotes.Clear()
-        txtDiseaseDetails.Clear()
-
-        rdoWorks.Checked = False
-        rdoDoesNotWork.Checked = False
-
-        rdoTreatmentYes.Checked = False
-        rdoTreatmentNo.Checked = False
-
-        rdoSupportYes.Checked = False
-        rdoSupportNo.Checked = False
+        txtDisabiltyType.Clear()
 
         CheckBox_sikePressure.Checked = False
         CheckBox_sikeSuger.Checked = False
         CheckBox_sikeHindring.Checked = False
         CheckBox_sikeSly.Checked = False
         CheckBox_sikeBenignant.Checked = False
+
+        rdoWorks.Checked = False
+        rdoDoesNotWork.Checked = False
+
+        rdoTreatmentYes.Checked = False
+        rdoTreatmentNo.Checked = False
+        rdoSupportYes.Checked = False
+        rdoSupportNo.Checked = False
     End Sub
 
     Private Sub CheckBox_sikeHindring_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox_sikeHindring.CheckedChanged
@@ -88,5 +92,12 @@
 
     Private Sub family_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         txtDisabiltyType.Visible = False
+        clearFields()
+        rdoSupportYes.Checked = False
+        rdoSupportNo.Checked = False
     End Sub
+
+
 End Class
+
+

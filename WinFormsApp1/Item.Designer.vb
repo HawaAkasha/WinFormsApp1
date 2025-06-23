@@ -82,6 +82,7 @@ Partial Class Item
         DataGridView_item.DefaultCellStyle = DataGridViewCellStyle1
         DataGridView_item.Location = New Point(265, 28)
         DataGridView_item.Name = "DataGridView_item"
+        DataGridView_item.ReadOnly = True
         DataGridView_item.RowHeadersWidth = 51
         DataGridView_item.Size = New Size(300, 343)
         DataGridView_item.TabIndex = 91

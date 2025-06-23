@@ -40,71 +40,64 @@ Partial Class needs
         ' 
         ' TextBox_sub_name
         ' 
-        TextBox_sub_name.Location = New Point(19, 52)
-        TextBox_sub_name.Margin = New Padding(3, 2, 3, 2)
+        TextBox_sub_name.Location = New Point(22, 69)
         TextBox_sub_name.Name = "TextBox_sub_name"
-        TextBox_sub_name.Size = New Size(183, 23)
+        TextBox_sub_name.Size = New Size(209, 27)
         TextBox_sub_name.TabIndex = 0
         ' 
         ' TextBox_quantity
         ' 
-        TextBox_quantity.Location = New Point(19, 295)
-        TextBox_quantity.Margin = New Padding(3, 2, 3, 2)
+        TextBox_quantity.Location = New Point(22, 393)
         TextBox_quantity.Name = "TextBox_quantity"
-        TextBox_quantity.Size = New Size(183, 23)
+        TextBox_quantity.Size = New Size(209, 27)
         TextBox_quantity.TabIndex = 1
         ' 
         ' TextBox_item_name
         ' 
-        TextBox_item_name.Location = New Point(19, 231)
-        TextBox_item_name.Margin = New Padding(3, 2, 3, 2)
+        TextBox_item_name.Location = New Point(22, 308)
         TextBox_item_name.Name = "TextBox_item_name"
-        TextBox_item_name.Size = New Size(183, 23)
+        TextBox_item_name.Size = New Size(209, 27)
         TextBox_item_name.TabIndex = 2
         ' 
         ' TextBox_item_type
         ' 
-        TextBox_item_type.Location = New Point(19, 174)
-        TextBox_item_type.Margin = New Padding(3, 2, 3, 2)
+        TextBox_item_type.Location = New Point(22, 232)
         TextBox_item_type.Name = "TextBox_item_type"
-        TextBox_item_type.Size = New Size(183, 23)
+        TextBox_item_type.Size = New Size(209, 27)
         TextBox_item_type.TabIndex = 3
         ' 
         ' family_relate
         ' 
-        family_relate.Location = New Point(19, 112)
-        family_relate.Margin = New Padding(3, 2, 3, 2)
+        family_relate.Location = New Point(22, 149)
         family_relate.Name = "family_relate"
-        family_relate.Size = New Size(183, 23)
+        family_relate.Size = New Size(209, 27)
         family_relate.TabIndex = 4
         ' 
         ' DataGridView_need
         ' 
         DataGridView_need.BackgroundColor = SystemColors.ButtonHighlight
         DataGridView_need.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridView_need.Location = New Point(270, 52)
-        DataGridView_need.Margin = New Padding(3, 2, 3, 2)
+        DataGridView_need.Location = New Point(309, 69)
         DataGridView_need.Name = "DataGridView_need"
+        DataGridView_need.ReadOnly = True
         DataGridView_need.RowHeadersWidth = 51
-        DataGridView_need.Size = New Size(229, 239)
+        DataGridView_need.Size = New Size(262, 319)
         DataGridView_need.TabIndex = 6
         ' 
         ' Button_save
         ' 
-        Button_save.Location = New Point(332, 295)
-        Button_save.Margin = New Padding(3, 2, 3, 2)
+        Button_save.Location = New Point(379, 393)
         Button_save.Name = "Button_save"
-        Button_save.Size = New Size(82, 22)
+        Button_save.Size = New Size(94, 29)
         Button_save.TabIndex = 7
         Button_save.Text = "حفظ"
         Button_save.UseVisualStyleBackColor = True
         ' 
         ' Button_delete
         ' 
-        Button_delete.Location = New Point(416, 295)
-        Button_delete.Margin = New Padding(3, 2, 3, 2)
+        Button_delete.Location = New Point(475, 393)
         Button_delete.Name = "Button_delete"
-        Button_delete.Size = New Size(82, 22)
+        Button_delete.Size = New Size(94, 29)
         Button_delete.TabIndex = 8
         Button_delete.Text = "حذف"
         Button_delete.UseVisualStyleBackColor = True
@@ -112,54 +105,54 @@ Partial Class needs
         ' Label1
         ' 
         Label1.AutoSize = True
-        Label1.Location = New Point(19, 35)
+        Label1.Location = New Point(22, 47)
         Label1.Name = "Label1"
-        Label1.Size = New Size(76, 15)
+        Label1.Size = New Size(98, 20)
         Label1.TabIndex = 9
         Label1.Text = "اسم المشتلرك"
         ' 
         ' Label2
         ' 
         Label2.AutoSize = True
-        Label2.Location = New Point(19, 94)
+        Label2.Location = New Point(22, 125)
         Label2.Name = "Label2"
-        Label2.Size = New Size(132, 15)
+        Label2.Size = New Size(170, 20)
         Label2.TabIndex = 10
         Label2.Text = "العائلة المرتبطة بالمشترك"
         ' 
         ' Label3
         ' 
         Label3.AutoSize = True
-        Label3.Location = New Point(19, 157)
+        Label3.Location = New Point(22, 209)
         Label3.Name = "Label3"
-        Label3.Size = New Size(103, 15)
+        Label3.Size = New Size(134, 20)
         Label3.TabIndex = 11
         Label3.Text = "نوع المادة المطلوبة"
         ' 
         ' Label4
         ' 
         Label4.AutoSize = True
-        Label4.Location = New Point(19, 214)
+        Label4.Location = New Point(22, 285)
         Label4.Name = "Label4"
-        Label4.Size = New Size(106, 15)
+        Label4.Size = New Size(138, 20)
         Label4.TabIndex = 12
         Label4.Text = "اسم المادة المطلوبة"
         ' 
         ' Label5
         ' 
         Label5.AutoSize = True
-        Label5.Location = New Point(19, 275)
+        Label5.Location = New Point(22, 367)
         Label5.Name = "Label5"
-        Label5.Size = New Size(37, 15)
+        Label5.Size = New Size(48, 20)
         Label5.TabIndex = 13
         Label5.Text = "الكمية"
         ' 
         ' needs
         ' 
-        AutoScaleDimensions = New SizeF(7F, 15F)
+        AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = SystemColors.ButtonHighlight
-        ClientSize = New Size(531, 338)
+        ClientSize = New Size(607, 451)
         Controls.Add(Label5)
         Controls.Add(Label4)
         Controls.Add(Label3)
@@ -173,7 +166,6 @@ Partial Class needs
         Controls.Add(TextBox_item_name)
         Controls.Add(TextBox_quantity)
         Controls.Add(TextBox_sub_name)
-        Margin = New Padding(3, 2, 3, 2)
         MaximizeBox = False
         MinimizeBox = False
         Name = "needs"

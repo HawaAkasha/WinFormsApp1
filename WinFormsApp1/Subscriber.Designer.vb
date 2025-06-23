@@ -58,7 +58,6 @@ Partial Class Subscriber
         Label8 = New Label()
         Label9 = New Label()
         Label_typeneeds = New Label()
-        Label12 = New Label()
         GroupBox_suptype = New GroupBox()
         GroupBox_stability_living = New GroupBox()
         GroupBox_work = New GroupBox()
@@ -74,8 +73,6 @@ Partial Class Subscriber
         medical_insurance_yes = New RadioButton()
         medical_insurance_no = New RadioButton()
         TextBox_istability = New TextBox()
-        Button_yeshave = New Button()
-        Button_nohavnot = New Button()
         Button_register_save = New Button()
         CheckBox_medicine = New CheckBox()
         CheckBox_eat = New CheckBox()
@@ -429,15 +426,6 @@ Partial Class Subscriber
         Label_typeneeds.TabIndex = 46
         Label_typeneeds.Text = "نوع الاحتياج"
         ' 
-        ' Label12
-        ' 
-        Label12.AutoSize = True
-        Label12.Location = New Point(374, 766)
-        Label12.Name = "Label12"
-        Label12.Size = New Size(102, 20)
-        Label12.TabIndex = 47
-        Label12.Text = "هل تمتلك اسرة"
-        ' 
         ' GroupBox_suptype
         ' 
         GroupBox_suptype.Controls.Add(RadioButton_living1)
@@ -602,27 +590,9 @@ Partial Class Subscriber
         TextBox_istability.TabIndex = 56
         TextBox_istability.Text = "ادخل نوع الاعاقة"
         ' 
-        ' Button_yeshave
-        ' 
-        Button_yeshave.Location = New Point(364, 798)
-        Button_yeshave.Name = "Button_yeshave"
-        Button_yeshave.Size = New Size(94, 29)
-        Button_yeshave.TabIndex = 57
-        Button_yeshave.Text = "نعم"
-        Button_yeshave.UseVisualStyleBackColor = True
-        ' 
-        ' Button_nohavnot
-        ' 
-        Button_nohavnot.Location = New Point(476, 798)
-        Button_nohavnot.Name = "Button_nohavnot"
-        Button_nohavnot.Size = New Size(94, 29)
-        Button_nohavnot.TabIndex = 58
-        Button_nohavnot.Text = "لا"
-        Button_nohavnot.UseVisualStyleBackColor = True
-        ' 
         ' Button_register_save
         ' 
-        Button_register_save.Location = New Point(350, 838)
+        Button_register_save.Location = New Point(350, 812)
         Button_register_save.Name = "Button_register_save"
         Button_register_save.Size = New Size(152, 29)
         Button_register_save.TabIndex = 59
@@ -671,7 +641,7 @@ Partial Class Subscriber
         ' 
         ' Button_register_delete
         ' 
-        Button_register_delete.Location = New Point(521, 838)
+        Button_register_delete.Location = New Point(522, 814)
         Button_register_delete.Name = "Button_register_delete"
         Button_register_delete.Size = New Size(152, 29)
         Button_register_delete.TabIndex = 72
@@ -706,8 +676,6 @@ Partial Class Subscriber
         Controls.Add(CheckBox_clothes)
         Controls.Add(CheckBox_money)
         Controls.Add(Button_register_save)
-        Controls.Add(Button_nohavnot)
-        Controls.Add(Button_yeshave)
         Controls.Add(medical_insurance)
         Controls.Add(GroupBoxsike)
         Controls.Add(GroupBox_helpfamilly)
@@ -716,7 +684,6 @@ Partial Class Subscriber
         Controls.Add(GroupBox_work)
         Controls.Add(GroupBox_stability_living)
         Controls.Add(GroupBox_suptype)
-        Controls.Add(Label12)
         Controls.Add(Label_typeneeds)
         Controls.Add(Label9)
         Controls.Add(Label8)
@@ -805,7 +772,6 @@ Partial Class Subscriber
     Friend WithEvents Label8 As Label
     Friend WithEvents Label9 As Label
     Friend WithEvents Label_typeneeds As Label
-    Friend WithEvents Label12 As Label
     Friend WithEvents GroupBox_suptype As GroupBox
     Friend WithEvents GroupBox_stability_living As GroupBox
     Friend WithEvents GroupBox_work As GroupBox
@@ -821,8 +787,6 @@ Partial Class Subscriber
     Friend WithEvents medical_insurance_yes As RadioButton
     Friend WithEvents medical_insurance_no As RadioButton
     Friend WithEvents TextBox_istability As TextBox
-    Friend WithEvents Button_yeshave As Button
-    Friend WithEvents Button_nohavnot As Button
     Friend WithEvents Button_register_save As Button
     Friend WithEvents CheckBox_medicine As CheckBox
     Friend WithEvents CheckBox_eat As CheckBox
