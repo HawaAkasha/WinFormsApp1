@@ -23,7 +23,29 @@ Public Class Donation
         End Try
     End Sub
 
-    Private Sub DateTimePicker_ValueChanged(sender As Object, e As EventArgs) Handles DateTimePicker.ValueChanged
 
+
+    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
+        If e.RowIndex >= 0 Then
+            Dim row As DataGridViewRow = DataGridView1.Rows(e.RowIndex)
+
+            ' تعبئة TextBoxes
+            donor_name.Text = row.Cells("DonorName").Value.ToString()
+            donor_number.Text = row.Cells("PhoneNumber").Value.ToString()
+            TextBox_quantity.Text = row.Cells("quantity").Value.ToString()
+
+            ' تعبئة CheckBoxes لنوع التبرع
+            Dim dtype As String = row.Cells("Donation_type").Value.ToString()
+            CheckBox_money.Checked = dtype.Contains("مالي")
+            CheckBox_eat.Checked = dtype.Contains("مواد غذائية")
+            CheckBox_clothes.Checked = dtype.Contains("ملابس")
+            CheckBox_medicine.Checked = dtype.Contains("مستلزمات طبية")
+
+            ' تعبئة CheckBoxes لطريقة التبرع
+            Dim method As String = row.Cells("Donation_method").Value.ToString()
+            cash.Checked = method.Contains("نقدي")
+            trance.Checked = method.Contains("تحويل")
+            delivery.Checked = method.Contains("توصيل")
+        End If
     End Sub
 End Class

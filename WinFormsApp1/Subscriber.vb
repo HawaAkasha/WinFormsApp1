@@ -242,11 +242,12 @@ Public Class Subscriber
             MessageBox.Show("تمت إضافة المشترك بنجاح", "تم", MessageBoxButtons.OK, MessageBoxIcon.Information)
             clear()
 
+
         Catch ex As Exception
             MessageBox.Show("خطأ أثناء الإضافة: " & ex.Message)
             conn.Close()
         End Try
-
+        'هل يملك المشترك عائلة
         Dim hasFamily As DialogResult = MessageBox.Show("هل يمتلك هذا المشترك عائلة؟", "تأكيد", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
 
         If hasFamily = DialogResult.Yes Then
@@ -254,12 +255,9 @@ Public Class Subscriber
             family.SubscriberID = sup_id.Text
             family.ShowDialog() ' إظهار فورم العائلة كنافذة مؤقتة
         End If
+        '///////////////////////////////////////////////////////////
 
-
-
-
-
-
+        '///////////////////////////////////////////////////////////
 
     End Sub
 
@@ -284,6 +282,14 @@ Public Class Subscriber
 
     Private Sub Subscriber_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         GroupBox_sik.Visible = False
+        TextBox_istability.Visible = False
+        TextBox_item.Visible = False
+        item_quntity.Visible = False
+        TextBox_cloth.Visible = False
+        cloth_quntity.Visible = False
+        TextBox_med.Visible = False
+        med_quntity.Visible = False
+        TextBox_moneyy.Visible = False
     End Sub
 
     Private Sub Button_register_delete_Click(sender As Object, e As EventArgs) Handles Button_register_delete.Click
@@ -338,6 +344,14 @@ Public Class Subscriber
         CheckBox_sikeBenignant.Checked = False
         CheckBox_sikeHind.Checked = False
 
+        TextBox_item.Visible = False
+        item_quntity.Visible = False
+        TextBox_cloth.Visible = False
+        cloth_quntity.Visible = False
+        TextBox_med.Visible = False
+        med_quntity.Visible = False
+        TextBox_moneyy.Visible = False
+
         ' إخفاء الحقول الخاصة بالأمراض
         GroupBox_sik.Visible = False
         TextBox_istability.Visible = False
@@ -371,5 +385,22 @@ Public Class Subscriber
         Return True
     End Function
 
+    Private Sub CheckBox_eat_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox_eat.CheckedChanged
+        TextBox_item.Visible = CheckBox_eat.Checked
+        item_quntity.Visible = CheckBox_eat.Checked
+    End Sub
 
+    Private Sub CheckBox_clothes_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox_clothes.CheckedChanged
+        TextBox_cloth.Visible = CheckBox_clothes.Checked
+        cloth_quntity.Visible = CheckBox_clothes.Checked
+    End Sub
+
+    Private Sub CheckBox_medicine_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox_medicine.CheckedChanged
+        TextBox_med.Visible = CheckBox_medicine.Checked
+        med_quntity.Visible = CheckBox_medicine.Checked
+    End Sub
+
+    Private Sub CheckBox_money_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox_money.CheckedChanged
+        TextBox_moneyy.Visible = CheckBox_money.Checked
+    End Sub
 End Class

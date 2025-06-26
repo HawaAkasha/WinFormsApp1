@@ -91,7 +91,6 @@ Public Class donor
             cmd.Parameters.AddWithValue("@name", donor_name.Text)
             cmd.Parameters.AddWithValue("@nid", donor_id.Text)
             cmd.Parameters.AddWithValue("@phone", donor_number.Text)
-
             cmd.ExecuteNonQuery()
             conn.Close()
 

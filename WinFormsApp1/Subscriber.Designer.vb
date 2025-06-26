@@ -80,6 +80,13 @@ Partial Class Subscriber
         CheckBox_money = New CheckBox()
         Button_register_delete = New Button()
         GroupBox_sik = New GroupBox()
+        TextBox_item = New TextBox()
+        item_quntity = New TextBox()
+        TextBox_cloth = New TextBox()
+        cloth_quntity = New TextBox()
+        med_quntity = New TextBox()
+        TextBox_med = New TextBox()
+        TextBox_moneyy = New TextBox()
         GroupBox_suptype.SuspendLayout()
         GroupBox_stability_living.SuspendLayout()
         GroupBox_work.SuspendLayout()
@@ -476,7 +483,7 @@ Partial Class Subscriber
         ' 
         GroupBox_fatherfamily.Controls.Add(RadioButton_fatherfamily_yes)
         GroupBox_fatherfamily.Controls.Add(RadioButton_fatherfamily_no)
-        GroupBox_fatherfamily.Location = New Point(378, 242)
+        GroupBox_fatherfamily.Location = New Point(386, 287)
         GroupBox_fatherfamily.Name = "GroupBox_fatherfamily"
         GroupBox_fatherfamily.Size = New Size(188, 67)
         GroupBox_fatherfamily.TabIndex = 51
@@ -487,7 +494,7 @@ Partial Class Subscriber
         ' 
         GroupBox_helpfamilly.Controls.Add(RadioButton_helpfamilly_yes)
         GroupBox_helpfamilly.Controls.Add(RadioButton_helpfamilly_no)
-        GroupBox_helpfamilly.Location = New Point(378, 317)
+        GroupBox_helpfamilly.Location = New Point(386, 362)
         GroupBox_helpfamilly.Name = "GroupBox_helpfamilly"
         GroupBox_helpfamilly.Size = New Size(281, 63)
         GroupBox_helpfamilly.TabIndex = 53
@@ -520,7 +527,7 @@ Partial Class Subscriber
         ' 
         GroupBoxsike.Controls.Add(RadioButton_sikeyes)
         GroupBoxsike.Controls.Add(RadioButton_sikeno)
-        GroupBoxsike.Location = New Point(378, 486)
+        GroupBoxsike.Location = New Point(386, 531)
         GroupBoxsike.Name = "GroupBoxsike"
         GroupBoxsike.Size = New Size(188, 67)
         GroupBoxsike.TabIndex = 54
@@ -553,7 +560,7 @@ Partial Class Subscriber
         ' 
         medical_insurance.Controls.Add(medical_insurance_yes)
         medical_insurance.Controls.Add(medical_insurance_no)
-        medical_insurance.Location = New Point(379, 389)
+        medical_insurance.Location = New Point(387, 434)
         medical_insurance.Name = "medical_insurance"
         medical_insurance.Size = New Size(188, 67)
         medical_insurance.TabIndex = 55
@@ -592,7 +599,7 @@ Partial Class Subscriber
         ' 
         ' Button_register_save
         ' 
-        Button_register_save.Location = New Point(350, 812)
+        Button_register_save.Location = New Point(358, 837)
         Button_register_save.Name = "Button_register_save"
         Button_register_save.Size = New Size(152, 29)
         Button_register_save.TabIndex = 59
@@ -602,7 +609,7 @@ Partial Class Subscriber
         ' CheckBox_medicine
         ' 
         CheckBox_medicine.AutoSize = True
-        CheckBox_medicine.Location = New Point(391, 207)
+        CheckBox_medicine.Location = New Point(391, 249)
         CheckBox_medicine.Name = "CheckBox_medicine"
         CheckBox_medicine.Size = New Size(136, 24)
         CheckBox_medicine.TabIndex = 71
@@ -612,7 +619,7 @@ Partial Class Subscriber
         ' CheckBox_eat
         ' 
         CheckBox_eat.AutoSize = True
-        CheckBox_eat.Location = New Point(391, 147)
+        CheckBox_eat.Location = New Point(391, 156)
         CheckBox_eat.Name = "CheckBox_eat"
         CheckBox_eat.Size = New Size(103, 24)
         CheckBox_eat.TabIndex = 70
@@ -622,7 +629,7 @@ Partial Class Subscriber
         ' CheckBox_clothes
         ' 
         CheckBox_clothes.AutoSize = True
-        CheckBox_clothes.Location = New Point(391, 177)
+        CheckBox_clothes.Location = New Point(391, 198)
         CheckBox_clothes.Name = "CheckBox_clothes"
         CheckBox_clothes.Size = New Size(72, 24)
         CheckBox_clothes.TabIndex = 69
@@ -641,7 +648,7 @@ Partial Class Subscriber
         ' 
         ' Button_register_delete
         ' 
-        Button_register_delete.Location = New Point(522, 814)
+        Button_register_delete.Location = New Point(516, 837)
         Button_register_delete.Name = "Button_register_delete"
         Button_register_delete.Size = New Size(152, 29)
         Button_register_delete.TabIndex = 72
@@ -656,19 +663,82 @@ Partial Class Subscriber
         GroupBox_sik.Controls.Add(CheckBox_sikeSly)
         GroupBox_sik.Controls.Add(CheckBox_sikeBenignant)
         GroupBox_sik.Controls.Add(TextBox_istability)
-        GroupBox_sik.Location = New Point(378, 559)
+        GroupBox_sik.Location = New Point(386, 604)
         GroupBox_sik.Name = "GroupBox_sik"
         GroupBox_sik.Size = New Size(256, 204)
         GroupBox_sik.TabIndex = 73
         GroupBox_sik.TabStop = False
         GroupBox_sik.Text = "نوع المرض"
         ' 
+        ' TextBox_item
+        ' 
+        TextBox_item.Location = New Point(500, 153)
+        TextBox_item.Name = "TextBox_item"
+        TextBox_item.Size = New Size(101, 27)
+        TextBox_item.TabIndex = 74
+        TextBox_item.Text = " اسم المادة"
+        ' 
+        ' item_quntity
+        ' 
+        item_quntity.Location = New Point(607, 154)
+        item_quntity.Name = "item_quntity"
+        item_quntity.Size = New Size(43, 27)
+        item_quntity.TabIndex = 75
+        item_quntity.Text = "الكمية"
+        ' 
+        ' TextBox_cloth
+        ' 
+        TextBox_cloth.Location = New Point(475, 198)
+        TextBox_cloth.Name = "TextBox_cloth"
+        TextBox_cloth.Size = New Size(101, 27)
+        TextBox_cloth.TabIndex = 76
+        TextBox_cloth.Text = "نوع الملابس"
+        ' 
+        ' cloth_quntity
+        ' 
+        cloth_quntity.Location = New Point(582, 198)
+        cloth_quntity.Name = "cloth_quntity"
+        cloth_quntity.Size = New Size(43, 27)
+        cloth_quntity.TabIndex = 77
+        cloth_quntity.Text = "الكمية"
+        ' 
+        ' med_quntity
+        ' 
+        med_quntity.Location = New Point(644, 249)
+        med_quntity.Name = "med_quntity"
+        med_quntity.Size = New Size(43, 27)
+        med_quntity.TabIndex = 78
+        med_quntity.Text = "الكمية"
+        ' 
+        ' TextBox_med
+        ' 
+        TextBox_med.Location = New Point(537, 249)
+        TextBox_med.Name = "TextBox_med"
+        TextBox_med.Size = New Size(101, 27)
+        TextBox_med.TabIndex = 79
+        TextBox_med.Text = "نوع الدواء"
+        ' 
+        ' TextBox_moneyy
+        ' 
+        TextBox_moneyy.Location = New Point(471, 114)
+        TextBox_moneyy.Name = "TextBox_moneyy"
+        TextBox_moneyy.Size = New Size(101, 27)
+        TextBox_moneyy.TabIndex = 80
+        TextBox_moneyy.Text = "قيمة المبلغ"
+        ' 
         ' Subscriber
         ' 
         AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = SystemColors.ButtonHighlight
-        ClientSize = New Size(686, 893)
+        ClientSize = New Size(734, 893)
+        Controls.Add(TextBox_moneyy)
+        Controls.Add(TextBox_med)
+        Controls.Add(med_quntity)
+        Controls.Add(cloth_quntity)
+        Controls.Add(TextBox_cloth)
+        Controls.Add(item_quntity)
+        Controls.Add(TextBox_item)
         Controls.Add(GroupBox_sik)
         Controls.Add(Button_register_delete)
         Controls.Add(CheckBox_medicine)
@@ -794,4 +864,11 @@ Partial Class Subscriber
     Friend WithEvents CheckBox_money As CheckBox
     Friend WithEvents Button_register_delete As Button
     Friend WithEvents GroupBox_sik As GroupBox
+    Friend WithEvents TextBox_item As TextBox
+    Friend WithEvents item_quntity As TextBox
+    Friend WithEvents TextBox_cloth As TextBox
+    Friend WithEvents cloth_quntity As TextBox
+    Friend WithEvents med_quntity As TextBox
+    Friend WithEvents TextBox_med As TextBox
+    Friend WithEvents TextBox_moneyy As TextBox
 End Class

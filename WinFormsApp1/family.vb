@@ -60,6 +60,7 @@ Public Class family
             MessageBox.Show("❌ خطأ أثناء حفظ بيانات العائلة: " & ex.Message)
             conn.Close()
         End Try
+
     End Sub
 
     ' دالة لتصفير الحقول
@@ -97,7 +98,9 @@ Public Class family
         rdoSupportNo.Checked = False
     End Sub
 
+    Private Sub rdoWorks_CheckedChanged(sender As Object, e As EventArgs) Handles rdoWorks.CheckedChanged
 
+    End Sub
 End Class
 
 

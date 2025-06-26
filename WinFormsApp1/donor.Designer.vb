@@ -45,14 +45,26 @@ Partial Class donor
         TextBox_medi = New TextBox()
         DateTimePicker1 = New DateTimePicker()
         donation_type = New GroupBox()
+        PictureBox1 = New PictureBox()
+        PictureBox2 = New PictureBox()
+        PictureBox3 = New PictureBox()
+        PictureBox4 = New PictureBox()
+        PictureBox5 = New PictureBox()
+        PictureBox6 = New PictureBox()
         GroupBox_donationtype.SuspendLayout()
         donation_type.SuspendLayout()
+        CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
+        CType(PictureBox2, ComponentModel.ISupportInitialize).BeginInit()
+        CType(PictureBox3, ComponentModel.ISupportInitialize).BeginInit()
+        CType(PictureBox4, ComponentModel.ISupportInitialize).BeginInit()
+        CType(PictureBox5, ComponentModel.ISupportInitialize).BeginInit()
+        CType(PictureBox6, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' Label6
         ' 
         Label6.AutoSize = True
-        Label6.Location = New Point(13, 253)
+        Label6.Location = New Point(45, 253)
         Label6.Name = "Label6"
         Label6.Size = New Size(77, 20)
         Label6.TabIndex = 62
@@ -61,7 +73,7 @@ Partial Class donor
         ' Label5
         ' 
         Label5.AutoSize = True
-        Label5.Location = New Point(15, 176)
+        Label5.Location = New Point(47, 176)
         Label5.Name = "Label5"
         Label5.Size = New Size(76, 20)
         Label5.TabIndex = 61
@@ -70,7 +82,7 @@ Partial Class donor
         ' Label3
         ' 
         Label3.AutoSize = True
-        Label3.Location = New Point(15, 105)
+        Label3.Location = New Point(47, 105)
         Label3.Name = "Label3"
         Label3.Size = New Size(44, 20)
         Label3.TabIndex = 59
@@ -79,7 +91,7 @@ Partial Class donor
         ' Label1
         ' 
         Label1.AutoSize = True
-        Label1.Location = New Point(13, 36)
+        Label1.Location = New Point(45, 36)
         Label1.Name = "Label1"
         Label1.Size = New Size(145, 20)
         Label1.TabIndex = 57
@@ -87,21 +99,24 @@ Partial Class donor
         ' 
         ' donor_name
         ' 
-        donor_name.Location = New Point(15, 128)
+        donor_name.BackColor = Color.Azure
+        donor_name.Location = New Point(47, 128)
         donor_name.Name = "donor_name"
         donor_name.Size = New Size(184, 27)
         donor_name.TabIndex = 55
         ' 
         ' donor_number
         ' 
-        donor_number.Location = New Point(13, 199)
+        donor_number.BackColor = Color.Azure
+        donor_number.Location = New Point(45, 199)
         donor_number.Name = "donor_number"
         donor_number.Size = New Size(184, 27)
         donor_number.TabIndex = 53
         ' 
         ' donor_id
         ' 
-        donor_id.Location = New Point(15, 59)
+        donor_id.BackColor = Color.Azure
+        donor_id.Location = New Point(47, 59)
         donor_id.Name = "donor_id"
         donor_id.Size = New Size(184, 27)
         donor_id.TabIndex = 52
@@ -179,7 +194,7 @@ Partial Class donor
         ' Label4
         ' 
         Label4.AutoSize = True
-        Label4.Location = New Point(258, 253)
+        Label4.Location = New Point(298, 256)
         Label4.Name = "Label4"
         Label4.Size = New Size(93, 20)
         Label4.TabIndex = 75
@@ -187,16 +202,17 @@ Partial Class donor
         ' 
         ' TextBox_quantity
         ' 
-        TextBox_quantity.Location = New Point(258, 276)
+        TextBox_quantity.BackColor = Color.Azure
+        TextBox_quantity.Location = New Point(298, 279)
         TextBox_quantity.Name = "TextBox_quantity"
         TextBox_quantity.Size = New Size(184, 27)
         TextBox_quantity.TabIndex = 74
         ' 
         ' Button_donation
         ' 
-        Button_donation.Location = New Point(12, 424)
+        Button_donation.Location = New Point(45, 380)
         Button_donation.Name = "Button_donation"
-        Button_donation.Size = New Size(94, 29)
+        Button_donation.Size = New Size(115, 29)
         Button_donation.TabIndex = 76
         Button_donation.Text = "تبرع الان"
         Button_donation.UseVisualStyleBackColor = True
@@ -206,7 +222,7 @@ Partial Class donor
         GroupBox_donationtype.Controls.Add(cash)
         GroupBox_donationtype.Controls.Add(delivery)
         GroupBox_donationtype.Controls.Add(trance)
-        GroupBox_donationtype.Location = New Point(258, 321)
+        GroupBox_donationtype.Location = New Point(298, 324)
         GroupBox_donationtype.Name = "GroupBox_donationtype"
         GroupBox_donationtype.Size = New Size(119, 125)
         GroupBox_donationtype.TabIndex = 77
@@ -215,6 +231,7 @@ Partial Class donor
         ' 
         ' TextBox_eat
         ' 
+        TextBox_eat.BackColor = Color.Azure
         TextBox_eat.Location = New Point(6, 67)
         TextBox_eat.Name = "TextBox_eat"
         TextBox_eat.Size = New Size(125, 27)
@@ -222,6 +239,7 @@ Partial Class donor
         ' 
         ' TextBox_cloth
         ' 
+        TextBox_cloth.BackColor = Color.Azure
         TextBox_cloth.Location = New Point(6, 109)
         TextBox_cloth.Name = "TextBox_cloth"
         TextBox_cloth.Size = New Size(125, 27)
@@ -229,6 +247,7 @@ Partial Class donor
         ' 
         ' TextBox_medi
         ' 
+        TextBox_medi.BackColor = Color.Azure
         TextBox_medi.Location = New Point(6, 158)
         TextBox_medi.Name = "TextBox_medi"
         TextBox_medi.Size = New Size(125, 27)
@@ -236,7 +255,8 @@ Partial Class donor
         ' 
         ' DateTimePicker1
         ' 
-        DateTimePicker1.Location = New Point(13, 279)
+        DateTimePicker1.CalendarMonthBackground = Color.Azure
+        DateTimePicker1.Location = New Point(45, 279)
         DateTimePicker1.Name = "DateTimePicker1"
         DateTimePicker1.Size = New Size(184, 27)
         DateTimePicker1.TabIndex = 81
@@ -250,19 +270,73 @@ Partial Class donor
         donation_type.Controls.Add(CheckBox_medicine)
         donation_type.Controls.Add(TextBox_cloth)
         donation_type.Controls.Add(TextBox_eat)
-        donation_type.Location = New Point(258, 35)
+        donation_type.Location = New Point(298, 38)
         donation_type.Name = "donation_type"
         donation_type.Size = New Size(280, 191)
         donation_type.TabIndex = 83
         donation_type.TabStop = False
         donation_type.Text = "نوع التبرع"
         ' 
+        ' PictureBox1
+        ' 
+        PictureBox1.Location = New Point(12, 59)
+        PictureBox1.Name = "PictureBox1"
+        PictureBox1.Size = New Size(35, 27)
+        PictureBox1.TabIndex = 84
+        PictureBox1.TabStop = False
+        ' 
+        ' PictureBox2
+        ' 
+        PictureBox2.Location = New Point(12, 199)
+        PictureBox2.Name = "PictureBox2"
+        PictureBox2.Size = New Size(35, 27)
+        PictureBox2.TabIndex = 85
+        PictureBox2.TabStop = False
+        ' 
+        ' PictureBox3
+        ' 
+        PictureBox3.Location = New Point(12, 128)
+        PictureBox3.Name = "PictureBox3"
+        PictureBox3.Size = New Size(35, 27)
+        PictureBox3.TabIndex = 86
+        PictureBox3.TabStop = False
+        ' 
+        ' PictureBox4
+        ' 
+        PictureBox4.Location = New Point(12, 256)
+        PictureBox4.Name = "PictureBox4"
+        PictureBox4.Size = New Size(35, 27)
+        PictureBox4.TabIndex = 87
+        PictureBox4.TabStop = False
+        ' 
+        ' PictureBox5
+        ' 
+        PictureBox5.Location = New Point(12, 382)
+        PictureBox5.Name = "PictureBox5"
+        PictureBox5.Size = New Size(35, 27)
+        PictureBox5.TabIndex = 88
+        PictureBox5.TabStop = False
+        ' 
+        ' PictureBox6
+        ' 
+        PictureBox6.Location = New Point(266, 279)
+        PictureBox6.Name = "PictureBox6"
+        PictureBox6.Size = New Size(35, 27)
+        PictureBox6.TabIndex = 89
+        PictureBox6.TabStop = False
+        ' 
         ' donor
         ' 
         AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
-        BackColor = SystemColors.ButtonHighlight
-        ClientSize = New Size(581, 465)
+        BackColor = Color.Azure
+        ClientSize = New Size(598, 465)
+        Controls.Add(PictureBox6)
+        Controls.Add(PictureBox5)
+        Controls.Add(PictureBox4)
+        Controls.Add(PictureBox3)
+        Controls.Add(PictureBox2)
+        Controls.Add(PictureBox1)
         Controls.Add(donation_type)
         Controls.Add(DateTimePicker1)
         Controls.Add(GroupBox_donationtype)
@@ -287,6 +361,12 @@ Partial Class donor
         GroupBox_donationtype.PerformLayout()
         donation_type.ResumeLayout(False)
         donation_type.PerformLayout()
+        CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
+        CType(PictureBox2, ComponentModel.ISupportInitialize).EndInit()
+        CType(PictureBox3, ComponentModel.ISupportInitialize).EndInit()
+        CType(PictureBox4, ComponentModel.ISupportInitialize).EndInit()
+        CType(PictureBox5, ComponentModel.ISupportInitialize).EndInit()
+        CType(PictureBox6, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
         PerformLayout()
     End Sub
@@ -314,4 +394,10 @@ Partial Class donor
     Friend WithEvents TextBox_medi As TextBox
     Friend WithEvents DateTimePicker1 As DateTimePicker
     Friend WithEvents donation_type As GroupBox
+    Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents PictureBox2 As PictureBox
+    Friend WithEvents PictureBox3 As PictureBox
+    Friend WithEvents PictureBox4 As PictureBox
+    Friend WithEvents PictureBox5 As PictureBox
+    Friend WithEvents PictureBox6 As PictureBox
 End Class

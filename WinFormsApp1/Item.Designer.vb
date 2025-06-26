@@ -22,7 +22,7 @@ Partial Class Item
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Button_close = New Button()
         Button_delete = New Button()
         Button_save = New Button()
@@ -43,7 +43,7 @@ Partial Class Item
         ' 
         ' Button_close
         ' 
-        Button_close.Location = New Point(474, 397)
+        Button_close.Location = New Point(474, 433)
         Button_close.Name = "Button_close"
         Button_close.Size = New Size(91, 29)
         Button_close.TabIndex = 94
@@ -52,7 +52,7 @@ Partial Class Item
         ' 
         ' Button_delete
         ' 
-        Button_delete.Location = New Point(131, 397)
+        Button_delete.Location = New Point(49, 433)
         Button_delete.Name = "Button_delete"
         Button_delete.Size = New Size(91, 29)
         Button_delete.TabIndex = 93
@@ -61,7 +61,7 @@ Partial Class Item
         ' 
         ' Button_save
         ' 
-        Button_save.Location = New Point(30, 397)
+        Button_save.Location = New Point(47, 397)
         Button_save.Name = "Button_save"
         Button_save.Size = New Size(91, 29)
         Button_save.TabIndex = 92
@@ -72,14 +72,14 @@ Partial Class Item
         ' 
         DataGridView_item.BackgroundColor = SystemColors.ButtonHighlight
         DataGridView_item.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle1.BackColor = SystemColors.Window
-        DataGridViewCellStyle1.Font = New Font("Arial Narrow", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        DataGridViewCellStyle1.ForeColor = SystemColors.ControlText
-        DataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight
-        DataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText
-        DataGridViewCellStyle1.WrapMode = DataGridViewTriState.False
-        DataGridView_item.DefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = SystemColors.Window
+        DataGridViewCellStyle2.Font = New Font("Arial Narrow", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        DataGridViewCellStyle2.ForeColor = SystemColors.ControlText
+        DataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = DataGridViewTriState.False
+        DataGridView_item.DefaultCellStyle = DataGridViewCellStyle2
         DataGridView_item.Location = New Point(265, 28)
         DataGridView_item.Name = "DataGridView_item"
         DataGridView_item.ReadOnly = True
@@ -90,7 +90,7 @@ Partial Class Item
         ' Label2
         ' 
         Label2.AutoSize = True
-        Label2.Location = New Point(32, 233)
+        Label2.Location = New Point(49, 233)
         Label2.Name = "Label2"
         Label2.Size = New Size(48, 20)
         Label2.TabIndex = 90
@@ -98,21 +98,21 @@ Partial Class Item
         ' 
         ' item_quantity
         ' 
-        item_quantity.Location = New Point(30, 256)
+        item_quantity.Location = New Point(47, 256)
         item_quantity.Name = "item_quantity"
         item_quantity.Size = New Size(190, 27)
         item_quantity.TabIndex = 89
         ' 
         ' DateTimePicker_TO
         ' 
-        DateTimePicker_TO.Location = New Point(131, 344)
+        DateTimePicker_TO.Location = New Point(148, 344)
         DateTimePicker_TO.Name = "DateTimePicker_TO"
         DateTimePicker_TO.Size = New Size(91, 27)
         DateTimePicker_TO.TabIndex = 88
         ' 
         ' DateTimePicker_OF
         ' 
-        DateTimePicker_OF.Location = New Point(30, 344)
+        DateTimePicker_OF.Location = New Point(47, 344)
         DateTimePicker_OF.Name = "DateTimePicker_OF"
         DateTimePicker_OF.Size = New Size(91, 27)
         DateTimePicker_OF.TabIndex = 87
@@ -120,7 +120,7 @@ Partial Class Item
         ' Label6
         ' 
         Label6.AutoSize = True
-        Label6.Location = New Point(32, 304)
+        Label6.Location = New Point(49, 304)
         Label6.Name = "Label6"
         Label6.Size = New Size(77, 20)
         Label6.TabIndex = 86
@@ -129,7 +129,7 @@ Partial Class Item
         ' Label5
         ' 
         Label5.AutoSize = True
-        Label5.Location = New Point(34, 168)
+        Label5.Location = New Point(51, 168)
         Label5.Name = "Label5"
         Label5.Size = New Size(96, 20)
         Label5.TabIndex = 85
@@ -138,7 +138,7 @@ Partial Class Item
         ' Label3
         ' 
         Label3.AutoSize = True
-        Label3.Location = New Point(34, 97)
+        Label3.Location = New Point(51, 97)
         Label3.Name = "Label3"
         Label3.Size = New Size(73, 20)
         Label3.TabIndex = 84
@@ -147,7 +147,7 @@ Partial Class Item
         ' Label1
         ' 
         Label1.AutoSize = True
-        Label1.Location = New Point(32, 28)
+        Label1.Location = New Point(49, 28)
         Label1.Name = "Label1"
         Label1.Size = New Size(77, 20)
         Label1.TabIndex = 83
@@ -155,14 +155,14 @@ Partial Class Item
         ' 
         ' item_id
         ' 
-        item_id.Location = New Point(34, 120)
+        item_id.Location = New Point(51, 120)
         item_id.Name = "item_id"
         item_id.Size = New Size(188, 27)
         item_id.TabIndex = 82
         ' 
         ' item_name
         ' 
-        item_name.Location = New Point(34, 51)
+        item_name.Location = New Point(51, 51)
         item_name.Name = "item_name"
         item_name.Size = New Size(188, 27)
         item_name.TabIndex = 80
@@ -171,7 +171,7 @@ Partial Class Item
         ' 
         ComboBox_item_class.FormattingEnabled = True
         ComboBox_item_class.Items.AddRange(New Object() {"ملابس", "مواد غذائية", "مستلزمات صحية", "تبرع مالي"})
-        ComboBox_item_class.Location = New Point(32, 202)
+        ComboBox_item_class.Location = New Point(49, 202)
         ComboBox_item_class.Name = "ComboBox_item_class"
         ComboBox_item_class.Size = New Size(188, 28)
         ComboBox_item_class.TabIndex = 95
@@ -181,7 +181,7 @@ Partial Class Item
         AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = SystemColors.ButtonHighlight
-        ClientSize = New Size(589, 450)
+        ClientSize = New Size(589, 474)
         Controls.Add(ComboBox_item_class)
         Controls.Add(Button_close)
         Controls.Add(Button_delete)

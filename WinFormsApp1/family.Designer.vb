@@ -50,14 +50,28 @@ Partial Class family
         txtDisabiltyType = New TextBox()
         Label7 = New Label()
         Label8 = New Label()
+        PictureBox1 = New PictureBox()
+        PictureBox2 = New PictureBox()
+        PictureBox3 = New PictureBox()
+        PictureBox4 = New PictureBox()
+        PictureBox5 = New PictureBox()
+        PictureBox6 = New PictureBox()
+        PictureBox7 = New PictureBox()
         GroupBox_treatment.SuspendLayout()
         GroupBox_NeedSupport.SuspendLayout()
+        CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
+        CType(PictureBox2, ComponentModel.ISupportInitialize).BeginInit()
+        CType(PictureBox3, ComponentModel.ISupportInitialize).BeginInit()
+        CType(PictureBox4, ComponentModel.ISupportInitialize).BeginInit()
+        CType(PictureBox5, ComponentModel.ISupportInitialize).BeginInit()
+        CType(PictureBox6, ComponentModel.ISupportInitialize).BeginInit()
+        CType(PictureBox7, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' Label5
         ' 
         Label5.AutoSize = True
-        Label5.Location = New Point(35, 164)
+        Label5.Location = New Point(50, 160)
         Label5.Name = "Label5"
         Label5.Size = New Size(80, 20)
         Label5.TabIndex = 47
@@ -66,7 +80,7 @@ Partial Class family
         ' Label4
         ' 
         Label4.AutoSize = True
-        Label4.Location = New Point(40, 101)
+        Label4.Location = New Point(55, 97)
         Label4.Name = "Label4"
         Label4.Size = New Size(42, 20)
         Label4.TabIndex = 46
@@ -75,7 +89,7 @@ Partial Class family
         ' Label3
         ' 
         Label3.AutoSize = True
-        Label3.Location = New Point(40, 40)
+        Label3.Location = New Point(55, 36)
         Label3.Name = "Label3"
         Label3.Size = New Size(44, 20)
         Label3.TabIndex = 45
@@ -83,21 +97,24 @@ Partial Class family
         ' 
         ' txtName
         ' 
-        txtName.Location = New Point(40, 63)
+        txtName.BackColor = Color.Azure
+        txtName.Location = New Point(55, 59)
         txtName.Name = "txtName"
         txtName.Size = New Size(184, 27)
         txtName.TabIndex = 44
         ' 
         ' txtAge
         ' 
-        txtAge.Location = New Point(40, 124)
+        txtAge.BackColor = Color.Azure
+        txtAge.Location = New Point(55, 120)
         txtAge.Name = "txtAge"
         txtAge.Size = New Size(184, 27)
         txtAge.TabIndex = 43
         ' 
         ' txtRelation
         ' 
-        txtRelation.Location = New Point(40, 187)
+        txtRelation.BackColor = Color.Azure
+        txtRelation.Location = New Point(55, 183)
         txtRelation.Name = "txtRelation"
         txtRelation.Size = New Size(184, 27)
         txtRelation.TabIndex = 42
@@ -105,7 +122,7 @@ Partial Class family
         ' rdoWorks
         ' 
         rdoWorks.AutoSize = True
-        rdoWorks.Location = New Point(41, 461)
+        rdoWorks.Location = New Point(56, 457)
         rdoWorks.Name = "rdoWorks"
         rdoWorks.Size = New Size(63, 24)
         rdoWorks.TabIndex = 17
@@ -116,7 +133,7 @@ Partial Class family
         ' rdoDoesNotWork
         ' 
         rdoDoesNotWork.AutoSize = True
-        rdoDoesNotWork.Location = New Point(110, 463)
+        rdoDoesNotWork.Location = New Point(125, 459)
         rdoDoesNotWork.Name = "rdoDoesNotWork"
         rdoDoesNotWork.Size = New Size(76, 24)
         rdoDoesNotWork.TabIndex = 18
@@ -128,7 +145,7 @@ Partial Class family
         ' 
         GroupBox_treatment.Controls.Add(rdoTreatmentYes)
         GroupBox_treatment.Controls.Add(rdoTreatmentNo)
-        GroupBox_treatment.Location = New Point(280, 40)
+        GroupBox_treatment.Location = New Point(296, 39)
         GroupBox_treatment.Name = "GroupBox_treatment"
         GroupBox_treatment.Size = New Size(188, 67)
         GroupBox_treatment.TabIndex = 67
@@ -161,7 +178,7 @@ Partial Class family
         ' 
         GroupBox_NeedSupport.Controls.Add(rdoSupportYes)
         GroupBox_NeedSupport.Controls.Add(rdoSupportNo)
-        GroupBox_NeedSupport.Location = New Point(280, 135)
+        GroupBox_NeedSupport.Location = New Point(296, 134)
         GroupBox_NeedSupport.Name = "GroupBox_NeedSupport"
         GroupBox_NeedSupport.Size = New Size(188, 67)
         GroupBox_NeedSupport.TabIndex = 68
@@ -193,7 +210,7 @@ Partial Class family
         ' Label2
         ' 
         Label2.AutoSize = True
-        Label2.Location = New Point(284, 306)
+        Label2.Location = New Point(300, 305)
         Label2.Name = "Label2"
         Label2.Size = New Size(115, 20)
         Label2.TabIndex = 72
@@ -202,7 +219,7 @@ Partial Class family
         ' Label6
         ' 
         Label6.AutoSize = True
-        Label6.Location = New Point(284, 222)
+        Label6.Location = New Point(300, 221)
         Label6.Name = "Label6"
         Label6.Size = New Size(75, 20)
         Label6.TabIndex = 71
@@ -210,23 +227,25 @@ Partial Class family
         ' 
         ' txtTreatmentType
         ' 
-        txtTreatmentType.Location = New Point(284, 245)
+        txtTreatmentType.BackColor = Color.Azure
+        txtTreatmentType.Location = New Point(300, 244)
         txtTreatmentType.Name = "txtTreatmentType"
         txtTreatmentType.Size = New Size(184, 27)
         txtTreatmentType.TabIndex = 70
         ' 
         ' txtNotes
         ' 
-        txtNotes.Location = New Point(284, 329)
+        txtNotes.BackColor = Color.Azure
+        txtNotes.Location = New Point(300, 328)
         txtNotes.Name = "txtNotes"
         txtNotes.Size = New Size(184, 27)
         txtNotes.TabIndex = 69
         ' 
         ' btnRegister
         ' 
-        btnRegister.Location = New Point(240, 482)
+        btnRegister.Location = New Point(365, 430)
         btnRegister.Name = "btnRegister"
-        btnRegister.Size = New Size(119, 36)
+        btnRegister.Size = New Size(119, 27)
         btnRegister.TabIndex = 73
         btnRegister.Text = "سجل الان"
         btnRegister.UseVisualStyleBackColor = True
@@ -235,7 +254,7 @@ Partial Class family
         ' 
         btnClear.Location = New Point(365, 482)
         btnClear.Name = "btnClear"
-        btnClear.Size = New Size(119, 36)
+        btnClear.Size = New Size(119, 33)
         btnClear.TabIndex = 74
         btnClear.Text = "حذف"
         btnClear.UseVisualStyleBackColor = True
@@ -243,7 +262,7 @@ Partial Class family
         ' CheckBox_sikePressure
         ' 
         CheckBox_sikePressure.AutoSize = True
-        CheckBox_sikePressure.Location = New Point(42, 268)
+        CheckBox_sikePressure.Location = New Point(57, 264)
         CheckBox_sikePressure.Name = "CheckBox_sikePressure"
         CheckBox_sikePressure.Size = New Size(68, 24)
         CheckBox_sikePressure.TabIndex = 22
@@ -253,7 +272,7 @@ Partial Class family
         ' CheckBox_sikeSuger
         ' 
         CheckBox_sikeSuger.AutoSize = True
-        CheckBox_sikeSuger.Location = New Point(42, 298)
+        CheckBox_sikeSuger.Location = New Point(57, 294)
         CheckBox_sikeSuger.Name = "CheckBox_sikeSuger"
         CheckBox_sikeSuger.Size = New Size(58, 24)
         CheckBox_sikeSuger.TabIndex = 23
@@ -263,7 +282,7 @@ Partial Class family
         ' CheckBox_sikeHindring
         ' 
         CheckBox_sikeHindring.AutoSize = True
-        CheckBox_sikeHindring.Location = New Point(40, 331)
+        CheckBox_sikeHindring.Location = New Point(55, 327)
         CheckBox_sikeHindring.Name = "CheckBox_sikeHindring"
         CheckBox_sikeHindring.Size = New Size(64, 24)
         CheckBox_sikeHindring.TabIndex = 25
@@ -273,7 +292,7 @@ Partial Class family
         ' CheckBox_sikeSly
         ' 
         CheckBox_sikeSly.AutoSize = True
-        CheckBox_sikeSly.Location = New Point(40, 361)
+        CheckBox_sikeSly.Location = New Point(55, 357)
         CheckBox_sikeSly.Name = "CheckBox_sikeSly"
         CheckBox_sikeSly.Size = New Size(109, 24)
         CheckBox_sikeSly.TabIndex = 24
@@ -283,7 +302,7 @@ Partial Class family
         ' CheckBox_sikeBenignant
         ' 
         CheckBox_sikeBenignant.AutoSize = True
-        CheckBox_sikeBenignant.Location = New Point(40, 393)
+        CheckBox_sikeBenignant.Location = New Point(55, 389)
         CheckBox_sikeBenignant.Name = "CheckBox_sikeBenignant"
         CheckBox_sikeBenignant.Size = New Size(116, 24)
         CheckBox_sikeBenignant.TabIndex = 26
@@ -292,7 +311,8 @@ Partial Class family
         ' 
         ' txtDisabiltyType
         ' 
-        txtDisabiltyType.Location = New Point(110, 332)
+        txtDisabiltyType.BackColor = Color.Azure
+        txtDisabiltyType.Location = New Point(125, 328)
         txtDisabiltyType.Name = "txtDisabiltyType"
         txtDisabiltyType.Size = New Size(119, 27)
         txtDisabiltyType.TabIndex = 56
@@ -301,7 +321,7 @@ Partial Class family
         ' Label7
         ' 
         Label7.AutoSize = True
-        Label7.Location = New Point(40, 245)
+        Label7.Location = New Point(55, 241)
         Label7.Name = "Label7"
         Label7.Size = New Size(78, 20)
         Label7.TabIndex = 75
@@ -310,18 +330,81 @@ Partial Class family
         ' Label8
         ' 
         Label8.AutoSize = True
-        Label8.Location = New Point(41, 438)
+        Label8.Location = New Point(56, 434)
         Label8.Name = "Label8"
         Label8.Size = New Size(104, 20)
         Label8.TabIndex = 76
         Label8.Text = "الحالة الوظيفية"
         ' 
+        ' PictureBox1
+        ' 
+        PictureBox1.Location = New Point(266, 244)
+        PictureBox1.Name = "PictureBox1"
+        PictureBox1.Size = New Size(37, 27)
+        PictureBox1.TabIndex = 77
+        PictureBox1.TabStop = False
+        ' 
+        ' PictureBox2
+        ' 
+        PictureBox2.Location = New Point(12, 120)
+        PictureBox2.Name = "PictureBox2"
+        PictureBox2.Size = New Size(37, 27)
+        PictureBox2.TabIndex = 78
+        PictureBox2.TabStop = False
+        ' 
+        ' PictureBox3
+        ' 
+        PictureBox3.Location = New Point(12, 59)
+        PictureBox3.Name = "PictureBox3"
+        PictureBox3.Size = New Size(37, 27)
+        PictureBox3.TabIndex = 79
+        PictureBox3.TabStop = False
+        ' 
+        ' PictureBox4
+        ' 
+        PictureBox4.Location = New Point(266, 328)
+        PictureBox4.Name = "PictureBox4"
+        PictureBox4.Size = New Size(37, 27)
+        PictureBox4.TabIndex = 80
+        PictureBox4.TabStop = False
+        ' 
+        ' PictureBox5
+        ' 
+        PictureBox5.Location = New Point(322, 482)
+        PictureBox5.Name = "PictureBox5"
+        PictureBox5.Size = New Size(37, 27)
+        PictureBox5.TabIndex = 81
+        PictureBox5.TabStop = False
+        ' 
+        ' PictureBox6
+        ' 
+        PictureBox6.Location = New Point(322, 430)
+        PictureBox6.Name = "PictureBox6"
+        PictureBox6.Size = New Size(37, 27)
+        PictureBox6.TabIndex = 82
+        PictureBox6.TabStop = False
+        ' 
+        ' PictureBox7
+        ' 
+        PictureBox7.Location = New Point(12, 183)
+        PictureBox7.Name = "PictureBox7"
+        PictureBox7.Size = New Size(37, 27)
+        PictureBox7.TabIndex = 83
+        PictureBox7.TabStop = False
+        ' 
         ' family
         ' 
-        AutoScaleDimensions = New SizeF(8.0F, 20.0F)
+        AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
-        BackColor = SystemColors.ButtonHighlight
+        BackColor = Color.Azure
         ClientSize = New Size(515, 555)
+        Controls.Add(PictureBox7)
+        Controls.Add(PictureBox6)
+        Controls.Add(PictureBox5)
+        Controls.Add(PictureBox4)
+        Controls.Add(PictureBox3)
+        Controls.Add(PictureBox2)
+        Controls.Add(PictureBox1)
         Controls.Add(Label8)
         Controls.Add(rdoDoesNotWork)
         Controls.Add(rdoWorks)
@@ -357,6 +440,13 @@ Partial Class family
         GroupBox_treatment.PerformLayout()
         GroupBox_NeedSupport.ResumeLayout(False)
         GroupBox_NeedSupport.PerformLayout()
+        CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
+        CType(PictureBox2, ComponentModel.ISupportInitialize).EndInit()
+        CType(PictureBox3, ComponentModel.ISupportInitialize).EndInit()
+        CType(PictureBox4, ComponentModel.ISupportInitialize).EndInit()
+        CType(PictureBox5, ComponentModel.ISupportInitialize).EndInit()
+        CType(PictureBox6, ComponentModel.ISupportInitialize).EndInit()
+        CType(PictureBox7, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
         PerformLayout()
     End Sub
@@ -388,4 +478,11 @@ Partial Class family
     Friend WithEvents txtDisabiltyType As TextBox
     Friend WithEvents Label7 As Label
     Friend WithEvents Label8 As Label
+    Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents PictureBox2 As PictureBox
+    Friend WithEvents PictureBox3 As PictureBox
+    Friend WithEvents PictureBox4 As PictureBox
+    Friend WithEvents PictureBox5 As PictureBox
+    Friend WithEvents PictureBox6 As PictureBox
+    Friend WithEvents PictureBox7 As PictureBox
 End Class

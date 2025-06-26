@@ -29,7 +29,6 @@ Partial Class needs
         family_relate = New TextBox()
         DataGridView_need = New DataGridView()
         Button_save = New Button()
-        Button_delete = New Button()
         Label1 = New Label()
         Label2 = New Label()
         Label3 = New Label()
@@ -86,21 +85,12 @@ Partial Class needs
         ' 
         ' Button_save
         ' 
-        Button_save.Location = New Point(379, 393)
+        Button_save.Location = New Point(477, 410)
         Button_save.Name = "Button_save"
         Button_save.Size = New Size(94, 29)
         Button_save.TabIndex = 7
         Button_save.Text = "حفظ"
         Button_save.UseVisualStyleBackColor = True
-        ' 
-        ' Button_delete
-        ' 
-        Button_delete.Location = New Point(475, 393)
-        Button_delete.Name = "Button_delete"
-        Button_delete.Size = New Size(94, 29)
-        Button_delete.TabIndex = 8
-        Button_delete.Text = "حذف"
-        Button_delete.UseVisualStyleBackColor = True
         ' 
         ' Label1
         ' 
@@ -116,9 +106,9 @@ Partial Class needs
         Label2.AutoSize = True
         Label2.Location = New Point(22, 125)
         Label2.Name = "Label2"
-        Label2.Size = New Size(170, 20)
+        Label2.Size = New Size(169, 20)
         Label2.TabIndex = 10
-        Label2.Text = "العائلة المرتبطة بالمشترك"
+        Label2.Text = "عدد افراد العائلة المرتبطة"
         ' 
         ' Label3
         ' 
@@ -158,7 +148,6 @@ Partial Class needs
         Controls.Add(Label3)
         Controls.Add(Label2)
         Controls.Add(Label1)
-        Controls.Add(Button_delete)
         Controls.Add(Button_save)
         Controls.Add(DataGridView_need)
         Controls.Add(family_relate)
@@ -185,7 +174,6 @@ Partial Class needs
     Friend WithEvents family_relate As TextBox
     Friend WithEvents DataGridView_need As DataGridView
     Friend WithEvents Button_save As Button
-    Friend WithEvents Button_delete As Button
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents Label3 As Label
