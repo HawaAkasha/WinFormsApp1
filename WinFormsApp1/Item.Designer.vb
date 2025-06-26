@@ -22,7 +22,7 @@ Partial Class Item
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Button_close = New Button()
         Button_delete = New Button()
         Button_save = New Button()
@@ -38,7 +38,23 @@ Partial Class Item
         item_id = New TextBox()
         item_name = New TextBox()
         ComboBox_item_class = New ComboBox()
+        PictureBox1 = New PictureBox()
+        PictureBox2 = New PictureBox()
+        PictureBox3 = New PictureBox()
+        PictureBox4 = New PictureBox()
+        PictureBox5 = New PictureBox()
+        PictureBox6 = New PictureBox()
+        PictureBox7 = New PictureBox()
+        PictureBox8 = New PictureBox()
         CType(DataGridView_item, ComponentModel.ISupportInitialize).BeginInit()
+        CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
+        CType(PictureBox2, ComponentModel.ISupportInitialize).BeginInit()
+        CType(PictureBox3, ComponentModel.ISupportInitialize).BeginInit()
+        CType(PictureBox4, ComponentModel.ISupportInitialize).BeginInit()
+        CType(PictureBox5, ComponentModel.ISupportInitialize).BeginInit()
+        CType(PictureBox6, ComponentModel.ISupportInitialize).BeginInit()
+        CType(PictureBox7, ComponentModel.ISupportInitialize).BeginInit()
+        CType(PictureBox8, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' Button_close
@@ -70,21 +86,21 @@ Partial Class Item
         ' 
         ' DataGridView_item
         ' 
-        DataGridView_item.BackgroundColor = SystemColors.ButtonHighlight
+        DataGridView_item.BackgroundColor = Color.Azure
         DataGridView_item.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = SystemColors.Window
-        DataGridViewCellStyle2.Font = New Font("Arial Narrow", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        DataGridViewCellStyle2.ForeColor = SystemColors.ControlText
-        DataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight
-        DataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = DataGridViewTriState.False
-        DataGridView_item.DefaultCellStyle = DataGridViewCellStyle2
-        DataGridView_item.Location = New Point(265, 28)
+        DataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = SystemColors.Window
+        DataGridViewCellStyle1.Font = New Font("Arial Narrow", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        DataGridViewCellStyle1.ForeColor = SystemColors.ControlText
+        DataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = DataGridViewTriState.False
+        DataGridView_item.DefaultCellStyle = DataGridViewCellStyle1
+        DataGridView_item.Location = New Point(265, 97)
         DataGridView_item.Name = "DataGridView_item"
         DataGridView_item.ReadOnly = True
         DataGridView_item.RowHeadersWidth = 51
-        DataGridView_item.Size = New Size(300, 343)
+        DataGridView_item.Size = New Size(300, 330)
         DataGridView_item.TabIndex = 91
         ' 
         ' Label2
@@ -98,6 +114,7 @@ Partial Class Item
         ' 
         ' item_quantity
         ' 
+        item_quantity.BackColor = Color.Azure
         item_quantity.Location = New Point(47, 256)
         item_quantity.Name = "item_quantity"
         item_quantity.Size = New Size(190, 27)
@@ -155,6 +172,7 @@ Partial Class Item
         ' 
         ' item_id
         ' 
+        item_id.BackColor = Color.Azure
         item_id.Location = New Point(51, 120)
         item_id.Name = "item_id"
         item_id.Size = New Size(188, 27)
@@ -162,6 +180,7 @@ Partial Class Item
         ' 
         ' item_name
         ' 
+        item_name.BackColor = Color.Azure
         item_name.Location = New Point(51, 51)
         item_name.Name = "item_name"
         item_name.Size = New Size(188, 27)
@@ -169,6 +188,7 @@ Partial Class Item
         ' 
         ' ComboBox_item_class
         ' 
+        ComboBox_item_class.BackColor = Color.Azure
         ComboBox_item_class.FormattingEnabled = True
         ComboBox_item_class.Items.AddRange(New Object() {"ملابس", "مواد غذائية", "مستلزمات صحية", "تبرع مالي"})
         ComboBox_item_class.Location = New Point(49, 202)
@@ -176,12 +196,100 @@ Partial Class Item
         ComboBox_item_class.Size = New Size(188, 28)
         ComboBox_item_class.TabIndex = 95
         ' 
+        ' PictureBox1
+        ' 
+        PictureBox1.Image = My.Resources.Resources.photo_2025_06_26_19_53_581
+        PictureBox1.Location = New Point(440, 1)
+        PictureBox1.Name = "PictureBox1"
+        PictureBox1.Size = New Size(125, 90)
+        PictureBox1.SizeMode = PictureBoxSizeMode.StretchImage
+        PictureBox1.TabIndex = 96
+        PictureBox1.TabStop = False
+        ' 
+        ' PictureBox2
+        ' 
+        PictureBox2.Image = My.Resources.Resources.photo_2025_06_10_19_19_19
+        PictureBox2.Location = New Point(12, 51)
+        PictureBox2.Name = "PictureBox2"
+        PictureBox2.Size = New Size(38, 27)
+        PictureBox2.SizeMode = PictureBoxSizeMode.StretchImage
+        PictureBox2.TabIndex = 97
+        PictureBox2.TabStop = False
+        ' 
+        ' PictureBox3
+        ' 
+        PictureBox3.Image = My.Resources.Resources.photo_2025_06_10_19_18_26
+        PictureBox3.Location = New Point(12, 202)
+        PictureBox3.Name = "PictureBox3"
+        PictureBox3.Size = New Size(38, 28)
+        PictureBox3.SizeMode = PictureBoxSizeMode.StretchImage
+        PictureBox3.TabIndex = 98
+        PictureBox3.TabStop = False
+        ' 
+        ' PictureBox4
+        ' 
+        PictureBox4.Image = My.Resources.Resources.photo_2025_06_27_00_07_10
+        PictureBox4.Location = New Point(12, 120)
+        PictureBox4.Name = "PictureBox4"
+        PictureBox4.Size = New Size(38, 27)
+        PictureBox4.SizeMode = PictureBoxSizeMode.StretchImage
+        PictureBox4.TabIndex = 99
+        PictureBox4.TabStop = False
+        ' 
+        ' PictureBox5
+        ' 
+        PictureBox5.Image = My.Resources.Resources.photo_2025_06_26_19_36_29
+        PictureBox5.Location = New Point(12, 256)
+        PictureBox5.Name = "PictureBox5"
+        PictureBox5.Size = New Size(38, 27)
+        PictureBox5.SizeMode = PictureBoxSizeMode.StretchImage
+        PictureBox5.TabIndex = 100
+        PictureBox5.TabStop = False
+        ' 
+        ' PictureBox6
+        ' 
+        PictureBox6.Image = My.Resources.Resources.photo_2025_06_26_20_05_041
+        PictureBox6.Location = New Point(12, 435)
+        PictureBox6.Name = "PictureBox6"
+        PictureBox6.Size = New Size(38, 27)
+        PictureBox6.SizeMode = PictureBoxSizeMode.StretchImage
+        PictureBox6.TabIndex = 101
+        PictureBox6.TabStop = False
+        ' 
+        ' PictureBox7
+        ' 
+        PictureBox7.Image = My.Resources.Resources.photo_2025_06_26_19_36_411
+        PictureBox7.Location = New Point(12, 400)
+        PictureBox7.Name = "PictureBox7"
+        PictureBox7.Size = New Size(38, 27)
+        PictureBox7.SizeMode = PictureBoxSizeMode.StretchImage
+        PictureBox7.TabIndex = 102
+        PictureBox7.TabStop = False
+        ' 
+        ' PictureBox8
+        ' 
+        PictureBox8.Image = My.Resources.Resources.photo_2025_06_26_20_45_55
+        PictureBox8.Location = New Point(440, 435)
+        PictureBox8.Name = "PictureBox8"
+        PictureBox8.Size = New Size(38, 27)
+        PictureBox8.SizeMode = PictureBoxSizeMode.StretchImage
+        PictureBox8.TabIndex = 103
+        PictureBox8.TabStop = False
+        ' 
         ' Item
         ' 
         AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
-        BackColor = SystemColors.ButtonHighlight
-        ClientSize = New Size(589, 474)
+        BackColor = Color.Azure
+        ClientSize = New Size(568, 474)
+        Controls.Add(PictureBox8)
+        Controls.Add(PictureBox7)
+        Controls.Add(PictureBox6)
+        Controls.Add(PictureBox5)
+        Controls.Add(PictureBox4)
+        Controls.Add(PictureBox3)
+        Controls.Add(PictureBox2)
+        Controls.Add(PictureBox1)
         Controls.Add(ComboBox_item_class)
         Controls.Add(Button_close)
         Controls.Add(Button_delete)
@@ -205,6 +313,14 @@ Partial Class Item
         StartPosition = FormStartPosition.CenterScreen
         Text = "شاشة تسجيل مادة"
         CType(DataGridView_item, ComponentModel.ISupportInitialize).EndInit()
+        CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
+        CType(PictureBox2, ComponentModel.ISupportInitialize).EndInit()
+        CType(PictureBox3, ComponentModel.ISupportInitialize).EndInit()
+        CType(PictureBox4, ComponentModel.ISupportInitialize).EndInit()
+        CType(PictureBox5, ComponentModel.ISupportInitialize).EndInit()
+        CType(PictureBox6, ComponentModel.ISupportInitialize).EndInit()
+        CType(PictureBox7, ComponentModel.ISupportInitialize).EndInit()
+        CType(PictureBox8, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
         PerformLayout()
     End Sub
@@ -224,4 +340,12 @@ Partial Class Item
     Friend WithEvents item_id As TextBox
     Friend WithEvents item_name As TextBox
     Friend WithEvents ComboBox_item_class As ComboBox
+    Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents PictureBox2 As PictureBox
+    Friend WithEvents PictureBox3 As PictureBox
+    Friend WithEvents PictureBox4 As PictureBox
+    Friend WithEvents PictureBox5 As PictureBox
+    Friend WithEvents PictureBox6 As PictureBox
+    Friend WithEvents PictureBox7 As PictureBox
+    Friend WithEvents PictureBox8 As PictureBox
 End Class

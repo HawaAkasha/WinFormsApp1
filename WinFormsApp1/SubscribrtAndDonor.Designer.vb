@@ -63,25 +63,31 @@ Partial Class SubscribrtAndDonor
         ' 
         ' PictureBox1
         ' 
-        PictureBox1.Location = New Point(337, 12)
+        PictureBox1.Image = My.Resources.Resources.photo_2025_06_26_19_53_58
+        PictureBox1.Location = New Point(324, -2)
         PictureBox1.Name = "PictureBox1"
-        PictureBox1.Size = New Size(145, 171)
+        PictureBox1.Size = New Size(170, 171)
+        PictureBox1.SizeMode = PictureBoxSizeMode.StretchImage
         PictureBox1.TabIndex = 3
         PictureBox1.TabStop = False
         ' 
         ' PictureBox2
         ' 
+        PictureBox2.Image = My.Resources.Resources.photo_2025_06_10_18_07_35
         PictureBox2.Location = New Point(446, 224)
         PictureBox2.Name = "PictureBox2"
         PictureBox2.Size = New Size(36, 29)
+        PictureBox2.SizeMode = PictureBoxSizeMode.StretchImage
         PictureBox2.TabIndex = 4
         PictureBox2.TabStop = False
         ' 
         ' PictureBox3
         ' 
+        PictureBox3.Image = My.Resources.Resources.photo_2025_06_10_19_18_181
         PictureBox3.Location = New Point(446, 259)
         PictureBox3.Name = "PictureBox3"
         PictureBox3.Size = New Size(36, 29)
+        PictureBox3.SizeMode = PictureBoxSizeMode.StretchImage
         PictureBox3.TabIndex = 5
         PictureBox3.TabStop = False
         ' 
@@ -89,7 +95,7 @@ Partial Class SubscribrtAndDonor
         ' 
         AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
-        BackColor = SystemColors.ButtonHighlight
+        BackColor = Color.Azure
         ClientSize = New Size(494, 310)
         Controls.Add(PictureBox3)
         Controls.Add(PictureBox2)

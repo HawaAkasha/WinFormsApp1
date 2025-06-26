@@ -60,7 +60,19 @@ Public Class family
             MessageBox.Show("❌ خطأ أثناء حفظ بيانات العائلة: " & ex.Message)
             conn.Close()
         End Try
-
+        ' بعد حفظ بيانات الفرد، نتحقق هل عنده مرض
+        ' إذا تم إدخال مرض → افتح سجل طبي تلقائيًا
+        ' بعد حفظ بيانات الفرد، نتحقق هل عنده مرض
+        If CheckBox_sikePressure.Checked Or CheckBox_sikeSuger.Checked Or CheckBox_sikeSly.Checked Or CheckBox_sikeBenignant.Checked Then
+            Dim medical As New medicalRecord()
+            medical.SubscriberID = SubscriberID
+            medical.SubscriberName = txtName.Text
+            medical.SubscriberAge = txtAge.Text
+            ' medical.ShowDialog()
+            '/////////////////////////////
+            '  medicalRecord.SubscriberNationalID = sup_id.Text  ' أو أي TextBox فيه National_id
+            ' medicalRecord.ShowDialog()
+        End If
     End Sub
 
     ' دالة لتصفير الحقول

@@ -87,6 +87,18 @@ Partial Class Subscriber
         med_quntity = New TextBox()
         TextBox_med = New TextBox()
         TextBox_moneyy = New TextBox()
+        PictureBox1 = New PictureBox()
+        PictureBox2 = New PictureBox()
+        PictureBox3 = New PictureBox()
+        PictureBox4 = New PictureBox()
+        PictureBox5 = New PictureBox()
+        PictureBox6 = New PictureBox()
+        PictureBox7 = New PictureBox()
+        PictureBox8 = New PictureBox()
+        PictureBox9 = New PictureBox()
+        PictureBox10 = New PictureBox()
+        PictureBox11 = New PictureBox()
+        PictureBox12 = New PictureBox()
         GroupBox_suptype.SuspendLayout()
         GroupBox_stability_living.SuspendLayout()
         GroupBox_work.SuspendLayout()
@@ -96,10 +108,23 @@ Partial Class Subscriber
         GroupBoxsike.SuspendLayout()
         medical_insurance.SuspendLayout()
         GroupBox_sik.SuspendLayout()
+        CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
+        CType(PictureBox2, ComponentModel.ISupportInitialize).BeginInit()
+        CType(PictureBox3, ComponentModel.ISupportInitialize).BeginInit()
+        CType(PictureBox4, ComponentModel.ISupportInitialize).BeginInit()
+        CType(PictureBox5, ComponentModel.ISupportInitialize).BeginInit()
+        CType(PictureBox6, ComponentModel.ISupportInitialize).BeginInit()
+        CType(PictureBox7, ComponentModel.ISupportInitialize).BeginInit()
+        CType(PictureBox8, ComponentModel.ISupportInitialize).BeginInit()
+        CType(PictureBox9, ComponentModel.ISupportInitialize).BeginInit()
+        CType(PictureBox10, ComponentModel.ISupportInitialize).BeginInit()
+        CType(PictureBox11, ComponentModel.ISupportInitialize).BeginInit()
+        CType(PictureBox12, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' sup_id
         ' 
+        sup_id.BackColor = Color.Azure
         sup_id.Location = New Point(56, 49)
         sup_id.Name = "sup_id"
         sup_id.Size = New Size(184, 27)
@@ -107,6 +132,7 @@ Partial Class Subscriber
         ' 
         ' source_income
         ' 
+        source_income.BackColor = Color.Azure
         source_income.Location = New Point(386, 47)
         source_income.Name = "source_income"
         source_income.Size = New Size(184, 27)
@@ -114,6 +140,7 @@ Partial Class Subscriber
         ' 
         ' family_total
         ' 
+        family_total.BackColor = Color.Azure
         family_total.Location = New Point(49, 814)
         family_total.Name = "family_total"
         family_total.Size = New Size(184, 27)
@@ -121,6 +148,7 @@ Partial Class Subscriber
         ' 
         ' TextBox_workplace
         ' 
+        TextBox_workplace.BackColor = Color.Azure
         TextBox_workplace.Location = New Point(49, 755)
         TextBox_workplace.Name = "TextBox_workplace"
         TextBox_workplace.Size = New Size(184, 27)
@@ -128,20 +156,23 @@ Partial Class Subscriber
         ' 
         ' sup_living
         ' 
-        sup_living.Location = New Point(45, 429)
+        sup_living.BackColor = Color.Azure
+        sup_living.Location = New Point(54, 429)
         sup_living.Name = "sup_living"
         sup_living.Size = New Size(184, 27)
         sup_living.TabIndex = 4
         ' 
         ' sup_number
         ' 
-        sup_number.Location = New Point(49, 373)
+        sup_number.BackColor = Color.Azure
+        sup_number.Location = New Point(54, 373)
         sup_number.Name = "sup_number"
         sup_number.Size = New Size(184, 27)
         sup_number.TabIndex = 5
         ' 
         ' sup_age
         ' 
+        sup_age.BackColor = Color.Azure
         sup_age.Location = New Point(56, 310)
         sup_age.Name = "sup_age"
         sup_age.Size = New Size(184, 27)
@@ -149,6 +180,7 @@ Partial Class Subscriber
         ' 
         ' sup_name
         ' 
+        sup_name.BackColor = Color.Azure
         sup_name.Location = New Point(56, 249)
         sup_name.Name = "sup_name"
         sup_name.Size = New Size(184, 27)
@@ -156,6 +188,7 @@ Partial Class Subscriber
         ' 
         ' sup_pasport
         ' 
+        sup_pasport.BackColor = Color.Azure
         sup_pasport.Location = New Point(56, 198)
         sup_pasport.Name = "sup_pasport"
         sup_pasport.Size = New Size(184, 27)
@@ -591,6 +624,7 @@ Partial Class Subscriber
         ' 
         ' TextBox_istability
         ' 
+        TextBox_istability.BackColor = Color.Azure
         TextBox_istability.Location = New Point(40, 95)
         TextBox_istability.Name = "TextBox_istability"
         TextBox_istability.Size = New Size(119, 27)
@@ -599,7 +633,7 @@ Partial Class Subscriber
         ' 
         ' Button_register_save
         ' 
-        Button_register_save.Location = New Point(358, 837)
+        Button_register_save.Location = New Point(490, 814)
         Button_register_save.Name = "Button_register_save"
         Button_register_save.Size = New Size(152, 29)
         Button_register_save.TabIndex = 59
@@ -648,7 +682,7 @@ Partial Class Subscriber
         ' 
         ' Button_register_delete
         ' 
-        Button_register_delete.Location = New Point(516, 837)
+        Button_register_delete.Location = New Point(490, 849)
         Button_register_delete.Name = "Button_register_delete"
         Button_register_delete.Size = New Size(152, 29)
         Button_register_delete.TabIndex = 72
@@ -672,6 +706,7 @@ Partial Class Subscriber
         ' 
         ' TextBox_item
         ' 
+        TextBox_item.BackColor = Color.Azure
         TextBox_item.Location = New Point(500, 153)
         TextBox_item.Name = "TextBox_item"
         TextBox_item.Size = New Size(101, 27)
@@ -680,6 +715,7 @@ Partial Class Subscriber
         ' 
         ' item_quntity
         ' 
+        item_quntity.BackColor = Color.Azure
         item_quntity.Location = New Point(607, 154)
         item_quntity.Name = "item_quntity"
         item_quntity.Size = New Size(43, 27)
@@ -688,6 +724,7 @@ Partial Class Subscriber
         ' 
         ' TextBox_cloth
         ' 
+        TextBox_cloth.BackColor = Color.Azure
         TextBox_cloth.Location = New Point(475, 198)
         TextBox_cloth.Name = "TextBox_cloth"
         TextBox_cloth.Size = New Size(101, 27)
@@ -696,6 +733,7 @@ Partial Class Subscriber
         ' 
         ' cloth_quntity
         ' 
+        cloth_quntity.BackColor = Color.Azure
         cloth_quntity.Location = New Point(582, 198)
         cloth_quntity.Name = "cloth_quntity"
         cloth_quntity.Size = New Size(43, 27)
@@ -704,6 +742,7 @@ Partial Class Subscriber
         ' 
         ' med_quntity
         ' 
+        med_quntity.BackColor = Color.Azure
         med_quntity.Location = New Point(644, 249)
         med_quntity.Name = "med_quntity"
         med_quntity.Size = New Size(43, 27)
@@ -712,6 +751,7 @@ Partial Class Subscriber
         ' 
         ' TextBox_med
         ' 
+        TextBox_med.BackColor = Color.Azure
         TextBox_med.Location = New Point(537, 249)
         TextBox_med.Name = "TextBox_med"
         TextBox_med.Size = New Size(101, 27)
@@ -720,18 +760,151 @@ Partial Class Subscriber
         ' 
         ' TextBox_moneyy
         ' 
+        TextBox_moneyy.BackColor = Color.Azure
         TextBox_moneyy.Location = New Point(471, 114)
         TextBox_moneyy.Name = "TextBox_moneyy"
         TextBox_moneyy.Size = New Size(101, 27)
         TextBox_moneyy.TabIndex = 80
         TextBox_moneyy.Text = "قيمة المبلغ"
         ' 
+        ' PictureBox1
+        ' 
+        PictureBox1.Image = My.Resources.Resources.photo_2025_06_26_19_43_38
+        PictureBox1.Location = New Point(12, 49)
+        PictureBox1.Name = "PictureBox1"
+        PictureBox1.Size = New Size(40, 28)
+        PictureBox1.SizeMode = PictureBoxSizeMode.StretchImage
+        PictureBox1.TabIndex = 81
+        PictureBox1.TabStop = False
+        ' 
+        ' PictureBox2
+        ' 
+        PictureBox2.Image = My.Resources.Resources.photo_2025_06_26_19_36_34
+        PictureBox2.Location = New Point(12, 310)
+        PictureBox2.Name = "PictureBox2"
+        PictureBox2.Size = New Size(40, 28)
+        PictureBox2.SizeMode = PictureBoxSizeMode.StretchImage
+        PictureBox2.TabIndex = 82
+        PictureBox2.TabStop = False
+        ' 
+        ' PictureBox3
+        ' 
+        PictureBox3.Image = My.Resources.Resources.photo_2025_06_26_20_31_35
+        PictureBox3.Location = New Point(12, 198)
+        PictureBox3.Name = "PictureBox3"
+        PictureBox3.Size = New Size(40, 28)
+        PictureBox3.SizeMode = PictureBoxSizeMode.StretchImage
+        PictureBox3.TabIndex = 83
+        PictureBox3.TabStop = False
+        ' 
+        ' PictureBox4
+        ' 
+        PictureBox4.Image = My.Resources.Resources.photo_2025_06_26_19_36_26
+        PictureBox4.Location = New Point(12, 249)
+        PictureBox4.Name = "PictureBox4"
+        PictureBox4.Size = New Size(40, 28)
+        PictureBox4.SizeMode = PictureBoxSizeMode.StretchImage
+        PictureBox4.TabIndex = 84
+        PictureBox4.TabStop = False
+        ' 
+        ' PictureBox5
+        ' 
+        PictureBox5.Image = My.Resources.Resources.photo_2025_06_26_20_27_35
+        PictureBox5.Location = New Point(12, 429)
+        PictureBox5.Name = "PictureBox5"
+        PictureBox5.Size = New Size(40, 28)
+        PictureBox5.SizeMode = PictureBoxSizeMode.StretchImage
+        PictureBox5.TabIndex = 85
+        PictureBox5.TabStop = False
+        ' 
+        ' PictureBox6
+        ' 
+        PictureBox6.Image = My.Resources.Resources.photo_2025_06_26_19_36_32
+        PictureBox6.Location = New Point(12, 373)
+        PictureBox6.Name = "PictureBox6"
+        PictureBox6.Size = New Size(40, 28)
+        PictureBox6.SizeMode = PictureBoxSizeMode.StretchImage
+        PictureBox6.TabIndex = 86
+        PictureBox6.TabStop = False
+        ' 
+        ' PictureBox7
+        ' 
+        PictureBox7.Image = My.Resources.Resources.photo_2025_06_26_20_27_40
+        PictureBox7.Location = New Point(12, 754)
+        PictureBox7.Name = "PictureBox7"
+        PictureBox7.Size = New Size(40, 28)
+        PictureBox7.SizeMode = PictureBoxSizeMode.StretchImage
+        PictureBox7.TabIndex = 87
+        PictureBox7.TabStop = False
+        ' 
+        ' PictureBox8
+        ' 
+        PictureBox8.Image = My.Resources.Resources.photo_2025_06_10_18_07_38
+        PictureBox8.Location = New Point(12, 813)
+        PictureBox8.Name = "PictureBox8"
+        PictureBox8.Size = New Size(40, 28)
+        PictureBox8.SizeMode = PictureBoxSizeMode.StretchImage
+        PictureBox8.TabIndex = 88
+        PictureBox8.TabStop = False
+        ' 
+        ' PictureBox9
+        ' 
+        PictureBox9.Image = My.Resources.Resources.photo_2025_06_26_20_27_38
+        PictureBox9.Location = New Point(340, 46)
+        PictureBox9.Name = "PictureBox9"
+        PictureBox9.Size = New Size(40, 28)
+        PictureBox9.SizeMode = PictureBoxSizeMode.StretchImage
+        PictureBox9.TabIndex = 89
+        PictureBox9.TabStop = False
+        ' 
+        ' PictureBox10
+        ' 
+        PictureBox10.Image = My.Resources.Resources.photo_2025_06_26_19_36_411
+        PictureBox10.Location = New Point(444, 815)
+        PictureBox10.Name = "PictureBox10"
+        PictureBox10.Size = New Size(40, 28)
+        PictureBox10.SizeMode = PictureBoxSizeMode.StretchImage
+        PictureBox10.TabIndex = 90
+        PictureBox10.TabStop = False
+        ' 
+        ' PictureBox11
+        ' 
+        PictureBox11.Image = My.Resources.Resources.photo_2025_06_26_20_05_041
+        PictureBox11.Location = New Point(444, 850)
+        PictureBox11.Name = "PictureBox11"
+        PictureBox11.Size = New Size(40, 28)
+        PictureBox11.SizeMode = PictureBoxSizeMode.StretchImage
+        PictureBox11.TabIndex = 91
+        PictureBox11.TabStop = False
+        ' 
+        ' PictureBox12
+        ' 
+        PictureBox12.Image = My.Resources.Resources.photo_2025_06_26_19_53_581
+        PictureBox12.Location = New Point(576, 0)
+        PictureBox12.Name = "PictureBox12"
+        PictureBox12.Size = New Size(163, 123)
+        PictureBox12.SizeMode = PictureBoxSizeMode.StretchImage
+        PictureBox12.TabIndex = 92
+        PictureBox12.TabStop = False
+        ' 
         ' Subscriber
         ' 
         AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
-        BackColor = SystemColors.ButtonHighlight
+        BackColor = Color.Azure
         ClientSize = New Size(734, 893)
+        Controls.Add(PictureBox12)
+        Controls.Add(PictureBox11)
+        Controls.Add(PictureBox10)
+        Controls.Add(PictureBox9)
+        Controls.Add(PictureBox8)
+        Controls.Add(PictureBox7)
+        Controls.Add(PictureBox6)
+        Controls.Add(PictureBox5)
+        Controls.Add(PictureBox4)
+        Controls.Add(PictureBox3)
+        Controls.Add(PictureBox2)
+        Controls.Add(PictureBox1)
         Controls.Add(TextBox_moneyy)
         Controls.Add(TextBox_med)
         Controls.Add(med_quntity)
@@ -798,6 +971,18 @@ Partial Class Subscriber
         medical_insurance.PerformLayout()
         GroupBox_sik.ResumeLayout(False)
         GroupBox_sik.PerformLayout()
+        CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
+        CType(PictureBox2, ComponentModel.ISupportInitialize).EndInit()
+        CType(PictureBox3, ComponentModel.ISupportInitialize).EndInit()
+        CType(PictureBox4, ComponentModel.ISupportInitialize).EndInit()
+        CType(PictureBox5, ComponentModel.ISupportInitialize).EndInit()
+        CType(PictureBox6, ComponentModel.ISupportInitialize).EndInit()
+        CType(PictureBox7, ComponentModel.ISupportInitialize).EndInit()
+        CType(PictureBox8, ComponentModel.ISupportInitialize).EndInit()
+        CType(PictureBox9, ComponentModel.ISupportInitialize).EndInit()
+        CType(PictureBox10, ComponentModel.ISupportInitialize).EndInit()
+        CType(PictureBox11, ComponentModel.ISupportInitialize).EndInit()
+        CType(PictureBox12, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
         PerformLayout()
     End Sub
@@ -871,4 +1056,16 @@ Partial Class Subscriber
     Friend WithEvents med_quntity As TextBox
     Friend WithEvents TextBox_med As TextBox
     Friend WithEvents TextBox_moneyy As TextBox
+    Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents PictureBox2 As PictureBox
+    Friend WithEvents PictureBox3 As PictureBox
+    Friend WithEvents PictureBox4 As PictureBox
+    Friend WithEvents PictureBox5 As PictureBox
+    Friend WithEvents PictureBox6 As PictureBox
+    Friend WithEvents PictureBox7 As PictureBox
+    Friend WithEvents PictureBox8 As PictureBox
+    Friend WithEvents PictureBox9 As PictureBox
+    Friend WithEvents PictureBox10 As PictureBox
+    Friend WithEvents PictureBox11 As PictureBox
+    Friend WithEvents PictureBox12 As PictureBox
 End Class

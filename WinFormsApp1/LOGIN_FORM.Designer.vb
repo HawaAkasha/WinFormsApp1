@@ -118,6 +118,7 @@ Partial Class LOGIN_FORM
         TextBox_name.Name = "TextBox_name"
         TextBox_name.Size = New Size(204, 27)
         TextBox_name.TabIndex = 5
+        TextBox_name.Text = "maha"
         ' 
         ' TextBox_password
         ' 
@@ -126,6 +127,7 @@ Partial Class LOGIN_FORM
         TextBox_password.PlaceholderText = "."
         TextBox_password.Size = New Size(204, 27)
         TextBox_password.TabIndex = 6
+        TextBox_password.Text = "111"
         ' 
         ' Button_subscriber
         ' 

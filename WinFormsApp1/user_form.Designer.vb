@@ -87,7 +87,7 @@ Partial Class user_form
         TextBox_id.BackColor = Color.Azure
         TextBox_id.Location = New Point(313, 50)
         TextBox_id.Name = "TextBox_id"
-        TextBox_id.Size = New Size(201, 27)
+        TextBox_id.Size = New Size(166, 27)
         TextBox_id.TabIndex = 3
         ' 
         ' Button_edit
@@ -119,7 +119,7 @@ Partial Class user_form
         ' 
         ' Button_search
         ' 
-        Button_search.Location = New Point(552, 48)
+        Button_search.Location = New Point(485, 50)
         Button_search.Name = "Button_search"
         Button_search.Size = New Size(130, 29)
         Button_search.TabIndex = 7
@@ -167,7 +167,7 @@ Partial Class user_form
         DataGridView1.Name = "DataGridView1"
         DataGridView1.ReadOnly = True
         DataGridView1.RowHeadersWidth = 51
-        DataGridView1.Size = New Size(403, 375)
+        DataGridView1.Size = New Size(440, 375)
         DataGridView1.TabIndex = 9
         ' 
         ' Label1
@@ -239,41 +239,51 @@ Partial Class user_form
         ' 
         ' PictureBox4
         ' 
+        PictureBox4.Image = My.Resources.Resources.photo_2025_06_26_20_05_04
         PictureBox4.Location = New Point(12, 458)
         PictureBox4.Name = "PictureBox4"
         PictureBox4.Size = New Size(33, 29)
+        PictureBox4.SizeMode = PictureBoxSizeMode.StretchImage
         PictureBox4.TabIndex = 17
         PictureBox4.TabStop = False
         ' 
         ' PictureBox5
         ' 
+        PictureBox5.Image = My.Resources.Resources.photo_2025_06_26_19_36_40
         PictureBox5.Location = New Point(12, 423)
         PictureBox5.Name = "PictureBox5"
         PictureBox5.Size = New Size(33, 29)
+        PictureBox5.SizeMode = PictureBoxSizeMode.StretchImage
         PictureBox5.TabIndex = 18
         PictureBox5.TabStop = False
         ' 
         ' PictureBox6
         ' 
+        PictureBox6.Image = My.Resources.Resources.photo_2025_06_26_19_36_411
         PictureBox6.Location = New Point(12, 388)
         PictureBox6.Name = "PictureBox6"
         PictureBox6.Size = New Size(33, 29)
+        PictureBox6.SizeMode = PictureBoxSizeMode.StretchImage
         PictureBox6.TabIndex = 19
         PictureBox6.TabStop = False
         ' 
         ' PictureBox7
         ' 
+        PictureBox7.Image = My.Resources.Resources.photo_2025_06_26_20_10_58
         PictureBox7.Location = New Point(279, 48)
         PictureBox7.Name = "PictureBox7"
         PictureBox7.Size = New Size(33, 29)
+        PictureBox7.SizeMode = PictureBoxSizeMode.StretchImage
         PictureBox7.TabIndex = 20
         PictureBox7.TabStop = False
         ' 
         ' PictureBox8
         ' 
-        PictureBox8.Location = New Point(522, 48)
+        PictureBox8.Image = My.Resources.Resources.photo_2025_06_26_19_53_581
+        PictureBox8.Location = New Point(621, -3)
         PictureBox8.Name = "PictureBox8"
-        PictureBox8.Size = New Size(33, 29)
+        PictureBox8.Size = New Size(98, 109)
+        PictureBox8.SizeMode = PictureBoxSizeMode.StretchImage
         PictureBox8.TabIndex = 21
         PictureBox8.TabStop = False
         ' 
@@ -282,7 +292,7 @@ Partial Class user_form
         AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.Azure
-        ClientSize = New Size(700, 499)
+        ClientSize = New Size(722, 499)
         Controls.Add(PictureBox8)
         Controls.Add(PictureBox7)
         Controls.Add(PictureBox6)

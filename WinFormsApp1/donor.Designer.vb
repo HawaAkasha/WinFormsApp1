@@ -22,6 +22,7 @@ Partial Class donor
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(donor))
         Label6 = New Label()
         Label5 = New Label()
         Label3 = New Label()
@@ -51,6 +52,7 @@ Partial Class donor
         PictureBox4 = New PictureBox()
         PictureBox5 = New PictureBox()
         PictureBox6 = New PictureBox()
+        PictureBox7 = New PictureBox()
         GroupBox_donationtype.SuspendLayout()
         donation_type.SuspendLayout()
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
@@ -59,6 +61,7 @@ Partial Class donor
         CType(PictureBox4, ComponentModel.ISupportInitialize).BeginInit()
         CType(PictureBox5, ComponentModel.ISupportInitialize).BeginInit()
         CType(PictureBox6, ComponentModel.ISupportInitialize).BeginInit()
+        CType(PictureBox7, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' Label6
@@ -194,7 +197,7 @@ Partial Class donor
         ' Label4
         ' 
         Label4.AutoSize = True
-        Label4.Location = New Point(298, 256)
+        Label4.Location = New Point(298, 107)
         Label4.Name = "Label4"
         Label4.Size = New Size(93, 20)
         Label4.TabIndex = 75
@@ -203,14 +206,14 @@ Partial Class donor
         ' TextBox_quantity
         ' 
         TextBox_quantity.BackColor = Color.Azure
-        TextBox_quantity.Location = New Point(298, 279)
+        TextBox_quantity.Location = New Point(298, 130)
         TextBox_quantity.Name = "TextBox_quantity"
         TextBox_quantity.Size = New Size(184, 27)
         TextBox_quantity.TabIndex = 74
         ' 
         ' Button_donation
         ' 
-        Button_donation.Location = New Point(45, 380)
+        Button_donation.Location = New Point(389, 496)
         Button_donation.Name = "Button_donation"
         Button_donation.Size = New Size(115, 29)
         Button_donation.TabIndex = 76
@@ -222,7 +225,7 @@ Partial Class donor
         GroupBox_donationtype.Controls.Add(cash)
         GroupBox_donationtype.Controls.Add(delivery)
         GroupBox_donationtype.Controls.Add(trance)
-        GroupBox_donationtype.Location = New Point(298, 324)
+        GroupBox_donationtype.Location = New Point(266, 176)
         GroupBox_donationtype.Name = "GroupBox_donationtype"
         GroupBox_donationtype.Size = New Size(119, 125)
         GroupBox_donationtype.TabIndex = 77
@@ -270,7 +273,7 @@ Partial Class donor
         donation_type.Controls.Add(CheckBox_medicine)
         donation_type.Controls.Add(TextBox_cloth)
         donation_type.Controls.Add(TextBox_eat)
-        donation_type.Location = New Point(298, 38)
+        donation_type.Location = New Point(12, 340)
         donation_type.Name = "donation_type"
         donation_type.Size = New Size(280, 191)
         donation_type.TabIndex = 83
@@ -279,58 +282,81 @@ Partial Class donor
         ' 
         ' PictureBox1
         ' 
+        PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), Image)
         PictureBox1.Location = New Point(12, 59)
         PictureBox1.Name = "PictureBox1"
         PictureBox1.Size = New Size(35, 27)
+        PictureBox1.SizeMode = PictureBoxSizeMode.StretchImage
         PictureBox1.TabIndex = 84
         PictureBox1.TabStop = False
         ' 
         ' PictureBox2
         ' 
+        PictureBox2.Image = My.Resources.Resources.photo_2025_06_26_19_36_32
         PictureBox2.Location = New Point(12, 199)
         PictureBox2.Name = "PictureBox2"
         PictureBox2.Size = New Size(35, 27)
+        PictureBox2.SizeMode = PictureBoxSizeMode.StretchImage
         PictureBox2.TabIndex = 85
         PictureBox2.TabStop = False
         ' 
         ' PictureBox3
         ' 
+        PictureBox3.Image = My.Resources.Resources.photo_2025_06_26_19_43_38
         PictureBox3.Location = New Point(12, 128)
         PictureBox3.Name = "PictureBox3"
         PictureBox3.Size = New Size(35, 27)
+        PictureBox3.SizeMode = PictureBoxSizeMode.StretchImage
         PictureBox3.TabIndex = 86
         PictureBox3.TabStop = False
         ' 
         ' PictureBox4
         ' 
-        PictureBox4.Location = New Point(12, 256)
+        PictureBox4.Image = My.Resources.Resources.photo_2025_06_26_19_38_40
+        PictureBox4.Location = New Point(12, 279)
         PictureBox4.Name = "PictureBox4"
         PictureBox4.Size = New Size(35, 27)
+        PictureBox4.SizeMode = PictureBoxSizeMode.StretchImage
         PictureBox4.TabIndex = 87
         PictureBox4.TabStop = False
         ' 
         ' PictureBox5
         ' 
-        PictureBox5.Location = New Point(12, 382)
+        PictureBox5.Image = My.Resources.Resources.photo_2025_06_26_19_36_35
+        PictureBox5.Location = New Point(356, 498)
         PictureBox5.Name = "PictureBox5"
         PictureBox5.Size = New Size(35, 27)
+        PictureBox5.SizeMode = PictureBoxSizeMode.StretchImage
         PictureBox5.TabIndex = 88
         PictureBox5.TabStop = False
         ' 
         ' PictureBox6
         ' 
-        PictureBox6.Location = New Point(266, 279)
+        PictureBox6.Image = My.Resources.Resources.photo_2025_06_26_19_36_29
+        PictureBox6.Location = New Point(266, 130)
         PictureBox6.Name = "PictureBox6"
         PictureBox6.Size = New Size(35, 27)
+        PictureBox6.SizeMode = PictureBoxSizeMode.StretchImage
         PictureBox6.TabIndex = 89
         PictureBox6.TabStop = False
+        ' 
+        ' PictureBox7
+        ' 
+        PictureBox7.Image = CType(resources.GetObject("PictureBox7.Image"), Image)
+        PictureBox7.Location = New Point(389, -1)
+        PictureBox7.Name = "PictureBox7"
+        PictureBox7.Size = New Size(125, 128)
+        PictureBox7.SizeMode = PictureBoxSizeMode.StretchImage
+        PictureBox7.TabIndex = 90
+        PictureBox7.TabStop = False
         ' 
         ' donor
         ' 
         AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.Azure
-        ClientSize = New Size(598, 465)
+        ClientSize = New Size(516, 543)
+        Controls.Add(PictureBox7)
         Controls.Add(PictureBox6)
         Controls.Add(PictureBox5)
         Controls.Add(PictureBox4)
@@ -367,6 +393,7 @@ Partial Class donor
         CType(PictureBox4, ComponentModel.ISupportInitialize).EndInit()
         CType(PictureBox5, ComponentModel.ISupportInitialize).EndInit()
         CType(PictureBox6, ComponentModel.ISupportInitialize).EndInit()
+        CType(PictureBox7, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
         PerformLayout()
     End Sub
@@ -400,4 +427,5 @@ Partial Class donor
     Friend WithEvents PictureBox4 As PictureBox
     Friend WithEvents PictureBox5 As PictureBox
     Friend WithEvents PictureBox6 As PictureBox
+    Friend WithEvents PictureBox7 As PictureBox
 End Class

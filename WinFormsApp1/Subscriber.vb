@@ -247,6 +247,16 @@ Public Class Subscriber
             MessageBox.Show("خطأ أثناء الإضافة: " & ex.Message)
             conn.Close()
         End Try
+        ' إذا كان المشترك لديه مرض → افتح سجل طبي تلقائيًا
+        If RadioButton_sikeyes.Checked Or CheckBox_sikePressure.Checked Or CheckBox_sikeSuger.Checked Or CheckBox_sikeSly.Checked Or CheckBox_sikeBenignant.Checked Then
+
+            Dim medical As New medicalRecord()
+            medical.SubscriberID = sup_id.Text
+            medical.SubscriberName = sup_name.Text
+            medical.SubscriberAge = sup_age.Text
+            ' medical.ShowDialog()
+
+        End If
         'هل يملك المشترك عائلة
         Dim hasFamily As DialogResult = MessageBox.Show("هل يمتلك هذا المشترك عائلة؟", "تأكيد", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
 
@@ -255,9 +265,8 @@ Public Class Subscriber
             family.SubscriberID = sup_id.Text
             family.ShowDialog() ' إظهار فورم العائلة كنافذة مؤقتة
         End If
-        '///////////////////////////////////////////////////////////
 
-        '///////////////////////////////////////////////////////////
+
 
     End Sub
 
