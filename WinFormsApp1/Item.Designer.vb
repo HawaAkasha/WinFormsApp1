@@ -155,7 +155,7 @@ Partial Class Item
         ' Label3
         ' 
         Label3.AutoSize = True
-        Label3.Location = New Point(51, 97)
+        Label3.Location = New Point(51, 41)
         Label3.Name = "Label3"
         Label3.Size = New Size(73, 20)
         Label3.TabIndex = 84
@@ -164,7 +164,7 @@ Partial Class Item
         ' Label1
         ' 
         Label1.AutoSize = True
-        Label1.Location = New Point(49, 28)
+        Label1.Location = New Point(49, 106)
         Label1.Name = "Label1"
         Label1.Size = New Size(77, 20)
         Label1.TabIndex = 83
@@ -173,7 +173,7 @@ Partial Class Item
         ' item_id
         ' 
         item_id.BackColor = Color.Azure
-        item_id.Location = New Point(51, 120)
+        item_id.Location = New Point(51, 64)
         item_id.Name = "item_id"
         item_id.Size = New Size(188, 27)
         item_id.TabIndex = 82
@@ -181,7 +181,7 @@ Partial Class Item
         ' item_name
         ' 
         item_name.BackColor = Color.Azure
-        item_name.Location = New Point(51, 51)
+        item_name.Location = New Point(51, 129)
         item_name.Name = "item_name"
         item_name.Size = New Size(188, 27)
         item_name.TabIndex = 80
@@ -209,7 +209,7 @@ Partial Class Item
         ' PictureBox2
         ' 
         PictureBox2.Image = My.Resources.Resources.photo_2025_06_10_19_19_19
-        PictureBox2.Location = New Point(12, 51)
+        PictureBox2.Location = New Point(12, 129)
         PictureBox2.Name = "PictureBox2"
         PictureBox2.Size = New Size(38, 27)
         PictureBox2.SizeMode = PictureBoxSizeMode.StretchImage
@@ -229,7 +229,7 @@ Partial Class Item
         ' PictureBox4
         ' 
         PictureBox4.Image = My.Resources.Resources.photo_2025_06_27_00_07_10
-        PictureBox4.Location = New Point(12, 120)
+        PictureBox4.Location = New Point(12, 64)
         PictureBox4.Name = "PictureBox4"
         PictureBox4.Size = New Size(38, 27)
         PictureBox4.SizeMode = PictureBoxSizeMode.StretchImage

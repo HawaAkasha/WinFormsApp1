@@ -87,4 +87,7 @@ Public Class Item
         LoadData()
     End Sub
 
+    Private Sub Button_close_Click(sender As Object, e As EventArgs) Handles Button_close.Click
+        Me.Close()
+    End Sub
 End Class

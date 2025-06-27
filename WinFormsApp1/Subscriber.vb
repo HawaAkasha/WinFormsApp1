@@ -364,25 +364,25 @@ Public Class Subscriber
         ' إخفاء الحقول الخاصة بالأمراض
         GroupBox_sik.Visible = False
         TextBox_istability.Visible = False
+        'لو بنحذفه
+        ' If MsgBox("هل تريد حذف هذا المشترك؟", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
+        'Dim cmd As New SqlCommand("DELETE FROM Subscribers WHERE Subscriber_id = @Subscriber_id", conn)
+        ' cmd.Parameters.AddWithValue("@Subscriber_id", sup_id.Text)
 
-        If MsgBox("هل تريد حذف هذا المشترك؟", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
-            Dim cmd As New SqlCommand("DELETE FROM Subscribers WHERE Subscriber_id = @Subscriber_id", conn)
-            cmd.Parameters.AddWithValue("@Subscriber_id", sup_id.Text)
-
-            Try
-                conn.Open()
-                Dim rows = cmd.ExecuteNonQuery()
-                If rows > 0 Then
-                    MsgBox("تم حذف المشترك بنجاح", MsgBoxStyle.Information)
-                Else
-                    MsgBox("لم يتم العثور على مشترك بهذا الرقم", MsgBoxStyle.Exclamation)
-                End If
-            Catch ex As Exception
-                MsgBox("حدث خطأ أثناء الحذف: " & ex.Message)
-            Finally
-                conn.Close()
-            End Try
-        End If
+        ' Try
+        'conn.Open()
+        '  Dim rows = cmd.ExecuteNonQuery()
+        's > 0 Then
+        'MsgBox("تم حذف المشترك بنجاح", MsgBoxStyle.Information)
+        '   Else
+        '       MsgBox("لم يتم العثور على مشترك بهذا الرقم", MsgBoxStyle.Exclamation)
+        'End If
+        '       Catch ex As Exception
+        '  MsgBox("حدث خطأ أثناء الحذف: " & ex.Message)
+        '  Finally
+        '  conn.Close()
+        ' End Try
+        ' End If
     End Sub
     ' دالة التحقق من أن النص يحتوي على حروف فقط
     Private Function IsAlpha(input As String) As Boolean

@@ -113,6 +113,10 @@ Public Class family
     Private Sub rdoWorks_CheckedChanged(sender As Object, e As EventArgs) Handles rdoWorks.CheckedChanged
 
     End Sub
+
+    Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
+        clearFields()
+    End Sub
 End Class
 
 

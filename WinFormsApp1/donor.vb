@@ -62,6 +62,9 @@ Public Class donor
     ' زر تسجيل التبرع
 
     Private Sub Button_donation_Click(sender As Object, e As EventArgs) Handles Button_donation.Click
+
+
+        ' التحقق من الحقول
         If donor_name.Text = "" OrElse donor_id.Text = "" OrElse donor_number.Text = "" OrElse TextBox_quantity.Text = "" Then
             MessageBox.Show("يرجى تعبئة جميع الحقول.", "تنبيه", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Exit Sub
@@ -85,8 +88,8 @@ Public Class donor
         Try
             conn.Open()
             Dim cmd As New SqlCommand("INSERT INTO Donors_table 
-            (DonorName, PhoneNumber, DNational_id) 
-            VALUES (@name, @nid, @phone)", conn)
+     (DonorName, PhoneNumber, DNational_id) 
+     VALUES (@name, @nid, @phone)", conn)
 
             cmd.Parameters.AddWithValue("@name", donor_name.Text)
             cmd.Parameters.AddWithValue("@nid", donor_id.Text)
@@ -105,42 +108,19 @@ Public Class donor
 
         '///////////////////////////////////////////////////////////////
 
-        ' فتح شاشة التبرع وتمرير البيانات
-        ' بعد إضافة المتبرع إلى قاعدة البيانات
         Dim donationForm As New Donation()
 
-        donationForm.Show()
         donationForm.LoadDonations() ' تحديث القريد فيو مباشرة
-
-
-
-        ' Dim donationForm As New Donation()
-
-        ' donationForm.DonorName = donor_name.Text
-        ' donationForm.DonorPhone = donor_number.Text
-        'donationForm.DonationQuantity = TextBox_quantity.Text
-
-        ' توليد نوع التبرع من CheckBox
-        ' Dim donation_type As String = ""
-        ' If CheckBox_money.Checked Then donationType &= "مالي, "
-        ' If CheckBox_eat.Checked Then donationType &= "مواد غذائية, "
-        ' If CheckBox_clothes.Checked Then donationType &= "ملابس, "
-        ' If CheckBox_medicine.Checked Then donationType &= "مستلزمات طبية, "
-        'donationType = donationType.TrimEnd(", ".ToCharArray())
-
-        'donationForm.DonationType = donationType
-        'donationForm.DonationDate = Date.Today
-
-        'donationForm.ShowDialog()
+        ' donation.Show()
 
 
 
 
-
-
-
-        '//////////////////////////////////////////////
     End Sub
+
+
+    '//////////////////////////////////////////////
+
 
     ' زر حذف المتبرع
     'مرات نلغيه
