@@ -1,7 +1,7 @@
 ﻿
 
 Imports System.Data.SqlClient
-
+'مشكلة في الحفظ
 Public Class medicalRecord
     Public Property SubscriberID As String
     Public Property SubscriberName As String

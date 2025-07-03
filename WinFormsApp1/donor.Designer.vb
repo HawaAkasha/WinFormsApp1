@@ -41,6 +41,8 @@ Partial Class donor
         TextBox_quantity = New TextBox()
         Button_donation = New Button()
         GroupBox_donationtype = New GroupBox()
+        Label_money = New Label()
+        Label_trance = New Label()
         TextBox_eat = New TextBox()
         TextBox_cloth = New TextBox()
         TextBox_medi = New TextBox()
@@ -53,6 +55,7 @@ Partial Class donor
         PictureBox5 = New PictureBox()
         PictureBox6 = New PictureBox()
         PictureBox7 = New PictureBox()
+        Label_delivery = New Label()
         GroupBox_donationtype.SuspendLayout()
         donation_type.SuspendLayout()
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
@@ -167,7 +170,7 @@ Partial Class donor
         ' trance
         ' 
         trance.AutoSize = True
-        trance.Location = New Point(43, 56)
+        trance.Location = New Point(141, 73)
         trance.Name = "trance"
         trance.Size = New Size(69, 24)
         trance.TabIndex = 71
@@ -177,7 +180,7 @@ Partial Class donor
         ' delivery
         ' 
         delivery.AutoSize = True
-        delivery.Location = New Point(38, 86)
+        delivery.Location = New Point(298, 410)
         delivery.Name = "delivery"
         delivery.Size = New Size(74, 24)
         delivery.TabIndex = 70
@@ -187,7 +190,7 @@ Partial Class donor
         ' cash
         ' 
         cash.AutoSize = True
-        cash.Location = New Point(49, 26)
+        cash.Location = New Point(147, 34)
         cash.Name = "cash"
         cash.Size = New Size(63, 24)
         cash.TabIndex = 69
@@ -222,15 +225,34 @@ Partial Class donor
         ' 
         ' GroupBox_donationtype
         ' 
+        GroupBox_donationtype.Controls.Add(Label_money)
+        GroupBox_donationtype.Controls.Add(Label_trance)
         GroupBox_donationtype.Controls.Add(cash)
-        GroupBox_donationtype.Controls.Add(delivery)
         GroupBox_donationtype.Controls.Add(trance)
         GroupBox_donationtype.Location = New Point(266, 176)
         GroupBox_donationtype.Name = "GroupBox_donationtype"
-        GroupBox_donationtype.Size = New Size(119, 125)
+        GroupBox_donationtype.Size = New Size(216, 114)
         GroupBox_donationtype.TabIndex = 77
         GroupBox_donationtype.TabStop = False
         GroupBox_donationtype.Text = "طريقة التبرع"
+        ' 
+        ' Label_money
+        ' 
+        Label_money.AutoSize = True
+        Label_money.Location = New Point(58, 38)
+        Label_money.Name = "Label_money"
+        Label_money.Size = New Size(43, 20)
+        Label_money.TabIndex = 95
+        Label_money.Text = "هاتف"
+        ' 
+        ' Label_trance
+        ' 
+        Label_trance.AutoSize = True
+        Label_trance.Location = New Point(58, 73)
+        Label_trance.Name = "Label_trance"
+        Label_trance.Size = New Size(49, 20)
+        Label_trance.TabIndex = 94
+        Label_trance.Text = "حساب"
         ' 
         ' TextBox_eat
         ' 
@@ -350,12 +372,23 @@ Partial Class donor
         PictureBox7.TabIndex = 90
         PictureBox7.TabStop = False
         ' 
+        ' Label_delivery
+        ' 
+        Label_delivery.AutoSize = True
+        Label_delivery.Location = New Point(378, 411)
+        Label_delivery.Name = "Label_delivery"
+        Label_delivery.Size = New Size(49, 20)
+        Label_delivery.TabIndex = 93
+        Label_delivery.Text = "المكان"
+        ' 
         ' donor
         ' 
         AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.Azure
         ClientSize = New Size(516, 543)
+        Controls.Add(delivery)
+        Controls.Add(Label_delivery)
         Controls.Add(PictureBox7)
         Controls.Add(PictureBox6)
         Controls.Add(PictureBox5)
@@ -428,4 +461,7 @@ Partial Class donor
     Friend WithEvents PictureBox5 As PictureBox
     Friend WithEvents PictureBox6 As PictureBox
     Friend WithEvents PictureBox7 As PictureBox
+    Friend WithEvents Label_delivery As Label
+    Friend WithEvents Label_trance As Label
+    Friend WithEvents Label_money As Label
 End Class

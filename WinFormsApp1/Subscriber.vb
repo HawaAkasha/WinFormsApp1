@@ -268,6 +268,104 @@ Public Class Subscriber
 
 
 
+        ' تحديد نوع الاحتياج
+        Dim needType As String = ""
+        Dim itemName As String = ""
+        Dim quantity As Integer = 0
+
+        If CheckBox_money.Checked Then
+            needType = "مالي"
+            itemName = "قيمة مالية"
+
+
+        ElseIf CheckBox_eat.Checked Then
+            needType = "مواد غذائية"
+            itemName = TextBox_item.Text
+            Integer.TryParse(item_quntity.Text, quantity)
+
+        ElseIf CheckBox_clothes.Checked Then
+            needType = "ملابس"
+            itemName = TextBox_cloth.Text
+            Integer.TryParse(cloth_quntity.Text, quantity)
+
+        ElseIf CheckBox_medicine.Checked Then
+            needType = "مستلزمات صحية"
+            itemName = TextBox_med.Text
+            Integer.TryParse(med_quntity.Text, quantity)
+
+        Else
+            MessageBox.Show("يرجى اختيار نوع احتياج.")
+            Exit Sub
+
+        End If
+        'الربط بالحتياج
+
+
+
+
+        Try
+            ' تجهيز بيانات المادة
+            Dim itemNam As String = ""
+            Dim itemQty As Integer = 0
+            Dim itemCategory As String = ""
+
+            If CheckBox_money.Checked Then
+                itemNam = "مالي"
+                itemCategory = "مالي"
+                itemQty = 1
+            ElseIf CheckBox_eat.Checked Then
+                itemNam = TextBox_item.Text
+                itemCategory = "مواد غذائية"
+                Integer.TryParse(item_quntity.Text, itemQty)
+            ElseIf CheckBox_clothes.Checked Then
+                itemNam = TextBox_cloth.Text
+                itemCategory = "ملابس"
+                Integer.TryParse(cloth_quntity.Text, itemQty)
+            ElseIf CheckBox_medicine.Checked Then
+                itemNam = TextBox_med.Text
+                itemCategory = "مستلزمات صحية"
+                Integer.TryParse(med_quntity.Text, itemQty)
+            Else
+                MessageBox.Show("يرجى اختيار نوع احتياج.")
+                Exit Sub
+            End If
+
+            conn.Open()
+
+            ' 1. إضافة المادة
+            Dim cmdItem As New SqlCommand("INSERT INTO Item_table (Item_name, Item_quantity, Item_category, Expir_date)
+                                   OUTPUT INSERTED.Item_id
+                                   VALUES (@name, @qty, @cat, @exp)", conn)
+            cmdItem.Parameters.AddWithValue("@name", itemNam)
+            cmdItem.Parameters.AddWithValue("@qty", itemQty)
+            cmdItem.Parameters.AddWithValue("@cat", itemCategory)
+            cmdItem.Parameters.AddWithValue("@exp", DateTime.Today)
+            Dim itemId As Integer = CInt(cmdItem.ExecuteScalar())
+
+            ' 2. ربطها بالمشترك في جدول الاحتياج
+            Dim cmdNeed As New SqlCommand("INSERT INTO Needs_table (Item_id, Subscriber_id, Need_type, FamilyNumbe)
+                                   VALUES (@itemId, @subId, @type, @family)", conn)
+            cmdNeed.Parameters.AddWithValue("@itemId", itemId)
+            cmdNeed.Parameters.AddWithValue("@subId", sup_id.Text)
+            cmdNeed.Parameters.AddWithValue("@type", itemCategory)
+            cmdNeed.Parameters.AddWithValue("@family", family_total.Text)
+            cmdNeed.ExecuteNonQuery()
+
+            conn.Close()
+            MessageBox.Show("✔️ تم ربط المشترك بالاحتياج بنجاح")
+
+            ' تحميل البيانات في فورم الاحتياج  
+            Dim needsForm As New needs()
+            needsForm.LoadNeedsFromSubscribers()
+
+        Catch ex As Exception
+            conn.Close()
+            MessageBox.Show("❌ خطأ أثناء ربط الاحتياج: " & ex.Message)
+        End Try
+
+
+
+
     End Sub
 
     Private Sub CheckBox_sikeHind_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox_sikeHind.CheckedChanged

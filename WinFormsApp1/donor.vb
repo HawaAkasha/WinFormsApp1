@@ -1,6 +1,9 @@
 ﻿Imports System.Data.SqlClient
 
 Public Class donor
+
+
+
     ' الاتصال بقاعدة البيانات
     Dim conn As New SqlConnection("Data Source=DESKTOP-OA3F4SP\SQLEXPRESS;Initial Catalog=Project_DB;Integrated Security=True")
 
@@ -9,6 +12,8 @@ Public Class donor
         TextBox_cloth.Visible = False
         TextBox_eat.Visible = False
         TextBox_medi.Visible = False
+        delivery.Visible = False
+        Label_delivery.Visible = False
     End Sub
 
     ' منع إدخال إلا الحروف لاسم المتبرع
@@ -42,21 +47,29 @@ Public Class donor
     ' إظهار خيارات طرق التبرع عند اختيار مالي
     Private Sub CheckBox_money_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox_money.CheckedChanged
         GroupBox_donationtype.Visible = CheckBox_money.Checked
+        Label_money.Visible = CheckBox_money.Checked
+        Label_trance.Visible = CheckBox_money.Checked
     End Sub
 
     ' إظهار حقل التفاصيل عند اختيار مواد غذائية
     Private Sub CheckBox_eat_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox_eat.CheckedChanged
         TextBox_eat.Visible = CheckBox_eat.Checked
+        delivery.Visible = CheckBox_eat.Checked
+        Label_delivery.Visible = CheckBox_eat.Checked
     End Sub
 
     ' إظهار حقل التفاصيل عند اختيار ملابس
     Private Sub CheckBox_clothes_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox_clothes.CheckedChanged
         TextBox_cloth.Visible = CheckBox_clothes.Checked
+        delivery.Visible = CheckBox_clothes.Checked
+        Label_delivery.Visible = CheckBox_clothes.Checked
     End Sub
 
     ' إظهار حقل التفاصيل عند اختيار مستلزمات طبية
     Private Sub CheckBox_medicine_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox_medicine.CheckedChanged
         TextBox_medi.Visible = CheckBox_medicine.Checked
+        delivery.Visible = CheckBox_medicine.Checked
+        Label_delivery.Visible = CheckBox_medicine.Checked
     End Sub
 
     ' زر تسجيل التبرع
@@ -112,7 +125,6 @@ Public Class donor
 
         donationForm.LoadDonations() ' تحديث القريد فيو مباشرة
         ' donation.Show()
-
 
 
 
@@ -173,5 +185,23 @@ Public Class donor
         TextBox_medi.Visible = False
     End Sub
 
+    Private Sub delivery_CheckedChanged(sender As Object, e As EventArgs) Handles delivery.CheckedChanged
 
+    End Sub
+
+    Private Sub GroupBox_donationtype_Enter(sender As Object, e As EventArgs) Handles GroupBox_donationtype.Enter
+
+    End Sub
+
+    Private Sub Label7_Click(sender As Object, e As EventArgs) Handles Label_trance.Click
+
+    End Sub
+
+    Private Sub Label8_Click(sender As Object, e As EventArgs) Handles Label_money.Click
+
+    End Sub
+
+    Private Sub Label_delivery_Click(sender As Object, e As EventArgs) Handles Label_delivery.Click
+
+    End Sub
 End Class

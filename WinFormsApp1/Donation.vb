@@ -11,26 +11,25 @@ Public Class Donation
         TextBox_medi.Visible = False
         LoadDonations()
 
+
     End Sub
-
-
     Public Sub LoadDonations()
         Dim dt As New DataTable()
 
         Try
             conn.Open()
 
-            ' جلب كل المتبرعين مع بيانات تبرعهم إن وُجدت
+            ' جلب جميع المتبرعين مع تبرعاتهم واسم المادة إن وُجدت، مع إظهار - في حال القيم null
             Dim query As String = "
-       SELECT 
+        SELECT 
             d.Donor_id,
             d.DonorName,
             d.PhoneNumber,
-            i.Item_name,
-            t.Donation_type,
-            t.quantity,
-            t.Donation_date,
-            t.Donation_method
+            ISNULL(i.Item_name, '-') AS Item_name,
+            ISNULL(t.Donation_type, '-') AS Donation_type,
+            ISNULL(t.quantity, '-') AS quantity,
+            ISNULL(CONVERT(varchar, t.Donation_date, 103), '-') AS Donation_date,
+            ISNULL(t.Donation_method, '-') AS Donation_method
         FROM Donors_table d
         LEFT JOIN Donations_table t ON d.Donor_id = t.Donor_id
         LEFT JOIN Item_table i ON t.Item_id = i.Item_id
@@ -48,7 +47,11 @@ Public Class Donation
             conn.Close()
             MessageBox.Show("❌ خطأ أثناء تحميل المتبرعين والتبرعات: " & ex.Message)
         End Try
+
+
     End Sub
+
+
 
 
     Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
@@ -86,73 +89,73 @@ Public Class Donation
     Private Sub Button_save_Click(sender As Object, e As EventArgs) Handles Button_save.Click
 
         Try
-            ' التحقق من الحقول الأساسية
-            If donor_name.Text = "" Or donor_number.Text = "" Or TextBox_quantity.Text = "" Then
-                MessageBox.Show("يرجى تعبئة كل الحقول الأساسية")
+            If donor_name.Text = "" Or TextBox_quantity.Text = "" Then
+                MessageBox.Show("يرجى تعبئة الحقول الأساسية")
                 Exit Sub
             End If
-            ' تحديد اسم المادة بناءً على نوع التبرع
-            Dim itemName As String = ""
 
+
+
+            ' تحديد اسم المادة
+            Dim itemName As String = ""
             If CheckBox_money.Checked Then
                 itemName = "مالي"
-            ElseIf CheckBox_eat.Checked AndAlso Not String.IsNullOrWhiteSpace(TextBox_eat.Text) Then
+            ElseIf CheckBox_eat.Checked Then
                 itemName = TextBox_eat.Text
-            ElseIf CheckBox_clothes.Checked AndAlso Not String.IsNullOrWhiteSpace(TextBox_cloth.Text) Then
+            ElseIf CheckBox_clothes.Checked Then
                 itemName = TextBox_cloth.Text
-            ElseIf CheckBox_medicine.Checked AndAlso Not String.IsNullOrWhiteSpace(TextBox_medi.Text) Then
+            ElseIf CheckBox_medicine.Checked Then
                 itemName = TextBox_medi.Text
-            Else
-                MessageBox.Show("❗️يرجى تحديد نوع التبرع وكتابة اسم المادة.")
-                Return
             End If
-            ' تجهيز نوع التبرع وطريقته
-            Dim donationType As String = ""
-            If CheckBox_money.Checked Then donationType &= "مالي, "
-            If CheckBox_eat.Checked Then donationType &= "مواد غذائية, "
-            If CheckBox_clothes.Checked Then donationType &= "ملابس, "
-            If CheckBox_medicine.Checked Then donationType &= "مستلزمات طبية, "
-            donationType = donationType.TrimEnd(", ".ToCharArray())
 
-            Dim method As String = ""
-            If cash.Checked Then method &= "نقدي, "
-            If trance.Checked Then method &= "تحويل, "
-            If delivery.Checked Then method &= "توصيل, "
-            method = method.TrimEnd(", ".ToCharArray())
+            ' نوع التبرع
+            Dim dType As String = ""
+            If CheckBox_money.Checked Then dType &= "مالي, "
+            If CheckBox_eat.Checked Then dType &= "مواد غذائية, "
+            If CheckBox_clothes.Checked Then dType &= "ملابس, "
+            If CheckBox_medicine.Checked Then dType &= "مستلزمات طبية, "
+            dType = dType.TrimEnd(", ".ToCharArray())
 
-            ' 1. أولاً نضيف المادة الجديدة
+            ' طريقة التبرع
+            Dim dMethod As String = ""
+            If cash.Checked Then dMethod &= "نقدي, "
+            If trance.Checked Then dMethod &= "تحويل, "
+            If delivery.Checked Then dMethod &= "توصيل, "
+            dMethod = dMethod.TrimEnd(", ".ToCharArray())
+
+            ' 1. إضافة المادة
             Dim itemId As Integer
-            Dim insertItemCmd As New SqlCommand("INSERT INTO Item_table (Item_name, Item_quantity, Item_category, Expir_date)
-                                          OUTPUT INSERTED.Item_id
-                                          VALUES (@name, @quantity, @category, @expdate)", conn)
-            insertItemCmd.Parameters.AddWithValue("@name", donationType)
-            insertItemCmd.Parameters.AddWithValue("@quantity", TextBox_quantity.Text)
-            insertItemCmd.Parameters.AddWithValue("@category", donationType)
-            insertItemCmd.Parameters.AddWithValue("@expdate", DateTime.Today)
+            Dim cmdItem As New SqlCommand("INSERT INTO Item_table (Item_name, Item_quantity, Item_category, Expir_date) 
+                                     OUTPUT INSERTED.Item_id 
+                                     VALUES (@name, @qty, @cat, @exp)", conn)
+            cmdItem.Parameters.AddWithValue("@name", itemName)
+            cmdItem.Parameters.AddWithValue("@qty", TextBox_quantity.Text)
+            cmdItem.Parameters.AddWithValue("@cat", dType)
+            cmdItem.Parameters.AddWithValue("@exp", DateTime.Today)
 
             conn.Open()
-            itemId = CInt(insertItemCmd.ExecuteScalar()) ' ناخذ رقم المادة الجديدة
+            itemId = CInt(cmdItem.ExecuteScalar())
 
-            ' 2. ثم نضيف التبرع باستخدام رقم المادة فقط
-            Dim insertDonationCmd As New SqlCommand("INSERT INTO Donations_table (Item_id, Donation_type, quantity, Donation_date, Donation_method)
-                                              VALUES (@itemId, @type, @qty, @date, @method)", conn)
-            insertDonationCmd.Parameters.AddWithValue("@itemId", itemId)
-            insertDonationCmd.Parameters.AddWithValue("@type", donationType)
-            insertDonationCmd.Parameters.AddWithValue("@qty", TextBox_quantity.Text)
-            insertDonationCmd.Parameters.AddWithValue("@date", DateTime.Today)
-            insertDonationCmd.Parameters.AddWithValue("@method", method)
+            ' 2. إضافة التبرع
+            Dim cmdDon As New SqlCommand("INSERT INTO Donations_table (Item_id, Donation_type, quantity, Donation_date, Donation_method)
+                                    VALUES (@itemId, @type, @qty, @date, @method)", conn)
+            cmdDon.Parameters.AddWithValue("@itemId", itemId)
+            cmdDon.Parameters.AddWithValue("@type", dType)
+            cmdDon.Parameters.AddWithValue("@qty", TextBox_quantity.Text)
+            cmdDon.Parameters.AddWithValue("@date", DateTime.Today)
+            cmdDon.Parameters.AddWithValue("@method", dMethod)
+            cmdDon.ExecuteNonQuery()
 
-            insertDonationCmd.ExecuteNonQuery()
             conn.Close()
-
-            MessageBox.Show("✔️ تم تسجيل التبرع وإضافة المادة بنجاح.")
+            MessageBox.Show("✔️ تم تسجيل التبرع بنجاح")
             ClearFields()
-            LoadDonations() ' تحدّث القريد ڤيو
 
         Catch ex As Exception
             conn.Close()
-            MessageBox.Show("❌ خطأ أثناء الإضافة: " & ex.Message)
+            MessageBox.Show("❌ خطأ: " & ex.Message)
         End Try
+
+        LoadDonations()
     End Sub
 
 
@@ -251,12 +254,15 @@ Public Class Donation
             End Using
 
             MessageBox.Show("✔️ تم تعديل التبرع بنجاح.")
-            LoadDonations()
+
             ClearFields()
 
         Catch ex As Exception
             conn.Close()
             MessageBox.Show("❌ خطأ أثناء التعديل: " & ex.Message)
         End Try
+        LoadDonations()
+
     End Sub
+
 End Class
