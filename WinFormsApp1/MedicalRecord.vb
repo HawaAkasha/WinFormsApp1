@@ -88,7 +88,6 @@ Public Class medicalRecord
     End Sub
 
     Private Sub Button_patient_save_Click(sender As Object, e As EventArgs) Handles Button_patient_save.Click
-
         If suber_id.Text = "" Then
             MessageBox.Show("يرجى إدخال رقم المشترك (رقم البطاقة).", "تنبيه", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Exit Sub
@@ -116,7 +115,7 @@ Public Class medicalRecord
             ' إذا لم يوجد، نحاول من جدول العائلة
             If name = "" Then
                 Dim cmd2 As New SqlCommand("SELECT Name, Age FROM Family_table WHERE Subscriber_id = 
-        (SELECT Subscriber_id FROM Subscribers_table WHERE National_id = @nid)", conn)
+    (SELECT Subscriber_id FROM Subscribers_table WHERE National_id = @nid)", conn)
                 cmd2.Parameters.AddWithValue("@nid", suber_id.Text)
                 Dim reader2 = cmd2.ExecuteReader()
                 If reader2.Read() Then
@@ -142,12 +141,12 @@ Public Class medicalRecord
             If diseaseTypes.EndsWith("، ") Then diseaseTypes = diseaseTypes.Substring(0, diseaseTypes.Length - 2)
 
             ' توليد Patient_id تلقائي بترتيب
-            Dim cmdMax As New SqlCommand("SELECT ISNULL(MAX(CAST(Patient_id AS INT)), 0) + 1 FROM MedicaRecord_table", conn)
+            Dim cmdMax As New SqlCommand("SELECT ISNULL(MAX(CAST(Patient_id AS INT)), 0) + 1 FROM MedicaRecord", conn)
             Dim newPatientID As String = cmdMax.ExecuteScalar().ToString()
 
             ' إضافة السجل
-            Dim insertCmd As New SqlCommand("INSERT INTO MedicaRecord_table (Patient_id ,Age, Disease_type) 
-                                             VALUES (@pid, @age, @disease)", conn)
+            Dim insertCmd As New SqlCommand("INSERT INTO MedicaRecord (Patient_id ,Age, Disease_type) 
+                                         VALUES (@pid, @age, @disease)", conn)
             insertCmd.Parameters.AddWithValue("@pid", newPatientID)
 
             insertCmd.Parameters.AddWithValue("@age", age)
@@ -164,6 +163,7 @@ Public Class medicalRecord
             MessageBox.Show("❌ خطأ أثناء الحفظ: " & ex.Message, "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error)
             conn.Close()
         End Try
+
     End Sub
 
 
@@ -180,13 +180,17 @@ Public Class medicalRecord
         If MessageBox.Show("هل أنت متأكد من حذف هذا السجل؟", "تأكيد", MessageBoxButtons.YesNo) = DialogResult.Yes Then
             Try
                 conn.Open()
-                Dim cmd As New SqlCommand("DELETE FROM MedicaRecord  WHERE Patient_id = @id", conn)
+                Dim cmd As New SqlCommand("DELETE FROM MedicaRecord WHERE Patient_id = @id", conn)
                 cmd.Parameters.AddWithValue("@id", patientID)
                 cmd.ExecuteNonQuery()
                 conn.Close()
 
+                ' حذف الصف من DataGridView مباشرة
+                DataGridView_Medical.Rows.Remove(selectedRow)
+
                 MessageBox.Show("✅ تم حذف السجل بنجاح")
-                LoadMedicalRecords()
+                ' ممكن تستغني عن LoadMedicalRecords() لأنه تم الحذف من القريد مباشرة
+                ' LoadMedicalRecords()
             Catch ex As Exception
                 MessageBox.Show("❌ خطأ أثناء الحذف: " & ex.Message)
                 conn.Close()

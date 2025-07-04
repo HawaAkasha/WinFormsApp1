@@ -347,9 +347,9 @@ Partial Class Donation
         ' PictureBox7
         ' 
         PictureBox7.Image = My.Resources.Resources.photo_2025_06_26_19_53_58
-        PictureBox7.Location = New Point(494, 0)
+        PictureBox7.Location = New Point(502, 10)
         PictureBox7.Name = "PictureBox7"
-        PictureBox7.Size = New Size(111, 102)
+        PictureBox7.Size = New Size(88, 92)
         PictureBox7.SizeMode = PictureBoxSizeMode.StretchImage
         PictureBox7.TabIndex = 92
         PictureBox7.TabStop = False

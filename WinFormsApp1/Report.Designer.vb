@@ -29,13 +29,10 @@ Partial Class Report
         Label2 = New Label()
         Label3 = New Label()
         Button_Show_report = New Button()
-        Button_Print_report = New Button()
         PictureBox1 = New PictureBox()
-        PictureBox2 = New PictureBox()
         PictureBox3 = New PictureBox()
         PictureBox4 = New PictureBox()
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
-        CType(PictureBox2, ComponentModel.ISupportInitialize).BeginInit()
         CType(PictureBox3, ComponentModel.ISupportInitialize).BeginInit()
         CType(PictureBox4, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
@@ -92,21 +89,12 @@ Partial Class Report
         ' 
         ' Button_Show_report
         ' 
-        Button_Show_report.Location = New Point(475, 18)
+        Button_Show_report.Location = New Point(475, 53)
         Button_Show_report.Name = "Button_Show_report"
         Button_Show_report.Size = New Size(119, 29)
         Button_Show_report.TabIndex = 6
         Button_Show_report.Text = "عرض التقرير"
         Button_Show_report.UseVisualStyleBackColor = True
-        ' 
-        ' Button_Print_report
-        ' 
-        Button_Print_report.Location = New Point(475, 53)
-        Button_Print_report.Name = "Button_Print_report"
-        Button_Print_report.Size = New Size(119, 29)
-        Button_Print_report.TabIndex = 7
-        Button_Print_report.Text = "طباعة التقرير"
-        Button_Print_report.UseVisualStyleBackColor = True
         ' 
         ' PictureBox1
         ' 
@@ -118,20 +106,10 @@ Partial Class Report
         PictureBox1.TabIndex = 8
         PictureBox1.TabStop = False
         ' 
-        ' PictureBox2
-        ' 
-        PictureBox2.Image = My.Resources.Resources.photo_2025_06_27_00_07_13
-        PictureBox2.Location = New Point(435, 53)
-        PictureBox2.Name = "PictureBox2"
-        PictureBox2.Size = New Size(43, 29)
-        PictureBox2.SizeMode = PictureBoxSizeMode.StretchImage
-        PictureBox2.TabIndex = 9
-        PictureBox2.TabStop = False
-        ' 
         ' PictureBox3
         ' 
         PictureBox3.Image = My.Resources.Resources.photo_2025_06_10_18_07_411
-        PictureBox3.Location = New Point(435, 18)
+        PictureBox3.Location = New Point(435, 53)
         PictureBox3.Name = "PictureBox3"
         PictureBox3.Size = New Size(43, 29)
         PictureBox3.SizeMode = PictureBoxSizeMode.StretchImage
@@ -156,9 +134,7 @@ Partial Class Report
         ClientSize = New Size(685, 450)
         Controls.Add(PictureBox4)
         Controls.Add(PictureBox3)
-        Controls.Add(PictureBox2)
         Controls.Add(PictureBox1)
-        Controls.Add(Button_Print_report)
         Controls.Add(Button_Show_report)
         Controls.Add(Label3)
         Controls.Add(Label2)
@@ -173,7 +149,6 @@ Partial Class Report
         RightToLeftLayout = True
         Text = "شاشة انشاء تقارير"
         CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
-        CType(PictureBox2, ComponentModel.ISupportInitialize).EndInit()
         CType(PictureBox3, ComponentModel.ISupportInitialize).EndInit()
         CType(PictureBox4, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
@@ -187,9 +162,7 @@ Partial Class Report
     Friend WithEvents Label2 As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents Button_Show_report As Button
-    Friend WithEvents Button_Print_report As Button
     Friend WithEvents PictureBox1 As PictureBox
-    Friend WithEvents PictureBox2 As PictureBox
     Friend WithEvents PictureBox3 As PictureBox
     Friend WithEvents PictureBox4 As PictureBox
 End Class

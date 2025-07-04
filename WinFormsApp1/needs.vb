@@ -108,7 +108,7 @@ Public Class Needs
             conn.Close()
 
             MessageBox.Show("✔️ تم حفظ الاحتياج بنجاح.")
-
+            LoadNeedsFromSubscribers()
         Catch ex As Exception
             conn.Close()
             MessageBox.Show("❌ خطأ أثناء الحفظ: " & ex.Message)

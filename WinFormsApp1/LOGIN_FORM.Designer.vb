@@ -85,9 +85,9 @@ Partial Class LOGIN_FORM
         ' PictureBox1
         ' 
         PictureBox1.Image = My.Resources.Resources.photo_2025_05_21_15_42_10
-        PictureBox1.Location = New Point(66, 13)
+        PictureBox1.Location = New Point(99, 13)
         PictureBox1.Name = "PictureBox1"
-        PictureBox1.Size = New Size(292, 215)
+        PictureBox1.Size = New Size(232, 208)
         PictureBox1.SizeMode = PictureBoxSizeMode.StretchImage
         PictureBox1.TabIndex = 2
         PictureBox1.TabStop = False
