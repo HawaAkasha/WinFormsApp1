@@ -98,7 +98,7 @@ Public Class Needs
             ' 🔹 إضافة الاحتياج إلى جدول Needs_table
             Dim insertCmd As New SqlCommand("INSERT INTO Needs_table (Subscriber_id, Need_type, FamilyNumbe)
                                          VALUES (@subId, @type, @family)", conn)
-            'insertCmd.Parameters.AddWithValue("@itemId", itemId)
+
             insertCmd.Parameters.AddWithValue("@subId", subscriberId)
             insertCmd.Parameters.AddWithValue("@type", TextBox_item_type.Text)
             insertCmd.Parameters.AddWithValue("@family", Convert.ToInt32(family_relate.Text))
