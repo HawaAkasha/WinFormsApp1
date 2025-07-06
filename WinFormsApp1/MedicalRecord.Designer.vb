@@ -22,6 +22,7 @@ Partial Class MedicalRecord
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(medicalRecord))
         patient_age = New TextBox()
         Label6 = New Label()
         Label5 = New Label()
@@ -235,7 +236,7 @@ Partial Class MedicalRecord
         ' 
         ' PictureBox1
         ' 
-        PictureBox1.Image = My.Resources.Resources.photo_2025_06_26_19_53_58
+        PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), Image)
         PictureBox1.Location = New Point(409, -2)
         PictureBox1.Name = "PictureBox1"
         PictureBox1.Size = New Size(149, 128)

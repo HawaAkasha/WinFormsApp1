@@ -200,7 +200,7 @@ Partial Class donor
         ' Label4
         ' 
         Label4.AutoSize = True
-        Label4.Location = New Point(298, 107)
+        Label4.Location = New Point(282, 107)
         Label4.Name = "Label4"
         Label4.Size = New Size(93, 20)
         Label4.TabIndex = 75
@@ -365,9 +365,9 @@ Partial Class donor
         ' PictureBox7
         ' 
         PictureBox7.Image = CType(resources.GetObject("PictureBox7.Image"), Image)
-        PictureBox7.Location = New Point(389, -1)
+        PictureBox7.Location = New Point(381, -1)
         PictureBox7.Name = "PictureBox7"
-        PictureBox7.Size = New Size(125, 128)
+        PictureBox7.Size = New Size(133, 128)
         PictureBox7.SizeMode = PictureBoxSizeMode.StretchImage
         PictureBox7.TabIndex = 90
         PictureBox7.TabStop = False

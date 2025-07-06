@@ -23,6 +23,7 @@ Partial Class Item
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Item))
         Button_close = New Button()
         Button_delete = New Button()
         Button_save = New Button()
@@ -96,11 +97,11 @@ Partial Class Item
         DataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText
         DataGridViewCellStyle1.WrapMode = DataGridViewTriState.False
         DataGridView_item.DefaultCellStyle = DataGridViewCellStyle1
-        DataGridView_item.Location = New Point(265, 97)
+        DataGridView_item.Location = New Point(265, 106)
         DataGridView_item.Name = "DataGridView_item"
         DataGridView_item.ReadOnly = True
         DataGridView_item.RowHeadersWidth = 51
-        DataGridView_item.Size = New Size(300, 330)
+        DataGridView_item.Size = New Size(300, 321)
         DataGridView_item.TabIndex = 91
         ' 
         ' Label2
@@ -198,10 +199,10 @@ Partial Class Item
         ' 
         ' PictureBox1
         ' 
-        PictureBox1.Image = My.Resources.Resources.photo_2025_06_26_19_53_581
+        PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), Image)
         PictureBox1.Location = New Point(440, 1)
         PictureBox1.Name = "PictureBox1"
-        PictureBox1.Size = New Size(125, 90)
+        PictureBox1.Size = New Size(125, 100)
         PictureBox1.SizeMode = PictureBoxSizeMode.StretchImage
         PictureBox1.TabIndex = 96
         PictureBox1.TabStop = False

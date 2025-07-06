@@ -22,6 +22,7 @@ Partial Class Report
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Report))
         ComboBox_report_type = New ComboBox()
         DateTimePicker_OF = New DateTimePicker()
         DateTimePicker_TO = New DateTimePicker()
@@ -118,10 +119,10 @@ Partial Class Report
         ' 
         ' PictureBox4
         ' 
-        PictureBox4.Image = My.Resources.Resources.photo_2025_06_26_19_53_58
-        PictureBox4.Location = New Point(600, 0)
+        PictureBox4.Image = CType(resources.GetObject("PictureBox4.Image"), Image)
+        PictureBox4.Location = New Point(590, 0)
         PictureBox4.Name = "PictureBox4"
-        PictureBox4.Size = New Size(85, 84)
+        PictureBox4.Size = New Size(95, 84)
         PictureBox4.SizeMode = PictureBoxSizeMode.StretchImage
         PictureBox4.TabIndex = 11
         PictureBox4.TabStop = False

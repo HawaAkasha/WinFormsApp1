@@ -22,6 +22,7 @@ Partial Class family
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(family))
         Label5 = New Label()
         Label4 = New Label()
         Label3 = New Label()
@@ -410,10 +411,10 @@ Partial Class family
         ' 
         ' PictureBox8
         ' 
-        PictureBox8.Image = My.Resources.Resources.photo_2025_06_26_19_53_58
-        PictureBox8.Location = New Point(480, -3)
+        PictureBox8.Image = CType(resources.GetObject("PictureBox8.Image"), Image)
+        PictureBox8.Location = New Point(477, -3)
         PictureBox8.Name = "PictureBox8"
-        PictureBox8.Size = New Size(106, 103)
+        PictureBox8.Size = New Size(109, 103)
         PictureBox8.SizeMode = PictureBoxSizeMode.StretchImage
         PictureBox8.TabIndex = 84
         PictureBox8.TabStop = False

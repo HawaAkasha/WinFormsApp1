@@ -98,6 +98,8 @@ Public Class user_form
         LoadAllUsers() 'الظهور فيgridview
         Button_add.Visible = False
 
+        Button_delete.Visible = True
+        Button_edit.Visible = True
 
 
     End Sub
@@ -161,6 +163,9 @@ Public Class user_form
         End Try
 
         LoadAllUsers()
+        Button_add.Visible = True
+        Button_delete.Visible = True
+        Button_edit.Visible = True
     End Sub
 
 
@@ -193,6 +198,10 @@ Public Class user_form
             End Try
         End If
         LoadAllUsers() 'الظهور فيgridview
+
+        Button_add.Visible = True
+        Button_delete.Visible = True
+        Button_edit.Visible = True
     End Sub
 
 
@@ -231,6 +240,9 @@ Public Class user_form
             MsgBox("حدث خطأ أثناء جلب البيانات: " & ex.Message, MsgBoxStyle.Critical)
             conn.Close()
         End Try
+        Button_add.Visible = True
+        Button_delete.Visible = True
+        Button_edit.Visible = True
     End Sub
 
 

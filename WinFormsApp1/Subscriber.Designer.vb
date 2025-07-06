@@ -22,6 +22,7 @@ Partial Class Subscriber
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Subscriber))
         sup_id = New TextBox()
         source_income = New TextBox()
         family_total = New TextBox()
@@ -879,7 +880,7 @@ Partial Class Subscriber
         ' 
         ' PictureBox12
         ' 
-        PictureBox12.Image = My.Resources.Resources.photo_2025_06_26_19_53_581
+        PictureBox12.Image = CType(resources.GetObject("PictureBox12.Image"), Image)
         PictureBox12.Location = New Point(576, 0)
         PictureBox12.Name = "PictureBox12"
         PictureBox12.Size = New Size(163, 123)

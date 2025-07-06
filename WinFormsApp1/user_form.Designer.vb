@@ -22,6 +22,7 @@ Partial Class user_form
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(user_form))
         TextBox_nameuser = New TextBox()
         TextBox_passuser2 = New TextBox()
         TextBox_passuser1 = New TextBox()
@@ -121,7 +122,7 @@ Partial Class user_form
         ' 
         Button_search.Location = New Point(485, 50)
         Button_search.Name = "Button_search"
-        Button_search.Size = New Size(130, 29)
+        Button_search.Size = New Size(113, 29)
         Button_search.TabIndex = 7
         Button_search.Text = "عرض البيانات"
         Button_search.UseVisualStyleBackColor = True
@@ -279,10 +280,10 @@ Partial Class user_form
         ' 
         ' PictureBox8
         ' 
-        PictureBox8.Image = My.Resources.Resources.photo_2025_06_26_19_53_581
-        PictureBox8.Location = New Point(621, -3)
+        PictureBox8.Image = CType(resources.GetObject("PictureBox8.Image"), Image)
+        PictureBox8.Location = New Point(604, -3)
         PictureBox8.Name = "PictureBox8"
-        PictureBox8.Size = New Size(98, 109)
+        PictureBox8.Size = New Size(115, 109)
         PictureBox8.SizeMode = PictureBoxSizeMode.StretchImage
         PictureBox8.TabIndex = 21
         PictureBox8.TabStop = False
