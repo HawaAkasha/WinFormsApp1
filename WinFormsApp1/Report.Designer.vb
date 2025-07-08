@@ -23,43 +23,45 @@ Partial Class Report
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Report))
-        ComboBox_report_type = New ComboBox()
-        DateTimePicker_OF = New DateTimePicker()
-        DateTimePicker_TO = New DateTimePicker()
+        ComboBoxReportType = New ComboBox()
+        DateTimePicker_From = New DateTimePicker()
+        DateTimePicker_To = New DateTimePicker()
         Label1 = New Label()
         Label2 = New Label()
         Label3 = New Label()
-        Button_Show_report = New Button()
+        ButtonShowReport = New Button()
         PictureBox1 = New PictureBox()
         PictureBox3 = New PictureBox()
         PictureBox4 = New PictureBox()
+        PrintPreviewDialog1 = New PrintPreviewDialog()
+        PrintDocument1 = New Printing.PrintDocument()
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         CType(PictureBox3, ComponentModel.ISupportInitialize).BeginInit()
         CType(PictureBox4, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
-        ' ComboBox_report_type
+        ' ComboBoxReportType
         ' 
-        ComboBox_report_type.BackColor = Color.Azure
-        ComboBox_report_type.FormattingEnabled = True
-        ComboBox_report_type.Location = New Point(57, 56)
-        ComboBox_report_type.Name = "ComboBox_report_type"
-        ComboBox_report_type.Size = New Size(151, 28)
-        ComboBox_report_type.TabIndex = 0
+        ComboBoxReportType.BackColor = Color.Azure
+        ComboBoxReportType.FormattingEnabled = True
+        ComboBoxReportType.Location = New Point(57, 56)
+        ComboBoxReportType.Name = "ComboBoxReportType"
+        ComboBoxReportType.Size = New Size(151, 28)
+        ComboBoxReportType.TabIndex = 0
         ' 
-        ' DateTimePicker_OF
+        ' DateTimePicker_From
         ' 
-        DateTimePicker_OF.Location = New Point(226, 56)
-        DateTimePicker_OF.Name = "DateTimePicker_OF"
-        DateTimePicker_OF.Size = New Size(83, 27)
-        DateTimePicker_OF.TabIndex = 1
+        DateTimePicker_From.Location = New Point(226, 56)
+        DateTimePicker_From.Name = "DateTimePicker_From"
+        DateTimePicker_From.Size = New Size(83, 27)
+        DateTimePicker_From.TabIndex = 1
         ' 
-        ' DateTimePicker_TO
+        ' DateTimePicker_To
         ' 
-        DateTimePicker_TO.Location = New Point(338, 55)
-        DateTimePicker_TO.Name = "DateTimePicker_TO"
-        DateTimePicker_TO.Size = New Size(83, 27)
-        DateTimePicker_TO.TabIndex = 2
+        DateTimePicker_To.Location = New Point(338, 55)
+        DateTimePicker_To.Name = "DateTimePicker_To"
+        DateTimePicker_To.Size = New Size(83, 27)
+        DateTimePicker_To.TabIndex = 2
         ' 
         ' Label1
         ' 
@@ -88,14 +90,14 @@ Partial Class Report
         Label3.TabIndex = 5
         Label3.Text = "الي"
         ' 
-        ' Button_Show_report
+        ' ButtonShowReport
         ' 
-        Button_Show_report.Location = New Point(475, 53)
-        Button_Show_report.Name = "Button_Show_report"
-        Button_Show_report.Size = New Size(119, 29)
-        Button_Show_report.TabIndex = 6
-        Button_Show_report.Text = "عرض التقرير"
-        Button_Show_report.UseVisualStyleBackColor = True
+        ButtonShowReport.Location = New Point(475, 53)
+        ButtonShowReport.Name = "ButtonShowReport"
+        ButtonShowReport.Size = New Size(119, 29)
+        ButtonShowReport.TabIndex = 6
+        ButtonShowReport.Text = "عرض التقرير"
+        ButtonShowReport.UseVisualStyleBackColor = True
         ' 
         ' PictureBox1
         ' 
@@ -127,6 +129,19 @@ Partial Class Report
         PictureBox4.TabIndex = 11
         PictureBox4.TabStop = False
         ' 
+        ' PrintPreviewDialog1
+        ' 
+        PrintPreviewDialog1.AutoScrollMargin = New Size(0, 0)
+        PrintPreviewDialog1.AutoScrollMinSize = New Size(0, 0)
+        PrintPreviewDialog1.ClientSize = New Size(400, 300)
+        PrintPreviewDialog1.Enabled = True
+        PrintPreviewDialog1.Icon = CType(resources.GetObject("PrintPreviewDialog1.Icon"), Icon)
+        PrintPreviewDialog1.Name = "PrintPreviewDialog1"
+        PrintPreviewDialog1.Visible = False
+        ' 
+        ' PrintDocument1
+        ' 
+        ' 
         ' Report
         ' 
         AutoScaleDimensions = New SizeF(8F, 20F)
@@ -136,18 +151,19 @@ Partial Class Report
         Controls.Add(PictureBox4)
         Controls.Add(PictureBox3)
         Controls.Add(PictureBox1)
-        Controls.Add(Button_Show_report)
+        Controls.Add(ButtonShowReport)
         Controls.Add(Label3)
         Controls.Add(Label2)
         Controls.Add(Label1)
-        Controls.Add(DateTimePicker_TO)
-        Controls.Add(DateTimePicker_OF)
-        Controls.Add(ComboBox_report_type)
+        Controls.Add(DateTimePicker_To)
+        Controls.Add(DateTimePicker_From)
+        Controls.Add(ComboBoxReportType)
         MaximizeBox = False
         MinimizeBox = False
         Name = "Report"
         RightToLeft = RightToLeft.Yes
         RightToLeftLayout = True
+        StartPosition = FormStartPosition.CenterScreen
         Text = "شاشة انشاء تقارير"
         CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
         CType(PictureBox3, ComponentModel.ISupportInitialize).EndInit()
@@ -156,14 +172,16 @@ Partial Class Report
         PerformLayout()
     End Sub
 
-    Friend WithEvents ComboBox_report_type As ComboBox
-    Friend WithEvents DateTimePicker_OF As DateTimePicker
-    Friend WithEvents DateTimePicker_TO As DateTimePicker
+    Friend WithEvents ComboBoxReportType As ComboBox
+    Friend WithEvents DateTimePicker_From As DateTimePicker
+    Friend WithEvents DateTimePicker_To As DateTimePicker
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents Label3 As Label
-    Friend WithEvents Button_Show_report As Button
+    Friend WithEvents ButtonShowReport As Button
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents PictureBox3 As PictureBox
     Friend WithEvents PictureBox4 As PictureBox
+    Friend WithEvents PrintPreviewDialog1 As PrintPreviewDialog
+    Friend WithEvents PrintDocument1 As Printing.PrintDocument
 End Class
