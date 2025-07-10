@@ -190,6 +190,7 @@ Partial Class Item
         ' ComboBox_item_class
         ' 
         ComboBox_item_class.BackColor = Color.Azure
+        ComboBox_item_class.DropDownStyle = ComboBoxStyle.DropDownList
         ComboBox_item_class.FormattingEnabled = True
         ComboBox_item_class.Items.AddRange(New Object() {"ملابس", "مواد غذائية", "مستلزمات صحية", "تبرع مالي"})
         ComboBox_item_class.Location = New Point(49, 202)

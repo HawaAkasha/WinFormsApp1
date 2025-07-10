@@ -42,6 +42,10 @@ Partial Class needs
         PictureBox5 = New PictureBox()
         PictureBox6 = New PictureBox()
         PictureBox7 = New PictureBox()
+        Butt_delete = New Button()
+        But_edit = New Button()
+        PictureBox8 = New PictureBox()
+        PictureBox10 = New PictureBox()
         CType(DataGridView_need, ComponentModel.ISupportInitialize).BeginInit()
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         CType(PictureBox2, ComponentModel.ISupportInitialize).BeginInit()
@@ -50,6 +54,8 @@ Partial Class needs
         CType(PictureBox5, ComponentModel.ISupportInitialize).BeginInit()
         CType(PictureBox6, ComponentModel.ISupportInitialize).BeginInit()
         CType(PictureBox7, ComponentModel.ISupportInitialize).BeginInit()
+        CType(PictureBox8, ComponentModel.ISupportInitialize).BeginInit()
+        CType(PictureBox10, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' TextBox_sub_name
@@ -227,12 +233,54 @@ Partial Class needs
         PictureBox7.TabIndex = 20
         PictureBox7.TabStop = False
         ' 
+        ' Butt_delete
+        ' 
+        Butt_delete.Location = New Point(467, 462)
+        Butt_delete.Name = "Butt_delete"
+        Butt_delete.Size = New Size(94, 29)
+        Butt_delete.TabIndex = 21
+        Butt_delete.Text = "حذف"
+        Butt_delete.UseVisualStyleBackColor = True
+        ' 
+        ' But_edit
+        ' 
+        But_edit.Location = New Point(467, 497)
+        But_edit.Name = "But_edit"
+        But_edit.Size = New Size(94, 29)
+        But_edit.TabIndex = 22
+        But_edit.Text = "تعديل"
+        But_edit.UseVisualStyleBackColor = True
+        ' 
+        ' PictureBox8
+        ' 
+        PictureBox8.Image = My.Resources.Resources.photo_2025_06_26_20_05_041
+        PictureBox8.Location = New Point(433, 465)
+        PictureBox8.Name = "PictureBox8"
+        PictureBox8.Size = New Size(39, 26)
+        PictureBox8.SizeMode = PictureBoxSizeMode.StretchImage
+        PictureBox8.TabIndex = 23
+        PictureBox8.TabStop = False
+        ' 
+        ' PictureBox10
+        ' 
+        PictureBox10.Image = My.Resources.Resources.photo_2025_06_26_19_36_40
+        PictureBox10.Location = New Point(439, 497)
+        PictureBox10.Name = "PictureBox10"
+        PictureBox10.Size = New Size(33, 26)
+        PictureBox10.SizeMode = PictureBoxSizeMode.StretchImage
+        PictureBox10.TabIndex = 92
+        PictureBox10.TabStop = False
+        ' 
         ' needs
         ' 
         AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.Azure
-        ClientSize = New Size(561, 468)
+        ClientSize = New Size(561, 531)
+        Controls.Add(PictureBox10)
+        Controls.Add(PictureBox8)
+        Controls.Add(But_edit)
+        Controls.Add(Butt_delete)
         Controls.Add(PictureBox7)
         Controls.Add(PictureBox6)
         Controls.Add(PictureBox5)
@@ -267,6 +315,8 @@ Partial Class needs
         CType(PictureBox5, ComponentModel.ISupportInitialize).EndInit()
         CType(PictureBox6, ComponentModel.ISupportInitialize).EndInit()
         CType(PictureBox7, ComponentModel.ISupportInitialize).EndInit()
+        CType(PictureBox8, ComponentModel.ISupportInitialize).EndInit()
+        CType(PictureBox10, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
         PerformLayout()
     End Sub
@@ -290,4 +340,8 @@ Partial Class needs
     Friend WithEvents PictureBox5 As PictureBox
     Friend WithEvents PictureBox6 As PictureBox
     Friend WithEvents PictureBox7 As PictureBox
+    Friend WithEvents Butt_delete As Button
+    Friend WithEvents But_edit As Button
+    Friend WithEvents PictureBox8 As PictureBox
+    Friend WithEvents PictureBox10 As PictureBox
 End Class

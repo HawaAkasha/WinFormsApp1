@@ -1,7 +1,7 @@
 ﻿
 
 Imports System.Data.SqlClient
-'مشكلة في الحفظ
+
 Public Class medicalRecord
     Public Property SubscriberID As String
     Public Property SubscriberName As String
@@ -36,14 +36,14 @@ Public Class medicalRecord
                 row("Patient_id") = "S" & readerSub("National_id").ToString()
                 row("Full_name") = readerSub("Full_name").ToString()
                 row("Age") = readerSub("Age").ToString()
-                row("Disease_type") = "غير محدد"
+                row("Disease_type") = "ضغط"
                 row("Person_type") = "مشترك"
                 dt.Rows.Add(row)
             End While
             readerSub.Close()
 
             ' أفراد العائلة اللي عندهم مرض
-            Dim cmdFam As New SqlCommand("SELECT Subscriber_id, Name, Age, Disease_id FROM Family_table WHERE Disease_id IS NOT NULL AND Disease_id <> ''", conn)
+            Dim cmdFam As New SqlCommand("Select Subscriber_id, Name, Age, Disease_id FROM Family_table WHERE Disease_id Is Not NULL And Disease_id <> ''", conn)
             Dim readerFam As SqlDataReader = cmdFam.ExecuteReader()
             While readerFam.Read()
                 Dim row As DataRow = dt.NewRow()
@@ -168,6 +168,7 @@ Public Class medicalRecord
 
 
 
+
     Private Sub button_patient_delete_Click(sender As Object, e As EventArgs) Handles Button_patient_delete.Click
         If DataGridView_Medical.SelectedRows.Count = 0 Then
             MessageBox.Show("يرجى تحديد صف لحذفه", "تنبيه", MessageBoxButtons.OK, MessageBoxIcon.Warning)
@@ -175,28 +176,52 @@ Public Class medicalRecord
         End If
 
         Dim selectedRow As DataGridViewRow = DataGridView_Medical.SelectedRows(0)
-        Dim patientID As String = selectedRow.Cells("Patient_id").Value.ToString()
+        Dim nationalId As String = selectedRow.Cells("National_id").Value.ToString()
+        Dim personType As String = selectedRow.Cells("Person_type").Value.ToString()
 
         If MessageBox.Show("هل أنت متأكد من حذف هذا السجل؟", "تأكيد", MessageBoxButtons.YesNo) = DialogResult.Yes Then
             Try
                 conn.Open()
-                Dim cmd As New SqlCommand("DELETE FROM MedicaRecord WHERE Patient_id = @id", conn)
-                cmd.Parameters.AddWithValue("@id", patientID)
+                Dim cmd As SqlCommand
+
+                If personType = "مشترك" Then
+                    ' حذف المرض من جدول المشتركين
+                    cmd = New SqlCommand("UPDATE Subscribers_table SET has_disease = 0 WHERE National_id = @nid", conn)
+                    cmd.Parameters.AddWithValue("@nid", nationalId)
+                ElseIf personType = "فرد عائلة" Then
+                    ' حذف المرض من جدول العائلة
+                    cmd = New SqlCommand("UPDATE Family_table SET Disease_id = '' WHERE Subscriber_id = @sid", conn)
+                    cmd.Parameters.AddWithValue("@sid", nationalId)
+                Else
+                    MessageBox.Show("نوع الشخص غير معروف، لا يمكن الحذف.")
+                    conn.Close()
+                    Return
+                End If
+
                 cmd.ExecuteNonQuery()
                 conn.Close()
 
-                ' حذف الصف من DataGridView مباشرة
-                DataGridView_Medical.Rows.Remove(selectedRow)
+                MessageBox.Show("✅ تم حذف المرض من السجل بنجاح")
 
-                MessageBox.Show("✅ تم حذف السجل بنجاح")
-                ' ممكن تستغني عن LoadMedicalRecords() لأنه تم الحذف من القريد مباشرة
-                ' LoadMedicalRecords()
+                LoadMedicalRecords() ' إعادة تحميل السجلات بعد التعديل
+
             Catch ex As Exception
                 MessageBox.Show("❌ خطأ أثناء الحذف: " & ex.Message)
                 conn.Close()
             End Try
         End If
     End Sub
+
+
+
+
+
+
+
+
+
+
+
 
     Private Sub button_patient_close_Click(sender As Object, e As EventArgs) Handles Button_patient_close.Click
         Me.Close()

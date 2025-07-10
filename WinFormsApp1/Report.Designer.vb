@@ -43,6 +43,7 @@ Partial Class Report
         ' ComboBoxReportType
         ' 
         ComboBoxReportType.BackColor = Color.Azure
+        ComboBoxReportType.DropDownStyle = ComboBoxStyle.DropDownList
         ComboBoxReportType.FormattingEnabled = True
         ComboBoxReportType.Location = New Point(57, 56)
         ComboBoxReportType.Name = "ComboBoxReportType"

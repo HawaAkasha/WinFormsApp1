@@ -51,8 +51,8 @@ Public Class family
 
             conn.Open()
             cmd.ExecuteNonQuery()
-            conn.Close()
 
+            conn.Close()
             MessageBox.Show("✅ تم حفظ أفراد العائلة بنجاح.", "تم", MessageBoxButtons.OK, MessageBoxIcon.Information)
             clearFields()
 
@@ -60,6 +60,8 @@ Public Class family
             MessageBox.Show("❌ خطأ أثناء حفظ بيانات العائلة: " & ex.Message)
             conn.Close()
         End Try
+
+
         ' بعد حفظ بيانات الفرد، نتحقق هل عنده مرض
         ' إذا تم إدخال مرض → افتح سجل طبي تلقائيًا
         ' بعد حفظ بيانات الفرد، نتحقق هل عنده مرض
@@ -68,10 +70,7 @@ Public Class family
             medical.SubscriberID = SubscriberID
             medical.SubscriberName = txtName.Text
             medical.SubscriberAge = txtAge.Text
-            ' medical.ShowDialog()
-            '/////////////////////////////
-            '  medicalRecord.SubscriberNationalID = sup_id.Text  ' أو أي TextBox فيه National_id
-            ' medicalRecord.ShowDialog()
+
         End If
     End Sub
 
