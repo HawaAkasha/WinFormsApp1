@@ -95,6 +95,7 @@ ORDER BY FullName;"
                 Exit Sub
             Else
                 subscriberId = Convert.ToInt32(resultSub)
+
             End If
 
 

@@ -343,7 +343,7 @@ Public Class Subscriber
             Dim itemId As Integer = CInt(cmdItem.ExecuteScalar())
 
             ' 2. ربطها بالمشترك في جدول الاحتياج
-            Dim cmdNeed As New SqlCommand("INSERT INTO Needs_table (Item_id, Subscriber_id, Need_type, FamilyNumbe)
+            Dim cmdNeed As New SqlCommand("INSERT INTO Needs_table (item_id,Subscriber_id, Need_type, FamilyNumbe)
                                    VALUES (@itemId, @subId, @type, @family)", conn)
             cmdNeed.Parameters.AddWithValue("@itemId", itemId)
             cmdNeed.Parameters.AddWithValue("@subId", sup_id.Text)

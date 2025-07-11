@@ -36,12 +36,11 @@ Public Class medicalRecord
                 row("Patient_id") = "S" & readerSub("National_id").ToString()
                 row("Full_name") = readerSub("Full_name").ToString()
                 row("Age") = readerSub("Age").ToString()
-                row("Disease_type") = "ضغط"
+                row("Disease_type") = ""
                 row("Person_type") = "مشترك"
                 dt.Rows.Add(row)
             End While
             readerSub.Close()
-
             ' أفراد العائلة اللي عندهم مرض
             Dim cmdFam As New SqlCommand("Select Subscriber_id, Name, Age, Disease_id FROM Family_table WHERE Disease_id Is Not NULL And Disease_id <> ''", conn)
             Dim readerFam As SqlDataReader = cmdFam.ExecuteReader()

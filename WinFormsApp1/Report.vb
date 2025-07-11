@@ -54,7 +54,7 @@ Public Class Report
                     useDateFilter = True
 
                 Case "تقرير نواقص"
-                    query = "SELECT Item_id, Item_category, Item_name, Item_quantity FROM Item_table"
+                    query = "SELECT Item_category, Item_name, Item_quantity FROM Item_table"
 
                 Case "تقرير مصروف"
                     query = "SELECT s.full_name, i.item_name, n.FamilyNumbe
@@ -81,7 +81,7 @@ Public Class Report
                                 line = $"رقم المتبرع: {reader("Donor_id")} | اسم المادة: {reader("item_name")} | نوع التبرع: {reader("Donation_type")} | الكمية: {reader("quantity")} | التاريخ: {Convert.ToDateTime(reader("Donation_date")).ToShortDateString()}"
 
                             Case "تقرير نواقص"
-                                line = $"رقم المادة: {reader("Item_id")} | التصنيف: {reader("Item_category")} | الاسم: {reader("Item_name")} | الكمية: {reader("Item_quantity")}"
+                                line = $" التصنيف: {reader("Item_category")} | الاسم: {reader("Item_name")} | الكمية: {reader("Item_quantity")}"
 
                             Case "تقرير مصروف"
 
