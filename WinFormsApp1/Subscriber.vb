@@ -1,4 +1,5 @@
-﻿Imports System.Data.SqlClient
+﻿
+Imports System.Data.SqlClient
 Public Class Subscriber
     Dim conn As New SqlConnection("Data Source=DESKTOP-OA3F4SP\SQLEXPRESS;Initial Catalog=Project_DB;Integrated Security=True")
 
@@ -13,7 +14,7 @@ Public Class Subscriber
 
     Private Sub Button_register_save_Click(sender As Object, e As EventArgs) Handles Button_register_save.Click
 
-        ' قراءة البيانات من الفورم
+        ' قراءة البيانات من الفورم 
         Dim info As String = ""
         TextBox_istability.Visible = False
         info &= "رقم البطاقة: " & sup_id.Text & vbCrLf
@@ -25,10 +26,10 @@ Public Class Subscriber
         info &= "عدد أفراد العائلة: " & family_total.Text & vbCrLf
         info &= "جهة العمل: " & TextBox_workplace.Text & vbCrLf
 
-        ' الجنسية
+        ' الجنسية 
         info &= "الجنسية: " & If(RadioButton_libyan.Checked, "ليبي", "غير ليبي") & vbCrLf
 
-        ' نوع السكن
+        ' نوع السكن 
         If RadioButton_living1.Checked Then
             info &= "نوع السكن: مالك" & vbCrLf
         ElseIf RadioButtonliving2.Checked Then
@@ -37,7 +38,7 @@ Public Class Subscriber
             info &= "نوع السكن: سكن مشترك" & vbCrLf
         End If
 
-        ' مدى استقرار السكن
+        ' مدى استقرار السكن 
         If RadioButton_stability1.Checked Then
             info &= "مكان السكن: دائم" & vbCrLf
         ElseIf RadioButton_stability2.Checked Then
@@ -45,14 +46,14 @@ Public Class Subscriber
         ElseIf RadioButton_stability3.Checked Then
             info &= "مكان السكن: نازح" & vbCrLf
         End If
-        'الحالة الوظيفية
+        'الحالة الوظيفية 
         If RadioButton_working.Checked Then
             info &= "الحالة الوظيفية: يعمل" & vbCrLf
         ElseIf RadioButton_nonworking.Checked Then
             info &= "الحالة الوظيفية: لايعمل" & vbCrLf
         End If
 
-        ' نوع الاحتياج
+        ' نوع الاحتياج 
         info &= "نوع الاحتياج: "
         If CheckBox_money.Checked Then info &= "مال، "
         If CheckBox_eat.Checked Then info &= "مواد غذائية، "
@@ -60,24 +61,24 @@ Public Class Subscriber
         If CheckBox_medicine.Checked Then info &= "مستلزمات صحية، "
         info &= vbCrLf
 
-        ' مصدر الدخل
+        ' مصدر الدخل 
         info &= "مصدر الدخل: " & source_income.Text & vbCrLf
 
-        ' أمراض
+        ' أمراض 
         info &= "يوجد مرض: " & If(RadioButton_sikeyes.Checked, "نعم", "لا") & vbCrLf
         If CheckBox_sikePressure.Checked Then info &= "- ضغط" & vbCrLf
         If CheckBox_sikeSuger.Checked Then info &= "- سكر" & vbCrLf
         If CheckBox_sikeSly.Checked Then info &= "- أمراض خبيثة" & vbCrLf
         If CheckBox_sikeBenignant.Checked Then info &= "- أمراض حميدة" & vbCrLf
 
-        ' حالات إضافية
+        ' حالات إضافية 
         info &= "يوجد معيل للأسرة: " & If(RadioButton_fatherfamily_yes.Checked, "نعم", "لا") & vbCrLf
         info &= "هل تتلقى الأسرة مساعدات خارجية: " & If(RadioButton_helpfamilly_yes.Checked, "نعم", "لا") & vbCrLf
         info &= "هل  يوجد تأمين طبي: " & If(medical_insurance_yes.Checked, "نعم", "لا") & vbCrLf
 
 
 
-        ' التحقق من الحقول الفارغة والأرقام والحروف
+        ' التحقق من الحقول الفارغة والأرقام والحروف 
         If Trim(sup_id.Text) = "" Then
             MsgBox("يرجى إدخال رقم البطاقة", MsgBoxStyle.Exclamation)
             sup_id.Focus()
@@ -92,13 +93,12 @@ Public Class Subscriber
             MsgBox("يرجى إدخال رقم الجواز", MsgBoxStyle.Exclamation)
             sup_pasport.Focus()
             Exit Sub
-            ' ElseIf Not IsNumeric(sup_pasport.Text) Then
-            ' MsgBox("رقم الجواز يجب أن يكون أرقام فقط", MsgBoxStyle.Exclamation)
-            ' sup_pasport.Focus()
-            ' Exit Sub
+
         End If
 
         If Trim(sup_name.Text) = "" Then
+
+
             MsgBox("يرجى إدخال الاسم", MsgBoxStyle.Exclamation)
             sup_name.Focus()
             Exit Sub
@@ -190,11 +190,11 @@ Public Class Subscriber
         End If
 
 
-        'اضافه في الداتا بيز
+        'اضافه في الداتا بيز 
 
         Try
 
-            ' قراءة الجنسية
+            ' قراءة الجنسية 
             Dim nationality As String = ""
             If RadioButton_libyan.Checked Then
                 nationality = "ليبي"
@@ -202,17 +202,18 @@ Public Class Subscriber
                 nationality = "غير ليبي"
             End If
 
-            ' قراءة نوع السكن
+            ' قراءة نوع السكن 
             Dim housingType As String = ""
             If RadioButton_living1.Checked Then
                 housingType = "ملك"
             ElseIf RadioButtonliving2.Checked Then
+
                 housingType = "إيجار"
             ElseIf RadioButton_living3.Checked Then
                 housingType = "سكن مشترك"
             End If
 
-            ' قراءة الحالة الصحية
+            ' قراءة الحالة الصحية 
             Dim hasDisease As String = ""
             If RadioButton_sikeyes.Checked Then
                 hasDisease = "نعم"
@@ -220,8 +221,8 @@ Public Class Subscriber
                 hasDisease = "لا"
             End If
             conn.Open()
-            Dim cmd As New SqlCommand("INSERT INTO Subscribers_table 
-            (National_id, Nationality, National_number,Passport_number,Full_name,Age,Phone_number,Address,Employment_state,Work_p,Income_source,has_disease) 
+            Dim cmd As New SqlCommand("INSERT INTO Subscribers_table  
+            (National_id, Nationality, National_number,Passport_number,Full_name,Age,Phone_number,Address,Employment_state,Work_p,Income_source,has_disease)  
             VALUES (@National_id, @Nationality, @National_number,@Passport_number,@Full_name,@Age,@Phone_number,@Address,@Employment_state,@Work_p,@Income_source,@has_disease)", conn)
 
             cmd.Parameters.AddWithValue("@National_id", sup_id.Text)
@@ -247,28 +248,28 @@ Public Class Subscriber
             MessageBox.Show("خطأ أثناء الإضافة: " & ex.Message)
             conn.Close()
         End Try
-        ' إذا كان المشترك لديه مرض → افتح سجل طبي تلقائيًا
+        ' إذا كان المشترك لديه مرض → افتح سجل طبي تلقائيًا 
         If RadioButton_sikeyes.Checked Or CheckBox_sikePressure.Checked Or CheckBox_sikeSuger.Checked Or CheckBox_sikeSly.Checked Or CheckBox_sikeBenignant.Checked Then
 
             Dim medical As New medicalRecord()
             medical.SubscriberID = sup_id.Text
             medical.SubscriberName = sup_name.Text
             medical.SubscriberAge = sup_age.Text
-            ' medical.ShowDialog()
+            ' medical.ShowDialog() 
 
         End If
-        'هل يملك المشترك عائلة
+        'هل يملك المشترك عائلة 
         Dim hasFamily As DialogResult = MessageBox.Show("هل يمتلك هذا المشترك عائلة؟", "تأكيد", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
 
         If hasFamily = DialogResult.Yes Then
-            ' تمرير رقم المشترك إلى نموذج العائلة
+            ' تمرير رقم المشترك إلى نموذج العائلة 
             family.SubscriberID = sup_id.Text
-            family.ShowDialog() ' إظهار فورم العائلة كنافذة مؤقتة
+            family.ShowDialog() ' إظهار فورم العائلة كنافذة مؤقتة 
         End If
 
 
 
-        ' تحديد نوع الاحتياج
+        ' تحديد نوع الاحتياج 
         Dim needType As String = ""
         Dim itemName As String = ""
         Dim quantity As Integer = 0
@@ -298,15 +299,17 @@ Public Class Subscriber
             Exit Sub
 
         End If
-        'الربط بالحتياج
+        'الربط بالحتياج 
 
 
 
 
         Try
-            ' تجهيز بيانات المادة
+            ' تجهيز بيانات المادة 
             Dim itemNam As String = ""
             Dim itemQty As Integer = 0
+
+
             Dim itemCategory As String = ""
 
             If CheckBox_money.Checked Then
@@ -332,9 +335,9 @@ Public Class Subscriber
 
             conn.Open()
 
-            ' 1. إضافة المادة
-            Dim cmdItem As New SqlCommand("INSERT INTO Item_table (Item_name, Item_quantity, Item_category, Expir_date)
-                                   OUTPUT INSERTED.Item_id
+            ' 1. إضافة المادة 
+            Dim cmdItem As New SqlCommand("INSERT INTO Item_table (Item_name, Item_quantity, Item_category, Expir_date) 
+                                   OUTPUT INSERTED.Item_id 
                                    VALUES (@name, @qty, @cat, @exp)", conn)
             cmdItem.Parameters.AddWithValue("@name", itemNam)
             cmdItem.Parameters.AddWithValue("@qty", itemQty)
@@ -342,8 +345,8 @@ Public Class Subscriber
             cmdItem.Parameters.AddWithValue("@exp", DateTime.Today)
             Dim itemId As Integer = CInt(cmdItem.ExecuteScalar())
 
-            ' 2. ربطها بالمشترك في جدول الاحتياج
-            Dim cmdNeed As New SqlCommand("INSERT INTO Needs_table (item_id,Subscriber_id, Need_type, FamilyNumbe)
+            ' 2. ربطها بالمشترك في جدول الاحتياج 
+            Dim cmdNeed As New SqlCommand("INSERT INTO Needs_table ( item_id, Subscriber_id, Need_type, FamilyNumbe) 
                                    VALUES (@itemId, @subId, @type, @family)", conn)
             cmdNeed.Parameters.AddWithValue("@itemId", itemId)
             cmdNeed.Parameters.AddWithValue("@subId", sup_id.Text)
@@ -354,9 +357,9 @@ Public Class Subscriber
             conn.Close()
             MessageBox.Show("✔️ تم ربط المشترك بالاحتياج بنجاح")
 
-            ' تحميل البيانات في فورم الاحتياج  
-            Dim needsForm As New needs()
-            needsForm.LoadNeedsFromSubscribers()
+            ' تحميل البيانات في فورم الاحتياج   
+            Dim needForm As New needs()
+            needForm.LoadNeedsFromSubscribers()
 
         Catch ex As Exception
             conn.Close()
@@ -402,9 +405,11 @@ Public Class Subscriber
     Private Sub Button_register_delete_Click(sender As Object, e As EventArgs) Handles Button_register_delete.Click
 
 
-        ' تصفير الحقول النصية
+        ' تصفير الحقول النصية 
         sup_id.Text = ""
         sup_pasport.Text = ""
+
+
         sup_name.Text = ""
         sup_age.Text = ""
         sup_number.Text = ""
@@ -414,7 +419,7 @@ Public Class Subscriber
         source_income.Text = ""
         TextBox_istability.Text = ""
 
-        ' تصفير الخيارات (RadioButtons)
+        ' تصفير الخيارات (RadioButtons) 
         RadioButton_libyan.Checked = False
         RadioButton_nonlibyan.Checked = False
 
@@ -439,7 +444,7 @@ Public Class Subscriber
         RadioButton_sikeno.Checked = False
         medical_insurance_yes.Checked = False
         medical_insurance_no.Checked = False
-        ' تصفير المربعات (CheckBoxes)
+        ' تصفير المربعات (CheckBoxes) 
         CheckBox_money.Checked = False
         CheckBox_eat.Checked = False
         CheckBox_clothes.Checked = False
@@ -459,30 +464,12 @@ Public Class Subscriber
         med_quntity.Visible = False
         TextBox_moneyy.Visible = False
 
-        ' إخفاء الحقول الخاصة بالأمراض
+        ' إخفاء الحقول الخاصة بالأمراض 
         GroupBox_sik.Visible = False
         TextBox_istability.Visible = False
-        'لو بنحذفه
-        ' If MsgBox("هل تريد حذف هذا المشترك؟", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
-        'Dim cmd As New SqlCommand("DELETE FROM Subscribers WHERE Subscriber_id = @Subscriber_id", conn)
-        ' cmd.Parameters.AddWithValue("@Subscriber_id", sup_id.Text)
 
-        ' Try
-        'conn.Open()
-        '  Dim rows = cmd.ExecuteNonQuery()
-        's > 0 Then
-        'MsgBox("تم حذف المشترك بنجاح", MsgBoxStyle.Information)
-        '   Else
-        '       MsgBox("لم يتم العثور على مشترك بهذا الرقم", MsgBoxStyle.Exclamation)
-        'End If
-        '       Catch ex As Exception
-        '  MsgBox("حدث خطأ أثناء الحذف: " & ex.Message)
-        '  Finally
-        '  conn.Close()
-        ' End Try
-        ' End If
     End Sub
-    ' دالة التحقق من أن النص يحتوي على حروف فقط
+    ' دالة التحقق من أن النص يحتوي على حروف فقط 
     Private Function IsAlpha(input As String) As Boolean
         For Each c As Char In input
             If Not Char.IsLetter(c) AndAlso Not Char.IsWhiteSpace(c) Then
@@ -509,5 +496,9 @@ Public Class Subscriber
 
     Private Sub CheckBox_money_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox_money.CheckedChanged
         TextBox_moneyy.Visible = CheckBox_money.Checked
+    End Sub
+
+    Private Sub GroupBoxsike_Enter(sender As Object, e As EventArgs) Handles GroupBoxsike.Enter
+
     End Sub
 End Class

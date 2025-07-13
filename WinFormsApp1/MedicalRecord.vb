@@ -1,14 +1,10 @@
 ﻿
-
 Imports System.Data.SqlClient
 
 Public Class medicalRecord
     Public Property SubscriberID As String
     Public Property SubscriberName As String
     Public Property SubscriberAge As String
-
-    Public Property SubscriberNationalID As String
-
     Dim conn As New SqlConnection("Data Source=DESKTOP-OA3F4SP\SQLEXPRESS;Initial Catalog=Project_DB;Integrated Security=True")
 
     Private Sub medicalRecord_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -27,58 +23,59 @@ Public Class medicalRecord
             dt.Columns.Add("Disease_type")
             dt.Columns.Add("Person_type")
 
-            ' المشتركين اللي عندهم مرض
-            Dim cmdSub As New SqlCommand("SELECT National_id, Full_name, Age, has_disease FROM Subscribers_table WHERE has_disease = 'نعم'", conn)
-            Dim readerSub As SqlDataReader = cmdSub.ExecuteReader()
-            While readerSub.Read()
-                Dim row As DataRow = dt.NewRow()
-                row("National_id") = readerSub("National_id").ToString()
-                row("Patient_id") = "S" & readerSub("National_id").ToString()
-                row("Full_name") = readerSub("Full_name").ToString()
-                row("Age") = readerSub("Age").ToString()
-                row("Disease_type") = ""
+            ' المشتركين
+            Dim cmd1 As New SqlCommand("SELECT National_id, Full_name, Age FROM Subscribers_table WHERE has_disease = 'نعم'", conn)
+            Dim r1 = cmd1.ExecuteReader()
+            While r1.Read()
+                Dim row = dt.NewRow()
+                row("National_id") = r1("National_id")
+                row("Patient_id") = "S" & r1("National_id")
+                row("Full_name") = r1("Full_name")
+                row("Age") = r1("Age")
+                row("Disease_type") = "غير محدد"
                 row("Person_type") = "مشترك"
                 dt.Rows.Add(row)
             End While
-            readerSub.Close()
-            ' أفراد العائلة اللي عندهم مرض
-            Dim cmdFam As New SqlCommand("Select Subscriber_id, Name, Age, Disease_id FROM Family_table WHERE Disease_id Is Not NULL And Disease_id <> ''", conn)
-            Dim readerFam As SqlDataReader = cmdFam.ExecuteReader()
-            While readerFam.Read()
-                Dim row As DataRow = dt.NewRow()
-                row("National_id") = readerFam("Subscriber_id").ToString()
-                row("Patient_id") = "F" & readerFam("Subscriber_id").ToString() & readerFam("Name").ToString().Substring(0, 1).ToUpper()
-                row("Full_name") = readerFam("Name").ToString()
-                row("Age") = readerFam("Age").ToString()
-                row("Disease_type") = readerFam("Disease_id").ToString()
+            r1.Close()
+
+            ' أفراد العائلة
+            Dim cmd2 As New SqlCommand("SELECT Subscriber_id, Name, Age, Disease_id FROM Family_table WHERE Disease_id IS NOT NULL AND Disease_id <> ''", conn)
+            Dim r2 = cmd2.ExecuteReader()
+            While r2.Read()
+                Dim row = dt.NewRow()
+                row("National_id") = r2("Subscriber_id")
+                row("Patient_id") = "F" & r2("Subscriber_id") & r2("Name").ToString().Substring(0, 1).ToUpper()
+                row("Full_name") = r2("Name")
+                row("Age") = r2("Age")
+                row("Disease_type") = r2("Disease_id")
                 row("Person_type") = "فرد عائلة"
                 dt.Rows.Add(row)
             End While
-            readerFam.Close()
+            r2.Close()
 
             conn.Close()
             DataGridView_Medical.DataSource = dt
+
         Catch ex As Exception
-            MessageBox.Show("❌ خطأ أثناء تحميل السجلات: " & ex.Message)
+            MessageBox.Show("خطأ في التحميل: " & ex.Message)
             conn.Close()
         End Try
     End Sub
 
-    Private Sub DataGridView_Medical_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView_Medical.CellContentClick
+    Private Sub DataGridView_Medical_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView_Medical.CellClick
         If e.RowIndex >= 0 Then
-            Dim row As DataGridViewRow = DataGridView_Medical.Rows(e.RowIndex)
+            Dim row = DataGridView_Medical.Rows(e.RowIndex)
             suber_id.Text = row.Cells("National_id").Value.ToString()
             patient_name.Text = row.Cells("Full_name").Value.ToString()
             patient_age.Text = row.Cells("Age").Value.ToString()
 
-            ' تفريغ checkboxes أولاً
+            ' مسح التحديد
             CheckBox_sikePressure.Checked = False
             CheckBox_sikeSuger.Checked = False
             CheckBox_sikeSly.Checked = False
             CheckBox_sikeBenignant.Checked = False
 
-            ' تحديد نوع المرض
-            Dim diseases As String = row.Cells("Disease_type").Value.ToString()
+            Dim diseases = row.Cells("Disease_type").Value.ToString()
             If diseases.Contains("ضغط") Then CheckBox_sikePressure.Checked = True
             If diseases.Contains("سكر") Then CheckBox_sikeSuger.Checked = True
             If diseases.Contains("خبيث") Then CheckBox_sikeSly.Checked = True
@@ -88,145 +85,124 @@ Public Class medicalRecord
 
     Private Sub Button_patient_save_Click(sender As Object, e As EventArgs) Handles Button_patient_save.Click
         If suber_id.Text = "" Then
-            MessageBox.Show("يرجى إدخال رقم المشترك (رقم البطاقة).", "تنبيه", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-            Exit Sub
+            MessageBox.Show("أدخل رقم البطاقة أولاً")
+            Return
         End If
 
         Try
             conn.Open()
-
-            ' جلب الاسم والعمر من جدول المشتركين أو العائلة
             Dim name As String = ""
             Dim age As String = ""
             Dim personType As String = ""
 
-            ' أولاً نحاول من جدول المشتركين
+            ' المشترك
             Dim cmd1 As New SqlCommand("SELECT Full_name, Age FROM Subscribers_table WHERE National_id = @nid", conn)
             cmd1.Parameters.AddWithValue("@nid", suber_id.Text)
-            Dim reader = cmd1.ExecuteReader()
-            If reader.Read() Then
-                name = reader("Full_name").ToString()
-                age = reader("Age").ToString()
+            Dim r1 = cmd1.ExecuteReader()
+            If r1.Read() Then
+                name = r1("Full_name")
+                age = r1("Age")
                 personType = "مشترك"
             End If
-            reader.Close()
+            r1.Close()
 
-            ' إذا لم يوجد، نحاول من جدول العائلة
+            ' لو مش موجود، ابحث في أفراد العائلة
             If name = "" Then
-                Dim cmd2 As New SqlCommand("SELECT Name, Age FROM Family_table WHERE Subscriber_id = 
-    (SELECT Subscriber_id FROM Subscribers_table WHERE National_id = @nid)", conn)
+                Dim cmd2 As New SqlCommand("SELECT Name, Age FROM Family_table WHERE Subscriber_id = @nid", conn)
                 cmd2.Parameters.AddWithValue("@nid", suber_id.Text)
-                Dim reader2 = cmd2.ExecuteReader()
-                If reader2.Read() Then
-                    name = reader2("Name").ToString()
-                    age = reader2("Age").ToString()
-                    personType = "عائلة"
+                Dim r2 = cmd2.ExecuteReader()
+                If r2.Read() Then
+                    name = r2("Name")
+                    age = r2("Age")
+                    personType = "فرد عائلة"
                 End If
-                reader2.Close()
+                r2.Close()
             End If
 
             If name = "" Then
-                MessageBox.Show("لم يتم العثور على المشترك أو أحد أفراد العائلة بهذا الرقم.", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                MessageBox.Show("المشترك غير موجود")
                 conn.Close()
-                Exit Sub
+                Return
             End If
 
-            ' تجميع الأمراض
-            Dim diseaseTypes As String = ""
-            If CheckBox_sikePressure.Checked Then diseaseTypes &= "ضغط، "
-            If CheckBox_sikeSuger.Checked Then diseaseTypes &= "سكر، "
-            If CheckBox_sikeSly.Checked Then diseaseTypes &= "خبيث، "
-            If CheckBox_sikeBenignant.Checked Then diseaseTypes &= "حميد، "
-            If diseaseTypes.EndsWith("، ") Then diseaseTypes = diseaseTypes.Substring(0, diseaseTypes.Length - 2)
+            ' تحديد نوع المرض
+            Dim diseases As String = ""
+            If CheckBox_sikePressure.Checked Then diseases &= "ضغط، "
+            If CheckBox_sikeSuger.Checked Then diseases &= "سكر، "
+            If CheckBox_sikeSly.Checked Then diseases &= "خبيث، "
+            If CheckBox_sikeBenignant.Checked Then diseases &= "حميد، "
+            If diseases.EndsWith("، ") Then diseases = diseases.Substring(0, diseases.Length - 2)
 
-            ' توليد Patient_id تلقائي بترتيب
+            ' توليد رقم المريض
             Dim cmdMax As New SqlCommand("SELECT ISNULL(MAX(CAST(Patient_id AS INT)), 0) + 1 FROM MedicaRecord", conn)
-            Dim newPatientID As String = cmdMax.ExecuteScalar().ToString()
+            Dim pid = cmdMax.ExecuteScalar().ToString()
 
-            ' إضافة السجل
-            Dim insertCmd As New SqlCommand("INSERT INTO MedicaRecord (Patient_id ,Age, Disease_type) 
-                                         VALUES (@pid, @age, @disease)", conn)
-            insertCmd.Parameters.AddWithValue("@pid", newPatientID)
+            ' إضافة في السجل
+            Dim cmdInsert As New SqlCommand("INSERT INTO MedicaRecord (Patient_id, Age, Disease_type) VALUES (@pid, @age, @disease)", conn)
+            cmdInsert.Parameters.AddWithValue("@pid", pid)
+            cmdInsert.Parameters.AddWithValue("@age", age)
+            cmdInsert.Parameters.AddWithValue("@disease", diseases)
+            cmdInsert.ExecuteNonQuery()
 
-            insertCmd.Parameters.AddWithValue("@age", age)
-            insertCmd.Parameters.AddWithValue("@disease", diseaseTypes)
+            ' تحديث جدول الحالة
+            If personType = "مشترك" Then
+                Dim cmdU As New SqlCommand("UPDATE Subscribers_table SET has_disease = 'نعم' WHERE National_id = @nid", conn)
+                cmdU.Parameters.AddWithValue("@nid", suber_id.Text)
+                cmdU.ExecuteNonQuery()
+            Else
+                Dim cmdU As New SqlCommand("UPDATE Family_table SET Disease_id = @disease WHERE Subscriber_id = @nid", conn)
+                cmdU.Parameters.AddWithValue("@nid", suber_id.Text)
+                cmdU.Parameters.AddWithValue("@disease", diseases)
+                cmdU.ExecuteNonQuery()
+            End If
 
-            insertCmd.ExecuteNonQuery()
-
-            MessageBox.Show("✅ تم حفظ السجل الطبي بنجاح", "تم", MessageBoxButtons.OK, MessageBoxIcon.Information)
             conn.Close()
-
-            LoadMedicalRecords() ' تحميل البيانات من جديد
+            MessageBox.Show("تم الحفظ بنجاح")
+            LoadMedicalRecords()
 
         Catch ex As Exception
-            MessageBox.Show("❌ خطأ أثناء الحفظ: " & ex.Message, "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show("خطأ أثناء الحفظ: " & ex.Message)
             conn.Close()
         End Try
-
     End Sub
-
-
-
 
     Private Sub button_patient_delete_Click(sender As Object, e As EventArgs) Handles Button_patient_delete.Click
         If DataGridView_Medical.SelectedRows.Count = 0 Then
-            MessageBox.Show("يرجى تحديد صف لحذفه", "تنبيه", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            MessageBox.Show("اختر صفًا للحذف")
             Return
         End If
 
-        Dim selectedRow As DataGridViewRow = DataGridView_Medical.SelectedRows(0)
-        Dim nationalId As String = selectedRow.Cells("National_id").Value.ToString()
-        Dim personType As String = selectedRow.Cells("Person_type").Value.ToString()
+        Dim row = DataGridView_Medical.SelectedRows(0)
+        Dim nid = row.Cells("National_id").Value.ToString()
+        Dim type = row.Cells("Person_type").Value.ToString()
 
-        If MessageBox.Show("هل أنت متأكد من حذف هذا السجل؟", "تأكيد", MessageBoxButtons.YesNo) = DialogResult.Yes Then
+        If MessageBox.Show("تأكيد حذف السجل؟", "تأكيد", MessageBoxButtons.YesNo) = DialogResult.Yes Then
             Try
                 conn.Open()
-                Dim cmd As SqlCommand
-
-                If personType = "مشترك" Then
-                    ' حذف المرض من جدول المشتركين
-                    cmd = New SqlCommand("UPDATE Subscribers_table SET has_disease = 0 WHERE National_id = @nid", conn)
-                    cmd.Parameters.AddWithValue("@nid", nationalId)
-                ElseIf personType = "فرد عائلة" Then
-                    ' حذف المرض من جدول العائلة
-                    cmd = New SqlCommand("UPDATE Family_table SET Disease_id = '' WHERE Subscriber_id = @sid", conn)
-                    cmd.Parameters.AddWithValue("@sid", nationalId)
+                If type = "مشترك" Then
+                    Dim cmd = New SqlCommand("UPDATE Subscribers_table SET has_disease = 'لا' WHERE National_id = @nid", conn)
+                    cmd.Parameters.AddWithValue("@nid", nid)
+                    cmd.ExecuteNonQuery()
                 Else
-                    MessageBox.Show("نوع الشخص غير معروف، لا يمكن الحذف.")
-                    conn.Close()
-                    Return
+                    Dim cmd = New SqlCommand("UPDATE Family_table SET Disease_id = '' WHERE Subscriber_id = @nid", conn)
+                    cmd.Parameters.AddWithValue("@nid", nid)
+                    cmd.ExecuteNonQuery()
                 End If
-
-                cmd.ExecuteNonQuery()
                 conn.Close()
-
-                MessageBox.Show("✅ تم حذف المرض من السجل بنجاح")
-
-                LoadMedicalRecords() ' إعادة تحميل السجلات بعد التعديل
-
+                MessageBox.Show("تم الحذف")
+                LoadMedicalRecords()
             Catch ex As Exception
-                MessageBox.Show("❌ خطأ أثناء الحذف: " & ex.Message)
+                MessageBox.Show("خطأ في الحذف: " & ex.Message)
                 conn.Close()
             End Try
         End If
     End Sub
 
-
-
-
-
-
-
-
-
-
-
+    Private Sub CheckBox_sikeHindring_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox_sikeHindring.CheckedChanged
+        TextBox_istability.Visible = CheckBox_sikeHindring.Checked
+    End Sub
 
     Private Sub button_patient_close_Click(sender As Object, e As EventArgs) Handles Button_patient_close.Click
         Me.Close()
-    End Sub
-
-    Private Sub CheckBox_sikeHindring_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox_sikeHindring.CheckedChanged
-        TextBox_istability.Visible = CheckBox_sikeHindring.Checked
     End Sub
 End Class

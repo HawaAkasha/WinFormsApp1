@@ -112,6 +112,41 @@ Public Class donor
 
             MessageBox.Show("تمت إضافة التبرع بنجاح", "تم", MessageBoxButtons.OK, MessageBoxIcon.Information)
             ClearFields()
+            ' 🟡 1. أضف المادة إلى جدول المواد
+            conn.Open()
+            Dim cmdItem As New SqlCommand("
+    INSERT INTO Item_table ( Item_quantity, Item_category, Expir_date) 
+    OUTPUT INSERTED.Item_id 
+    VALUES ( @qty, @cat, @exp)", conn)
+
+            cmdItem.Parameters.AddWithValue("@qty", TextBox_quantity.Text)
+            cmdItem.Parameters.AddWithValue("@cat", donationType)
+            cmdItem.Parameters.AddWithValue("@exp", Date.Today)
+
+            Dim itemId As Integer = CInt(cmdItem.ExecuteScalar())
+            conn.Close()
+
+            ' 🟡 2. ربط المادة بالمتبرع في جدول التبرعات
+            conn.Open()
+            Dim cmdDonation As New SqlCommand("
+    INSERT INTO Donations_table (Donor_id, Item_id, Donation_type, quantity, Donation_date, Donation_method)
+    VALUES (@donor, @item, @type, @qty, @date, @method)", conn)
+            cmdDonation.Parameters.AddWithValue("@donor", donor_id.Text)
+            cmdDonation.Parameters.AddWithValue("@item", itemId)
+            cmdDonation.Parameters.AddWithValue("@type", donationType)
+            cmdDonation.Parameters.AddWithValue("@qty", TextBox_quantity.Text)
+            cmdDonation.Parameters.AddWithValue("@date", Date.Today)
+            cmdDonation.Parameters.AddWithValue("@method", paymentMethod)
+
+            cmdDonation.ExecuteNonQuery()
+            conn.Close()
+
+            MessageBox.Show("✔️ تم ربط المتبرع بالمادة والتبرع بنجاح")
+
+
+
+
+
 
         Catch ex As Exception
             MessageBox.Show("خطأ أثناء الإضافة: " & ex.Message)
@@ -134,34 +169,7 @@ Public Class donor
     '//////////////////////////////////////////////
 
 
-    ' زر حذف المتبرع
-    'مرات نلغيه
-    ' Private Sub Button_delete_Click(sender As Object, e As EventArgs) Handles Button_delete.Click
-    '    If donor_id.Text = "" Then
-    '   MessageBox.Show("يرجى إدخال رقم البطاقة لحذف المتبرع.", "تنبيه", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-    '   Exit Sub
-    '   End If
 
-    '  Try
-    '  conn.Open()
-    '  Dim cmd As New SqlCommand("DELETE FROM Donors_table WHERE Donor_id = @Donor_id", conn)
-    '  cmd.Parameters.AddWithValue("@Donor_id", donor_id.Text)
-
-    ' Dim rows = cmd.ExecuteNonQuery()
-    '  conn.Close()
-
-    ' If rows > 0 Then
-    ' MessageBox.Show("تم حذف المتبرع بنجاح.", "نجاح")
-    ' ClearFields()
-    ''  Else
-    '  MessageBox.Show("لم يتم العثور على متبرع بهذا الرقم.", "معلومة")
-    '  End If
-
-    '  Catch ex As Exception
-    '   MessageBox.Show("خطأ في الحذف: " & ex.Message)
-    ' conn.Close()
-    'End Try
-    ' End Sub
 
     ' تصفير الحقول
     Private Sub ClearFields()
@@ -185,23 +193,5 @@ Public Class donor
         TextBox_medi.Visible = False
     End Sub
 
-    Private Sub delivery_CheckedChanged(sender As Object, e As EventArgs) Handles delivery.CheckedChanged
 
-    End Sub
-
-    Private Sub GroupBox_donationtype_Enter(sender As Object, e As EventArgs) Handles GroupBox_donationtype.Enter
-
-    End Sub
-
-    Private Sub Label7_Click(sender As Object, e As EventArgs) Handles Label_trance.Click
-
-    End Sub
-
-    Private Sub Label8_Click(sender As Object, e As EventArgs) Handles Label_money.Click
-
-    End Sub
-
-    Private Sub Label_delivery_Click(sender As Object, e As EventArgs) Handles Label_delivery.Click
-
-    End Sub
 End Class

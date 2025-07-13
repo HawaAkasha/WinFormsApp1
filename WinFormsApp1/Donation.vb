@@ -25,11 +25,11 @@ Public Class Donation
             d.Donor_id,
             d.DonorName,
             d.PhoneNumber,
-            ISNULL(i.Item_name, '-') AS Item_name,
-            ISNULL(t.Donation_type, '-') AS Donation_type,
-            ISNULL(t.quantity, '-') AS quantity,
-            ISNULL(CONVERT(varchar, t.Donation_date, 103), '-') AS Donation_date,
-            ISNULL(t.Donation_method, '-') AS Donation_method
+           i.Item_name AS Item_name,
+           t.Donation_type AS Donation_type,
+            t.quantity AS quantity,
+          CONVERT(varchar, t.Donation_date, 103) AS Donation_date,
+            t.Donation_method AS Donation_method
         FROM Donors_table d
         LEFT JOIN Donations_table t ON d.Donor_id = t.Donor_id
         LEFT JOIN Item_table i ON t.Item_id = i.Item_id
