@@ -354,20 +354,19 @@ Public Class Subscriber
             cmdNeed.Parameters.AddWithValue("@family", family_total.Text)
             cmdNeed.ExecuteNonQuery()
 
-            conn.Close()
-            MessageBox.Show("✔️ تم ربط المشترك بالاحتياج بنجاح")
-
             ' تحميل البيانات في فورم الاحتياج   
             Dim needForm As New needs()
             needForm.LoadNeedsFromSubscribers()
 
+
+
+            '''''''''''''''''''
+
         Catch ex As Exception
             conn.Close()
-            MessageBox.Show("❌ خطأ أثناء ربط الاحتياج: " & ex.Message)
+            MessageBox.Show("❌ خطأ أثناء الربط: " & ex.Message)
+
         End Try
-
-
-
 
     End Sub
 

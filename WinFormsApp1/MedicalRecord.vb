@@ -5,6 +5,8 @@ Public Class medicalRecord
     Public Property SubscriberID As String
     Public Property SubscriberName As String
     Public Property SubscriberAge As String
+
+
     Dim conn As New SqlConnection("Data Source=DESKTOP-OA3F4SP\SQLEXPRESS;Initial Catalog=Project_DB;Integrated Security=True")
 
     Private Sub medicalRecord_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -23,8 +25,12 @@ Public Class medicalRecord
             dt.Columns.Add("Disease_type")
             dt.Columns.Add("Person_type")
 
-            ' المشتركين
-            Dim cmd1 As New SqlCommand("SELECT National_id, Full_name, Age FROM Subscribers_table WHERE has_disease = 'نعم'", conn)
+            ' ✅ تحميل كل المشتركين
+            Dim cmd1 As New SqlCommand("
+            SELECT s.National_id, s.Full_name, s.Age,
+                (SELECT TOP 1 Disease_type FROM MedicaRecord WHERE Patient_id = s.National_id) AS Disease_type
+            FROM Subscribers_table s", conn)
+
             Dim r1 = cmd1.ExecuteReader()
             While r1.Read()
                 Dim row = dt.NewRow()
@@ -32,13 +38,13 @@ Public Class medicalRecord
                 row("Patient_id") = "S" & r1("National_id")
                 row("Full_name") = r1("Full_name")
                 row("Age") = r1("Age")
-                row("Disease_type") = "غير محدد"
+                row("Disease_type") = If(IsDBNull(r1("Disease_type")), "غير مسجل", r1("Disease_type").ToString())
                 row("Person_type") = "مشترك"
                 dt.Rows.Add(row)
             End While
             r1.Close()
 
-            ' أفراد العائلة
+            ' ✅ أفراد العائلة
             Dim cmd2 As New SqlCommand("SELECT Subscriber_id, Name, Age, Disease_id FROM Family_table WHERE Disease_id IS NOT NULL AND Disease_id <> ''", conn)
             Dim r2 = cmd2.ExecuteReader()
             While r2.Read()
@@ -72,12 +78,14 @@ Public Class medicalRecord
             ' مسح التحديد
             CheckBox_sikePressure.Checked = False
             CheckBox_sikeSuger.Checked = False
+            CheckBox_sikeHindring.Checked = False
             CheckBox_sikeSly.Checked = False
             CheckBox_sikeBenignant.Checked = False
 
             Dim diseases = row.Cells("Disease_type").Value.ToString()
             If diseases.Contains("ضغط") Then CheckBox_sikePressure.Checked = True
             If diseases.Contains("سكر") Then CheckBox_sikeSuger.Checked = True
+            If diseases.Contains("اعاقة") Then CheckBox_sikeHindring.Checked = True
             If diseases.Contains("خبيث") Then CheckBox_sikeSly.Checked = True
             If diseases.Contains("حميد") Then CheckBox_sikeBenignant.Checked = True
         End If
@@ -129,6 +137,7 @@ Public Class medicalRecord
             Dim diseases As String = ""
             If CheckBox_sikePressure.Checked Then diseases &= "ضغط، "
             If CheckBox_sikeSuger.Checked Then diseases &= "سكر، "
+            If CheckBox_sikeHindring.Checked Then diseases &= "اعاقة، "
             If CheckBox_sikeSly.Checked Then diseases &= "خبيث، "
             If CheckBox_sikeBenignant.Checked Then diseases &= "حميد، "
             If diseases.EndsWith("، ") Then diseases = diseases.Substring(0, diseases.Length - 2)
@@ -179,21 +188,52 @@ Public Class medicalRecord
         If MessageBox.Show("تأكيد حذف السجل؟", "تأكيد", MessageBoxButtons.YesNo) = DialogResult.Yes Then
             Try
                 conn.Open()
+
+                ' ✅ جلب Patient_id الحقيقي من جدول MedicaRecord
+                Dim pid As String = ""
+                Dim getPidCmd As New SqlCommand("SELECT TOP 1 Patient_id FROM MedicaRecord WHERE Age = (SELECT Age FROM Subscribers_table WHERE National_id = @nid)", conn)
+                getPidCmd.Parameters.AddWithValue("@nid", nid)
+                Dim result = getPidCmd.ExecuteScalar()
+                If result IsNot Nothing Then
+                    pid = result.ToString()
+                End If
+
+                ' ✅ حذف من جدول السجل الطبي
+                If pid <> "" Then
+                    Dim cmdDeleteRecord As New SqlCommand("DELETE FROM MedicaRecord WHERE Patient_id = @pid", conn)
+                    cmdDeleteRecord.Parameters.AddWithValue("@pid", pid)
+                    cmdDeleteRecord.ExecuteNonQuery()
+                End If
+
+                If nid <> "" Then
+                    Dim cmdDeleteRecord As New SqlCommand("DELETE FROM Subscribers_table WHERE National_id = @nid", conn)
+                    cmdDeleteRecord.Parameters.AddWithValue("@nid", nid)
+                    cmdDeleteRecord.ExecuteNonQuery()
+                End If
+
+
+
+                ' ✅ تحديث حالة الشخص
                 If type = "مشترك" Then
                     Dim cmd = New SqlCommand("UPDATE Subscribers_table SET has_disease = 'لا' WHERE National_id = @nid", conn)
                     cmd.Parameters.AddWithValue("@nid", nid)
                     cmd.ExecuteNonQuery()
                 Else
-                    Dim cmd = New SqlCommand("UPDATE Family_table SET Disease_id = '' WHERE Subscriber_id = @nid", conn)
+                    Dim cmd = New SqlCommand("UPDATE Family_table SET Disease_id = '' WHERE Subscriber_id  = @nid", conn)
                     cmd.Parameters.AddWithValue("@nid", nid)
                     cmd.ExecuteNonQuery()
                 End If
+
                 conn.Close()
-                MessageBox.Show("تم الحذف")
-                LoadMedicalRecords()
+
+                ' ✅ حذف الصف من القريد مباشرة
+                DataGridView_Medical.Rows.Remove(row)
+
+                MessageBox.Show("✅ تم حذف السجل نهائيًا")
+
             Catch ex As Exception
-                MessageBox.Show("خطأ في الحذف: " & ex.Message)
                 conn.Close()
+                MessageBox.Show("❌ خطأ في الحذف: " & ex.Message)
             End Try
         End If
     End Sub

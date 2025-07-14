@@ -132,7 +132,7 @@ Partial Class MedicalRecord
         ' TextBox_istability
         ' 
         TextBox_istability.BackColor = Color.Azure
-        TextBox_istability.Location = New Point(149, 409)
+        TextBox_istability.Location = New Point(134, 409)
         TextBox_istability.Name = "TextBox_istability"
         TextBox_istability.Size = New Size(119, 27)
         TextBox_istability.TabIndex = 78
@@ -319,7 +319,7 @@ Partial Class MedicalRecord
         AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.Azure
-        ClientSize = New Size(559, 588)
+        ClientSize = New Size(559, 621)
         Controls.Add(PictureBox8)
         Controls.Add(PictureBox7)
         Controls.Add(PictureBox6)
