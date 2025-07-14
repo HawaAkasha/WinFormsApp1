@@ -27,7 +27,7 @@ Public Class medicalRecord
 
             ' ✅ تحميل كل المشتركين
             Dim cmd1 As New SqlCommand("
-            SELECT s.National_id, s.Full_name, s.Age,
+            SELECT s.National_id, s.Full_name, s.Age,s.Disease_id,
                 (SELECT TOP 1 Disease_type FROM MedicaRecord WHERE Patient_id = s.National_id) AS Disease_type
             FROM Subscribers_table s", conn)
 
@@ -38,7 +38,7 @@ Public Class medicalRecord
                 row("Patient_id") = "S" & r1("National_id")
                 row("Full_name") = r1("Full_name")
                 row("Age") = r1("Age")
-                row("Disease_type") = If(IsDBNull(r1("Disease_type")), "غير مسجل", r1("Disease_type").ToString())
+                row("Disease_type") = If(IsDBNull(r1("Disease_id")), "غير مسجل", r1("Disease_id").ToString())
                 row("Person_type") = "مشترك"
                 dt.Rows.Add(row)
             End While
@@ -182,33 +182,33 @@ Public Class medicalRecord
         End If
 
         Dim row = DataGridView_Medical.SelectedRows(0)
-        Dim nid = row.Cells("National_id").Value.ToString()
-        Dim type = row.Cells("Person_type").Value.ToString()
+        Dim nid = row.Cells("National_id").Value.ToString
+        Dim type = row.Cells("Person_type").Value.ToString
 
         If MessageBox.Show("تأكيد حذف السجل؟", "تأكيد", MessageBoxButtons.YesNo) = DialogResult.Yes Then
             Try
-                conn.Open()
+                conn.Open
 
                 ' ✅ جلب Patient_id الحقيقي من جدول MedicaRecord
-                Dim pid As String = ""
+                Dim pid = ""
                 Dim getPidCmd As New SqlCommand("SELECT TOP 1 Patient_id FROM MedicaRecord WHERE Age = (SELECT Age FROM Subscribers_table WHERE National_id = @nid)", conn)
                 getPidCmd.Parameters.AddWithValue("@nid", nid)
-                Dim result = getPidCmd.ExecuteScalar()
+                Dim result = getPidCmd.ExecuteScalar
                 If result IsNot Nothing Then
-                    pid = result.ToString()
+                    pid = result.ToString
                 End If
 
                 ' ✅ حذف من جدول السجل الطبي
                 If pid <> "" Then
                     Dim cmdDeleteRecord As New SqlCommand("DELETE FROM MedicaRecord WHERE Patient_id = @pid", conn)
                     cmdDeleteRecord.Parameters.AddWithValue("@pid", pid)
-                    cmdDeleteRecord.ExecuteNonQuery()
+                    cmdDeleteRecord.ExecuteNonQuery
                 End If
 
                 If nid <> "" Then
                     Dim cmdDeleteRecord As New SqlCommand("DELETE FROM Subscribers_table WHERE National_id = @nid", conn)
                     cmdDeleteRecord.Parameters.AddWithValue("@nid", nid)
-                    cmdDeleteRecord.ExecuteNonQuery()
+                    cmdDeleteRecord.ExecuteNonQuery
                 End If
 
 
@@ -217,14 +217,14 @@ Public Class medicalRecord
                 If type = "مشترك" Then
                     Dim cmd = New SqlCommand("UPDATE Subscribers_table SET has_disease = 'لا' WHERE National_id = @nid", conn)
                     cmd.Parameters.AddWithValue("@nid", nid)
-                    cmd.ExecuteNonQuery()
+                    cmd.ExecuteNonQuery
                 Else
                     Dim cmd = New SqlCommand("UPDATE Family_table SET Disease_id = '' WHERE Subscriber_id  = @nid", conn)
                     cmd.Parameters.AddWithValue("@nid", nid)
-                    cmd.ExecuteNonQuery()
+                    cmd.ExecuteNonQuery
                 End If
 
-                conn.Close()
+                conn.Close
 
                 ' ✅ حذف الصف من القريد مباشرة
                 DataGridView_Medical.Rows.Remove(row)
@@ -232,7 +232,7 @@ Public Class medicalRecord
                 MessageBox.Show("✅ تم حذف السجل نهائيًا")
 
             Catch ex As Exception
-                conn.Close()
+                conn.Close
                 MessageBox.Show("❌ خطأ في الحذف: " & ex.Message)
             End Try
         End If

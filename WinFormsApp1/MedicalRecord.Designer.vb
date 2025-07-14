@@ -132,7 +132,7 @@ Partial Class MedicalRecord
         ' TextBox_istability
         ' 
         TextBox_istability.BackColor = Color.Azure
-        TextBox_istability.Location = New Point(134, 409)
+        TextBox_istability.Location = New Point(92, 405)
         TextBox_istability.Name = "TextBox_istability"
         TextBox_istability.Size = New Size(119, 27)
         TextBox_istability.TabIndex = 78
@@ -141,7 +141,7 @@ Partial Class MedicalRecord
         ' Label_siketype
         ' 
         Label_siketype.AutoSize = True
-        Label_siketype.Location = New Point(64, 324)
+        Label_siketype.Location = New Point(22, 320)
         Label_siketype.Name = "Label_siketype"
         Label_siketype.Size = New Size(78, 20)
         Label_siketype.TabIndex = 77
@@ -150,7 +150,7 @@ Partial Class MedicalRecord
         ' CheckBox_sikeBenignant
         ' 
         CheckBox_sikeBenignant.AutoSize = True
-        CheckBox_sikeBenignant.Location = New Point(64, 469)
+        CheckBox_sikeBenignant.Location = New Point(22, 465)
         CheckBox_sikeBenignant.Name = "CheckBox_sikeBenignant"
         CheckBox_sikeBenignant.Size = New Size(116, 24)
         CheckBox_sikeBenignant.TabIndex = 76
@@ -160,7 +160,7 @@ Partial Class MedicalRecord
         ' CheckBox_sikeHindring
         ' 
         CheckBox_sikeHindring.AutoSize = True
-        CheckBox_sikeHindring.Location = New Point(64, 409)
+        CheckBox_sikeHindring.Location = New Point(22, 405)
         CheckBox_sikeHindring.Name = "CheckBox_sikeHindring"
         CheckBox_sikeHindring.Size = New Size(64, 24)
         CheckBox_sikeHindring.TabIndex = 75
@@ -170,7 +170,7 @@ Partial Class MedicalRecord
         ' CheckBox_sikeSly
         ' 
         CheckBox_sikeSly.AutoSize = True
-        CheckBox_sikeSly.Location = New Point(64, 439)
+        CheckBox_sikeSly.Location = New Point(22, 435)
         CheckBox_sikeSly.Name = "CheckBox_sikeSly"
         CheckBox_sikeSly.Size = New Size(109, 24)
         CheckBox_sikeSly.TabIndex = 74
@@ -180,7 +180,7 @@ Partial Class MedicalRecord
         ' CheckBox_sikeSuger
         ' 
         CheckBox_sikeSuger.AutoSize = True
-        CheckBox_sikeSuger.Location = New Point(64, 379)
+        CheckBox_sikeSuger.Location = New Point(22, 375)
         CheckBox_sikeSuger.Name = "CheckBox_sikeSuger"
         CheckBox_sikeSuger.Size = New Size(58, 24)
         CheckBox_sikeSuger.TabIndex = 73
@@ -190,7 +190,7 @@ Partial Class MedicalRecord
         ' CheckBox_sikePressure
         ' 
         CheckBox_sikePressure.AutoSize = True
-        CheckBox_sikePressure.Location = New Point(64, 349)
+        CheckBox_sikePressure.Location = New Point(22, 345)
         CheckBox_sikePressure.Name = "CheckBox_sikePressure"
         CheckBox_sikePressure.Size = New Size(68, 24)
         CheckBox_sikePressure.TabIndex = 72
@@ -218,7 +218,7 @@ Partial Class MedicalRecord
         ' 
         ' Button_patient_close
         ' 
-        Button_patient_close.Location = New Point(464, 535)
+        Button_patient_close.Location = New Point(464, 546)
         Button_patient_close.Name = "Button_patient_close"
         Button_patient_close.Size = New Size(94, 27)
         Button_patient_close.TabIndex = 83
@@ -267,7 +267,7 @@ Partial Class MedicalRecord
         ' PictureBox4
         ' 
         PictureBox4.Image = My.Resources.Resources.photo_2025_06_26_20_45_55
-        PictureBox4.Location = New Point(431, 535)
+        PictureBox4.Location = New Point(431, 546)
         PictureBox4.Name = "PictureBox4"
         PictureBox4.Size = New Size(36, 27)
         PictureBox4.SizeMode = PictureBoxSizeMode.StretchImage
@@ -319,7 +319,7 @@ Partial Class MedicalRecord
         AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.Azure
-        ClientSize = New Size(559, 621)
+        ClientSize = New Size(559, 586)
         Controls.Add(PictureBox8)
         Controls.Add(PictureBox7)
         Controls.Add(PictureBox6)

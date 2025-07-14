@@ -219,11 +219,29 @@ Public Class Subscriber
                 hasDisease = "نعم"
             ElseIf RadioButton_sikeno.Checked Then
                 hasDisease = "لا"
+
             End If
+
+            ' حساب نوع المرض
+            Dim diseaseType As String = "غير محدد"
+            If CheckBox_sikePressure.Checked Then
+                diseaseType = "ضغط"
+            ElseIf CheckBox_sikeSuger.Checked Then
+                diseaseType = "سكر"
+            ElseIf CheckBox_sikeSly.Checked Then
+                diseaseType = "خبيث"
+            ElseIf CheckBox_sikeBenignant.Checked Then
+                diseaseType = "حميد"
+            End If
+
+            If diseaseType.EndsWith("،") Then
+                diseaseType = diseaseType.Substring(0, diseaseType.Length - 1)
+            End If
+
             conn.Open()
             Dim cmd As New SqlCommand("INSERT INTO Subscribers_table  
-            (National_id, Nationality, National_number,Passport_number,Full_name,Age,Phone_number,Address,Employment_state,Work_p,Income_source,has_disease)  
-            VALUES (@National_id, @Nationality, @National_number,@Passport_number,@Full_name,@Age,@Phone_number,@Address,@Employment_state,@Work_p,@Income_source,@has_disease)", conn)
+            (National_id, Nationality, National_number,Passport_number,Full_name,Age,Phone_number,Address,Employment_state,Work_p,Income_source,has_disease,Disease_id)  
+            VALUES (@National_id, @Nationality, @National_number,@Passport_number,@Full_name,@Age,@Phone_number,@Address,@Employment_state,@Work_p,@Income_source,@has_disease,@diseaseType)", conn)
 
             cmd.Parameters.AddWithValue("@National_id", sup_id.Text)
             cmd.Parameters.AddWithValue("@Nationality", nationality)
@@ -237,6 +255,7 @@ Public Class Subscriber
             cmd.Parameters.AddWithValue("@Work_p", TextBox_workplace.Text)
             cmd.Parameters.AddWithValue("@Income_source", source_income.Text)
             cmd.Parameters.AddWithValue("@has_disease", hasDisease)
+            cmd.Parameters.AddWithValue("@diseaseType", diseaseType)
             cmd.ExecuteNonQuery()
             conn.Close()
 
@@ -361,6 +380,18 @@ Public Class Subscriber
 
 
             '''''''''''''''''''
+
+
+
+
+
+
+
+
+
+
+
+
 
         Catch ex As Exception
             conn.Close()
