@@ -22,7 +22,7 @@ Public Class Needs
             Dim sql As String = "
 SELECT 
   n.Subscriber_id, 
-  s.Full_name AS Full_name, 
+  s.Full_name AS Fullname, 
   n.FamilyNumbe,
   i.Item_id, 
   i.Item_category, 
@@ -30,14 +30,14 @@ SELECT
   i.Item_quantity,
   'Subscriber' AS PersonType
 FROM Needs_table n
-LEFT JOIN Subscribers_table s ON s.Subscriber_id = n.Subscriber_id
+LEFT JOIN Subscribers_table s ON n.Subscriber_id =s.National_id
  JOIN Item_table i ON i.Item_id = n.Item_id
 
 UNION ALL
 
 SELECT 
-  n.Subscriber_id, 
-  f.Name AS Full_name,      -- 👈 هنا أضفنا alias
+  n.Subscriber_id,
+  f.Name AS Fullname,      
   n.FamilyNumbe,
   i.Item_id, 
   i.Item_category, 
@@ -48,7 +48,7 @@ FROM Needs_table n
 LEFT JOIN Family_table f ON n.Subscriber_id = f.Subscriber_id
  JOIN Item_table i ON i.Item_id = n.Item_id
 
-ORDER BY Full_name;"
+ORDER BY Fullname;"
             Dim da As New SqlDataAdapter(sql, conn)
             da.Fill(dt)
             conn.Close()
@@ -67,9 +67,9 @@ ORDER BY Full_name;"
         Dim row = DataGridView_need.Rows(e.RowIndex)
         selectedSubscriberID = Convert.ToInt32(row.Cells("Subscriber_id").Value)
         selectedItemID = Convert.ToInt32(row.Cells("Item_id").Value)
-        'isFamilyMember = (row.Cells("PersonType").Value.ToString() = "FamilyMember")
 
-        TextBox_sub_name.Text = If(IsDBNull(row.Cells("Full_name").Value), "", row.Cells("Full_name").Value.ToString())
+
+        TextBox_sub_name.Text = If(IsDBNull(row.Cells("Fullname").Value), "", row.Cells("Fullname").Value.ToString())
         family_relate.Text = If(IsDBNull(row.Cells("FamilyNumbe").Value), "0", row.Cells("FamilyNumbe").Value.ToString())
         TextBox_item_type.Text = If(IsDBNull(row.Cells("Item_category").Value), "", row.Cells("Item_category").Value.ToString())
         TextBox_item_name.Text = If(IsDBNull(row.Cells("Item_name").Value), "", row.Cells("Item_name").Value.ToString())

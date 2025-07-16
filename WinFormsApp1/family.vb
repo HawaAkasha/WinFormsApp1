@@ -107,6 +107,7 @@ Public Class family
         clearFields()
         rdoSupportYes.Checked = False
         rdoSupportNo.Checked = False
+        rdoWorks.Checked = False
     End Sub
 
     Private Sub rdoWorks_CheckedChanged(sender As Object, e As EventArgs) Handles rdoWorks.CheckedChanged

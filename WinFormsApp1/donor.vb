@@ -115,10 +115,10 @@ Public Class donor
             ' 🟡 1. أضف المادة إلى جدول المواد
             conn.Open()
             Dim cmdItem As New SqlCommand("
-    INSERT INTO Item_table ( Item_quantity, Item_category, Expir_date) 
+    INSERT INTO Item_table (Item_name, Item_quantity, Item_category, Expir_date) 
     OUTPUT INSERTED.Item_id 
-    VALUES ( @qty, @cat, @exp)", conn)
-
+    VALUES (@Item_name, @qty, @cat, @exp)", conn)
+            cmdItem.Parameters.AddWithValue("@Item_name", TextBox_quantity.Text)
             cmdItem.Parameters.AddWithValue("@qty", TextBox_quantity.Text)
             cmdItem.Parameters.AddWithValue("@cat", donationType)
             cmdItem.Parameters.AddWithValue("@exp", Date.Today)
@@ -129,9 +129,9 @@ Public Class donor
             ' 🟡 2. ربط المادة بالمتبرع في جدول التبرعات
             conn.Open()
             Dim cmdDonation As New SqlCommand("
-    INSERT INTO Donations_table (Donor_id, Item_id, Donation_type, quantity, Donation_date, Donation_method)
-    VALUES (@donor, @item, @type, @qty, @date, @method)", conn)
-            cmdDonation.Parameters.AddWithValue("@donor", donor_id.Text)
+    INSERT INTO Donations_table ( Item_id, Donation_type, quantity, Donation_date, Donation_method)
+    VALUES ( @item, @type, @qty, @date, @method)", conn)
+            'cmdDonation.Parameters.AddWithValue("@donor", donor_id.Text)
             cmdDonation.Parameters.AddWithValue("@item", itemId)
             cmdDonation.Parameters.AddWithValue("@type", donationType)
             cmdDonation.Parameters.AddWithValue("@qty", TextBox_quantity.Text)

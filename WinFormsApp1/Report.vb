@@ -43,7 +43,7 @@ Public Class Report
                 Case "تقرير احتياج"
                     query = "SELECT s.full_name, i.item_name, n.need_type, n.FamilyNumbe 
                              FROM Needs_table n
-                             JOIN subscribers_table s ON n.Subscriber_id = s.Subscriber_id
+                           LEFT  JOIN subscribers_table s ON n.Subscriber_id = s.Subscriber_id
                              JOIN Item_table i ON n.Item_id = i.Item_id"
 
                 Case "تقرير مادة واردة"
@@ -59,7 +59,7 @@ Public Class Report
                 Case "تقرير مصروف"
                     query = "SELECT s.full_name, i.item_name, n.FamilyNumbe
                              FROM Needs_table n
-                             JOIN subscribers_table s ON n.Subscriber_id = s.Subscriber_id
+                            LEFT JOIN subscribers_table s ON n.Subscriber_id = s.Subscriber_id
                              JOIN Item_table i ON n.Item_id = i.Item_id"
             End Select
 

@@ -1,5 +1,4 @@
-﻿
-Imports System.Data.SqlClient
+﻿Imports System.Data.SqlClient
 
 Public Class medicalRecord
     Public Property SubscriberID As String
@@ -75,7 +74,6 @@ Public Class medicalRecord
             patient_name.Text = row.Cells("Full_name").Value.ToString()
             patient_age.Text = row.Cells("Age").Value.ToString()
 
-            ' مسح التحديد
             CheckBox_sikePressure.Checked = False
             CheckBox_sikeSuger.Checked = False
             CheckBox_sikeHindring.Checked = False
@@ -96,6 +94,7 @@ Public Class medicalRecord
             MessageBox.Show("أدخل رقم البطاقة أولاً")
             Return
         End If
+
 
         Try
             conn.Open()
@@ -142,6 +141,9 @@ Public Class medicalRecord
             If CheckBox_sikeBenignant.Checked Then diseases &= "حميد، "
             If diseases.EndsWith("، ") Then diseases = diseases.Substring(0, diseases.Length - 2)
 
+
+
+
             ' توليد رقم المريض
             Dim cmdMax As New SqlCommand("SELECT ISNULL(MAX(CAST(Patient_id AS INT)), 0) + 1 FROM MedicaRecord", conn)
             Dim pid = cmdMax.ExecuteScalar().ToString()
@@ -151,6 +153,7 @@ Public Class medicalRecord
             cmdInsert.Parameters.AddWithValue("@pid", pid)
             cmdInsert.Parameters.AddWithValue("@age", age)
             cmdInsert.Parameters.AddWithValue("@disease", diseases)
+
             cmdInsert.ExecuteNonQuery()
 
             ' تحديث جدول الحالة
@@ -188,6 +191,7 @@ Public Class medicalRecord
         If MessageBox.Show("تأكيد حذف السجل؟", "تأكيد", MessageBoxButtons.YesNo) = DialogResult.Yes Then
             Try
                 conn.Open
+
 
                 ' ✅ جلب Patient_id الحقيقي من جدول MedicaRecord
                 Dim pid = ""
@@ -245,4 +249,9 @@ Public Class medicalRecord
     Private Sub button_patient_close_Click(sender As Object, e As EventArgs) Handles Button_patient_close.Click
         Me.Close()
     End Sub
+
+    Private Sub Button_Update_condition_Click(sender As Object, e As EventArgs)
+
+    End Sub
+
 End Class

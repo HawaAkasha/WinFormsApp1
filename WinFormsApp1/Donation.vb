@@ -26,6 +26,7 @@ Public Class Donation
             d.DonorName,
             d.PhoneNumber,
            i.Item_name AS Item_name,
+
            t.Donation_type AS Donation_type,
             t.quantity AS quantity,
           CONVERT(varchar, t.Donation_date, 103) AS Donation_date,
