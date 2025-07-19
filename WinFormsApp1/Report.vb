@@ -41,25 +41,25 @@ Public Class Report
 
             Select Case reportType
                 Case "تقرير احتياج"
-                    query = "SELECT s.full_name, i.item_name, n.need_type, n.FamilyNumbe 
+                    query = "SELECT s.Subscriber_id, i.item_name, n.need_type, n.FamilyNumbe 
                              FROM Needs_table n
-                           LEFT  JOIN subscribers_table s ON n.Subscriber_id = s.Subscriber_id
+                           LEFT  JOIN subscribers_table s ON n.Subscriber_id = s.National_id
                              JOIN Item_table i ON n.Item_id = i.Item_id"
 
                 Case "تقرير مادة واردة"
-                    query = "SELECT d.Donor_id, i.item_name, d.Donation_type, d.quantity, d.Donation_date
+                    query = "SELECT d.Donor_id, i.item_id, i.item_name, d.Donation_date
                              FROM Donations_table d
                              JOIN Item_table i ON d.Item_id = i.Item_id
                              WHERE d.Donation_date BETWEEN @from AND @to"
                     useDateFilter = True
 
                 Case "تقرير نواقص"
-                    query = "SELECT Item_category, Item_name, Item_quantity FROM Item_table"
+                    query = "SELECT Item_id, Item_category, Item_name, Item_quantity FROM Item_table"
 
                 Case "تقرير مصروف"
-                    query = "SELECT s.full_name, i.item_name, n.FamilyNumbe
+                    query = "SELECT s.full_name,  i.item_id,i.item_name, n.FamilyNumbe
                              FROM Needs_table n
-                            LEFT JOIN subscribers_table s ON n.Subscriber_id = s.Subscriber_id
+                            LEFT JOIN subscribers_table s ON n.Subscriber_id = s.National_id
                              JOIN Item_table i ON n.Item_id = i.Item_id"
             End Select
 
@@ -75,17 +75,17 @@ Public Class Report
 
                         Select Case reportType
                             Case "تقرير احتياج"
-                                line = $"اسم المشترك: {reader("full_name")} | اسم المادة: {reader("item_name")} | نوع الاحتياج: {reader("need_type")} | عدد الأسرة: {reader("FamilyNumbe")}"
+                                line = $"رقم المشترك: {reader("Subscriber_id")} | اسم المادة: {reader("item_name")} | نوع الاحتياج: {reader("need_type")} | عدد الأسرة: {reader("FamilyNumbe")}"
 
                             Case "تقرير مادة واردة"
-                                line = $"رقم المتبرع: {reader("Donor_id")} | اسم المادة: {reader("item_name")} | نوع التبرع: {reader("Donation_type")} | الكمية: {reader("quantity")} | التاريخ: {Convert.ToDateTime(reader("Donation_date")).ToShortDateString()}"
+                                line = $"رقم المتبرع: {reader("Donor_id")} | رقم المادة: {reader("item_id")} | اسم المادة: {reader("item_name")}| التاريخ: {Convert.ToDateTime(reader("Donation_date")).ToShortDateString()}"
 
                             Case "تقرير نواقص"
-                                line = $" التصنيف: {reader("Item_category")} | الاسم: {reader("Item_name")} | الكمية: {reader("Item_quantity")}"
+                                line = $" رقم المادة: {reader("Item_id")} |التصنيف: {reader("Item_category")} | الاسم: {reader("Item_name")} | الكمية: {reader("Item_quantity")}"
 
                             Case "تقرير مصروف"
 
-                                line = $"اسم المشترك: {reader("full_name")} | اسم المادة: {reader("item_name")} | عدد الأسرة: {reader("FamilyNumbe")}"
+                                line = $"اسم المشترك: {reader("full_name")} |  رقم المادة: {reader("item_id")} | اسم المادة: {reader("item_name")} | عدد الأسرة: {reader("FamilyNumbe")}"
                         End Select
 
                         dataToPrint.Add(line)

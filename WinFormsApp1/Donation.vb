@@ -20,21 +20,20 @@ Public Class Donation
             conn.Open()
 
             ' جلب جميع المتبرعين مع تبرعاتهم واسم المادة إن وُجدت، مع إظهار - في حال القيم null
-            Dim query As String = "
-        SELECT 
-            d.Donor_id,
-            d.DonorName,
-            d.PhoneNumber,
-           i.Item_name AS Item_name,
-
-           t.Donation_type AS Donation_type,
-            t.quantity AS quantity,
-          CONVERT(varchar, t.Donation_date, 103) AS Donation_date,
-            t.Donation_method AS Donation_method
-        FROM Donors_table d
-        LEFT JOIN Donations_table t ON d.Donor_id = t.Donor_id
-        LEFT JOIN Item_table i ON t.Item_id = i.Item_id
-        ORDER BY d.Donor_id DESC;
+            Dim query As String = " SELECT  
+            d.Donor_id, 
+            d.DonorName, 
+            d.PhoneNumber, 
+            i.Item_name AS Item_name, 
+           t.Donation_type AS Donation_type, 
+            t.quantity AS quantity, 
+           
+            t.Donation_method AS Donation_method 
+        FROM Donors_table d 
+        LEFT JOIN Donations_table t ON d.Donor_id = t.Donor_id 
+        LEFT JOIN Item_table i ON t.Item_id = i.Item_id 
+        ORDER BY d.Donor_id DESC; 
+        
         "
 
             Dim adapter As New SqlDataAdapter(query, conn)
@@ -190,7 +189,7 @@ Public Class Donation
             Dim itemName As String = DataGridView1.SelectedRows(0).Cells("Item_name").Value.ToString()
             Dim itemId As Integer = 0
 
-            ' جلب Item_id بناءً على اسم المادة (نأخذ أحدث واحد لتفادي الخطأ)
+
             Dim getItemIdQuery As String = "SELECT TOP 1 Item_id FROM Item_table WHERE Item_name = @name ORDER BY Item_id DESC"
             Using getItemCmd As New SqlCommand(getItemIdQuery, conn)
                 getItemCmd.Parameters.AddWithValue("@name", itemName)
@@ -199,7 +198,7 @@ Public Class Donation
                 conn.Close()
             End Using
 
-            ' تعديل بيانات المتبرع (اختياري)
+            ' نتعديل بيانات المتبرعي)
             If Not String.IsNullOrWhiteSpace(donor_name.Text) Then
                 Using cmd As New SqlCommand("UPDATE Donors_table SET DonorName = @name WHERE Donor_id = @id", conn)
                     cmd.Parameters.AddWithValue("@name", donor_name.Text)

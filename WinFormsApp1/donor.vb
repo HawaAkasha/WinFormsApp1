@@ -1,4 +1,5 @@
 ﻿Imports System.Data.SqlClient
+Imports FastReport.Utils.CompilerException
 
 Public Class donor
 
@@ -74,96 +75,116 @@ Public Class donor
 
     ' زر تسجيل التبرع
 
+
     Private Sub Button_donation_Click(sender As Object, e As EventArgs) Handles Button_donation.Click
+    ' التحقق من الحقول الأساسية
+    If donor_name.Text = "" OrElse donor_id.Text = "" OrElse donor_number.Text = "" OrElse TextBox_quantity.Text = "" Then
+        MessageBox.Show("يرجى تعبئة جميع الحقول.", "تنبيه", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        Exit Sub
+    End If
+
+    ' تحديد نوع التبرع
+    Dim donationType As String = ""
+    If CheckBox_money.Checked Then donationType &= "مالي، "
+    If CheckBox_eat.Checked Then donationType &= "مواد غذائية، "
+    If CheckBox_clothes.Checked Then donationType &= "ملابس، "
+    If CheckBox_medicine.Checked Then donationType &= "مستلزمات طبية، "
+    donationType = donationType.TrimEnd(", ".ToCharArray())
+
+    ' تحديد طريقة الدفع
+    Dim paymentMethod As String = ""
+    If cash.Checked Then paymentMethod &= "نقدي، "
+    If trance.Checked Then paymentMethod &= "تحويل، "
+    If delivery.Checked Then paymentMethod &= "توصيل، "
+    paymentMethod = paymentMethod.TrimEnd(", ".ToCharArray())
+
+    ' تحديد اسم المادة
+    Dim itemNameForDB As String = ""
+    If CheckBox_money.Checked Then
+        itemNameForDB = "تبرع مالي"
+    ElseIf CheckBox_eat.Checked Then
+        itemNameForDB = If(TextBox_eat.Text.Trim <> "", TextBox_eat.Text, "مواد غذائية")
+    ElseIf CheckBox_clothes.Checked Then
+        itemNameForDB = If(TextBox_cloth.Text.Trim <> "", TextBox_cloth.Text, "ملابس")
+    ElseIf CheckBox_medicine.Checked Then
+        itemNameForDB = If(TextBox_medi.Text.Trim <> "", TextBox_medi.Text, "مستلزمات طبية")
+    Else
+        itemNameForDB = "غير محدد"
+    End If
+
+    ' التحقق من أن الكمية رقم صحيح
+    Dim quantity As Integer
+    If Not Integer.TryParse(TextBox_quantity.Text, quantity) Then
+        MessageBox.Show("⚠️ يرجى إدخال رقم صحيح في خانة الكمية.", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Exit Sub
+    End If
+
+    Dim donorId As Integer = -1
+    Dim itemId As Integer = -1
+
+    Try
+        ' 1. إضافة المتبرع
+        conn.Open()
+        Dim cmdDonor As New SqlCommand("
+            INSERT INTO Donors_table (DonorName, PhoneNumber, DNational_id)
+            OUTPUT INSERTED.Donor_id
+            VALUES (@name, @phone, @nid)", conn)
+
+        cmdDonor.Parameters.AddWithValue("@name", donor_name.Text)
+        cmdDonor.Parameters.AddWithValue("@phone", donor_number.Text)
+        cmdDonor.Parameters.AddWithValue("@nid", donor_id.Text)
+
+        donorId = CInt(cmdDonor.ExecuteScalar())
+        conn.Close()
+
+        ' 2. أضف المادة
+        conn.Open()
+        Dim cmdItem As New SqlCommand("
+            INSERT INTO Item_table (Item_name, Item_quantity, Item_category, Expir_date)
+            OUTPUT INSERTED.Item_id
+            VALUES (@Item_name, @qty, @cat, @exp)", conn)
+
+        cmdItem.Parameters.AddWithValue("@Item_name", itemNameForDB) ' ✅ اسم المادة الصحيح
+        cmdItem.Parameters.AddWithValue("@qty", quantity)
+        cmdItem.Parameters.AddWithValue("@cat", donationType)
+        cmdItem.Parameters.AddWithValue("@exp", Date.Today)
+
+        itemId = CInt(cmdItem.ExecuteScalar()) ' ✅ استرجاع Item_id
+        conn.Close()
+
+        ' 3. سجل في جدول التبرعات
+        conn.Open()
+        Dim cmdDonation As New SqlCommand("
+            INSERT INTO Donations_table (Donor_id,Item_id, Donation_type, quantity, Donation_date, Donation_method)
+            VALUES (@Donor_id,@Item_id, @type, @qty, @date, @method)", conn)
 
 
-        ' التحقق من الحقول
-        If donor_name.Text = "" OrElse donor_id.Text = "" OrElse donor_number.Text = "" OrElse TextBox_quantity.Text = "" Then
-            MessageBox.Show("يرجى تعبئة جميع الحقول.", "تنبيه", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-            Exit Sub
-        End If
-
-        ' نوع التبرع
-        Dim donationType As String = ""
-        If CheckBox_money.Checked Then donationType &= "مالي, "
-        If CheckBox_eat.Checked Then donationType &= "مواد غذائية, "
-        If CheckBox_clothes.Checked Then donationType &= "ملابس, "
-        If CheckBox_medicine.Checked Then donationType &= "مستلزمات طبية, "
-        donationType = donationType.TrimEnd(", ".ToCharArray())
-
-        ' طرق الدفع
-        Dim paymentMethod As String = ""
-        If cash.Checked Then paymentMethod &= "نقدي, "
-        If delivery.Checked Then paymentMethod &= "توصيل, "
-        If trance.Checked Then paymentMethod &= "تحويل, "
-        paymentMethod = paymentMethod.TrimEnd(", ".ToCharArray())
-
-        Try
-            conn.Open()
-            Dim cmd As New SqlCommand("INSERT INTO Donors_table 
-     (DonorName, PhoneNumber, DNational_id) 
-     VALUES (@name, @nid, @phone)", conn)
-
-            cmd.Parameters.AddWithValue("@name", donor_name.Text)
-            cmd.Parameters.AddWithValue("@nid", donor_id.Text)
-            cmd.Parameters.AddWithValue("@phone", donor_number.Text)
-            cmd.ExecuteNonQuery()
-            conn.Close()
-
-            MessageBox.Show("تمت إضافة التبرع بنجاح", "تم", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            ClearFields()
-            ' 🟡 1. أضف المادة إلى جدول المواد
-            conn.Open()
-            Dim cmdItem As New SqlCommand("
-    INSERT INTO Item_table (Item_name, Item_quantity, Item_category, Expir_date) 
-    OUTPUT INSERTED.Item_id 
-    VALUES (@Item_name, @qty, @cat, @exp)", conn)
-            cmdItem.Parameters.AddWithValue("@Item_name", TextBox_quantity.Text)
-            cmdItem.Parameters.AddWithValue("@qty", TextBox_quantity.Text)
-            cmdItem.Parameters.AddWithValue("@cat", donationType)
-            cmdItem.Parameters.AddWithValue("@exp", Date.Today)
-
-            Dim itemId As Integer = CInt(cmdItem.ExecuteScalar())
-            conn.Close()
-
-            ' 🟡 2. ربط المادة بالمتبرع في جدول التبرعات
-            conn.Open()
-            Dim cmdDonation As New SqlCommand("
-    INSERT INTO Donations_table ( Item_id, Donation_type, quantity, Donation_date, Donation_method)
-    VALUES ( @item, @type, @qty, @date, @method)", conn)
-            'cmdDonation.Parameters.AddWithValue("@donor", donor_id.Text)
-            cmdDonation.Parameters.AddWithValue("@item", itemId)
+            cmdDonation.Parameters.AddWithValue("@Donor_id", donorId)
+            cmdDonation.Parameters.AddWithValue("@Item_id", itemId)
             cmdDonation.Parameters.AddWithValue("@type", donationType)
-            cmdDonation.Parameters.AddWithValue("@qty", TextBox_quantity.Text)
-            cmdDonation.Parameters.AddWithValue("@date", Date.Today)
-            cmdDonation.Parameters.AddWithValue("@method", paymentMethod)
+        cmdDonation.Parameters.AddWithValue("@qty", quantity)
+        cmdDonation.Parameters.AddWithValue("@date", Date.Today)
+        cmdDonation.Parameters.AddWithValue("@method", paymentMethod)
 
-            cmdDonation.ExecuteNonQuery()
-            conn.Close()
+        cmdDonation.ExecuteNonQuery()
+        conn.Close()
 
-            MessageBox.Show("✔️ تم ربط المتبرع بالمادة والتبرع بنجاح")
+        MessageBox.Show("✔️ تم إضافة المتبرع والتبرع بنجاح.", "تم", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        ClearFields()
 
+        ' تحديث الشاشة
+        Dim donationForm As New Donation()
+        donationForm.LoadDonations()
 
-
-
-
-
-        Catch ex As Exception
-            MessageBox.Show("خطأ أثناء الإضافة: " & ex.Message)
-            conn.Close()
-        End Try
-
+    Catch ex As Exception
+        conn.Close()
+        MessageBox.Show("❌ خطأ أثناء الإضافة: " & ex.Message)
+    End Try
+End Sub
 
         '///////////////////////////////////////////////////////////////
 
-        Dim donationForm As New Donation()
-
-        donationForm.LoadDonations() ' تحديث القريد فيو مباشرة
-        ' donation.Show()
-
-
-
-    End Sub
+      
 
 
     '//////////////////////////////////////////////
