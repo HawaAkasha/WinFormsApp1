@@ -155,8 +155,8 @@ Public Class donor
         ' 3. سجل في جدول التبرعات
         conn.Open()
         Dim cmdDonation As New SqlCommand("
-            INSERT INTO Donations_table (Donor_id,Item_id, Donation_type, quantity, Donation_date, Donation_method)
-            VALUES (@Donor_id,@Item_id, @type, @qty, @date, @method)", conn)
+            INSERT INTO Donations_table (Donor_id, Item_id,Donation_type, quantity, Donation_date, Donation_method)
+            VALUES (@Donor_id, @Item_id, @type, @qty, @date, @method)", conn)
 
 
             cmdDonation.Parameters.AddWithValue("@Donor_id", donorId)

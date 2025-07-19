@@ -10,8 +10,6 @@ Public Class Donation
         TextBox_cloth.Visible = False
         TextBox_medi.Visible = False
         LoadDonations()
-
-
     End Sub
     Public Sub LoadDonations()
         Dim dt As New DataTable()
@@ -19,21 +17,20 @@ Public Class Donation
         Try
             conn.Open()
 
-            ' جلب جميع المتبرعين مع تبرعاتهم واسم المادة إن وُجدت، مع إظهار - في حال القيم null
-            Dim query As String = " SELECT  
-            d.Donor_id, 
-            d.DonorName, 
-            d.PhoneNumber, 
-            i.Item_name AS Item_name, 
-           t.Donation_type AS Donation_type, 
-            t.quantity AS quantity, 
-           
-            t.Donation_method AS Donation_method 
-        FROM Donors_table d 
-        LEFT JOIN Donations_table t ON d.Donor_id = t.Donor_id 
-        LEFT JOIN Item_table i ON t.Item_id = i.Item_id 
-        ORDER BY d.Donor_id DESC; 
-        
+            ' جلب المتبرعين مع تبرعاتهم واسم المادة
+            Dim query As String = " SELECT
+            d.Donor_id,
+            d.DonorName,
+            d.PhoneNumber,
+            i.Item_name AS Item_name,
+            t.Donation_type AS Donation_type,
+            t.quantity AS quantity,
+            t.Donation_method AS Donation_method
+        FROM Donors_table d
+        LEFT JOIN Donations_table t ON t.Donor_id = d.Donor_id
+        LEFT JOIN Item_table i ON t.Item_id = i.Item_id
+        ORDER BY d.Donor_id DESC;
+
         "
 
             Dim adapter As New SqlDataAdapter(query, conn)
@@ -97,16 +94,13 @@ Public Class Donation
 
 
             ' تحديد اسم المادة
-            Dim itemName As String = ""
-            If CheckBox_money.Checked Then
-                itemName = "مالي"
-            ElseIf CheckBox_eat.Checked Then
-                itemName = TextBox_eat.Text
-            ElseIf CheckBox_clothes.Checked Then
-                itemName = TextBox_cloth.Text
-            ElseIf CheckBox_medicine.Checked Then
-                itemName = TextBox_medi.Text
-            End If
+            Dim itemNames As New List(Of String)
+            If CheckBox_money.Checked Then itemNames.Add("مالي")
+            If CheckBox_eat.Checked Then itemNames.Add(TextBox_eat.Text)
+            If CheckBox_clothes.Checked Then itemNames.Add(TextBox_cloth.Text)
+            If CheckBox_medicine.Checked Then itemNames.Add(TextBox_medi.Text)
+            Dim itemName As String = String.Join(", ", itemNames)
+
 
             ' نوع التبرع
             Dim dType As String = ""
@@ -262,7 +256,6 @@ Public Class Donation
             MessageBox.Show("❌ خطأ أثناء التعديل: " & ex.Message)
         End Try
         LoadDonations()
-
     End Sub
 
 End Class
