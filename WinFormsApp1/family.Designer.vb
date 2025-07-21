@@ -49,7 +49,6 @@ Partial Class family
         CheckBox_sikeBenignant = New CheckBox()
         txtDisabiltyType = New TextBox()
         Label7 = New Label()
-        Label8 = New Label()
         PictureBox1 = New PictureBox()
         PictureBox2 = New PictureBox()
         PictureBox3 = New PictureBox()
@@ -59,6 +58,7 @@ Partial Class family
         PictureBox7 = New PictureBox()
         PictureBox8 = New PictureBox()
         rdoWorks = New RadioButton()
+        GroupBox1 = New GroupBox()
         GroupBox_treatment.SuspendLayout()
         GroupBox_NeedSupport.SuspendLayout()
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
@@ -69,6 +69,7 @@ Partial Class family
         CType(PictureBox6, ComponentModel.ISupportInitialize).BeginInit()
         CType(PictureBox7, ComponentModel.ISupportInitialize).BeginInit()
         CType(PictureBox8, ComponentModel.ISupportInitialize).BeginInit()
+        GroupBox1.SuspendLayout()
         SuspendLayout()
         ' 
         ' Label5
@@ -125,7 +126,7 @@ Partial Class family
         ' rdoDoesNotWork
         ' 
         rdoDoesNotWork.AutoSize = True
-        rdoDoesNotWork.Location = New Point(104, 459)
+        rdoDoesNotWork.Location = New Point(43, 28)
         rdoDoesNotWork.Name = "rdoDoesNotWork"
         rdoDoesNotWork.Size = New Size(76, 24)
         rdoDoesNotWork.TabIndex = 18
@@ -319,15 +320,6 @@ Partial Class family
         Label7.TabIndex = 75
         Label7.Text = "نوع المرض"
         ' 
-        ' Label8
-        ' 
-        Label8.AutoSize = True
-        Label8.Location = New Point(35, 434)
-        Label8.Name = "Label8"
-        Label8.Size = New Size(104, 20)
-        Label8.TabIndex = 76
-        Label8.Text = "الحالة الوظيفية"
-        ' 
         ' PictureBox1
         ' 
         PictureBox1.Image = My.Resources.Resources.photo_2025_06_26_19_36_39
@@ -411,7 +403,7 @@ Partial Class family
         ' rdoWorks
         ' 
         rdoWorks.AutoSize = True
-        rdoWorks.Location = New Point(35, 459)
+        rdoWorks.Location = New Point(125, 28)
         rdoWorks.Name = "rdoWorks"
         rdoWorks.Size = New Size(63, 24)
         rdoWorks.TabIndex = 85
@@ -419,13 +411,24 @@ Partial Class family
         rdoWorks.Text = "يعمل"
         rdoWorks.UseVisualStyleBackColor = True
         ' 
+        ' GroupBox1
+        ' 
+        GroupBox1.Controls.Add(rdoWorks)
+        GroupBox1.Controls.Add(rdoDoesNotWork)
+        GroupBox1.Location = New Point(34, 443)
+        GroupBox1.Name = "GroupBox1"
+        GroupBox1.Size = New Size(188, 67)
+        GroupBox1.TabIndex = 86
+        GroupBox1.TabStop = False
+        GroupBox1.Text = "الحالة الوظيفية"
+        ' 
         ' family
         ' 
         AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.Azure
         ClientSize = New Size(587, 555)
-        Controls.Add(rdoWorks)
+        Controls.Add(GroupBox1)
         Controls.Add(PictureBox8)
         Controls.Add(PictureBox7)
         Controls.Add(PictureBox6)
@@ -434,8 +437,6 @@ Partial Class family
         Controls.Add(PictureBox3)
         Controls.Add(PictureBox2)
         Controls.Add(PictureBox1)
-        Controls.Add(Label8)
-        Controls.Add(rdoDoesNotWork)
         Controls.Add(Label7)
         Controls.Add(txtDisabiltyType)
         Controls.Add(CheckBox_sikeBenignant)
@@ -476,6 +477,8 @@ Partial Class family
         CType(PictureBox6, ComponentModel.ISupportInitialize).EndInit()
         CType(PictureBox7, ComponentModel.ISupportInitialize).EndInit()
         CType(PictureBox8, ComponentModel.ISupportInitialize).EndInit()
+        GroupBox1.ResumeLayout(False)
+        GroupBox1.PerformLayout()
         ResumeLayout(False)
         PerformLayout()
     End Sub
@@ -505,7 +508,6 @@ Partial Class family
     Friend WithEvents CheckBox_sikeBenignant As CheckBox
     Friend WithEvents txtDisabiltyType As TextBox
     Friend WithEvents Label7 As Label
-    Friend WithEvents Label8 As Label
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents PictureBox2 As PictureBox
     Friend WithEvents PictureBox3 As PictureBox
@@ -515,4 +517,5 @@ Partial Class family
     Friend WithEvents PictureBox7 As PictureBox
     Friend WithEvents PictureBox8 As PictureBox
     Friend WithEvents rdoWorks As RadioButton
+    Friend WithEvents GroupBox1 As GroupBox
 End Class
