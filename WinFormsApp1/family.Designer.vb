@@ -29,7 +29,6 @@ Partial Class family
         txtName = New TextBox()
         txtAge = New TextBox()
         txtRelation = New TextBox()
-        rdoWorks = New RadioButton()
         rdoDoesNotWork = New RadioButton()
         GroupBox_treatment = New GroupBox()
         rdoTreatmentYes = New RadioButton()
@@ -59,6 +58,7 @@ Partial Class family
         PictureBox6 = New PictureBox()
         PictureBox7 = New PictureBox()
         PictureBox8 = New PictureBox()
+        rdoWorks = New RadioButton()
         GroupBox_treatment.SuspendLayout()
         GroupBox_NeedSupport.SuspendLayout()
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
@@ -121,17 +121,6 @@ Partial Class family
         txtRelation.Name = "txtRelation"
         txtRelation.Size = New Size(184, 27)
         txtRelation.TabIndex = 42
-        ' 
-        ' rdoWorks
-        ' 
-        rdoWorks.AutoSize = True
-        rdoWorks.Location = New Point(35, 457)
-        rdoWorks.Name = "rdoWorks"
-        rdoWorks.Size = New Size(63, 24)
-        rdoWorks.TabIndex = 17
-        rdoWorks.TabStop = True
-        rdoWorks.Text = "يعمل"
-        rdoWorks.UseVisualStyleBackColor = True
         ' 
         ' rdoDoesNotWork
         ' 
@@ -419,12 +408,24 @@ Partial Class family
         PictureBox8.TabIndex = 84
         PictureBox8.TabStop = False
         ' 
+        ' rdoWorks
+        ' 
+        rdoWorks.AutoSize = True
+        rdoWorks.Location = New Point(35, 459)
+        rdoWorks.Name = "rdoWorks"
+        rdoWorks.Size = New Size(63, 24)
+        rdoWorks.TabIndex = 85
+        rdoWorks.TabStop = True
+        rdoWorks.Text = "يعمل"
+        rdoWorks.UseVisualStyleBackColor = True
+        ' 
         ' family
         ' 
         AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.Azure
         ClientSize = New Size(587, 555)
+        Controls.Add(rdoWorks)
         Controls.Add(PictureBox8)
         Controls.Add(PictureBox7)
         Controls.Add(PictureBox6)
@@ -435,7 +436,6 @@ Partial Class family
         Controls.Add(PictureBox1)
         Controls.Add(Label8)
         Controls.Add(rdoDoesNotWork)
-        Controls.Add(rdoWorks)
         Controls.Add(Label7)
         Controls.Add(txtDisabiltyType)
         Controls.Add(CheckBox_sikeBenignant)
@@ -485,7 +485,6 @@ Partial Class family
     Friend WithEvents txtName As TextBox
     Friend WithEvents txtAge As TextBox
     Friend WithEvents txtRelation As TextBox
-    Friend WithEvents rdoWorks As RadioButton
     Friend WithEvents rdoDoesNotWork As RadioButton
     Friend WithEvents GroupBox_treatment As GroupBox
     Friend WithEvents rdoTreatmentYes As RadioButton
@@ -515,4 +514,5 @@ Partial Class family
     Friend WithEvents PictureBox6 As PictureBox
     Friend WithEvents PictureBox7 As PictureBox
     Friend WithEvents PictureBox8 As PictureBox
+    Friend WithEvents rdoWorks As RadioButton
 End Class

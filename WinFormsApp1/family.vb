@@ -31,7 +31,7 @@ Public Class family
 
         ' الحالة الوظيفية
         Dim employmentStatus As String = ""
-        If rdoWorks.Checked Then
+        If rdoWork.Checked Then
             employmentStatus = "يعمل"
         ElseIf rdoDoesNotWork.Checked Then
             employmentStatus = "لا يعمل"
@@ -89,7 +89,7 @@ Public Class family
         CheckBox_sikeSly.Checked = False
         CheckBox_sikeBenignant.Checked = False
 
-        rdoWorks.Checked = False
+        rdoWork.Checked = False
         rdoDoesNotWork.Checked = False
 
         rdoTreatmentYes.Checked = False
@@ -107,10 +107,10 @@ Public Class family
         clearFields()
         rdoSupportYes.Checked = False
         rdoSupportNo.Checked = False
-        rdoWorks.Checked = False
+        rdoWork.Checked = False
     End Sub
 
-    Private Sub rdoWorks_CheckedChanged(sender As Object, e As EventArgs) Handles rdoWorks.CheckedChanged
+    Private Sub rdoWorks_CheckedChanged(sender As Object, e As EventArgs) Handles rdoWork.CheckedChanged
 
     End Sub
 
