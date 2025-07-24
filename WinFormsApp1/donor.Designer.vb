@@ -241,18 +241,18 @@ Partial Class donor
         Label_money.AutoSize = True
         Label_money.Location = New Point(58, 38)
         Label_money.Name = "Label_money"
-        Label_money.Size = New Size(43, 20)
+        Label_money.Size = New Size(89, 20)
         Label_money.TabIndex = 95
-        Label_money.Text = "هاتف"
+        Label_money.Text = "0927077651"
         ' 
         ' Label_trance
         ' 
         Label_trance.AutoSize = True
         Label_trance.Location = New Point(58, 73)
         Label_trance.Name = "Label_trance"
-        Label_trance.Size = New Size(49, 20)
+        Label_trance.Size = New Size(81, 20)
         Label_trance.TabIndex = 94
-        Label_trance.Text = "حساب"
+        Label_trance.Text = "017636262"
         ' 
         ' TextBox_eat
         ' 
@@ -377,9 +377,9 @@ Partial Class donor
         Label_delivery.AutoSize = True
         Label_delivery.Location = New Point(378, 411)
         Label_delivery.Name = "Label_delivery"
-        Label_delivery.Size = New Size(49, 20)
+        Label_delivery.Size = New Size(50, 20)
         Label_delivery.TabIndex = 93
-        Label_delivery.Text = "المكان"
+        Label_delivery.Text = "بلعون "
         ' 
         ' donor
         ' 

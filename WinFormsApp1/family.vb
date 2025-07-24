@@ -63,8 +63,7 @@ Public Class family
 
 
         ' بعد حفظ بيانات الفرد، نتحقق هل عنده مرض
-        ' إذا تم إدخال مرض → افتح سجل طبي تلقائيًا
-        ' بعد حفظ بيانات الفرد، نتحقق هل عنده مرض
+
         If CheckBox_sikePressure.Checked Or CheckBox_sikeSuger.Checked Or CheckBox_sikeSly.Checked Or CheckBox_sikeBenignant.Checked Then
             Dim medical As New medicalRecord()
             medical.SubscriberID = SubscriberID
@@ -110,9 +109,7 @@ Public Class family
         rdoWorks.Checked = False
     End Sub
 
-    Private Sub rdoWorks_CheckedChanged(sender As Object, e As EventArgs) Handles rdoWorks.CheckedChanged
 
-    End Sub
 
     Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
         clearFields()

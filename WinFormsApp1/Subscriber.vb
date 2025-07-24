@@ -295,7 +295,7 @@ Public Class Subscriber
         ' تحديد نوع الاحتياج 
         Dim needType As String = ""
         Dim itemName As String = ""
-        Dim quantity As Integer = 0
+        Dim quantity As Integer = 0 'عدليها 
 
         If CheckBox_money.Checked Then
             needType = "مالي"
@@ -338,7 +338,7 @@ Public Class Subscriber
             If CheckBox_money.Checked Then
                 itemNam = "مالي"
                 itemCategory = "مالي"
-                itemQty = 1
+                itemQty = TextBox_moneyy.Text
             ElseIf CheckBox_eat.Checked Then
                 itemNam = TextBox_item.Text
                 itemCategory = "مواد غذائية"
@@ -516,7 +516,5 @@ Public Class Subscriber
         TextBox_moneyy.Visible = CheckBox_money.Checked
     End Sub
 
-    Private Sub GroupBoxsike_Enter(sender As Object, e As EventArgs) Handles GroupBoxsike.Enter
 
-    End Sub
 End Class
