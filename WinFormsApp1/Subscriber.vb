@@ -9,11 +9,8 @@ Public Class Subscriber
     Private Sub Button1_Click(sender As Object, e As EventArgs)
         family.Show
     End Sub
-
-
-
     Private Sub Button_register_save_Click(sender As Object, e As EventArgs) Handles Button_register_save.Click
-
+        'ضيف خيار حالة اجتماعية
         ' قراءة البيانات من الفورم 
         Dim info As String = ""
         TextBox_istability.Visible = False
@@ -163,6 +160,10 @@ Public Class Subscriber
             MsgBox("يرجى اختيار نوع السكن", MsgBoxStyle.Exclamation)
             Exit Sub
         End If
+        If Not (RadioButton_sin1.Checked Or RadioButton_sin2.Checked Or RadioButton_sin3.Checked Or RadioButton_sin4.Checked) Then
+            MsgBox("يرجى اختيار نوع الحالة الاجتماعية", MsgBoxStyle.Exclamation)
+            Exit Sub
+        End If
 
         If Not (RadioButton_stability1.Checked Or RadioButton_stability2.Checked Or RadioButton_stability3.Checked) Then
             MsgBox("يرجى اختيار مدى استقرار السكن", MsgBoxStyle.Exclamation)
@@ -304,18 +305,18 @@ Public Class Subscriber
 
         ElseIf CheckBox_eat.Checked Then
             needType = "مواد غذائية"
-            itemName = TextBox_item.Text
-            Integer.TryParse(item_quntity.Text, quantity)
+            itemName = "مواد غذائية " 'TextBox_item.Text
+            'Integer.TryParse(item_quntity.Text, quantity)
 
         ElseIf CheckBox_clothes.Checked Then
             needType = "ملابس"
-            itemName = TextBox_cloth.Text
-            Integer.TryParse(cloth_quntity.Text, quantity)
+            itemName = "ملابس" 'TextBox_cloth.Text
+            ' Integer.TryParse(cloth_quntity.Text, quantity)
 
         ElseIf CheckBox_medicine.Checked Then
             needType = "مستلزمات صحية"
-            itemName = TextBox_med.Text
-            Integer.TryParse(med_quntity.Text, quantity)
+            itemName = "مستلزمات صحية" 'TextBox_med.Text
+            ' Integer.TryParse(med_quntity.Text, quantity)
 
         Else
             MessageBox.Show("يرجى اختيار نوع احتياج.")
@@ -338,19 +339,19 @@ Public Class Subscriber
             If CheckBox_money.Checked Then
                 itemNam = "مالي"
                 itemCategory = "مالي"
-                itemQty = TextBox_moneyy.Text
+                'itemQty = TextBox_moneyy.Text
             ElseIf CheckBox_eat.Checked Then
-                itemNam = TextBox_item.Text
+                itemNam = "مواد غذائية" ' TextBox_item.Text
                 itemCategory = "مواد غذائية"
-                Integer.TryParse(item_quntity.Text, itemQty)
+                'Integer.TryParse(item_quntity.Text, itemQty)
             ElseIf CheckBox_clothes.Checked Then
-                itemNam = TextBox_cloth.Text
+                itemNam = "ملابس" 'TextBox_cloth.Text
                 itemCategory = "ملابس"
-                Integer.TryParse(cloth_quntity.Text, itemQty)
+                'Integer.TryParse(cloth_quntity.Text, itemQty)
             ElseIf CheckBox_medicine.Checked Then
-                itemNam = TextBox_med.Text
+                itemNam = "مستلزمات صحية" 'TextBox_med.Text
                 itemCategory = "مستلزمات صحية"
-                Integer.TryParse(med_quntity.Text, itemQty)
+                'Integer.TryParse(med_quntity.Text, itemQty)
             Else
                 MessageBox.Show("يرجى اختيار نوع احتياج.")
                 Exit Sub
@@ -359,9 +360,9 @@ Public Class Subscriber
             conn.Open()
 
             ' 1. إضافة المادة 
-            Dim cmdItem As New SqlCommand("INSERT INTO Item_table (Item_name, Item_quantity, Item_category, Expir_date) 
+            Dim cmdItem As New SqlCommand("INSERT INTO Item_table (Item_name,Item_quantity, Item_category, Expir_date) 
                                    OUTPUT INSERTED.Item_id 
-                                   VALUES (@name, @qty, @cat, @exp)", conn)
+                                   VALUES (@name,@qty, @cat, @exp)", conn)
             cmdItem.Parameters.AddWithValue("@name", itemNam)
             cmdItem.Parameters.AddWithValue("@qty", itemQty)
             cmdItem.Parameters.AddWithValue("@cat", itemCategory)
@@ -411,13 +412,13 @@ Public Class Subscriber
     Private Sub Subscriber_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         GroupBox_sik.Visible = False
         TextBox_istability.Visible = False
-        TextBox_item.Visible = False
-        item_quntity.Visible = False
-        TextBox_cloth.Visible = False
-        cloth_quntity.Visible = False
-        TextBox_med.Visible = False
-        med_quntity.Visible = False
-        TextBox_moneyy.Visible = False
+        ' TextBox_item.Visible = False
+        ' item_quntity.Visible = False
+        ' TextBox_cloth.Visible = False
+        '  cloth_quntity.Visible = False
+        '  TextBox_med.Visible = False
+        ' med_quntity.Visible = False
+        ' TextBox_moneyy.Visible = False
     End Sub
 
     Private Sub Button_register_delete_Click(sender As Object, e As EventArgs) Handles Button_register_delete.Click
@@ -474,13 +475,13 @@ Public Class Subscriber
         CheckBox_sikeBenignant.Checked = False
         CheckBox_sikeHind.Checked = False
 
-        TextBox_item.Visible = False
-        item_quntity.Visible = False
-        TextBox_cloth.Visible = False
-        cloth_quntity.Visible = False
-        TextBox_med.Visible = False
-        med_quntity.Visible = False
-        TextBox_moneyy.Visible = False
+        ' TextBox_item.Visible = False
+        '  item_quntity.Visible = False
+        ' TextBox_cloth.Visible = False
+        ' cloth_quntity.Visible = False
+        '  TextBox_med.Visible = False
+        '  med_quntity.Visible = False
+        ' TextBox_moneyy.Visible = False
 
         ' إخفاء الحقول الخاصة بالأمراض 
         GroupBox_sik.Visible = False
@@ -496,24 +497,24 @@ Public Class Subscriber
         Next
         Return True
     End Function
-
+    'مطلوب الالغاء
     Private Sub CheckBox_eat_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox_eat.CheckedChanged
-        TextBox_item.Visible = CheckBox_eat.Checked
-        item_quntity.Visible = CheckBox_eat.Checked
+        'TextBox_item.Visible = CheckBox_eat.Checked
+        ' item_quntity.Visible = CheckBox_eat.Checked
     End Sub
 
     Private Sub CheckBox_clothes_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox_clothes.CheckedChanged
-        TextBox_cloth.Visible = CheckBox_clothes.Checked
-        cloth_quntity.Visible = CheckBox_clothes.Checked
+        'TextBox_cloth.Visible = CheckBox_clothes.Checked
+        '  cloth_quntity.Visible = CheckBox_clothes.Checked
     End Sub
 
     Private Sub CheckBox_medicine_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox_medicine.CheckedChanged
-        TextBox_med.Visible = CheckBox_medicine.Checked
-        med_quntity.Visible = CheckBox_medicine.Checked
+        ' TextBox_med.Visible = CheckBox_medicine.Checked
+        ' med_quntity.Visible = CheckBox_medicine.Checked
     End Sub
 
     Private Sub CheckBox_money_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox_money.CheckedChanged
-        TextBox_moneyy.Visible = CheckBox_money.Checked
+        ' TextBox_moneyy.Visible = CheckBox_money.Checked
     End Sub
 
 

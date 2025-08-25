@@ -84,7 +84,7 @@ Public Class Donation
     End Sub
 
     Private Sub Button_save_Click(sender As Object, e As EventArgs) Handles Button_save.Click
-
+        'يمكن عدم فرض تعبئة كل الحقول
         Try
             If donor_name.Text = "" Or TextBox_quantity.Text = "" Then
                 MessageBox.Show("يرجى تعبئة الحقول الأساسية")

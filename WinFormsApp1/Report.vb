@@ -4,7 +4,7 @@ Imports System.Data.SqlClient
 Imports System.Drawing.Printing
 
 Public Class Report
-
+    'تقرير عن الفئات العمريه
     Private reportType As String
     Private dataToPrint As New List(Of String)
     Private Const connectionString As String = "Data Source=DESKTOP-OA3F4SP\SQLEXPRESS;Initial Catalog=Project_DB;Integrated Security=True"
@@ -12,7 +12,7 @@ Public Class Report
     Private currentLineIndex As Integer = 0
 
     Private Sub Frm_PrintReport_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        ComboBoxReportType.Items.AddRange({"تقرير احتياج", "تقرير مادة واردة", "تقرير نواقص", "تقرير مصروف"})
+        ComboBoxReportType.Items.AddRange({"تقرير احتياج", "تقرير مادة واردة", "تقرير نواقص", "تقرير مصروف", "تقرير امراض"})
         DateTimePicker_From.Value = Date.Today.AddDays(-7)
         DateTimePicker_To.Value = Date.Today
     End Sub
@@ -61,6 +61,8 @@ Public Class Report
                              FROM Needs_table n
                             LEFT JOIN subscribers_table s ON n.Subscriber_id = s.National_id
                              JOIN Item_table i ON n.Item_id = i.Item_id"
+                Case "تقرير امراض"
+                    query = "SELECT Full_name, Age, Disease_id FROM Subscribers_table"
             End Select
 
             Using cmd As New SqlCommand(query, conn)
@@ -86,6 +88,9 @@ Public Class Report
                             Case "تقرير مصروف"
 
                                 line = $"اسم المشترك: {reader("full_name")} |  رقم المادة: {reader("item_id")} | اسم المادة: {reader("item_name")} | عدد الأسرة: {reader("FamilyNumbe")}"
+                            Case "تقرير امراض"
+
+                                line = $"اسم المريض: {reader("full_name")} |  العمر: {reader("Age")} | نوع المرض: {reader("Disease_id")}"
                         End Select
 
                         dataToPrint.Add(line)

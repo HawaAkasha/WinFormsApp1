@@ -81,13 +81,6 @@ Partial Class Subscriber
         CheckBox_money = New CheckBox()
         Button_register_delete = New Button()
         GroupBox_sik = New GroupBox()
-        TextBox_item = New TextBox()
-        item_quntity = New TextBox()
-        TextBox_cloth = New TextBox()
-        cloth_quntity = New TextBox()
-        med_quntity = New TextBox()
-        TextBox_med = New TextBox()
-        TextBox_moneyy = New TextBox()
         PictureBox1 = New PictureBox()
         PictureBox2 = New PictureBox()
         PictureBox3 = New PictureBox()
@@ -100,6 +93,11 @@ Partial Class Subscriber
         PictureBox10 = New PictureBox()
         PictureBox11 = New PictureBox()
         PictureBox12 = New PictureBox()
+        GroupBox1 = New GroupBox()
+        RadioButton_sin4 = New RadioButton()
+        RadioButton_sin1 = New RadioButton()
+        RadioButton_sin2 = New RadioButton()
+        RadioButton_sin3 = New RadioButton()
         GroupBox_suptype.SuspendLayout()
         GroupBox_stability_living.SuspendLayout()
         GroupBox_work.SuspendLayout()
@@ -121,6 +119,7 @@ Partial Class Subscriber
         CType(PictureBox10, ComponentModel.ISupportInitialize).BeginInit()
         CType(PictureBox11, ComponentModel.ISupportInitialize).BeginInit()
         CType(PictureBox12, ComponentModel.ISupportInitialize).BeginInit()
+        GroupBox1.SuspendLayout()
         SuspendLayout()
         ' 
         ' sup_id
@@ -634,7 +633,7 @@ Partial Class Subscriber
         ' 
         ' Button_register_save
         ' 
-        Button_register_save.Location = New Point(490, 814)
+        Button_register_save.Location = New Point(490, 859)
         Button_register_save.Name = "Button_register_save"
         Button_register_save.Size = New Size(152, 29)
         Button_register_save.TabIndex = 59
@@ -683,7 +682,7 @@ Partial Class Subscriber
         ' 
         ' Button_register_delete
         ' 
-        Button_register_delete.Location = New Point(490, 849)
+        Button_register_delete.Location = New Point(490, 894)
         Button_register_delete.Name = "Button_register_delete"
         Button_register_delete.Size = New Size(152, 29)
         Button_register_delete.TabIndex = 72
@@ -704,69 +703,6 @@ Partial Class Subscriber
         GroupBox_sik.TabIndex = 73
         GroupBox_sik.TabStop = False
         GroupBox_sik.Text = "نوع المرض"
-        ' 
-        ' TextBox_item
-        ' 
-        TextBox_item.BackColor = Color.Azure
-        TextBox_item.Location = New Point(500, 153)
-        TextBox_item.Name = "TextBox_item"
-        TextBox_item.Size = New Size(101, 27)
-        TextBox_item.TabIndex = 74
-        TextBox_item.Text = " اسم المادة"
-        ' 
-        ' item_quntity
-        ' 
-        item_quntity.BackColor = Color.Azure
-        item_quntity.Location = New Point(607, 154)
-        item_quntity.Name = "item_quntity"
-        item_quntity.Size = New Size(43, 27)
-        item_quntity.TabIndex = 75
-        item_quntity.Text = "الكمية"
-        ' 
-        ' TextBox_cloth
-        ' 
-        TextBox_cloth.BackColor = Color.Azure
-        TextBox_cloth.Location = New Point(475, 198)
-        TextBox_cloth.Name = "TextBox_cloth"
-        TextBox_cloth.Size = New Size(101, 27)
-        TextBox_cloth.TabIndex = 76
-        TextBox_cloth.Text = "نوع الملابس"
-        ' 
-        ' cloth_quntity
-        ' 
-        cloth_quntity.BackColor = Color.Azure
-        cloth_quntity.Location = New Point(582, 198)
-        cloth_quntity.Name = "cloth_quntity"
-        cloth_quntity.Size = New Size(43, 27)
-        cloth_quntity.TabIndex = 77
-        cloth_quntity.Text = "الكمية"
-        ' 
-        ' med_quntity
-        ' 
-        med_quntity.BackColor = Color.Azure
-        med_quntity.Location = New Point(644, 249)
-        med_quntity.Name = "med_quntity"
-        med_quntity.Size = New Size(43, 27)
-        med_quntity.TabIndex = 78
-        med_quntity.Text = "الكمية"
-        ' 
-        ' TextBox_med
-        ' 
-        TextBox_med.BackColor = Color.Azure
-        TextBox_med.Location = New Point(537, 249)
-        TextBox_med.Name = "TextBox_med"
-        TextBox_med.Size = New Size(101, 27)
-        TextBox_med.TabIndex = 79
-        TextBox_med.Text = "نوع الدواء"
-        ' 
-        ' TextBox_moneyy
-        ' 
-        TextBox_moneyy.BackColor = Color.Azure
-        TextBox_moneyy.Location = New Point(471, 114)
-        TextBox_moneyy.Name = "TextBox_moneyy"
-        TextBox_moneyy.Size = New Size(101, 27)
-        TextBox_moneyy.TabIndex = 80
-        TextBox_moneyy.Text = "قيمة المبلغ"
         ' 
         ' PictureBox1
         ' 
@@ -861,7 +797,7 @@ Partial Class Subscriber
         ' PictureBox10
         ' 
         PictureBox10.Image = My.Resources.Resources.photo_2025_06_26_19_36_411
-        PictureBox10.Location = New Point(444, 815)
+        PictureBox10.Location = New Point(444, 860)
         PictureBox10.Name = "PictureBox10"
         PictureBox10.Size = New Size(40, 28)
         PictureBox10.SizeMode = PictureBoxSizeMode.StretchImage
@@ -871,7 +807,7 @@ Partial Class Subscriber
         ' PictureBox11
         ' 
         PictureBox11.Image = My.Resources.Resources.photo_2025_06_26_20_05_041
-        PictureBox11.Location = New Point(444, 850)
+        PictureBox11.Location = New Point(444, 895)
         PictureBox11.Name = "PictureBox11"
         PictureBox11.Size = New Size(40, 28)
         PictureBox11.SizeMode = PictureBoxSizeMode.StretchImage
@@ -888,12 +824,70 @@ Partial Class Subscriber
         PictureBox12.TabIndex = 92
         PictureBox12.TabStop = False
         ' 
+        ' GroupBox1
+        ' 
+        GroupBox1.Controls.Add(RadioButton_sin4)
+        GroupBox1.Controls.Add(RadioButton_sin1)
+        GroupBox1.Controls.Add(RadioButton_sin2)
+        GroupBox1.Controls.Add(RadioButton_sin3)
+        GroupBox1.Location = New Point(45, 857)
+        GroupBox1.Name = "GroupBox1"
+        GroupBox1.Size = New Size(319, 66)
+        GroupBox1.TabIndex = 93
+        GroupBox1.TabStop = False
+        GroupBox1.Text = "الحالة الاجتماعية"
+        ' 
+        ' RadioButton_sin4
+        ' 
+        RadioButton_sin4.AutoSize = True
+        RadioButton_sin4.Location = New Point(27, 37)
+        RadioButton_sin4.Name = "RadioButton_sin4"
+        RadioButton_sin4.Size = New Size(67, 24)
+        RadioButton_sin4.TabIndex = 16
+        RadioButton_sin4.TabStop = True
+        RadioButton_sin4.Text = "متزوج"
+        RadioButton_sin4.UseVisualStyleBackColor = True
+        ' 
+        ' RadioButton_sin1
+        ' 
+        RadioButton_sin1.AutoSize = True
+        RadioButton_sin1.Location = New Point(240, 36)
+        RadioButton_sin1.Name = "RadioButton_sin1"
+        RadioButton_sin1.Size = New Size(62, 24)
+        RadioButton_sin1.TabIndex = 15
+        RadioButton_sin1.TabStop = True
+        RadioButton_sin1.Text = "اعزب"
+        RadioButton_sin1.UseVisualStyleBackColor = True
+        ' 
+        ' RadioButton_sin2
+        ' 
+        RadioButton_sin2.AutoSize = True
+        RadioButton_sin2.Location = New Point(164, 36)
+        RadioButton_sin2.Name = "RadioButton_sin2"
+        RadioButton_sin2.Size = New Size(68, 24)
+        RadioButton_sin2.TabIndex = 14
+        RadioButton_sin2.TabStop = True
+        RadioButton_sin2.Text = "مطلق"
+        RadioButton_sin2.UseVisualStyleBackColor = True
+        ' 
+        ' RadioButton_sin3
+        ' 
+        RadioButton_sin3.AutoSize = True
+        RadioButton_sin3.Location = New Point(100, 36)
+        RadioButton_sin3.Name = "RadioButton_sin3"
+        RadioButton_sin3.Size = New Size(58, 24)
+        RadioButton_sin3.TabIndex = 13
+        RadioButton_sin3.TabStop = True
+        RadioButton_sin3.Text = "ارمل"
+        RadioButton_sin3.UseVisualStyleBackColor = True
+        ' 
         ' Subscriber
         ' 
         AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.Azure
-        ClientSize = New Size(734, 893)
+        ClientSize = New Size(734, 967)
+        Controls.Add(GroupBox1)
         Controls.Add(PictureBox12)
         Controls.Add(PictureBox11)
         Controls.Add(PictureBox10)
@@ -906,13 +900,6 @@ Partial Class Subscriber
         Controls.Add(PictureBox3)
         Controls.Add(PictureBox2)
         Controls.Add(PictureBox1)
-        Controls.Add(TextBox_moneyy)
-        Controls.Add(TextBox_med)
-        Controls.Add(med_quntity)
-        Controls.Add(cloth_quntity)
-        Controls.Add(TextBox_cloth)
-        Controls.Add(item_quntity)
-        Controls.Add(TextBox_item)
         Controls.Add(GroupBox_sik)
         Controls.Add(Button_register_delete)
         Controls.Add(CheckBox_medicine)
@@ -984,6 +971,8 @@ Partial Class Subscriber
         CType(PictureBox10, ComponentModel.ISupportInitialize).EndInit()
         CType(PictureBox11, ComponentModel.ISupportInitialize).EndInit()
         CType(PictureBox12, ComponentModel.ISupportInitialize).EndInit()
+        GroupBox1.ResumeLayout(False)
+        GroupBox1.PerformLayout()
         ResumeLayout(False)
         PerformLayout()
     End Sub
@@ -1050,13 +1039,6 @@ Partial Class Subscriber
     Friend WithEvents CheckBox_money As CheckBox
     Friend WithEvents Button_register_delete As Button
     Friend WithEvents GroupBox_sik As GroupBox
-    Friend WithEvents TextBox_item As TextBox
-    Friend WithEvents item_quntity As TextBox
-    Friend WithEvents TextBox_cloth As TextBox
-    Friend WithEvents cloth_quntity As TextBox
-    Friend WithEvents med_quntity As TextBox
-    Friend WithEvents TextBox_med As TextBox
-    Friend WithEvents TextBox_moneyy As TextBox
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents PictureBox2 As PictureBox
     Friend WithEvents PictureBox3 As PictureBox
@@ -1069,4 +1051,9 @@ Partial Class Subscriber
     Friend WithEvents PictureBox10 As PictureBox
     Friend WithEvents PictureBox11 As PictureBox
     Friend WithEvents PictureBox12 As PictureBox
+    Friend WithEvents GroupBox1 As GroupBox
+    Friend WithEvents RadioButton_sin1 As RadioButton
+    Friend WithEvents RadioButton_sin2 As RadioButton
+    Friend WithEvents RadioButton_sin3 As RadioButton
+    Friend WithEvents RadioButton_sin4 As RadioButton
 End Class

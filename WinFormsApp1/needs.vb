@@ -27,7 +27,7 @@ SELECT
   i.Item_id, 
   i.Item_category, 
   i.Item_name, 
-  i.Item_quantity,
+  
   'Subscriber' AS PersonType
 FROM Needs_table n
 LEFT JOIN Subscribers_table s ON n.Subscriber_id =s.National_id
@@ -42,7 +42,7 @@ SELECT
   i.Item_id, 
   i.Item_category, 
   i.Item_name, 
-  i.Item_quantity,
+ 
   'FamilyMember' AS PersonType
 FROM Needs_table n
 LEFT JOIN Family_table f ON n.Subscriber_id = f.Subscriber_id
@@ -73,7 +73,7 @@ ORDER BY Fullname;"
         family_relate.Text = If(IsDBNull(row.Cells("FamilyNumbe").Value), "0", row.Cells("FamilyNumbe").Value.ToString())
         TextBox_item_type.Text = If(IsDBNull(row.Cells("Item_category").Value), "", row.Cells("Item_category").Value.ToString())
         TextBox_item_name.Text = If(IsDBNull(row.Cells("Item_name").Value), "", row.Cells("Item_name").Value.ToString())
-        TextBox_quantity.Text = If(IsDBNull(row.Cells("Item_quantity").Value), "0", row.Cells("Item_quantity").Value.ToString())
+        'TextBox_quantity.Text = If(IsDBNull(row.Cells("Item_quantity").Value), "0", row.Cells("Item_quantity").Value.ToString())
     End Sub
 
     Private Sub Button_save_Click(sender As Object, e As EventArgs) Handles Button_save.Click

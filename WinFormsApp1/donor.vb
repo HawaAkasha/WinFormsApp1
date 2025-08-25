@@ -3,8 +3,6 @@ Imports FastReport.Utils.CompilerException
 
 Public Class donor
 
-
-
     ' الاتصال بقاعدة البيانات
     Dim conn As New SqlConnection("Data Source=DESKTOP-OA3F4SP\SQLEXPRESS;Initial Catalog=Project_DB;Integrated Security=True")
 
@@ -78,10 +76,10 @@ Public Class donor
 
     Private Sub Button_donation_Click(sender As Object, e As EventArgs) Handles Button_donation.Click
         ' التحقق من الحقول الأساسية
-        If donor_name.Text = "" OrElse donor_id.Text = "" OrElse donor_number.Text = "" OrElse TextBox_quantity.Text = "" Then
-            MessageBox.Show("يرجى تعبئة جميع الحقول.", "تنبيه", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-            Exit Sub
-        End If
+        ' If donor_name.Text = "" OrElse donor_id.Text = "" OrElse donor_number.Text = "" OrElse TextBox_quantity.Text = "" Then
+        'MessageBox.Show("يرجى تعبئة جميع الحقول.", "تنبيه", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        'Exit Sub
+        ' End If
 
         ' تحديد نوع التبرع
         Dim donationType As String = ""
