@@ -214,6 +214,19 @@ Public Class Subscriber
                 housingType = "سكن مشترك"
             End If
 
+            ' قراءة الحالة الاجتماعية 
+            Dim singleType As String = ""
+            If RadioButton_sin1.Checked Then
+                singleType = "اعزب"
+            ElseIf RadioButton_sin2.Checked Then
+
+                singleType = "ارمل"
+            ElseIf RadioButton_sin3.Checked Then
+                singleType = "مطلق"
+            ElseIf RadioButton_sin4.Checked Then
+                singleType = "متزوج"
+            End If
+
             ' قراءة الحالة الصحية 
             Dim hasDisease As String = ""
             If RadioButton_sikeyes.Checked Then
@@ -244,8 +257,8 @@ Public Class Subscriber
             conn.Open()
 
             Dim cmd As New SqlCommand("INSERT INTO Subscribers_table  
-            (National_id, Nationality, National_number,Passport_number,Full_name,Age,Phone_number,Address,Employment_state,Work_p,Income_source,has_disease,Disease_id)  
-            VALUES (@National_id, @Nationality, @National_number,@Passport_number,@Full_name,@Age,@Phone_number,@Address,@Employment_state,@Work_p,@Income_source,@has_disease,@diseaseType)", conn)
+            (National_id, Nationality, National_number,Passport_number,Full_name,Age,Phone_number,Address,Employment_state,Work_p,Income_source,has_disease,Disease_id,Marital_Status)  
+            VALUES (@National_id, @Nationality, @National_number,@Passport_number,@Full_name,@Age,@Phone_number,@Address,@Employment_state,@Work_p,@Income_source,@has_disease,@diseaseType,@Marital_Status)", conn)
 
             cmd.Parameters.AddWithValue("@National_id", sup_id.Text)
             cmd.Parameters.AddWithValue("@Nationality", nationality)
@@ -260,7 +273,7 @@ Public Class Subscriber
             cmd.Parameters.AddWithValue("@Income_source", source_income.Text)
             cmd.Parameters.AddWithValue("@has_disease", hasDisease)
             cmd.Parameters.AddWithValue("@diseaseType", diseaseType)
-
+            cmd.Parameters.AddWithValue("@Marital_Status", singleType)
             cmd.ExecuteNonQuery()
             conn.Close()
 
@@ -379,8 +392,12 @@ Public Class Subscriber
             cmdNeed.ExecuteNonQuery()
 
             ' تحميل البيانات في فورم الاحتياج   
-            Dim needForm As New needs()
-            needForm.LoadNeedsFromSubscribers()
+            '  Dim needForm As New needs()
+            '  needForm.LoadNeedsFromSubscribers()
+            If Application.OpenForms.OfType(Of needs)().Any() Then
+                Dim needsForm As needs = Application.OpenForms.OfType(Of needs)().First()
+                needsForm.AddNewSubscriber(sup_id.Text, sup_name.Text)
+            End If
 
         Catch ex As Exception
             conn.Close()

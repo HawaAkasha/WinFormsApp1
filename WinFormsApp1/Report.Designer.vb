@@ -35,6 +35,10 @@ Partial Class Report
         PictureBox4 = New PictureBox()
         PrintPreviewDialog1 = New PrintPreviewDialog()
         PrintDocument1 = New Printing.PrintDocument()
+        ComboBox_Age = New ComboBox()
+        Label4 = New Label()
+        Label5 = New Label()
+        ComboBox_MaritalStatus = New ComboBox()
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         CType(PictureBox3, ComponentModel.ISupportInitialize).BeginInit()
         CType(PictureBox4, ComponentModel.ISupportInitialize).BeginInit()
@@ -143,12 +147,54 @@ Partial Class Report
         ' PrintDocument1
         ' 
         ' 
+        ' ComboBox_Age
+        ' 
+        ComboBox_Age.BackColor = Color.Azure
+        ComboBox_Age.DropDownStyle = ComboBoxStyle.DropDownList
+        ComboBox_Age.FormattingEnabled = True
+        ComboBox_Age.Location = New Point(57, 115)
+        ComboBox_Age.Name = "ComboBox_Age"
+        ComboBox_Age.Size = New Size(151, 28)
+        ComboBox_Age.TabIndex = 12
+        ' 
+        ' Label4
+        ' 
+        Label4.AutoSize = True
+        Label4.Location = New Point(57, 92)
+        Label4.Name = "Label4"
+        Label4.Size = New Size(42, 20)
+        Label4.TabIndex = 13
+        Label4.Text = "العمر"
+        ' 
+        ' Label5
+        ' 
+        Label5.AutoSize = True
+        Label5.Location = New Point(247, 92)
+        Label5.Name = "Label5"
+        Label5.Size = New Size(110, 20)
+        Label5.TabIndex = 15
+        Label5.Text = "الحالة الاجتماعيه"
+        ' 
+        ' ComboBox_MaritalStatus
+        ' 
+        ComboBox_MaritalStatus.BackColor = Color.Azure
+        ComboBox_MaritalStatus.DropDownStyle = ComboBoxStyle.DropDownList
+        ComboBox_MaritalStatus.FormattingEnabled = True
+        ComboBox_MaritalStatus.Location = New Point(247, 115)
+        ComboBox_MaritalStatus.Name = "ComboBox_MaritalStatus"
+        ComboBox_MaritalStatus.Size = New Size(151, 28)
+        ComboBox_MaritalStatus.TabIndex = 14
+        ' 
         ' Report
         ' 
         AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.Azure
         ClientSize = New Size(685, 450)
+        Controls.Add(Label5)
+        Controls.Add(ComboBox_MaritalStatus)
+        Controls.Add(Label4)
+        Controls.Add(ComboBox_Age)
         Controls.Add(PictureBox4)
         Controls.Add(PictureBox3)
         Controls.Add(PictureBox1)
@@ -185,4 +231,8 @@ Partial Class Report
     Friend WithEvents PictureBox4 As PictureBox
     Friend WithEvents PrintPreviewDialog1 As PrintPreviewDialog
     Friend WithEvents PrintDocument1 As Printing.PrintDocument
+    Friend WithEvents ComboBox_Age As ComboBox
+    Friend WithEvents Label4 As Label
+    Friend WithEvents Label5 As Label
+    Friend WithEvents ComboBox_MaritalStatus As ComboBox
 End Class

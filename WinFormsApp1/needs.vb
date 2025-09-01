@@ -1,4 +1,6 @@
 ﻿
+
+
 Imports System.Data.SqlClient
 
 Public Class Needs
@@ -9,14 +11,20 @@ Public Class Needs
     Private selectedItemID As Integer = -1
     Private isFamilyMember As Boolean = False
 
+    ' --- جديد: استقبال الفورم المفتوح
+    Public Sub AddNewSubscriber(subId As String, subName As String)
+        selectedSubscriberID = Convert.ToInt32(subId)
+        TextBox_sub_name.Text = subName
+        family_relate.Text = "0"
+        LoadNeedsFromSubscribers()
+    End Sub
+
     Private Sub Needs_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         LoadNeedsFromSubscribers()
     End Sub
 
     Public Sub LoadNeedsFromSubscribers()
         Dim dt As New DataTable()
-
-
         Try
             conn.Open()
             Dim sql As String = "
@@ -27,11 +35,10 @@ SELECT
   i.Item_id, 
   i.Item_category, 
   i.Item_name, 
-  
   'Subscriber' AS PersonType
 FROM Needs_table n
-LEFT JOIN Subscribers_table s ON n.Subscriber_id =s.National_id
- JOIN Item_table i ON i.Item_id = n.Item_id
+LEFT JOIN Subscribers_table s ON n.Subscriber_id = s.National_id
+JOIN Item_table i ON i.Item_id = n.Item_id
 
 UNION ALL
 
@@ -42,11 +49,10 @@ SELECT
   i.Item_id, 
   i.Item_category, 
   i.Item_name, 
- 
   'FamilyMember' AS PersonType
 FROM Needs_table n
 LEFT JOIN Family_table f ON n.Subscriber_id = f.Subscriber_id
- JOIN Item_table i ON i.Item_id = n.Item_id
+JOIN Item_table i ON i.Item_id = n.Item_id
 
 ORDER BY Fullname;"
             Dim da As New SqlDataAdapter(sql, conn)
@@ -55,7 +61,6 @@ ORDER BY Fullname;"
 
             DataGridView_need.DataSource = dt
             DataGridView_need.AllowUserToAddRows = False
-
         Catch ex As Exception
             conn.Close()
             MessageBox.Show("❌ خطأ في التحميل: " & ex.Message)
@@ -68,13 +73,18 @@ ORDER BY Fullname;"
         selectedSubscriberID = Convert.ToInt32(row.Cells("Subscriber_id").Value)
         selectedItemID = Convert.ToInt32(row.Cells("Item_id").Value)
 
-
         TextBox_sub_name.Text = If(IsDBNull(row.Cells("Fullname").Value), "", row.Cells("Fullname").Value.ToString())
         family_relate.Text = If(IsDBNull(row.Cells("FamilyNumbe").Value), "0", row.Cells("FamilyNumbe").Value.ToString())
         TextBox_item_type.Text = If(IsDBNull(row.Cells("Item_category").Value), "", row.Cells("Item_category").Value.ToString())
         TextBox_item_name.Text = If(IsDBNull(row.Cells("Item_name").Value), "", row.Cells("Item_name").Value.ToString())
-        'TextBox_quantity.Text = If(IsDBNull(row.Cells("Item_quantity").Value), "0", row.Cells("Item_quantity").Value.ToString())
+
+        ' تعيين نوع الشخص (مشترك أو عائلة)
+        isFamilyMember = (row.Cells("PersonType").Value.ToString() = "FamilyMember")
     End Sub
+
+    ' باقي الكود مثل Button_save_Click وBut_edit_Click وButt_delete_Click يبقى كما هو مع مراعاة إصلاح ExecuteNonQuery مرتين
+
+
 
     Private Sub Button_save_Click(sender As Object, e As EventArgs) Handles Button_save.Click
         If selectedSubscriberID < 0 Then

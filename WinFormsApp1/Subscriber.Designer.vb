@@ -93,7 +93,7 @@ Partial Class Subscriber
         PictureBox10 = New PictureBox()
         PictureBox11 = New PictureBox()
         PictureBox12 = New PictureBox()
-        GroupBox1 = New GroupBox()
+        marital_status = New GroupBox()
         RadioButton_sin4 = New RadioButton()
         RadioButton_sin1 = New RadioButton()
         RadioButton_sin2 = New RadioButton()
@@ -119,7 +119,7 @@ Partial Class Subscriber
         CType(PictureBox10, ComponentModel.ISupportInitialize).BeginInit()
         CType(PictureBox11, ComponentModel.ISupportInitialize).BeginInit()
         CType(PictureBox12, ComponentModel.ISupportInitialize).BeginInit()
-        GroupBox1.SuspendLayout()
+        marital_status.SuspendLayout()
         SuspendLayout()
         ' 
         ' sup_id
@@ -824,18 +824,18 @@ Partial Class Subscriber
         PictureBox12.TabIndex = 92
         PictureBox12.TabStop = False
         ' 
-        ' GroupBox1
+        ' marital_status
         ' 
-        GroupBox1.Controls.Add(RadioButton_sin4)
-        GroupBox1.Controls.Add(RadioButton_sin1)
-        GroupBox1.Controls.Add(RadioButton_sin2)
-        GroupBox1.Controls.Add(RadioButton_sin3)
-        GroupBox1.Location = New Point(45, 857)
-        GroupBox1.Name = "GroupBox1"
-        GroupBox1.Size = New Size(319, 66)
-        GroupBox1.TabIndex = 93
-        GroupBox1.TabStop = False
-        GroupBox1.Text = "الحالة الاجتماعية"
+        marital_status.Controls.Add(RadioButton_sin4)
+        marital_status.Controls.Add(RadioButton_sin1)
+        marital_status.Controls.Add(RadioButton_sin2)
+        marital_status.Controls.Add(RadioButton_sin3)
+        marital_status.Location = New Point(45, 857)
+        marital_status.Name = "marital_status"
+        marital_status.Size = New Size(319, 66)
+        marital_status.TabIndex = 93
+        marital_status.TabStop = False
+        marital_status.Text = "الحالة الاجتماعية"
         ' 
         ' RadioButton_sin4
         ' 
@@ -887,7 +887,7 @@ Partial Class Subscriber
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.Azure
         ClientSize = New Size(734, 967)
-        Controls.Add(GroupBox1)
+        Controls.Add(marital_status)
         Controls.Add(PictureBox12)
         Controls.Add(PictureBox11)
         Controls.Add(PictureBox10)
@@ -971,8 +971,8 @@ Partial Class Subscriber
         CType(PictureBox10, ComponentModel.ISupportInitialize).EndInit()
         CType(PictureBox11, ComponentModel.ISupportInitialize).EndInit()
         CType(PictureBox12, ComponentModel.ISupportInitialize).EndInit()
-        GroupBox1.ResumeLayout(False)
-        GroupBox1.PerformLayout()
+        marital_status.ResumeLayout(False)
+        marital_status.PerformLayout()
         ResumeLayout(False)
         PerformLayout()
     End Sub
@@ -1051,7 +1051,7 @@ Partial Class Subscriber
     Friend WithEvents PictureBox10 As PictureBox
     Friend WithEvents PictureBox11 As PictureBox
     Friend WithEvents PictureBox12 As PictureBox
-    Friend WithEvents GroupBox1 As GroupBox
+    Friend WithEvents marital_status As GroupBox
     Friend WithEvents RadioButton_sin1 As RadioButton
     Friend WithEvents RadioButton_sin2 As RadioButton
     Friend WithEvents RadioButton_sin3 As RadioButton
