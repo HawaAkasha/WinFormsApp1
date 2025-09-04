@@ -875,10 +875,10 @@ Partial Class Subscriber
         RadioButton_sin3.AutoSize = True
         RadioButton_sin3.Location = New Point(100, 36)
         RadioButton_sin3.Name = "RadioButton_sin3"
-        RadioButton_sin3.Size = New Size(58, 24)
+        RadioButton_sin3.Size = New Size(61, 24)
         RadioButton_sin3.TabIndex = 13
         RadioButton_sin3.TabStop = True
-        RadioButton_sin3.Text = "ارمل"
+        RadioButton_sin3.Text = "ارمله"
         RadioButton_sin3.UseVisualStyleBackColor = True
         ' 
         ' Subscriber

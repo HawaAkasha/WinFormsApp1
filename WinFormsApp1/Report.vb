@@ -33,7 +33,7 @@ Public Class Report
         ComboBox_MaritalStatus.Items.AddRange({
             "اعزب",
             "متزوج",
-            "ارمل",
+            "ارمله",
             "مطلق"
         })
     End Sub
